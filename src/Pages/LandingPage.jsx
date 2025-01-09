@@ -5,7 +5,6 @@ import Team from "./Team";
 import EventImg from "../Assets/eventbg.jpg";
 import "../css files/animation.css";
 import Transition from "../transition";
-import Event from "./Event";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import mnitlogo from "../Assets/mnitlogo.png";
