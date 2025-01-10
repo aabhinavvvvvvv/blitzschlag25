@@ -243,7 +243,7 @@ const Team = () => {
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
-    const scrollSpeed = 8; // Adjust the speed
+    const scrollSpeed = 5; // Adjust the speed
 
     const scroll = () => {
       if (scrollContainer) {
