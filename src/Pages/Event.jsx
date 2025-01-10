@@ -38,8 +38,11 @@ const Events = () => {
 
   // Handle tab change
   const handleTabChange = (tab) => {
-    setActiveTab(tab);
+    if(tab == "flagship"){
+      setActiveTab(tab);
     setShowEvents(true); // Show events when a category is selected
+    }
+    
   };
 
   // Handle back to categories
@@ -244,7 +247,7 @@ const Events = () => {
       ) : (
         filteredEvents.map((event, index) => (
           <CardContainer className="inter-var">
-                <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-50 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+                <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-50 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto  scale-90 rounded-xl p-6 border  ">
                   <CardItem
                     translateZ="50"
                     className="text-xl font-bold text-neutral-600 dark:text-white"
@@ -265,10 +268,9 @@ const Events = () => {
                     className="w-full mt-4"
                   >
                     <img
-                      src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      height="1000"
-                      width="1000"
-                      className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                      src={event.imgUrl}
+
+                      className=" rounded-xl w-auto h-80 mx-auto group-hover/card:shadow-xl"
                       alt="thumbnail"
                     />
                   </CardItem>
@@ -278,7 +280,7 @@ const Events = () => {
                       translateX={40}
                       as="button"
                       onClick={() => openDrawer(event)}
-                      className="px-4 py-2  rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                      className="px-4 py-2 mx-auto rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                     >
                       View Details
                     </CardItem>
