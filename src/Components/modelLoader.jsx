@@ -30,7 +30,7 @@ const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow:hidde;
+  overflow:hidden;
 
   #timer {
     display: grid;
