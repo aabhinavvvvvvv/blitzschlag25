@@ -7,10 +7,33 @@ import mnitlogo from '../Assets/mnitlogo.png';
 import clublogo from '../Assets/culturalclublogo-removebg-preview.png';
 import { FiPlayCircle } from "react-icons/fi";
 import PlayButton from '../Components/PlayButton';
+import {
+  Animator,
+  ScrollContainer,
+  ScrollPage,
+  batch,
+  Fade,
+  FadeIn,
+  FadeOut,
+  Move,
+  MoveIn,
+  MoveOut,
+  Sticky,
+  StickyIn,
+  StickyOut,
+  Zoom,
+  ZoomIn,
+  ZoomOut,
+} from "react-scroll-motion";
+
+const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
+const FadeUp = batch(Fade(), Move(), Sticky());
 
 const Home = () => {
   const navigate = useNavigate();
   return (
+    <ScrollContainer>
+
     <div className="h-screen w-full bg-transparent relative overflow-hidden">
       {/* Background Image */}
       <div
@@ -72,7 +95,10 @@ const Home = () => {
   
         </div>
       </div>
+
+
     </div>
+        </ScrollContainer>
   );
 };
 
