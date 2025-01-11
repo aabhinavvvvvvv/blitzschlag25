@@ -223,7 +223,7 @@ const Profile = () => {
   <div className="sm:col-span-2 z-10 flex flex-col justify-center items-center p-4">
     <p
       style={{ fontFamily: '"Amarante", serif' }}
-      className="text-center text-7xl mb-8 -mt-12 font-normal bg-gradient-to-r from-[#071182] via-[#989898] to-[#50FFF0] bg-clip-text text-transparent"
+      className="text-center text-7xl mb-8 -mt-12 font-normal bg-gradient-to-r from-[#07118280] via-[#00ffc3fb] to-[#ff5050f0] bg-clip-text text-transparent"
     >
       EVENTS
     </p>
