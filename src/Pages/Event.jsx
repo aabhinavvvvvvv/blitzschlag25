@@ -13,6 +13,12 @@ import tamasha from "../Assets/category1.jpg";
 import battle from "../Assets/category2.jpg";
 import panache from "../Assets/category3.jpg";
 import rambha from "../Assets/category4.jpg";
+import tam from "../Assets/tamasha.webp";
+import pan from "../Assets/panache.webp";
+import ram from "../Assets/rambha_sambha.webp";
+import bat from "../Assets/battle_of_bands.webp";
+
+
 
 const Events = () => {
   const [uid, setUid] = useState(null); // State for storing the UID
