@@ -9,10 +9,10 @@ import { auth } from "../../firebase";
 import "../css files/events.css";
 import Drawer from 'react-modern-drawer'; // Import the Drawer component
 import { CardBody, CardContainer, CardItem } from "../Components/3dcard";
-import category1 from "../../src/Assets/category1.jpg";
-import category2 from "../../src/Assets/category2.jpg";
-import category3 from "../../src/Assets/category3.jpg";
-import category4 from "../../src/Assets/category4.jpg";
+import tamasha from "../Assets/category1.jpg";
+import battle from "../Assets/category2.jpg";
+import panache from "../Assets/category3.jpg";
+import rambha from "../Assets/category4.jpg";
 
 const Events = () => {
   const [uid, setUid] = useState(null); // State for storing the UID
@@ -130,10 +130,10 @@ const Events = () => {
 
   const getBackgroundImage = (key) => {
     const images = {
-      category1: 'flagship.png',
-      category2: 'fun.png',
-      category3: 'club_event.png',
-      category4: 'main_att.png',
+      category1: tamasha,
+      category2: battle,
+      category3: panache,
+      category4: rambha,
     };
     return images[key] || ''; // Return the correct background image
   };
@@ -216,7 +216,7 @@ const Events = () => {
           <button
             onClick={() => handleTabChange(value)}
             style={{
-              backgroundImage: `url(../../src/Assets/${key}.jpg)`, // Dynamically set the image
+              backgroundImage: `url(${getBackgroundImage(key)})`, // Dynamically set the image
               backgroundSize: "cover",
               backgroundPosition: "center",
               width: "200px",
