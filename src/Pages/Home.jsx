@@ -21,7 +21,7 @@ const Home = () => {
       ></div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white mt-20">
         {/* Title with Insect */}
         <div className="relative inline-block">
           <h1
@@ -43,7 +43,7 @@ const Home = () => {
           />
         </div>
         {/* Date and PlayButton */}
-        <div className="flex justify-center items-center w-full mt-5 gap-5">
+        <div className="flex-col justify-center items-center w-full mt-5 gap-5">
           <p
             className="text-xl md:text-3xl tracking-normal font-normal text-[#C0AA67] date"
             style={{
@@ -55,7 +55,7 @@ const Home = () => {
           >
             6th - 9th February, 2025
           </p>
-          <p><PlayButton /></p>
+          <p className='mt-10'><PlayButton /></p>
         </div>
         <p
           className="text-xl mt-7 mb-3 md:text-3xl tracking-normal font-normal text-[#C0AA67] "

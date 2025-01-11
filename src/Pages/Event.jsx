@@ -211,7 +211,7 @@ const Events = () => {
           <button
             onClick={() => handleTabChange(value)}
             style={{
-              backgroundImage: `url(../../src/Assets/${key}.png)`, // Dynamically set the image
+              backgroundImage: `url(../../src/Assets/${key}.jpg)`, // Dynamically set the image
               backgroundSize: "cover",
               backgroundPosition: "center",
               width: "200px",

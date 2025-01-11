@@ -295,7 +295,7 @@ const Team = () => {
           ? "Advisors Team"
           : activeTab === "special"
           ? "Special Mention"
-          : "Core Team"}
+          : "Team Avyukt"}
       </h2>
 
       {/* Horizontal Scrollable Content */}
