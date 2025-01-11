@@ -23,17 +23,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Tooltip } from 'react-tooltip';
 import SplashScreen from './Pages/SplashScreen';
 import LeaderBoard from './Pages/LeaderBoard';
-<<<<<<< HEAD
 import UpdateLeaderboard from './Pages/UpdateLeaderboard';
 import ResetLeaderboard from './Pages/ResetLeaderboard';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
   
-=======
-
-function App() {
->>>>>>> 63cc53ae70e20af6d95cf717dd76ab08af843787
   const location = useLocation();
   const navigate = useNavigate();
   const canvasRef = useRef(null);
@@ -173,14 +168,10 @@ function App() {
                 <Route path="/pass" element={<Pass />} />
                 <Route path="*" element={<Error />} />
                 <Route path="/signup" element={<SignUp />} />
-<<<<<<< HEAD
                 <Route path="/login" element={<Login/>} />
                 {console.log(updateUrl)}
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
-=======
-                <Route path="/login" element={<Login />} />
->>>>>>> 63cc53ae70e20af6d95cf717dd76ab08af843787
               </Routes>
             </AnimatePresence>
           </div>
