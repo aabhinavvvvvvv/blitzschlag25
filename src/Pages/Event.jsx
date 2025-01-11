@@ -54,13 +54,6 @@ const Events = () => {
     }
     
   };
-  // const handleTabChange = (tab) => {
-
-  //     setActiveTab(tab);
-  //   setShowEvents(true); // Show events when a category is selected
-
-    
-  // };
 
   // Handle back to categories
   const handleBackToCategories = () => {
@@ -170,12 +163,12 @@ const Events = () => {
           onKeyDown={handleKeyPress}
           name="text"
           class="input"
-          placeholder="Type your text"
+          placeholder="Team Code"
         ></input>
   <button
           onClick={handleJoinTeam}
           disabled={loading}
-          className={`w-full btn sm:w-auto border-white bg-opacity-80 bg-black text-gray-300 px-4 py-3 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-2 relative overflow-hidden ${
+          className={`flex flex-col sm:flex-row justify-center items-center my-8 gap-4 btn sm:w-auto border-white bg-opacity-80 bg-black text-gray-300 px-4 py-3 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-2 relative overflow-hidden ${
             loading
               ? "bg-black border-white text-white cursor-not-allowed"
               : "bg-black border-indigo-500 text-white"

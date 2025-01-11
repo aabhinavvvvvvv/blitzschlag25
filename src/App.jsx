@@ -151,7 +151,7 @@ function App() {
           className="absolute top-0 left-0 w-full h-full pointer-events-none"
           style={{ zIndex: 1000 }}
         />
-        <SplashScreen/>
+        {/* <SplashScreen/> */}
         {/* Main app content */}
         <div className="relative z-10 w-screen h-screen text-white">
           {location.pathname !== '/model3d' && <Navbar />}
@@ -161,7 +161,6 @@ function App() {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/about" element={<LeaderBoard />} />
-
                 <Route path="/event" element={<Event />} />
                 <Route path="/sponsor" element={<Sponsor />} />
                 <Route path="/our_team" element={<Team />} />
