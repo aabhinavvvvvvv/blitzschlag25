@@ -9,6 +9,10 @@ import { auth } from "../../firebase";
 import "../css files/events.css";
 import Drawer from 'react-modern-drawer'; // Import the Drawer component
 import { CardBody, CardContainer, CardItem } from "../Components/3dcard";
+import category1 from "../../src/Assets/category1.jpg";
+import category2 from "../../src/Assets/category2.jpg";
+import category3 from "../../src/Assets/category3.jpg";
+import category4 from "../../src/Assets/category4.jpg";
 
 const Events = () => {
   const [uid, setUid] = useState(null); // State for storing the UID
@@ -208,6 +212,8 @@ const Events = () => {
           key={key}
           style={{ margin: "10px", transition: "transform 0.3s ease" }}
         >
+          {console.log(`url(../../src/Assets/${key}.jpg)`)}
+          {console.log(key)};
           <button
             onClick={() => handleTabChange(value)}
             style={{
