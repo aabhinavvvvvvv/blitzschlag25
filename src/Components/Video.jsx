@@ -6,7 +6,7 @@ const Video = () => {
   const [videoEnded, setVideoEnded] = useState(false); // Track video state
   const [fadeOut, setFadeOut] = useState(false); // Control fade effect
   const [isMuted, setIsMuted] = useState(true); // Mute state
-  const [isLoaded, setIsLoaded] = useState(false); // Track if video is loaded
+  const [isLoading, setIsLoading] = useState(true); // Track loading state
   const videoRef = useRef(null); // Reference to the video element
   const navigate = useNavigate();
 
@@ -30,12 +30,28 @@ const Video = () => {
     }, 1000); // Smooth transition
   };
 
-  // Ensure the video is only playing when loaded
-  useEffect(() => {
-    if (isLoaded && videoRef.current) {
+  // Start playback when enough data is loaded
+  const handleCanPlay = () => {
+    setIsLoading(false); // Video is ready to play
+    if (videoRef.current) {
       videoRef.current.play();
     }
-  }, [isLoaded]);
+  };
+
+  // Show loading spinner if buffering occurs
+  const handleBuffering = () => {
+    setIsLoading(true);
+  };
+
+  const handlePlaying = () => {
+    setIsLoading(false); // Remove spinner when video resumes playing
+  };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = isMuted; // Ensure muted state is synchronized
+    }
+  }, [isMuted]);
 
   return (
     <div className={`main relative h-screen w-screen ${videoEnded ? 'bg-black' : ''}`}>
@@ -45,33 +61,41 @@ const Video = () => {
             fadeOut ? 'opacity-0' : 'opacity-100'
           } transition-opacity duration-1000`}
         >
+          {isLoading && (
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
+              <div className="spinner border-4 border-t-4 border-gray-200 rounded-full w-12 h-12 animate-spin"></div>
+              <p className="text-white text-sm mt-4">Loading...</p>
+            </div>
+          )}
           <video
             className="video object-cover w-full h-full md:h-auto md:w-auto md:aspect-video"
             ref={videoRef}
             muted={isMuted}
-            preload="auto" // Automatically preload metadata and enough data to play the video
+            preload="auto"
             onEnded={handleVideoEnd}
-            onCanPlay={() => setIsLoaded(true)} // Ensure the video is ready to play
+            onCanPlay={handleCanPlay} // Handle video readiness
+            onWaiting={handleBuffering} // Handle buffering state
+            onPlaying={handlePlaying} // Handle playback resume
             onLoadedMetadata={() => {
               if (videoRef.current) {
                 videoRef.current.playbackRate = 1.75; // Set playback speed
               }
             }}
-            autoPlay={isLoaded} // Only autoplay if fully loaded
-             // Added video controls for accessibility
           >
             <source src={video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
           {/* Mute/Unmute Button */}
-          <button
-            onClick={toggleMute}
-            className="absolute bottom-10 left-10 bg-black text-white py-2 px-4 rounded shadow-md hover:bg-gray-800 transition duration-200"
-            aria-label={isMuted ? 'Unmute video' : 'Mute video'} // Improved accessibility
-          >
-            {isMuted ? 'Unmute' : 'Mute'}
-          </button>
+          {!isLoading && (
+            <button
+              onClick={toggleMute}
+              className="absolute bottom-10 left-10 bg-black text-white py-2 px-4 rounded shadow-md hover:bg-gray-800 transition duration-200"
+              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+            >
+              {isMuted ? 'Unmute' : 'Mute'}
+            </button>
+          )}
         </div>
       )}
     </div>

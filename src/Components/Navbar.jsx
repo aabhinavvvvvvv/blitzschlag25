@@ -3,6 +3,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import Drawer from "react-modern-drawer";
+import QRmodal from "./QRmodal";
 import "react-modern-drawer/dist/index.css";
 import logo from "../Assets/blitz_logo.png";
 import { auth } from "../../firebase"; // Assuming you have a firebase.js file where auth is initialized
@@ -19,7 +20,11 @@ import {
   FaTicketAlt,
   FaCubes,
   FaMusic,
+
 } from "react-icons/fa";
+import { PiRankingDuotone } from "react-icons/pi";
+
+import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import styled from "styled-components";
 import { Check } from "lucide-react";
 
@@ -49,6 +54,12 @@ const Checkbox = ({ isDrawerOpen, setIsDrawerOpen }) => {
 };
 
 const Navbar = () => {
+//qr
+const [isOpen, setIsOpen] = useState(false);
+  const toggleModal = () => {
+    setIsOpen(!isOpen);
+  };
+
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [user, setUser] = useState(null);
@@ -80,6 +91,11 @@ const Navbar = () => {
 
   return (
     <div className="absolute w-full z-50 bg-transparent py-3">
+      {
+          isOpen && <QRmodal  toggleModal={toggleModal} />
+      }
+
+
       <div className="flex justify-between items-center">
         <div>
           <Link to="/">
@@ -156,7 +172,7 @@ const Navbar = () => {
         <div className="flex flex-col items-left p-10 bg-black bg-opacity-100 h-full overflow-y-scroll">
           <Link
             to="/"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <FaHome className="mr-2" />
@@ -164,7 +180,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/about"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <FaInfoCircle className="mr-2" />
@@ -172,7 +188,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/sponsor"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <FaHandHoldingHeart className="mr-2" />
@@ -180,7 +196,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/our_team"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <FaUsers className="mr-2" />
@@ -188,7 +204,7 @@ const Navbar = () => {
           </Link>
           <Link
             to="/schedule"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <FaCalendarAlt className="mr-2" />
@@ -197,7 +213,7 @@ const Navbar = () => {
           {user && (
             <Link
               to="/profile"
-              className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+              className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
               onClick={toggleDrawer}
             >
               <FaUser className="mr-2" />
@@ -206,15 +222,15 @@ const Navbar = () => {
           )}
           <Link
             to="/campus_embassador"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
-            <FaUsers className="mr-2" size={30} />
-            Ambassador
+            <FaUsers className="mr-2"  />
+            <p className="text-base">Ambassador</p>
           </Link>
           <Link
             to="/pronites"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <FaMusic className="mr-2" />
@@ -222,17 +238,33 @@ const Navbar = () => {
           </Link>
           <Link
             to="/pass"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <FaTicketAlt className="mr-2" />
             Pass
           </Link>
+          <Link
+            to="/leaderboard"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
+            onClick={toggleDrawer}
+          >
+            <PiRankingDuotone className="mr-2" />
+            <p className="text-base">LeaderBoard</p>
+            
+          </Link>
+          <Link
+            onClick={() =>{toggleModal();toggleDrawer();}}
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
+          >
+            <RiMoneyRupeeCircleFill className="mr-2" />
+            Paymnet
+          </Link>
           {!user ? (
             <>
               <Link
                 to="/signup"
-                className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+                className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
                 onClick={toggleDrawer}
               >
                 <FaSignOutAlt className="mr-2" />
@@ -240,7 +272,7 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/login"
-                className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+                className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
                 onClick={toggleDrawer}
               >
                 <FaSignInAlt className="mr-2" />
@@ -250,7 +282,7 @@ const Navbar = () => {
           ) : null}
           <Link
             to="/event"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <FaCalendarAlt className="mr-2" />

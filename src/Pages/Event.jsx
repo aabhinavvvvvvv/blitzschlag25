@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import eventData from "../data/eventData"; 
 import SingleComponent from "../Components/single"; 
 import TeamComponent from "../Components/team"; 
-import eventbg from "../Assets/loginbg.jpg"; 
+import eventbg from "../Assets/eventbg.jpg"; 
 import Transition from "../transition";
 import { auth } from "../../firebase"; 
 import "../css files/events.css";
 import Drawer from 'react-modern-drawer'; // Import the Drawer component
 import { CardBody, CardContainer, CardItem } from "../Components/3dcard";
+import styled from 'styled-components';
 import tamasha from "../Assets/category1.jpg";
 import battle from "../Assets/category2.jpg";
 import panache from "../Assets/category3.jpg";
@@ -19,6 +21,139 @@ import ram from "../Assets/ramba_samba.jpg";
 import bat from "../Assets/battle_of_bands.jpg";
 
 
+const Button = ({ event }) => {
+  const [clicked, setClicked] = useState(false);
+
+  const handleButtonClick = () => {
+    setClicked(!clicked);
+  };
+
+  return (
+    <StyledWrapper>
+      <button className="download-button" onClick={handleButtonClick}>
+        <div className="docs">
+          <svg
+            viewBox="0 0 24 24"
+            width={20}
+            height={20}
+            stroke="currentColor"
+            strokeWidth={2}
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="css-i6dzq1"
+          >
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1={16} y1={13} x2={8} y2={13} />
+            <line x1={16} y1={17} x2={8} y2={17} />
+            <polyline points="10 9 9 9 8 9" />
+          </svg>
+          Rules
+        </div>
+        <div className={`download ${clicked ? "clicked" : ""}`}>
+          <a
+            href={`${event.rulebook}`} target="_blank"
+            download={event.name}
+            className="download-link"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width={24}
+              height={24}
+              stroke="currentColor"
+              strokeWidth={2}
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="css-i6dzq1"
+            >
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1={12} y1={15} x2={12} y2={3} />
+            </svg>
+          </a>
+        </div>
+      </button>
+    </StyledWrapper>
+  );
+};
+
+const StyledWrapper = styled.div`
+  .download-button {
+    position: relative;
+    border-width: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0px;
+    height: 45px;
+    border-radius: 4px;
+    z-index: 1;
+  }
+
+  .download-button .docs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 40px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #242a35;
+    border: solid 1px #e8e8e82d;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .download-button:hover {
+    box-shadow:
+      rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+
+  .download {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    margin: 0 auto;
+    z-index: -1;
+    border-radius: 4px;
+    transform: translateY(0%);
+    background-color: #01e056;
+    border: solid 1px #01e0572d;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .download.clicked {
+    transform: translateY(100%);
+  }
+
+  .download svg polyline,
+  .download svg line {
+    animation: docs 1s infinite;
+  }
+
+  @keyframes docs {
+    0% {
+      transform: translateY(0%);
+    }
+
+    50% {
+      transform: translateY(-15%);
+    }
+
+    100% {
+      transform: translateY(0%);
+    }
+  }
+`;
 
 const Events = () => {
   const [uid, setUid] = useState(null); // State for storing the UID
@@ -45,7 +180,7 @@ const Events = () => {
 
   // Filter events by the selected category
   const filteredEvents = Object.values(eventData).filter(event => event.type === activeTab);
-
+  const navigate = useNavigate();
   // Handle tab change
   const handleTabChange = (tab) => {
     if(tab == "flagship"){
@@ -53,6 +188,12 @@ const Events = () => {
     setShowEvents(true); // Show events when a category is selected
     }
     
+  };
+  const handleButtonClick = () => {
+    console.log('Button clicked!');
+    // You can add any action you want to perform when the button is clicked here
+    // For example, toggling the drawer:
+    setDrawerOpen(!drawerOpen);
   };
 
   // Handle back to categories
@@ -141,7 +282,7 @@ const Events = () => {
     <div
       className="p-8 min-h-screen text-white"
       style={{
-        backgroundImage: `url(${eventbg})`,
+        backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${eventbg})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -149,7 +290,7 @@ const Events = () => {
     >
  <p
     style={{ fontFamily: '"Amarante", serif' }}
-    className="text-center mx-auto w-fit text-7xl mt-20 mb-8 font-normal bg-gradient-to-r from-[#071182] via-[#00ffc3] to-[#ff5050] bg-clip-text text-transparent"
+    className="text-center mx-auto w-fit text-7xl mt-20 mb-8 font-normal bg-gradient-to-r from-[#ff5050] to-[#00ffc3] bg-clip-text text-transparent"
   >
     EVENTS
   </p>
@@ -162,13 +303,13 @@ const Events = () => {
           onChange={(e) => setTeamCode(e.target.value)}
           onKeyDown={handleKeyPress}
           name="text"
-          class="input"
+          className="input"
           placeholder="Team Code"
         ></input>
   <button
           onClick={handleJoinTeam}
           disabled={loading}
-          className={`flex flex-col sm:flex-row justify-center items-center my-8 gap-4 btn sm:w-auto border-white bg-opacity-80 bg-black text-gray-300 px-4 py-3 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-2 relative overflow-hidden ${
+          className={`w-full active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${
             loading
               ? "bg-black border-white text-white cursor-not-allowed"
               : "bg-black border-indigo-500 text-white"
@@ -192,9 +333,20 @@ const Events = () => {
   <div className="flex justify-center my-4">
     <button
       onClick={handleBackToCategories}
-      className="w-full -mt-4 mb-8 sm:w-auto bg-black bg-opacity-80 border-2 border-white text-white p-4 rounded-lg"
+      className={`w-full active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${
+            loading
+              ? "bg-black border-white text-white cursor-not-allowed"
+              : "bg-black border-indigo-500 text-white"
+          }`}
     >
-      Back to Categories
+      <span className="circle1"></span>
+          <span className="circle2"></span>
+          <span className="circle3"></span>
+          <span className="circle4"></span>
+          <span className="circle5"></span>
+
+          {/* Text */}
+          <span className="text">Back To Categories</span>
     </button>
   </div>
 )}
@@ -249,6 +401,7 @@ const Events = () => {
 )}
 
 
+
 {/* Event Cards */}
 {showEvents && (
   <div className="container mx-auto px-4">
@@ -258,7 +411,7 @@ const Events = () => {
       ) : (
         filteredEvents.map((event, index) => (
           <CardContainer className="inter-var">
-                <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-50 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto  scale-90 rounded-xl p-6 border  ">
+                <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto  scale-90 rounded-xl p-6 border  ">
                   <CardItem
                     translateZ="50"
                     className="text-xl font-bold text-neutral-600 dark:text-white"
@@ -363,13 +516,17 @@ const Events = () => {
   >
     <div className="h-full w-full p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* First Div */}
-      <div className="md:col-span-1">
+      <div className="md:col-span-1 ">
         <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-center md:text-left">
           {selectedEvent.name}
         </h2>
         <p className="mb-4 text-sm sm:text-base text-center md:text-left">
           {selectedEvent.description}
         </p>
+        <div className='flex justify-center mt-16 '>
+        <Button className='mx-auto text-center' event={selectedEvent} />
+        </div>
+        
       </div>
 
       {/* Second Div */}
@@ -387,9 +544,14 @@ const Events = () => {
           {selectedEvent.maxTeamSize === 1 ? (
             <SingleComponent event={selectedEvent} uid={uid} />
           ) : (
-            <TeamComponent event={selectedEvent} uid={uid} />
+            <TeamComponent event={selectedEvent} uid={uid}/>
           )}
         </div>
+        {/* Download Button inside the Drawer */}
+        
+        {/* <Button onClick={() => window.location.href = `${selectedEvent.rulebook}`}>
+Hii
+        </Button> */}
       </div>
     </div>
   </Drawer>
