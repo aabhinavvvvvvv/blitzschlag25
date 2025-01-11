@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import eventData from "../data/eventData"; 
 import SingleComponent from "../Components/single"; 
 import TeamComponent from "../Components/team"; 
-import eventbg from "../Assets/loginbg.jpg"; 
+import eventbg from "../Assets/eventbg.jpg"; 
 import Transition from "../transition";
 import { auth } from "../../firebase"; 
 import "../css files/events.css";
@@ -156,7 +156,7 @@ const Events = () => {
     >
  <p
     style={{ fontFamily: '"Amarante", serif' }}
-    className="text-center mx-auto w-fit text-7xl mt-20 mb-8 font-normal bg-gradient-to-r from-[#071182] via-[#00ffc3] to-[#ff5050] bg-clip-text text-transparent"
+    className="text-center mx-auto w-fit text-7xl mt-20 mb-8 font-normal bg-gradient-to-r from-[#ff5050] to-[#00ffc3] bg-clip-text text-transparent"
   >
     EVENTS
   </p>
@@ -169,13 +169,13 @@ const Events = () => {
           onChange={(e) => setTeamCode(e.target.value)}
           onKeyDown={handleKeyPress}
           name="text"
-          class="input"
-          placeholder="Type your text"
+          className="input"
+          placeholder="Team Code"
         ></input>
   <button
           onClick={handleJoinTeam}
           disabled={loading}
-          className={`w-full btn sm:w-auto border-white bg-opacity-80 bg-black text-gray-300 px-4 py-3 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-2 relative overflow-hidden ${
+          className={`w-full btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${
             loading
               ? "bg-black border-white text-white cursor-not-allowed"
               : "bg-black border-indigo-500 text-white"
@@ -199,9 +199,20 @@ const Events = () => {
   <div className="flex justify-center my-4">
     <button
       onClick={handleBackToCategories}
-      className="w-full -mt-4 mb-8 sm:w-auto bg-black bg-opacity-80 border-2 border-white text-white p-4 rounded-lg"
+      className={`w-full btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${
+            loading
+              ? "bg-black border-white text-white cursor-not-allowed"
+              : "bg-black border-indigo-500 text-white"
+          }`}
     >
-      Back to Categories
+      <span className="circle1"></span>
+          <span className="circle2"></span>
+          <span className="circle3"></span>
+          <span className="circle4"></span>
+          <span className="circle5"></span>
+
+          {/* Text */}
+          <span className="text">Back To Categories</span>
     </button>
   </div>
 )}

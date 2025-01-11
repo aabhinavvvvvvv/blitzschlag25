@@ -19,7 +19,9 @@ export default function PlayButton() {
       <span className="sr-only">Play</span>
       
       {/* WELCOME Text */}
-      <p className="absolute z-40 font-semibold bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text text-transparent top-1/2 left-1/2 -translate-x-1/2 group-hover:-translate-y-full h-full w-full transition-all duration-300 -translate-y-[30%] tracking-widest">
+      <p style={{
+              fontFamily: "'Metal Mania', cursive",
+            }} className="absolute z-40 font-semibold bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text text-transparent top-1/2 left-1/2 -translate-x-1/2 group-hover:-translate-y-full h-full w-full transition-all duration-300 -translate-y-[30%] tracking-widest">
         Dreamland
       </p>
       
