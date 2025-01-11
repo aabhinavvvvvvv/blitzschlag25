@@ -196,10 +196,10 @@ const Login = () => {
                   />
                   <label>
                     <span style={{ transitionDelay: "0ms" }}>E</span>
-                    <span style={{ transitionDelay: "50ms" }}>M</span>
-                    <span style={{ transitionDelay: "100ms" }}>A</span>
-                    <span style={{ transitionDelay: "150ms" }}>I</span>
-                    <span style={{ transitionDelay: "200ms" }}>L</span>
+                    <span style={{ transitionDelay: "50ms" }}>m</span>
+                    <span style={{ transitionDelay: "100ms" }}>a</span>
+                    <span style={{ transitionDelay: "150ms" }}>i</span>
+                    <span style={{ transitionDelay: "200ms" }}>l</span>
                   </label>
                 </div>
               </StyledWrapper>
@@ -215,13 +215,13 @@ const Login = () => {
                   />
                   <label>
                     <span style={{ transitionDelay: "0ms" }}>P</span>
-                    <span style={{ transitionDelay: "50ms" }}>A</span>
-                    <span style={{ transitionDelay: "100ms" }}>S</span>
-                    <span style={{ transitionDelay: "150ms" }}>S</span>
-                    <span style={{ transitionDelay: "200ms" }}>W</span>
-                    <span style={{ transitionDelay: "250ms" }}>O</span>
-                    <span style={{ transitionDelay: "300ms" }}>R</span>
-                    <span style={{ transitionDelay: "350ms" }}>D</span>
+                    <span style={{ transitionDelay: "50ms" }}>a</span>
+                    <span style={{ transitionDelay: "100ms" }}>s</span>
+                    <span style={{ transitionDelay: "150ms" }}>s</span>
+                    <span style={{ transitionDelay: "200ms" }}>w</span>
+                    <span style={{ transitionDelay: "250ms" }}>o</span>
+                    <span style={{ transitionDelay: "300ms" }}>r</span>
+                    <span style={{ transitionDelay: "350ms" }}>d</span>
                   </label>
                   <button
                     type="button"

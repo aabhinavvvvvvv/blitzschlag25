@@ -77,6 +77,7 @@ const Button = () => {
     <StyledWrapper>
       <button 
         id="bottone1" 
+        className='bg-black bg-opacity-80 border-2 border-white'
         onClick={() => navigate('/')}
       >
         <strong>Go Back</strong>
@@ -90,10 +91,10 @@ const PageNA = () => {
 
   return (
     <AnimatePresence>
-      <div className='bg-[#2C2C2E]'>
+      <div className='bg-[#2C2C2E] overflow-hidden w-full h-screen'>
         <main>
-          <div className="max-w-screen-xl mx-auto px-4 flex items-center justify-start h-screen md:px-8">
-            <div className="max-w-lg mx-auto  text-center">
+          <div className="mx-auto px-4 flex items-center justify-start h-screen">
+            <div className="mx-auto  text-center">
               {/* Logo Animation */}
               <motion.img
                 src={logo}
@@ -125,7 +126,6 @@ const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30em;
   }
 
   .main {
@@ -210,7 +210,7 @@ const StyledWrapper = styled.div`
     border-radius: 50%;
     border: 2px solid black;
     background-color: #979797;
-    z-index: 99;
+    z-index: 10;
   }
   .a2 {
     position: relative;
@@ -249,7 +249,7 @@ const StyledWrapper = styled.div`
     border-radius: 50%;
     border: 2px solid black;
     background-color: #979797;
-    z-index: 99;
+    z-index: 10;
   }
 
   .notfound_text {
@@ -329,7 +329,7 @@ const StyledWrapper = styled.div`
     background-blend-mode: difference;
     animation: b 0.2s infinite alternate;
     border-radius: 10px;
-    z-index: 99;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -363,7 +363,7 @@ const StyledWrapper = styled.div`
     );
     border-radius: 10px;
     border: 2px solid black;
-    z-index: 99;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -439,7 +439,7 @@ const StyledWrapper = styled.div`
     background: linear-gradient(to right, #002fc6 0%, #002bb2 14.2857142857%, #3a3a3a 14.2857142857%, #303030 28.5714285714%, #ff0afe 28.5714285714%, #f500f4 42.8571428571%, #6c6c6c 42.8571428571%, #626262 57.1428571429%, #0affd9 57.1428571429%, #00f5ce 71.4285714286%, #3a3a3a 71.4285714286%, #303030 85.7142857143%, white 85.7142857143%, #fafafa 100%);
     border-radius: 10px;
     border: 2px solid black;
-    z-index: 99;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -707,8 +707,10 @@ const StyledWrapper = styled.div`
    padding-bottom: 16px;
    padding-top: 16px;
    border-radius: 9px;
-   background: #d5f365;
-   border: none;
+   background: black;
+   border: 0.5 px;
+   border-color: white;
+   background-opacity: 0.8;
    font-family: inherit;
    text-align: center;
    cursor: pointer;
@@ -717,12 +719,12 @@ const StyledWrapper = styled.div`
   }
 
   #bottone1:hover {
-   box-shadow: 7px 5px 56px -14px #C3D900;
+   box-shadow: 7px 5px 56px -14px rgb(255, 255, 255);
   }
 
   #bottone1:active {
    transform: scale(0.97);
-   box-shadow: 7px 5px 56px -10px #C3D900;
+   box-shadow: 7px 5px 56px -10px rgb(255, 255, 255);
   }`;
 
 
