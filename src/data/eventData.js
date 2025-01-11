@@ -1,3 +1,8 @@
+
+import tam from "../Assets/tamasha.jpg";
+import panache2 from "../Assets/panache.jpg";
+import ram from "../Assets/ramba_samba.jpg";
+import bat from "../Assets/battle_of_bands.jpg";
 const eventData = {
     meltdown: {
         name: 'Meltdown Madness',
@@ -235,7 +240,7 @@ const eventData = {
         description: "PANACHE 2025 is a fashion show organized by Malaviya National Institute of Technology, aimed at redefining style, expressiveness, charisma, and glamour. It brings an opportunity to showcase the best trends, both past and present, with creativity, panache, and confidence.",
         maxTeamSize: 15,
         eventPath: "panache",
-        imgUrl: "src/Assets/panache.jpg",
+        imgUrl: panache2,
         club: "none",
         type: "flagship"
     },
@@ -247,7 +252,7 @@ const eventData = {
         description: "TAMASHA is a celebration of the raw, unfiltered power of storytelling and social commentary through Nukkad Natak. It blends laughter with social commentary, reminding you that sometimes the real show happens off the main stage.",
         maxTeamSize: 15,
         eventPath: "tamasha",
-        imgUrl: "src/Assets/tamasha.webp",
+        imgUrl: tam,
         club: "none",
         type: "flagship"
     },
@@ -259,7 +264,7 @@ const eventData = {
         description: "BATTLE OF BANDS is where amplified passion meets fierce competition. Watch local bands compete for the coveted title of 'Best Band on Campus,' showcasing their original compositions and captivating the audience with their musical mastery.",
         maxTeamSize: 10,
         eventPath: "battleofbands",
-        imgUrl: "src/Assets/battle_of_bands.jpg",
+        imgUrl: bat,
         club: "none",
         type: "flagship"
     },
@@ -271,7 +276,7 @@ const eventData = {
         description: "RAMBA SAMBA 2025 offers a captivating journey through diverse dance styles, blending traditional and contemporary movements. Teams will showcase their creativity through breathtaking choreographies, electrifying energy, and heart-throbbing performances, celebrating the magic of collective movement.",
         maxTeamSize: 15,
         eventPath: "rambasamba",
-        imgUrl: "src/Assets/ramba_samba.jpg",
+        imgUrl: ram,
         club: "none",
         type: "flagship"
     }
