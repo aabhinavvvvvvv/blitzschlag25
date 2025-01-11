@@ -91,6 +91,7 @@ const LandingPage = () => {
         textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
         letterSpacing: "2px",
         animation: "glowAnimation 3s ease-in-out infinite",
+        fontFamily:"Armante serif",
       }}
       >
       Event
@@ -123,6 +124,7 @@ const LandingPage = () => {
         textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
         letterSpacing: "2px",
         animation: "glowAnimation 3s ease-in-out infinite",
+        fontFamily:"Armante serif",
       }}
     >
       Team

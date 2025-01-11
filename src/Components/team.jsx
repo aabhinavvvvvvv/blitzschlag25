@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 import { auth } from '../../firebase'; // Import Firebase auth
 
 const TeamComponent = ({ event }) => {
@@ -19,14 +20,14 @@ const TeamComponent = ({ event }) => {
 
   const handleCreateTeam = async () => {
     if (!teamName || loading) return;
-  
+
     if (!uid) {
       toast.error("User not logged in.");
       return;
     }
-  
+
     setLoading(true);
-  
+
     try {
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/createteam`, {
         method: 'POST',
@@ -39,19 +40,36 @@ const TeamComponent = ({ event }) => {
           teamName,
         }),
       });
-  
+
       const data = await response.json();
       if (!response.ok) {
-        // Check if the error message indicates email is not verified
         if (data.message && data.message.toLowerCase().includes("email is not verified")) {
           toast.error("Your email is not verified. Please verify your email to create a team.");
         } else {
           toast.error(data.message || "Failed to create team.");
         }
       } else {
-        toast.success("Team created successfully!");
-        // Abhinav
-        alert(data.code);
+        // Show team code in a styled alert with copy-to-clipboard functionality
+        Swal.fire({
+          title: 'Team Created Successfully!',
+          html: `
+            <p>Your team code is: <strong>${data.code}</strong></p>
+            <button id="copy-button" class="swal2-confirm swal2-styled" style="background-color: #4CAF50; color: white;">
+              Copy to Clipboard
+            </button>
+          `,
+          icon: 'success',
+          showConfirmButton: false,
+          didRender: () => {
+            const copyButton = document.getElementById('copy-button');
+            copyButton.addEventListener('click', () => {
+              navigator.clipboard.writeText(data.code).then(() => {
+                toast.success('Team code copied to clipboard!');
+              });
+            });
+          },
+        });
+
         setTeamName(''); // Clear the team name after success
       }
     } catch (error) {
@@ -61,7 +79,6 @@ const TeamComponent = ({ event }) => {
       setLoading(false);
     }
   };
-  
 
   return (
     <div>

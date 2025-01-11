@@ -14,8 +14,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
   </head>
-  <body style="overflow-x: hidden;">
+  <body oncontextmenu="return false" style="overflow-x: hidden;">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      document.addEventListener('keydown', function (e) {
+        // Prevent F12
+        if (e.key === 'F12') {
+          e.preventDefault();
+        }
+        // Prevent Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+        if ((e.ctrlKey && e.shiftKey && ['I', 'J','C','M'].includes(e.key)) || (e.ctrlKey && e.key === 'U')) {
+          e.preventDefault();
+        }
+      });
+    </script>
+    
   </body>
 </html>
