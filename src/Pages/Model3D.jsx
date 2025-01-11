@@ -35,9 +35,6 @@ export default function Model3D() {
 
         {/* Use Suspense and provide a placeholder */}
         <Suspense
-          fallback={
-            <></> /* Avoid fallback here since we are using the external Loader */
-          }
         >
           <ScrollControls damping={0.2} pages={3}>
             <Model />
