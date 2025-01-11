@@ -158,7 +158,7 @@ function App() {
           <div>
             <AnimatePresence mode='wait'>
               <Routes>
-                <Route path="" element={<LandingPage />} />
+                <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/about" element={<LeaderBoard />} />
 

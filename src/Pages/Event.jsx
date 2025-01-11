@@ -37,11 +37,18 @@ const Events = () => {
   const filteredEvents = Object.values(eventData).filter(event => event.type === activeTab);
 
   // Handle tab change
+  // const handleTabChange = (tab) => {
+  //   if(tab == "flagship"){
+  //     setActiveTab(tab);
+  //   setShowEvents(true); // Show events when a category is selected
+  //   }
+    
+  // };
   const handleTabChange = (tab) => {
-    if(tab == "flagship"){
+
       setActiveTab(tab);
     setShowEvents(true); // Show events when a category is selected
-    }
+
     
   };
 
