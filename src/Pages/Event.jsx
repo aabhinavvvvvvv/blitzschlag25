@@ -212,8 +212,7 @@ const Events = () => {
           key={key}
           style={{ margin: "10px", transition: "transform 0.3s ease" }}
         >
-          {console.log(`url(../../src/Assets/${key}.jpg)`)}
-          {console.log(key)};
+        
           <button
             onClick={() => handleTabChange(value)}
             style={{
