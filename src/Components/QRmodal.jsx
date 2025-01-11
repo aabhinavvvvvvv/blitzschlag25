@@ -1,6 +1,6 @@
 import React from "react";
 
-const QRmodal = ({ toggleModal, amount }) => {
+const QRmodal = ({ toggleModal }) => {
   return (
     <div className="fixed inset-0 z-10 flex items-center justify-center">
       {/* Modal Overlay */}
@@ -11,11 +11,11 @@ const QRmodal = ({ toggleModal, amount }) => {
 
       {/* Modal Content */}
       <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-lg mx-auto px-4 z-20">
-        <div className="bg-white rounded-md shadow-lg px-6 py-8 relative">
+        <div className="bg-[#e8e8e8] rounded-md shadow-lg px-6 py-8 relative">
           {/* Close Button */}
           <button
             onClick={toggleModal}
-            className="absolute top-4 right-4 p-2 text-gray-400 rounded-md hover:bg-gray-100 focus:outline-none"
+            className="absolute top-4 right-4 p-2 text-gray-500 rounded-md hover:bg-gray-100 focus:outline-none"
             aria-label="Close modal"
           >
             <svg
@@ -43,15 +43,12 @@ const QRmodal = ({ toggleModal, amount }) => {
           </div>
 
           {/* QR Code Placeholder */}
-          <div className="w-40 h-40 mx-auto bg-gray-200 flex items-center justify-center rounded-lg mt-6">
+          <div className="w-40 h-40 mx-auto bg-gray-300 flex items-center justify-center rounded-lg mt-6">
             {/* Replace with a QR Code library like react-qr-code */}
-            <span className="text-gray-500">QR Code Here</span>
+            <span className="text-gray-600">QR Code Here</span>
           </div>
 
-          {/* Amount Section */}
-          <div className="mt-4 text-lg font-medium text-gray-700 text-center">
-            Amount: ₹{amount}
-          </div>
+          
 
           {/* Action Button */}
           <button

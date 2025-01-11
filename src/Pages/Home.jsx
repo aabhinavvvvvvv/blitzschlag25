@@ -39,7 +39,7 @@ const Home = () => {
           <img  
             src={insect}
             alt="Insect"
-            className="absolute -top-28 left-[50%] md:left-[93%] w-16 md:w-28"
+            className="absolute -top-[4.5rem]  md:-top-28 left-[82%] md:left-[93%] w-16 md:w-28"
           />
         </div>
         {/* Date and PlayButton */}

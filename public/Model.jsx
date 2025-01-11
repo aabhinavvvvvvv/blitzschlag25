@@ -26,21 +26,21 @@ export default function Model(props) {
         button1Ref.current.scale.set(scale, scale, scale);
       }
       if (button2Ref.current) {
-        button2Ref.current.position.y = 1.541 + Math.sin(time) * 0.7; // Base position + floating motion
+        button2Ref.current.position.y = 1.541 + Math.sin(time) * 0.2; // Base position + floating motion
       }
       if (button3Ref.current) {
-        button3Ref.current.position.y = 4.9 + Math.sin(time) * 0.7; // Base position + floating motion
+        button3Ref.current.position.y = 4.9 + Math.sin(time) * 0.2; // Base position + floating motion
       }
       if (button4Ref.current) {
-        button4Ref.current.position.x = 5.34 + Math.sin(time) * 0.2; // Small horizontal drift
-        button4Ref.current.position.y = -0.8 + Math.sin(time * 1.5) * 0.3; // Vertical drift
-        button4Ref.current.position.z =  -1 + Math.cos(time * 0.7) * 1; // Depth drift
+        button4Ref.current.position.x = 5.34 + Math.sin(time) * 0.1; // Small horizontal drift
+        button4Ref.current.position.y = -0.8 + Math.sin(time * 1.5) * 0.2; // Vertical drift
+        button4Ref.current.position.z =  -1 + Math.cos(time * 0.7) * 0.4; // Depth drift
       }
       if (button5Ref.current) {
-        button5Ref.current.position.y = 0 + Math.sin(time) * 0.4; // Floating up and down
-        button5Ref.current.rotation.y += 0.03; // Rotate around the y-axis
+        button5Ref.current.position.y = 0 + Math.sin(time) * 0.2; // Floating up and down
+        button5Ref.current.rotation.y += 0.02; // Rotate around the y-axis
       }
-      const radius = 0.9; // Radius of the figure-eight
+      const radius = 0.4; // Radius of the figure-eight
       if (button6Ref.current) {
         button6Ref.current.position.x = -3 + Math.sin(time) * radius;
         button6Ref.current.position.z =4 + Math.sin(time ) * radius; // Double the frequency
@@ -52,7 +52,7 @@ export default function Model(props) {
         button7Ref.current.scale.set(scale, scale, scale);
       }
       if (button8Ref.current) {
-        const scale =0.2 + Math.sin(time * 2) * 0.1; // Scale oscillates between 0.9 and 1.1
+        const scale =0.2 + Math.sin(time * 2) * 0.03; // Scale oscillates between 0.9 and 1.1
         button8Ref.current.scale.set(scale, scale, scale);
       }
     });
@@ -878,123 +878,7 @@ export default function Model(props) {
             material={materials.M_Effects}
           />
         </group>
-        <mesh
-          name="Plane016"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane016.geometry}
-          material={materials['Material.015']}
-          position={[-7.177, -9.446, 3.904]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane017"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane017.geometry}
-          material={materials['Material.015']}
-          position={[-32.506, -9.446, -17.807]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane018"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane018.geometry}
-          material={materials['Material.015']}
-          position={[-42.387, -9.446, 13.229]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane019"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane019.geometry}
-          material={materials['Material.015']}
-          position={[-15.945, -9.446, 34.801]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane020"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane020.geometry}
-          material={materials['Material.015']}
-          position={[-48.411, -9.446, 43.619]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane021"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane021.geometry}
-          material={materials['Material.015']}
-          position={[-79.074, -9.446, 18.567]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane022"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane022.geometry}
-          material={materials['Material.015']}
-          position={[-66.047, -9.446, -10.893]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane023"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane023.geometry}
-          material={materials['Material.015']}
-          position={[-32.506, -12.26, -17.974]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane024"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane024.geometry}
-          material={materials['Material.015']}
-          position={[-42.387, -12.26, 13.062]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane025"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane025.geometry}
-          material={materials['Material.015']}
-          position={[-15.945, -12.26, 34.634]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane026"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane026.geometry}
-          material={materials['Material.015']}
-          position={[-48.411, -12.26, 43.452]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane027"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane027.geometry}
-          material={materials['Material.015']}
-          position={[-79.074, -12.26, 18.4]}
-          scale={20.35}
-        />
-        <mesh
-          name="Plane028"
-          castShadow
-          receiveShadow
-          geometry={nodes.Plane028.geometry}
-          material={materials['Material.015']}
-          position={[-66.047, -12.26, -11.06]}
-          scale={20.35}
-        />
+        
         <mesh
           name="foliage"
           castShadow
