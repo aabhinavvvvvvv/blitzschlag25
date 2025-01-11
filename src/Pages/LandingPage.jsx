@@ -5,12 +5,11 @@ import EventImg from "../Assets/eventbg.jpg";
 import "../css files/animation.css";
 import Transition from "../transition";
 import Event from "./Event";
-import Login from "./Login";
-import SignUp from "./SignUp";
 import mnitlogo from "../Assets/mnitlogo.png";
 import clublogo from "../Assets/culturalclublogo.png";
 import "../css files/landing.css";
-import LandingEvent from "./LandingEvent";
+import ScrollDown from "../Components/scroll";
+// import ScrollBg from "../Components/scrollbg";
 
 import {
   Animator,
@@ -61,7 +60,6 @@ const useScrollProgress = (threshold, onThresholdReached) => {
 };
 
 const LandingPage = () => {
- 
   // useScrollProgress(0.3, handleScrollProgress); // Trigger at 30% threshold
 
   return (
@@ -73,73 +71,38 @@ const LandingPage = () => {
             id="Home"
             className="scroll-section h-screen w-screen"
           > */}
-            <Home />
-          {/* </div>
+      <Home />
+      {/* </div>
         </Animator>
       </ScrollPage> */}
-      <ScrollPage>
-  <Animator animation={ZoomInScrollOut}>
+{/* <ScrollPage>
+  <Animator animation={ZoomOut}>
     <div className="w-screen h-screen flex justify-center items-center">
-      
-    <h1
-      style={{
-        fontSize: "50px",
-        background: "linear-gradient(45deg, #ff6a00, #ee0979, #ff00b9)",
-        backgroundClip: "text",
-        color: "transparent",
-        fontWeight: "600",
-        textAlign: "center",
-        textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
-        letterSpacing: "2px",
-        animation: "glowAnimation 3s ease-in-out infinite",
-        fontFamily:"Armante serif",
-      }}
-      >
-      Event
-    </h1>
-      </div>
+      <h1>Event</h1>
+      <ScrollBg />
+    </div>
   </Animator>
-</ScrollPage>
+</ScrollPage> */}
+
 
       {/* Event Section */}
       <ScrollPage>
-        <Animator animation={ZoomInScrollOut}>
-          <div
-            id="Event"
-            className="scroll-section h-screen w-screen "
-          >
+        <Animator animation={batch(FadeIn(), MoveIn())}>
+          <div id="Event" className="scroll-section h-screen w-screen  ">
+            <div className="flex justify-center items-center">
+              <ScrollDown />
+            </div>
             <Event />
           </div>
         </Animator>
       </ScrollPage>
-      <ScrollPage>
-  <Animator animation={ZoomInScrollOut}>
-    <h1
-      style={{
-        fontSize: "50px",
-        background: "linear-gradient(45deg, #ff6a00, #ee0979, #ff00b9)",
-        backgroundClip: "text",
-        color: "transparent",
-        fontWeight: "600",
-        textAlign: "center",
-        textShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
-        letterSpacing: "2px",
-        animation: "glowAnimation 3s ease-in-out infinite",
-        fontFamily:"Armante serif",
-      }}
-    >
-      Team
-    </h1>
-  </Animator>
-</ScrollPage>
-
       {/* Team Section */}
       <ScrollPage>
-        <Animator animation={ZoomInScrollOut}>
-          <div
-            id="Team"
-            className="scroll-section h-screen w-screen"
-          >
+        <Animator animation={batch(FadeIn(), MoveIn())}>
+          <div id="Event" className="scroll-section h-screen w-screen  ">
+            <div className="flex justify-center items-center">
+              <ScrollDown />
+            </div>
             <Team />
           </div>
         </Animator>
