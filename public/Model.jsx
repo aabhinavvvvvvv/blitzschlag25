@@ -1,69 +1,67 @@
 import React, { useRef } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF,useAnimations } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import '../src/App.css';
 import { useNavigate } from "react-router-dom";
 
-export default function Model() {
-  // Load GLTF model and destructure nodes and materials
-  const { nodes, materials } = useGLTF("/Website Model with floating buttons.glb");
+export default function Model(props) {
+  const group = useRef()
+  const { nodes, materials, animations } = useGLTF('/Website Model compressed .glb')
+  const { actions } = useAnimations(animations, group)
+    // Create a ref for the button
+    const button1Ref = useRef();
+    const button2Ref = useRef();
+    const button3Ref = useRef();
+    const button4Ref = useRef();
+    const button5Ref = useRef();
+    const button6Ref = useRef();
+    const button7Ref = useRef();
+    const button8Ref = useRef();
+    const navigate=useNavigate();
 
-  // Create a ref for the button
-  const button1Ref = useRef();
-  const button2Ref = useRef();
-  const button3Ref = useRef();
-  const button4Ref = useRef();
-  const button5Ref = useRef();
-  const button6Ref = useRef();
-  const button7Ref = useRef();
-  const button8Ref = useRef();
-  const navigate=useNavigate();
+    useFrame(({ clock }) => {
+      const time = clock.getElapsedTime();
+      if (button1Ref.current) {
+        const scale =0.3 + Math.sin(time * 2) * 0.1; // Scale oscillates between 0.9 and 1.1
+        button1Ref.current.scale.set(scale, scale, scale);
+      }
+      if (button2Ref.current) {
+        button2Ref.current.position.y = 1.541 + Math.sin(time) * 0.7; // Base position + floating motion
+      }
+      if (button3Ref.current) {
+        button3Ref.current.position.y = 4.9 + Math.sin(time) * 0.7; // Base position + floating motion
+      }
+      if (button4Ref.current) {
+        button4Ref.current.position.x = 5.34 + Math.sin(time) * 0.2; // Small horizontal drift
+        button4Ref.current.position.y = -0.8 + Math.sin(time * 1.5) * 0.3; // Vertical drift
+        button4Ref.current.position.z =  -1 + Math.cos(time * 0.7) * 1; // Depth drift
+      }
+      if (button5Ref.current) {
+        button5Ref.current.position.y = 0 + Math.sin(time) * 0.4; // Floating up and down
+        button5Ref.current.rotation.y += 0.03; // Rotate around the y-axis
+      }
+      const radius = 0.9; // Radius of the figure-eight
+      if (button6Ref.current) {
+        button6Ref.current.position.x = -3 + Math.sin(time) * radius;
+        button6Ref.current.position.z =4 + Math.sin(time ) * radius; // Double the frequency
+        button6Ref.current.position.y = 3; // Keep height constant
   
-  // Animate the button to float
-  useFrame(({ clock }) => {
-    const time = clock.getElapsedTime();
-    if (button1Ref.current) {
-      const scale =0.2 + Math.sin(time * 2) * 0.1; // Scale oscillates between 0.9 and 1.1
-      button1Ref.current.scale.set(scale, scale, scale);
-    }
-    if (button2Ref.current) {
-      button2Ref.current.position.y = 1.541 + Math.sin(time) * 0.8; // Base position + floating motion
-    }
-    if (button3Ref.current) {
-      button3Ref.current.position.y = 4.9 + Math.sin(time) * 0.4; // Base position + floating motion
-    }
-    if (button4Ref.current) {
-      button4Ref.current.position.x = 5.34 + Math.sin(time) * 0.2; // Small horizontal drift
-      button4Ref.current.position.y = -0.8 + Math.sin(time * 1.5) * 0.3; // Vertical drift
-      button4Ref.current.position.z =  -1 + Math.cos(time * 0.7) * 0.2; // Depth drift
-    }
-    if (button5Ref.current) {
-      button5Ref.current.position.y = 0 + Math.sin(time) * 0.2; // Floating up and down
-      button5Ref.current.rotation.y += 0.05; // Rotate around the y-axis
-    }
-    const radius = 0.7; // Radius of the figure-eight
-    if (button6Ref.current) {
-      button6Ref.current.position.x = -3 + Math.sin(time) * radius;
-      button6Ref.current.position.z =4 + Math.sin(time ) * radius; // Double the frequency
-      button6Ref.current.position.y = 3; // Keep height constant
-
-    }
-    if (button7Ref.current) {
-      const scale =0.2 + Math.sin(time * 2) * 0.1; // Scale oscillates between 0.9 and 1.1
-      button7Ref.current.scale.set(scale, scale, scale);
-    }
-    if (button8Ref.current) {
-      const scale =0.2 + Math.sin(time * 2) * 0.1; // Scale oscillates between 0.9 and 1.1
-      button8Ref.current.scale.set(scale, scale, scale);
-    }
-  });
-  const handleHover = (isHovering) => {
-    document.body.classList.toggle('custom-cursor', isHovering);
-  };
+      }
+      if (button7Ref.current) {
+        const scale =0.2 + Math.sin(time * 2) * 0.1; // Scale oscillates between 0.9 and 1.1
+        button7Ref.current.scale.set(scale, scale, scale);
+      }
+      if (button8Ref.current) {
+        const scale =0.2 + Math.sin(time * 2) * 0.1; // Scale oscillates between 0.9 and 1.1
+        button8Ref.current.scale.set(scale, scale, scale);
+      }
+    });
+    const handleHover = (isHovering) => {
+      document.body.classList.toggle('custom-cursor', isHovering);
+    };
 
   return (
-    <group>
-      {/* Button 1 Group */}
+    <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <mesh
           name="tree001"
@@ -138,12 +136,19 @@ export default function Model() {
                   material={materials.T_clock}
                   position={[-0.499, -0.003, 0.032]}
                 />
+                <mesh
+                  name="clock_low_T_clock_0001"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.clock_low_T_clock_0001.geometry}
+                  material={materials.T_clock}
+                  position={[-0.546, -0.949, 1.768]}
+                />
               </group>
             </group>
           </group>
         </group>
         <group
-
           name="Sketchfab_model001"
           position={[4.54, -1.241, -0.76]}
           rotation={[-Math.PI / 2, 0, -0.234]}
@@ -153,9 +158,7 @@ export default function Model() {
             rotation={[Math.PI / 2, 0, 0]}
             scale={0.01}>
             <group name="RootNode001">
-              
               <group name="pasted__pCube221">
-
                 <mesh
                   name="pasted__pCube221_lambert1_0"
                   castShadow
@@ -165,7 +168,6 @@ export default function Model() {
                 />
               </group>
               <group name="pasted__pCube222">
-                
                 <mesh
                   name="pasted__pCube222_lambert1_0"
                   castShadow
@@ -174,9 +176,7 @@ export default function Model() {
                   material={materials.lambert1}
                 />
               </group>
-              
               <group name="pasted__pCube223">
-                
                 <mesh
                   name="pasted__pCube223_lambert1_0"
                   castShadow
@@ -277,7 +277,6 @@ export default function Model() {
             <group name="RootNode002">
               <group name="Mesh">
                 <group name="Mesh_page_0" position={[0, 64.244, 0]}>
-                  
                   <mesh
                     name="Mesh_page_0_1"
                     castShadow
@@ -285,7 +284,6 @@ export default function Model() {
                     geometry={nodes.Mesh_page_0_1.geometry}
                     material={materials.page}
                   />
-                  
                   <mesh
                     name="Mesh_page_0_2"
                     castShadow
@@ -294,6 +292,118 @@ export default function Model() {
                     material={materials.default1}
                   />
                 </group>
+                <mesh
+                  name="Mesh_page_0001"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0001.geometry}
+                  material={materials.default1}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0002"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0002.geometry}
+                  material={materials.default1}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0003"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0003.geometry}
+                  material={materials.default1}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0004"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0004.geometry}
+                  material={materials.default1}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0005"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0005.geometry}
+                  material={materials.page}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0006"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0006.geometry}
+                  material={materials.page}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0007"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0007.geometry}
+                  material={materials.page}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0008"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0008.geometry}
+                  material={materials.page}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0009"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0009.geometry}
+                  material={materials.page}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0010"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0010.geometry}
+                  material={materials.page}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0011"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0011.geometry}
+                  material={materials.default1}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0012"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0012.geometry}
+                  material={materials.default1}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0013"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0013.geometry}
+                  material={materials.default1}
+                  position={[0, 64.244, 0]}
+                />
+                <mesh
+                  name="Mesh_page_0014"
+                  castShadow
+                  receiveShadow
+                  geometry={nodes.Mesh_page_0014.geometry}
+                  material={materials.default1}
+                  position={[0, 64.244, 0]}
+                />
               </group>
             </group>
           </group>
@@ -917,17 +1027,16 @@ export default function Model() {
           material={materials.baked_rocks}
           position={[-0.006, 0, 0.003]}
         />
-        <group name="Armature" position={[5.436, 1.879, -3.491]}>
+        <group  name="Armature" position={[5.436, 1.879, -3.491]}> 
           <primitive object={nodes.Bone} />
         </group>
         <group
-        ref={button4Ref}
-        onClick={()=> navigate("/event")}
+          ref={button4Ref}
+          onClick={()=> navigate("/event")}
           name="Cube"
           position={[5.104, -0.832, -0.702]}
           rotation={[0, 0.228, 0]}
-          scale={[0.155, 0.2, 0.699]}>
-            
+          scale={[0.155, 0.177, 0.699]}>
           <mesh
             name="Cube_1"
             castShadow
@@ -944,10 +1053,11 @@ export default function Model() {
           />
         </group>
         <group
-          name="Cube001"
-          // onClick={()=> navigate("/")}
           ref={button2Ref}
-          position={[0.53, 0.124, -4.674]}
+          onClick={()=> navigate("/sponsors")}
+          
+          name="Cube001"
+          position={[0.53, 0.633, -4.674]}
           rotation={[0, 0.226, 0]}
           scale={[0.155, 0.177, 0.699]}>
           <mesh
@@ -971,11 +1081,10 @@ export default function Model() {
           onPointerOut={() => handleHover(false)} // Remove custom cursor when not hovering
           onClick={()=> navigate("/login")}
           name="Cube003"
-          position={[-0.631, 3.88, -3.103]}
+          position={[-0.631, 3.883, -3.103]}
           rotation={[0, 0.072, 0]}
-          scale={[0.155, 0.2, 1.2]}>
+          scale={[0.12, 0.137, 0.541]}>
           <mesh
-          
             name="Cube004_1"
             castShadow
             receiveShadow
@@ -991,12 +1100,12 @@ export default function Model() {
           />
         </group>
         <group
-        ref={button5Ref}
-        onClick={()=> navigate("/profile")}
+          ref={button5Ref}
+          onClick={()=> navigate("/profile")}
           name="Cube004"
           position={[4.651, -0.524, 3.547]}
           rotation={[0.002, -0.018, -0.016]}
-          scale={[0.2,0.2, 0.699]}>
+          scale={[0.155, 0.177, 0.699]}>
           <mesh
             name="Cube005_1"
             castShadow
@@ -1013,12 +1122,13 @@ export default function Model() {
           />
         </group>
         <group
-        ref={button6Ref}
-        onClick={()=> navigate("/schedule")}
+        //schedule page button route
+          ref={button6Ref}
+          onClick={()=> navigate("/schedule")}
           name="Cube005"
           position={[-3.002, 3.003, 3.989]}
           rotation={[0.019, 0.428, -0.031]}
-          scale={[0.155, 0.177, 1]}>
+          scale={[0.155, 0.177, 0.699]}>
           <mesh
             name="Cube006"
             castShadow
@@ -1035,12 +1145,12 @@ export default function Model() {
           />
         </group>
         <group
-        ref={button1Ref}
-        // onClick={()=> navigate(/)}
+          ref={button1Ref}
+          onClick={()=> navigate("/our_team")}
           name="Text003"
-          position={[1.904, 1.541, 0.021]}
+          position={[1.807, 1.534, -0.502]}
           rotation={[1.557, 0.037, -1.643]}
-          scale={[0.527, 1.025, 0.3]}>
+          scale={[0.527, 1.025, 0.21]}>
           <mesh
             name="Text009"
             castShadow
@@ -1056,14 +1166,41 @@ export default function Model() {
             material={materials['Material.001']}
           />
         </group>
+        <group
+          ref={button8Ref}
+          onClick={()=> navigate("/leaderboard")}
+          name="Text"
+          position={[-0.164, 6.156, 6]}
+          rotation={[Math.PI / 2, 0, -2.162]}
+          scale={0.154}>
+          <mesh
+            name="Text_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.Text_1.geometry}
+            material={materials.rock_shine}
+          />
+          <mesh
+            name="Text_2"
+            castShadow
+            receiveShadow
+            geometry={nodes.Text_2.geometry}
+            material={materials['Material.001']}
+          />
+        </group>
+        <mesh
+          name="oreada001"
+          castShadow
+          receiveShadow
+          geometry={nodes.oreada001.geometry}
+          material={materials.baked_oreada}
+          position={[-0.006, 0.006, 0.005]}
+          rotation={[-0.001, 0, 0]}
+        />
       </group>
     </group>
-  );
+  )
 }
 
-// Preload the GLTF model for better performance (optional)
-useGLTF.preload("/Website Model with floating buttons.glb");
-
-
-
+useGLTF.preload('/Website Model compressed .glb')
 

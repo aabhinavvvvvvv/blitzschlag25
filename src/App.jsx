@@ -160,7 +160,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/about" element={<LeaderBoard />} />
+                <Route path="/leaderboard" element={<LeaderBoard />} />
 
                 <Route path="/event" element={<Event />} />
                 <Route path="/sponsor" element={<Sponsor />} />
