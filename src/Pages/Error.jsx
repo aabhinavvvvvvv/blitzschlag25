@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const Card = () => {
   return (
-    <StyledWrapper className=' flex justify-center items-center '>
-      <div className="main_wrapper mt-36">
+    <StyledWrapper className='h-screen flex justify-center items-center '>
+      <div className="main_wrapper">
         <div className="main">
           <div className="antenna">
             <div className="antenna_shadow" />
@@ -75,8 +75,6 @@ const StyledWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30em;
-    height: 30em;
   }
 
   .main {

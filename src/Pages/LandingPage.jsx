@@ -50,6 +50,14 @@ const LandingPage = () => {
           </div>
         </Animator>
       </ScrollPage>
+      {/* <ScrollPage>
+  <Animator animation={ZoomOut}>
+    <div className="w-screen h-screen flex justify-center items-center">
+      <h1>Event</h1>
+      <ScrollBg />
+    </div>
+  </Animator>
+</ScrollPage> */}
 
       {/* Event Section */}
       <ScrollPage>

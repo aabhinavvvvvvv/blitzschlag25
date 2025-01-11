@@ -23,8 +23,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Tooltip } from 'react-tooltip';
 import SplashScreen from './Pages/SplashScreen';
 import LeaderBoard from './Pages/LeaderBoard';
-
+import UpdateLeaderboard from './Pages/UpdateLeaderboard';
+import ResetLeaderboard from './Pages/ResetLeaderboard';
 function App() {
+  const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
+  const resetUrl = import.meta.env.VITE_RESET_URL; 
+  
   const location = useLocation();
   const navigate = useNavigate();
   const canvasRef = useRef(null);
@@ -144,7 +148,7 @@ function App() {
           className="absolute top-0 left-0 w-full h-full pointer-events-none"
           style={{ zIndex: 1000 }}
         />
-        <SplashScreen />
+        {/* <SplashScreen /> */}
         <div className="relative z-10 w-screen h-screen text-white">
           {location.pathname !== '/model3d' && <Navbar />}
           <div>
@@ -164,7 +168,10 @@ function App() {
                 <Route path="/pass" element={<Pass />} />
                 <Route path="*" element={<Error />} />
                 <Route path="/signup" element={<SignUp />} />
-                <Route path="/login" element={<Login />} />
+                <Route path="/login" element={<Login/>} />
+                {console.log(updateUrl)}
+                <Route path={updateUrl} element={<UpdateLeaderboard />} />
+                <Route path={resetUrl} element={<ResetLeaderboard />} />
               </Routes>
             </AnimatePresence>
           </div>

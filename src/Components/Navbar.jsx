@@ -167,7 +167,7 @@ const [isOpen, setIsOpen] = useState(false);
         style={{
           backgroundColor: "transparent", // Custom background color
         }}
-        size={300}
+        size={250}
       >
         <div className="flex flex-col items-left p-10 bg-black bg-opacity-100 h-full overflow-y-scroll">
           <Link
