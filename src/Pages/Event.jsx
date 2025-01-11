@@ -147,6 +147,16 @@ const StyledWrapper = styled.div`
   }
 `;
 
+import tamasha from "../Assets/category1.jpg";
+import battle from "../Assets/category2.jpg";
+import panache from "../Assets/category3.jpg";
+import rambha from "../Assets/category4.jpg";
+import tam from "../Assets/tamasha.jpg";
+import panache2 from "../Assets/panache.jpg";
+import ram from "../Assets/ramba_samba.jpg";
+import bat from "../Assets/battle_of_bands.jpg";
+
+
 const Events = () => {
   const [uid, setUid] = useState(null); // State for storing the UID
   const [activeTab, setActiveTab] = useState("flagship"); // Default active tab
@@ -181,6 +191,7 @@ const Events = () => {
     }
     
   };
+
   const handleButtonClick = () => {
     console.log('Button clicked!');
     // You can add any action you want to perform when the button is clicked here
@@ -262,10 +273,10 @@ const Events = () => {
 
   const getBackgroundImage = (key) => {
     const images = {
-      category1: 'flagship.png',
-      category2: 'fun.png',
-      category3: 'club_event.png',
-      category4: 'main_att.png',
+      category1: tamasha,
+      category2: battle,
+      category3: panache,
+      category4: rambha,
     };
     return images[key] || ''; // Return the correct background image
   };
@@ -344,10 +355,11 @@ const Events = () => {
           key={key}
           style={{ margin: "10px", transition: "transform 0.3s ease" }}
         >
+        
           <button
             onClick={() => handleTabChange(value)}
             style={{
-              backgroundImage: `url(../../src/Assets/${key}.png)`, // Dynamically set the image
+              backgroundImage: `url(${getBackgroundImage(key)})`, // Dynamically set the image
               backgroundSize: "cover",
               backgroundPosition: "center",
               width: "200px",

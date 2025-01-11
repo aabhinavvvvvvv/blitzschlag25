@@ -26,16 +26,11 @@ const Video = () => {
     }, 1000); // Smooth transition
   };
 
-  // Skip video
-  const handleSkip = () => {
-    handleVideoEnd();
-  };
-
   return (
     <div className={`main relative h-screen w-screen ${videoEnded ? 'bg-black' : ''}`}>
       {!videoEnded && (
         <div className={`video-container h-full w-full ${fadeOut ? 'opacity-0' : 'opacity-100'} transition-opacity duration-1000`}>
-            <video
+          <video
             className="video"
             ref={videoRef}
             autoPlay
@@ -43,13 +38,20 @@ const Video = () => {
             preload="true"
             onEnded={handleVideoEnd}
             onLoadedMetadata={() => {
-                if (videoRef.current) {
+              if (videoRef.current) {
                 videoRef.current.playbackRate = 1.75; // Set playback speed
-                }
+              }
             }}
-            >
+          >
             <source src={video} type="video/mp4" />
-            </video>
+          </video>
+          {/* Mute/Unmute Button */}
+          <button
+            onClick={toggleMute}
+            className="absolute bottom-10 left-10 bg-black text-white py-2 px-4 rounded shadow-md hover:bg-gray-800 transition duration-200"
+          >
+            {isMuted ? "Unmute" : "Mute"}
+          </button>
         </div>
       )}
     </div>

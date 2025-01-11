@@ -13,14 +13,14 @@ export default function PlayButton() {
         WebkitBoxReflect:
           "below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4))",
       }}
-      className="p-3  w-44 h-14 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full shadow-xl group hover:shadow-2xl hover:shadow-yellow-600 shadow-yellow-600 uppercase font-serif tracking-widest relative overflow-hidden cursor-pointer z-10 -mt-9"
+      className="p-3  w-48 h-14 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-full shadow-xl group hover:shadow-2xl hover:shadow-yellow-600 shadow-yellow-600 uppercase font-serif tracking-widest relative overflow-hidden cursor-pointer z-10 -mt-9"
       aria-label="Start playback"
     >
       <span className="sr-only">Play</span>
       
       {/* WELCOME Text */}
       <p className="absolute z-40 font-semibold bg-gradient-to-r from-yellow-600 to-yellow-700 bg-clip-text text-transparent top-1/2 left-1/2 -translate-x-1/2 group-hover:-translate-y-full h-full w-full transition-all duration-300 -translate-y-[30%] tracking-widest">
-        Dreamland
+        Enter The Dreamland
       </p>
       
       {/* Play Icon */}

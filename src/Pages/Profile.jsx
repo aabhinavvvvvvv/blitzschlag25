@@ -70,6 +70,7 @@ const Profile = () => {
 
   const setApiData = (data) => {
     const { userData, teamsDetails } = data;
+    // console.log(teamsDetails);
     const { joinedEvents } = userData;
     setName(userData.userName);
     const events = [];
@@ -81,6 +82,7 @@ const Profile = () => {
     };
 
     joinedEvents.forEach((eventPath) => {
+      console.log(eventPath);
       const event = eventData[eventPath];
       if (event) {
         const eventDetails = {
@@ -99,13 +101,12 @@ const Profile = () => {
             eventDetails.teamCode = team.teamCode;
           }
         }
-
+        // console.log(event);
         if (event.day === 1) groupedEvents.day1.push(eventDetails);
         if (event.day === 2) groupedEvents.day2.push(eventDetails);
         if (event.day === 3) groupedEvents.day3.push(eventDetails);
       }
     });
-
     setTimelineEvents(groupedEvents);
     setEventsLoading(false);
   };

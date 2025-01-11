@@ -209,8 +209,8 @@ const Navbar = () => {
             className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-400"
             onClick={toggleDrawer}
           >
-            <FaUsers className="mr-2" />
-            Embassador
+            <FaUsers className="mr-2" size={30} />
+            Ambassador
           </Link>
           <Link
             to="/pronites"

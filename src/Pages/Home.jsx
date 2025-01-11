@@ -21,7 +21,7 @@ const Home = () => {
       ></div>
 
       {/* Main Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white mt-20">
         {/* Title with Insect */}
         <div className="relative inline-block">
           <h1
@@ -36,16 +36,16 @@ const Home = () => {
             BLITZSCHLAG' 25
           </h1>
           {/* Insect Image */}
-          <img
+          <img  
             src={insect}
             alt="Insect"
             className="absolute -top-28 left-[50%] md:left-[93%] w-16 md:w-28"
           />
         </div>
         {/* Date and PlayButton */}
-        <div className=" w-full space-y-10 ">
+        <div className="flex-col justify-center items-center w-full mt-5 gap-5">
           <p
-            className="text-xl mt-8 md:text-3xl tracking-normal font-normal text-[#C0AA67] date"
+            className="text-xl md:text-3xl tracking-normal font-normal text-[#C0AA67] date"
             style={{
               fontFamily: "'Metal Mania', cursive",
               WebkitTextStroke: "0.5px #000000D1",
@@ -55,7 +55,7 @@ const Home = () => {
           >
             6th - 9th February, 2025
           </p>
-          <p><PlayButton /></p>
+          <p className='mt-10'><PlayButton /></p>
         </div>
         <p
           className="text-xl mt-7 mb-3 md:text-3xl tracking-normal font-normal text-[#C0AA67] "
@@ -67,8 +67,9 @@ const Home = () => {
           }}
         >presented by</p>
         <div className='flex justify-center sm:justify-start gap-4'>
-          <img src={mnitlogo} className='w-24 h-24 ' alt="MNIT Logo" />
-          <img src={clublogo} className='w-24 h-24 ' alt="Cultural Club Logo" />
+          <Link to='https://mnit.ac.in' className='w-24 h-24'><img src={mnitlogo} className='w-24 h-24 ' alt="MNIT Logo" /></Link>
+          <Link to='https://mnit.ac.in/cacs' className='w-24 h-24'><img src={clublogo} className='w-24 h-24 ' alt="Cultural Club Logo" /></Link>
+  
         </div>
       </div>
     </div>
