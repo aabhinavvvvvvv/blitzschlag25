@@ -169,7 +169,7 @@ function App() {
                 <Route path="*" element={<Error />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<Login/>} />
-                {console.log(updateUrl)}
+               
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
               </Routes>
