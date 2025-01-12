@@ -33,12 +33,7 @@ function App() {
   const navigate = useNavigate();
   const canvasRef = useRef(null);
 
-  // Redirect to home on reload
-  useEffect(() => {
-    if (location.pathname !== '/') {
-      navigate('/');
-    }
-  }, []); // Run only once on initial load
+ // Run only once on initial load
 
   useEffect(() => {
     const canvas = canvasRef.current;
