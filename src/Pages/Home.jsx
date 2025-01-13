@@ -53,7 +53,7 @@ const Home = () => {
               textShadow: "2px 2px 4px #000000",
             }}
           >
-            6th - 9th February, 2025
+            7th - 9th February, 2025
           </p>
           <p className='mt-10'><PlayButton /></p>
         </div>
