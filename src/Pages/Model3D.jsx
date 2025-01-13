@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import { ScrollControls } from "@react-three/drei";
-import { OrbitControls } from "@react-three/drei";
+import { ScrollControls, Environment, OrbitControls } from "@react-three/drei";
 import Model from "../../public/Model";
-import { Environment } from "@react-three/drei";
 import Loader from "../Components/modelLoader"; // Import your custom Loader component
 
 export default function Model3D() {
@@ -16,6 +14,16 @@ export default function Model3D() {
       return { position: [8, 4, 0], fov: 110 };
     }
     return { position: [13, 6, 0], fov: 65 };
+  };
+
+  // Function to determine the environment file
+  const getEnvironmentFile = () => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      // Fallback to a simple or smaller texture for mobile
+      return "/bg3d.jpg"; // Replace with your fallback texture
+    }
+    // Use the HDR environment file for desktop
+    return "/background_scene.hdr";
   };
 
   return (
@@ -34,12 +42,11 @@ export default function Model3D() {
         <ambientLight intensity={0.5} />
 
         {/* Use Suspense and provide a placeholder */}
-        <Suspense
-        >
+        <Suspense>
           <ScrollControls damping={0.2} pages={3}>
             <Model />
           </ScrollControls>
-          <Environment files={window.innerWidth < 768 ? "/Scenic_equirectangular-jpg_VR360_inside_Jupiter_swirling_161_11zon-_2_.hdr" : "/background_scene.hdr"} background />
+          <Environment files={getEnvironmentFile()} background />
         </Suspense>
         <OrbitControls minDistance={7} maxDistance={13} />
       </Canvas>
