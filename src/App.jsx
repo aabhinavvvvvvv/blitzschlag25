@@ -33,12 +33,7 @@ function App() {
   const navigate = useNavigate();
   const canvasRef = useRef(null);
 
-  // Redirect to home on reload
-  useEffect(() => {
-    if (location.pathname !== '/') {
-      navigate('/');
-    }
-  }, []); // Run only once on initial load
+ // Run only once on initial load
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -169,7 +164,7 @@ function App() {
                 <Route path="*" element={<Error />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<Login/>} />
-                {console.log(updateUrl)}
+               
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
               </Routes>

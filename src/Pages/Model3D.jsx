@@ -39,7 +39,7 @@ export default function Model3D() {
           <ScrollControls damping={0.2} pages={3}>
             <Model />
           </ScrollControls>
-          <Environment files={"/background_scene.hdr"} background />
+          <Environment files={window.innerWidth < 768 ? "/Scenic_equirectangular-jpg_VR360_inside_Jupiter_swirling_161_11zon-_2_.hdr" : "/background_scene.hdr"} background />
         </Suspense>
         <OrbitControls minDistance={7} maxDistance={13} />
       </Canvas>
