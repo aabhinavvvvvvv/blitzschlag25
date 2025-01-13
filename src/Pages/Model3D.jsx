@@ -30,7 +30,7 @@ export default function Model3D() {
         camera={getCameraSettings()}
         gl={{ antialias: true }}
         dpr={[1, 1.5]}
-        style={{ height: "100vh", background: "#000" }}
+        style={{ height: "100vh" }}
         onCreated={() => setIsLoading(false)}
       >
         <directionalLight position={[13, 5, 0]} intensity={4} />
