@@ -35,34 +35,7 @@ import Footer from "../Components/Footer";
 const ZoomInScrollOut = batch(StickyIn(), FadeIn(), ZoomIn());
 const FadeUp = batch(Fade(), Move(), Sticky());
 
-// Custom Hook to handle scroll progress
-const useScrollProgress = (threshold, onThresholdReached) => {
-  const observer = useRef();
-
-  useEffect(() => {
-    const options = {
-      threshold,
-    };
-
-    observer.current = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          onThresholdReached(entry.target.id); // Pass the section ID when the threshold is reached
-        }
-      });
-    }, options);
-
-    const sections = document.querySelectorAll(".scroll-section");
-    sections.forEach((section) => observer.current.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.current.unobserve(section));
-    };
-  }, [threshold, onThresholdReached]);
-};
-
 const LandingPage = () => {
-  // useScrollProgress(0.3, handleScrollProgress); // Trigger at 30% threshold
 
   return (
     <ScrollContainer>
