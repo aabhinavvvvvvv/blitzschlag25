@@ -2,7 +2,7 @@
 
 import tam from "../Assets/tamasha.jpg";
 import panache2 from "../Assets/panache.jpg";
-import ram from "../Assets/ramba_samba.jpg";
+import ram from "../Assets/rambha_sambha.jpg";
 import bat from "../Assets/battle_of_bands.jpg";
 
 const eventData = {
