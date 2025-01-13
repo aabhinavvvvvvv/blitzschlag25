@@ -68,7 +68,7 @@ const Home = () => {
                     textShadow: "2px 2px 4px #000000",
                   }}
                 >
-                  6th - 9th February, 2025
+                  7th - 9th February, 2025
                 </p>
               </Animator>
               <Animator animation={Move(-1000, 0)}>
