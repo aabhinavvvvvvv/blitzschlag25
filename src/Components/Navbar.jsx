@@ -20,6 +20,7 @@ import {
   FaTicketAlt,
   FaCubes,
   FaMusic,
+  FaQuestionCircle,
 
 } from "react-icons/fa";
 import { PiRankingDuotone } from "react-icons/pi";
@@ -287,6 +288,14 @@ const [isOpen, setIsOpen] = useState(false);
           >
             <FaCalendarAlt className="mr-2" />
             Event
+          </Link>
+          <Link
+            to="/faq"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
+            onClick={toggleDrawer}
+          >
+            <FaQuestionCircle className="mr-2" />
+            FAQ
           </Link>
         </div>
       </Drawer>
