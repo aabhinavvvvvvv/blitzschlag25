@@ -171,10 +171,7 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<Login/>} />
-<<<<<<< HEAD
                 <Route path="/pay" element={<PaymentPage amount={50.0} onVerifyPayment={handleVerifyPayment} />} />
-=======
->>>>>>> bc6689306ac84f74c65dcff6d07a17906dd47ff0
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
               </Routes>
