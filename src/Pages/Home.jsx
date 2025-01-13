@@ -16,8 +16,8 @@ import {
   Sticky,
   FadeIn,
   FadeOut,
-  Fade,
   Move,
+  Fade,
 } from "react-scroll-motion";
 
 const Home = () => {
