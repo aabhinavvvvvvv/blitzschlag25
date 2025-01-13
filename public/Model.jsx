@@ -72,6 +72,7 @@ export default function Model(props) {
           position={[-0.006, 0, -45.16]}
           rotation={[Math.PI / 2, 0, 0]}
         />
+        
         <group
           name="sketchfab"
           position={[3.582, -0.044, 3.568]}
