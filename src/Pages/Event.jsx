@@ -179,7 +179,7 @@ const Events = () => {
   const navigate = useNavigate();
   // Handle tab change
   const handleTabChange = (tab) => {
-    if(tab == "flagship"){
+    if(tab == "flagship"||tab == "fun"||tab == "club"||tab == "attraction"){
       setActiveTab(tab);
     setShowEvents(true); // Show events when a category is selected
     }
