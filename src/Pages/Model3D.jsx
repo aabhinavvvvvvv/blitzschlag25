@@ -5,6 +5,7 @@ import { ScrollControls, Environment, OrbitControls } from "@react-three/drei";
 import Model from "../../public/Model";
 import Loader from "../Components/modelLoader";
 import bgformobile from "/bg3d.jpg";
+import * as THREE from "three";
 
 export default function Model3D() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,7 @@ export default function Model3D() {
 
   const getEnvironmentFile = () => {
     if (typeof window !== "undefined" && window.innerWidth < 768) {
-      return `${bgformobile}`; // Replace with your fallback image path
+      return new THREE.TextureLoader().load(bgformobile);
     }
     return "/background_scene.hdr";
   };
@@ -39,8 +40,16 @@ export default function Model3D() {
           <ScrollControls damping={0.2} pages={3}>
             <Model />
           </ScrollControls>
-          <Environment files={getEnvironmentFile()} background />
+          {window.innerWidth < 768 ? (
+            <mesh>
+              <planeGeometry args={[100, 100]} />
+              <meshBasicMaterial map={getEnvironmentFile()} />
+            </mesh>
+          ) : (
+            <Environment files={getEnvironmentFile()} background />
+          )}
         </Suspense>
+        ;
         <OrbitControls minDistance={7} maxDistance={13} />
       </Canvas>
     </>
