@@ -33,6 +33,7 @@ import divyanshikushwah from "../Assets/divyanshi.jpg";
 import ashokkumarmeena from "../Assets/ashokkumarmeena.jpg";
 import simichaudhary from "../Assets/simichaudhary.jpg";
 import vinaytanwawr from "../Assets/vinaytanwar.jpg"; 
+import kritika from "../Assets/kritika.jpg"
 
 import vidit from "../Assets/vidit.png";
 import krithik from "../Assets/krithik.png";
@@ -132,11 +133,6 @@ const advisors_team = [
     img: rudra,
   },
   {
-    name: "Ronak Gupta",
-    position: "Advisor to Technical Secretary",
-    img: ronak,
-  },
-  {
     name: "Ankit Sharma",
     position: "Advisor to General Secretary + Operational Management",
     img: ankit,
@@ -167,11 +163,6 @@ const advisors_team = [
     img: rudra,
   },
   {
-    name: "Ronak Gupta",
-    position: "Advisor to Technical Secretary",
-    img: ronak,
-  },
-  {
     name: "Ankit Sharma",
     position: "Advisor to General Secretary + Operational Management",
     img: ankit,
@@ -197,19 +188,9 @@ const special_mention=[
     
   },
   {
-    name:"Vinay Tanwar",
+    name:"Kritika",
     position:"",
-    img:vinaytanwawr,
-  },
-  {
-    name:"Ashok Kumar Meena",
-    position:"",
-    img: ashokkumarmeena,
-  },
-  {
-    name:"Simi Chaudhary",
-    position:"",
-    img: simichaudhary,
+    img: kritika,
     
   },
   {
@@ -228,6 +209,34 @@ const special_mention=[
     img: simichaudhary,
     
   },
+  {
+    name:"Kritika",
+    position:"",
+    img: kritika,
+    
+  },
+  {
+    name:"Vinay Tanwar",
+    position:"",
+    img:vinaytanwawr,
+  },
+  {
+    name:"Ashok Kumar Meena",
+    position:"",
+    img: ashokkumarmeena,
+  },
+  {
+    name:"Simi Chaudhary",
+    position:"",
+    img: simichaudhary,
+    
+  },
+  {
+    name:"Kritika",
+    position:"",
+    img: kritika,
+    
+  }
 ]
     
 const Team = () => {
