@@ -284,6 +284,7 @@ const Profile = () => {
                   </svg>
                   <p>{event.time}</p>
                 </div>
+                {console.log(event)}
                 {event.type === "team" && (
                   <>
                     <p className="mt-2">{`Team Name: ${event.teamName}`}</p>

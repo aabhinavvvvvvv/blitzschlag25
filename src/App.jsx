@@ -25,6 +25,7 @@ import SplashScreen from './Pages/SplashScreen';
 import LeaderBoard from './Pages/LeaderBoard';
 import UpdateLeaderboard from './Pages/UpdateLeaderboard';
 import ResetLeaderboard from './Pages/ResetLeaderboard';
+import PaymentPage from './Components/PaymentPage';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
@@ -133,7 +134,11 @@ function App() {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
-
+  const handleVerifyPayment = async (transactionId) => {
+    // Simulate API call for verification
+    console.log("Verifying transaction ID:", transactionId);
+    return new Promise<boolean>((resolve) => setTimeout(() => resolve(transactionId === "12345"), 2000));
+  };
   return (
     <>
       <Tooltip id="global-tooltip" />
@@ -164,7 +169,7 @@ function App() {
                 <Route path="*" element={<Error />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<Login/>} />
-               
+                <Route path="/pay" element={<PaymentPage amount={50.0} onVerifyPayment={handleVerifyPayment} />} />
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
               </Routes>
