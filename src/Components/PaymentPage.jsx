@@ -27,7 +27,7 @@ const PaymentPage = () => {
     setVerificationStatus(null);
     try {
       const type = teamCode ? "registration" : "pass";
-      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL2}/payment/request`, {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/payment/request`, {
         userId,
         amount,
         transactionId,
