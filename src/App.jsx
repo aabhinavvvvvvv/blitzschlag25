@@ -21,11 +21,13 @@ import Model3D from './Pages/Model3D';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Tooltip } from 'react-tooltip';
+import FAQ from './Components/FAQ';
 import SplashScreen from './Pages/SplashScreen';
 import LeaderBoard from './Pages/LeaderBoard';
 import UpdateLeaderboard from './Pages/UpdateLeaderboard';
 import ResetLeaderboard from './Pages/ResetLeaderboard';
 import ChampionsTrophy from './Pages/ChampionsTrophy';
+import PaymentPage from './Components/PaymentPage';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
@@ -33,6 +35,7 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const canvasRef = useRef(null);
+  const uid = sessionStorage.getItem('userId');
 
  // Run only once on initial load
 
@@ -134,7 +137,11 @@ function App() {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
-
+  const handleVerifyPayment = async (transactionId) => {
+    // Simulate API call for verification
+    console.log("Verifying transaction ID:", transactionId);
+    return new Promise<boolean>((resolve) => setTimeout(() => resolve(transactionId === "12345"), 2000));
+  };
   return (
     <>
       <Tooltip id="global-tooltip" />
@@ -164,10 +171,11 @@ function App() {
                 <Route path="/model3d" element={<Model3D />} />
                 <Route path="/pass" element={<Pass />} />
                 <Route path="*" element={<Error />} />
+                <Route path="/faq" element={<FAQ />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<Login/>} />
-               
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
+                <Route path="/pay" element={<PaymentPage />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
               </Routes>
             </AnimatePresence>

@@ -1,600 +1,100 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Loader = () => {
   return (
-    <StyledWrapper>
-      <div id="timer">
-        <div id="div1" />
-        <div id="div2" />
-        <div id="div3" />
-        <div id="div4" />
-        <div id="div5" />
-        <div id="div6" />
-        <div id="div7" />
-        <div id="div8" />
-        <div id="div9" />
-        <div id="div10" />
-        <div id="div11" />
-        <div id="div12" />
-        <div id="div13" />
-        <div id="div14" />
-        <div id="div15" />
-      </div>
-    </StyledWrapper>
+        <StyledWrapper>
+          <div className="pyramid-loader">
+            <div className="wrapper">
+              <span className="side side1"></span>
+              <span className="side side2"></span>
+              <span className="side side3"></span>
+              <span className="side side4"></span>
+              <span className="shadow"></span>
+            </div>
+          </div>
+        </StyledWrapper>
   );
-}
+};
 
 const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow:hidden;
+  background-color: #000; /* Black background */
+  overflow: hidden;
 
-  #timer {
-    display: grid;
-    grid-template-columns: repeat(3, 25px);
-    grid-template-rows: repeat(5, 25px);
-    gap: 10px;
+  /* Pyramid Loader Styling */
+  .pyramid-loader {
     position: relative;
-    grid-template-areas:
-      "div1 div2 div3"
-      "div4 div5 div6"
-      "div7 div8 div9"
-      "div10 div11 div12"
-      "div13 div14 div15";
+    width: 300px;
+    height: 300px;
+    display: block;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg);
   }
 
-  #div1,
-  #div2,
-  #div3,
-  #div4,
-  #div5,
-  #div6,
-  #div7,
-  #div8,
-  #div9,
-  #div10,
-  #div11,
-  #div12,
-  #div13,
-  #div14,
-  #div15 {
-    background-color: rgb(243, 243, 243);
-    border-radius: 5px;
+  .wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    animation: spin 4s linear infinite;
   }
 
-  #div1 {
-    grid-area: div1;
-    animation: div1 10s both infinite;
-  }
-
-  @keyframes div1 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(70px);
-    }
-
-    20% {
-      transform: translateX(0);
-    }
-
-    30% {
-      transform: translateX(0);
-    }
-
-    40% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(0);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(0);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
+  @keyframes spin {
     100% {
-      transform: translateX(0);
+      transform: rotateY(360deg);
     }
   }
 
-  #div2 {
-    grid-area: div2;
-    animation: div2 10s both infinite;
+  .pyramid-loader .wrapper .side {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transform-origin: center top;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   }
 
-  @keyframes div2 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(35px);
-    }
-
-    20% {
-      transform: translateX(0);
-    }
-
-    30% {
-      transform: translateX(0);
-    }
-
-    40% {
-      transform: translateX(35px);
-    }
-
-    50% {
-      transform: translateX(0);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(0);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
+  .pyramid-loader .wrapper .side1 {
+    transform: rotateZ(-30deg) rotateY(90deg);
+    background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
   }
 
-  #div3 {
-    grid-area: div3;
+  .pyramid-loader .wrapper .side2 {
+    transform: rotateZ(30deg) rotateY(90deg);
+    background: conic-gradient(#2f2585, #d8cce6, #f028fd, #2bdeac);
   }
 
-  #div4 {
-    grid-area: div4;
-    animation: div4 10s both infinite;
+  .pyramid-loader .wrapper .side3 {
+    transform: rotateX(30deg);
+    background: conic-gradient(#2f2585, #d8cce6, #f028fd, #2bdeac);
   }
 
-  @keyframes div4 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(70px);
-    }
-
-    20% {
-      transform: translateX(70px);
-    }
-
-    30% {
-      transform: translateX(70px);
-    }
-
-    40% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(0);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(70px);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
+  .pyramid-loader .wrapper .side4 {
+    transform: rotateX(-30deg);
+    background: conic-gradient(#2bdeac, #f028fd, #d8cce6, #2f2585);
   }
 
-  #div5 {
-    grid-area: div5;
-    display: none;
+  .pyramid-loader .wrapper .shadow {
+    width: 60px;
+    height: 60px;
+    background: #8b5ad5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    transform: rotateX(90deg) translateZ(-40px);
+    filter: blur(12px);
   }
-
-  #div6 {
-    grid-area: div6;
-    animation: div6 10s both infinite;
-  }
-
-  @keyframes div6 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(0);
-    }
-
-    20% {
-      transform: translateX(0);
-    }
-
-    30% {
-      transform: translateX(0);
-    }
-
-    40% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(-70px);
-    }
-
-    60% {
-      transform: translateX(-70px);
-    }
-
-    70% {
-      transform: translateX(0);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  #div7 {
-    grid-area: div7;
-    animation: div7 10s both infinite;
-  }
-
-  @keyframes div7 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(70px);
-    }
-
-    20% {
-      transform: translateX(0);
-    }
-
-    30% {
-      transform: translateX(0);
-    }
-
-    40% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(0);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(70px);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  #div8 {
-    grid-area: div8;
-    animation: div8 10s both infinite;
-  }
-
-  @keyframes div8 {
-    0% {
-      transform: translateX(35px);
-    }
-
-    10% {
-      transform: translateX(35px);
-    }
-
-    20% {
-      transform: translateX(0);
-    }
-
-    30% {
-      transform: translateX(0);
-    }
-
-    40% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(0);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(35px);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(35px);
-    }
-  }
-
-  #div9 {
-    grid-area: div9;
-  }
-
-  #div10 {
-    grid-area: div10;
-    animation: div10 10s both infinite;
-  }
-
-  @keyframes div10 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(70px);
-    }
-
-    20% {
-      transform: translateX(0);
-    }
-
-    30% {
-      transform: translateX(70px);
-    }
-
-    40% {
-      transform: translateX(70px);
-    }
-
-    50% {
-      transform: translateX(70px);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(70px);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(70px);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  #div11 {
-    grid-area: div11;
-    display: none;
-  }
-
-  #div12 {
-    grid-area: div12;
-    animation: div12 10s both infinite;
-  }
-
-  @keyframes div12 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(0);
-    }
-
-    20% {
-      transform: translateX(-70px);
-    }
-
-    30% {
-      transform: translateX(0);
-    }
-
-    40% {
-      transform: translateX(0);
-    }
-
-    50% {
-      transform: translateX(0);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(0);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  #div13 {
-    grid-area: div13;
-    animation: div13 10s both infinite;
-  }
-
-  @keyframes div13 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(70px);
-    }
-
-    20% {
-      transform: translateX(0);
-    }
-
-    30% {
-      transform: translateX(0);
-    }
-
-    40% {
-      transform: translateX(70px);
-    }
-
-    50% {
-      transform: translateX(0);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(70px);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  #div14 {
-    grid-area: div14;
-    animation: div14 10s both infinite;
-  }
-
-  @keyframes div14 {
-    0% {
-      transform: translateX(0);
-    }
-
-    10% {
-      transform: translateX(35px);
-    }
-
-    20% {
-      transform: translateX(0);
-    }
-
-    30% {
-      transform: translateX(0);
-    }
-
-    40% {
-      transform: translateX(35px);
-    }
-
-    50% {
-      transform: translateX(0);
-    }
-
-    60% {
-      transform: translateX(0);
-    }
-
-    70% {
-      transform: translateX(35px);
-    }
-
-    80% {
-      transform: translateX(0);
-    }
-
-    90% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  #div15 {
-    grid-area: div15;
-  }`;
+`;
 
 export default Loader;

@@ -3,7 +3,7 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import Drawer from "react-modern-drawer";
-import QRmodal from "./QRmodal";
+
 import "react-modern-drawer/dist/index.css";
 import logo from "../Assets/blitz_logo.png";
 import { auth } from "../../firebase"; // Assuming you have a firebase.js file where auth is initialized
@@ -20,6 +20,7 @@ import {
   FaTicketAlt,
   FaCubes,
   FaMusic,
+  FaQuestionCircle,
 
 } from "react-icons/fa";
 import { PiRankingDuotone } from "react-icons/pi";
@@ -64,7 +65,7 @@ const [isOpen, setIsOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     // Listen to auth state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -84,6 +85,9 @@ const [isOpen, setIsOpen] = useState(false);
       console.error("Error logging out: ", error);
     }
   };
+  const handlePaymentClick = ()=>{
+    navigate("/pay");
+  }
 
   const toggleDrawer = () => {
     setIsDrawerOpen((prev) => !prev);
@@ -254,11 +258,11 @@ const [isOpen, setIsOpen] = useState(false);
             
           </Link>
           <Link
-            onClick={() =>{toggleModal();toggleDrawer();}}
+            to="/pay"
             className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
           >
             <RiMoneyRupeeCircleFill className="mr-2" />
-            Paymnet
+            Payment
           </Link>
           {!user ? (
             <>
@@ -287,6 +291,14 @@ const [isOpen, setIsOpen] = useState(false);
           >
             <FaCalendarAlt className="mr-2" />
             Event
+          </Link>
+          <Link
+            to="/faq"
+            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
+            onClick={toggleDrawer}
+          >
+            <FaQuestionCircle className="mr-2" />
+            FAQ
           </Link>
         </div>
       </Drawer>
