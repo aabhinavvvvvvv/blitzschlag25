@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../css files/throphy.css'
 import { Link } from 'react-router-dom';
+import { FaArrowRight } from "react-icons/fa";
 const ChampionsTrophy = () => {
     const navigate = useNavigate();
 
@@ -42,7 +43,7 @@ const ChampionsTrophy = () => {
           </section>
           
           {/* About Blitz */}
-          <section className="relative py-8 mt-2 px-6 lg:px-20 grid lg:grid-cols-2   place-items-center">
+          <section className="relative py-6 mt-0 px-6 lg:px-20 grid lg:grid-cols-2 place-items-center">
             {/* Image */}
             <motion.div
               variants={slideInFromLeft}
@@ -52,7 +53,7 @@ const ChampionsTrophy = () => {
               className='bg-black w-fit rounded-lg'
             >
               <img
-                src={blitz}
+                src={blitz || "/placeholder.svg"}
                 alt="About Us"
                 className="rounded-lg opacity-80 shadow-lg h-[22rem] w-[22rem]"
               />
@@ -60,7 +61,7 @@ const ChampionsTrophy = () => {
             {/* Content */}
             
             <motion.div
-              className="bg-black rounded-xl -ml-32 h-[22rem]  bg-opacity-30 w-full p-5 text-center"
+              className="bg-black rounded-xl -ml-32 h-[22rem] bg-opacity-30 w-full p-5 text-center"
               variants={slideInFromRight}
               initial="hidden"
               whileInView="visible"
@@ -68,21 +69,26 @@ const ChampionsTrophy = () => {
             >
               <h2 className="text-4xl font-bold mb-8">About<br></br>Champions Trophy</h2>
               <p className="text-gray-300 mb-6">
-              Blitzschlag 2025, the much-awaited annual fest, is all set to take place from the 7th to the 9th of February 2025. This grand celebration of art, culture, and technology promises an unforgettable experience for everyone. With a perfect blend of electrifying performances, innovative competitions, and insightful workshops, Blitzschlag offers something for every enthusiast. It’s more than just an event; it’s a platform to showcase talent, ignite creativity, and connect with like-minded individuals. Get ready to immerse yourself in three days of excitement, inspiration, and endless memories.
+              Blitzschlag 2025, the much-awaited annual fest, is all set to take place from the 7th to the 9th of February 2025. This grand celebration of art, culture, and technology promises an unforgettable experience for everyone. With a perfect blend of electrifying performances, innovative competitions, and insightful workshops, Blitzschlag offers something for every enthusiast. It's more than just an event; it's a platform to showcase talent, ignite creativity, and connect with like-minded individuals. Get ready to immerse yourself in three days of excitement, inspiration, and endless memories.
               </p>
             </motion.div>
-            
           </section>
   
           {/* button */}
-          <section>
-            <div class="container my-0 w-[100%]">
-                <div class="btn"><Link to='/leaderboard'>Leader Board</Link></div>
+          {/* <section className="flex justify-center mt-8">
+            <div className="container flex justify-center">
+              <Link to='/leaderboard' className="btn inline-block">Leader Board</Link>
             </div>
-            </section>
+          </section> */}
+          <section className="flex justify-center -mt-4">
+        <div class="container flex justify-center ">
+            <div class="btn text-lg font-semibold" style={{ fontFamily: 'cursive' }} ><Link to='/leaderboard'>Leader Board<FaArrowRight className='ml-2'/></Link></div>
+        </div>
+        </section>
         </div>
       </div>
     );
 }
 
-export default ChampionsTrophy
+export default ChampionsTrophy;
+
