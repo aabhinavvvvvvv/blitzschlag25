@@ -340,44 +340,44 @@ const Events = () => {
       {!showEvents && (
         <div className="category-buttons mt-24 relative flex flex-col items-center">
           {/* Rotating Cards */}
-          <div className="box flex flex-wrap justify-center z-10">
+          <div className="box flex flex-wrap justify-center z-10 ">
             {Object.entries(categories).map(([key, value]) => (
               <div
                 className="category-btn "
                 key={key}
                 style={{ margin: "10px", transition: "transform 0.3s ease" }}
               >
-                <button
-                  onClick={() => handleTabChange(value)}
-                  style={{
-                    backgroundImage: `url(${getBackgroundImage(key)})`, // Dynamically set the image
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    width: "200px",
-                    height: "200px",
-                    borderRadius: "18px",
-                    padding: "20px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    transition:
-                      "transform 0.3s ease, background-color 0.3s ease",
-                    position: "relative", // For holographic effect
-                    boxShadow: "0 15px 25px rgba(0, 0, 0, 0.2)", // Shadow for hovering
-                  }}
-                  className="hover:scale-110 hover:bg-white hover:text-gray-900"
-                >
-                  <span
-                    style={{
-                      color: "white",
-                      fontSize: "1.5rem",
-                      fontWeight: "bold",
-                      textShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
-                    }}
-                  >
-                    {value}
-                  </span>
-                </button>
+<button
+  onClick={() => handleTabChange(value)}
+  style={{
+    backgroundImage: `url(${getBackgroundImage(key)})`, // Dynamically set the image
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    borderRadius: "18px",
+    padding: "20px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "transform 0.3s ease, background-color 0.3s ease",
+    position: "relative", // For holographic effect
+    boxShadow: "0 15px 25px rgba(0, 0, 0, 0.2)", // Shadow for hovering
+  }}
+  className="hover:scale-110 hover:bg-white hover:text-gray-900 w-48 h-48"
+>
+  <span
+    style={{
+      color: "white",
+      fontSize: "1.5rem",
+      fontWeight: "bold",
+      textShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
+    }}
+  >
+    {value}
+  </span>
+</button>
+
+
+
               </div>
             ))}
           </div>
