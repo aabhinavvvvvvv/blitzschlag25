@@ -34,6 +34,7 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
   const canvasRef = useRef(null);
+  const uid = sessionStorage.getItem('userId');
 
  // Run only once on initial load
 
@@ -171,8 +172,8 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<Login/>} />
-                <Route path="/pay" element={<PaymentPage amount={50.0} onVerifyPayment={handleVerifyPayment} />} />
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
+                <Route path="/pay" element={<PaymentPage />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
               </Routes>
             </AnimatePresence>

@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { auth } from '../../firebase'; // Import Firebase auth
+import { useNavigate } from 'react-router-dom';
 
 const TeamComponent = ({ event }) => {
   const [teamName, setTeamName] = useState('');
   const [loading, setLoading] = useState(false);
   const [uid, setUid] = useState(null); // Store the UID here
+  const navigate = useNavigate();
 
   // Fetch the current user's UID when the component mounts
   useEffect(() => {
@@ -70,7 +72,16 @@ const TeamComponent = ({ event }) => {
           },
         });
 
-        setTeamName(''); // Clear the team name after success
+        // Redirect to the payment page with the required props
+        navigate('/pay', {
+          state: {
+            amount: 2000, // Replace with the actual amount
+            userId: uid,
+            teamCode: data.code,
+          },
+        });
+
+        setTeamName('');
       }
     } catch (error) {
       console.error("Error creating team:", error);

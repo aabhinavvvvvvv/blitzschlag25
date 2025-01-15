@@ -1,12 +1,12 @@
 import React from 'react'
-import PageNA from '../Components/PageNA';
+import PageNA from '../Components/PageNA'
+import Transition from '../transition'
 const Pass = () => {
   return (
-    
-    <div>
-      <PageNA/>
-    </div>
+    <div><PageNA/></div>
   )
 }
 
-export default Pass
+export default Transition(Pass)
+
+

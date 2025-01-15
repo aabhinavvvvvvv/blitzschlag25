@@ -1,0 +1,207 @@
+/* Passes.css - Dreamscape Theme */
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Dreamscape aesthetic font */
+    background: linear-gradient(135deg, #1e1e2f, #2a2a4a);
+    color: #f5f5fa;
+}
+
+.passes-page {
+    padding: 20px;
+    margin-top: 100px; /* Adjust this value based on navbar height */
+}
+
+header.passes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #2a2a4a;
+    border-bottom: 1px solid #444;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Ensures the navbar stays fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; /* Keeps the navbar above other elements */
+}
+
+header.passes-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #d1d1e9;
+}
+
+.cart-icon {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #f5f5fa;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cart-icon:hover {
+    transform: scale(1.1);
+}
+
+.passes-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.passes-nav button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #3e3e57, #5e5e84);
+    color: #f5f5fa;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.passes-nav button:hover {
+    background: linear-gradient(135deg, #5e5e84, #7878a9);
+    transform: scale(1.05);
+}
+
+.passes-nav .active {
+    background: linear-gradient(135deg, #7878a9, #9b9bcc);
+}
+
+.passes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.pass-card {
+    background: linear-gradient(135deg, #2e2e49, #45457a);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.pass-card h3 {
+    font-size: 1.5rem;
+    color: #e5e5f5;
+    margin-bottom: 10px;
+}
+
+.pass-card p {
+    margin: 5px 0;
+    color: #c5c5de;
+}
+
+.pass-card .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.pass-card button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #5e5e84, #7878a9);
+    color: #f5f5fa;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.pass-card button:hover {
+    background: linear-gradient(135deg, #7878a9, #9b9bcc);
+    transform: scale(1.05);
+}
+
+.cart-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.cart-content {
+    background: linear-gradient(135deg, #2e2e49, #45457a);
+    border-radius: 10px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    color: #f5f5fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cart-content h2 {
+    margin: 0 0 20px 0;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #ffd700;
+}
+
+.cart-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-content ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+
+.cart-content ul li:last-child {
+    border-bottom: none;
+}
+
+.cart-content ul li button {
+    background: linear-gradient(135deg, #5e5e84, #7878a9);
+    border: none;
+    border-radius: 5px;
+    color: #f5f5fa;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cart-content ul li button:hover {
+    background: linear-gradient(135deg, #7878a9, #9b9bcc);
+}
+
+.close-cart {
+    display: block;
+    margin: 20px auto 0 auto;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #5e5e84, #7878a9);
+    border: none;
+    border-radius: 5px;
+    color: #f5f5fa;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.close-cart:hover {
+    background: linear-gradient(135deg, #7878a9, #9b9bcc);
+}
