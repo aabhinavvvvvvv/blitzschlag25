@@ -4,17 +4,19 @@ import bg from '../Assets/passbg.webp'
 
 const passes = [
   {
-    name: "Horizon Pass",
-    price: 300,
-    description: "Participate in any club events of one day",
+    name: "Cosmic Pass",
+    price: 2500,
+    description: "Full access to all events for all three days",
     features: [
-      "Access to all club events for one day",
-      "Choose your preferred day",
-      "No access to flagship events",
-      "No access to pronites",
+      "Participate in all events for three days",
+      "Access to all club events",
+      "Attend all three pronites",
+      "Participate in one flagship event",
+      "Accommodation for all three days",
     ],
-    daySelection: true,
+    daySelection: false,
   },
+  
   {
     name: "Galaxy Pass",
     price: 1200,
@@ -29,17 +31,16 @@ const passes = [
     flagshipSelection: true,
   },
   {
-    name: "Cosmic Pass",
-    price: 2500,
-    description: "Full access to all events for all three days",
+    name: "Horizon Pass",
+    price: 300,
+    description: "Participate in any club events of one day",
     features: [
-      "Participate in all events for three days",
-      "Access to all club events",
-      "Attend all three pronites",
-      "Participate in one flagship event",
-      "Accommodation for all three days",
+      "Access to all club events for one day",
+      "Choose your preferred day",
+      "No access to flagship events",
+      "No access to pronites",
     ],
-    daySelection: false,
+    daySelection: true,
   },
   {
     name: "Participation Pass",
@@ -97,9 +98,9 @@ const flagshipEvents = [
 ]
 
 const days = [
-  { value: "day1", label: "Day 1" },
-  { value: "day2", label: "Day 2" },
   { value: "day3", label: "Day 3" },
+  { value: "day2", label: "Day 2" },
+  { value: "day1", label: "Day 1" },
 ]
 
 function PassCard({ pass }) {
@@ -113,11 +114,11 @@ function PassCard({ pass }) {
   return (
     <div className="relative flex flex-col p-8 rounded-xl border border-gray-200 bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-xl transition-all duration-300 h-full">
       <div className="flex-grow">
-        <span className="text-indigo-600 font-medium">
+        <div className="text-indigo-600 text-xl text-center font-bold mx-auto">
           {pass.name}
-        </span>
+        </div>
         <div className="mt-4 text-gray-200 text-3xl font-semibold">
-          ₹{pass.price} <span className="text-xl text-gray-400 font-normal">/pass</span>
+          ₹{pass.price} <span className="text-xl text-gray-700 font-normal">/pass</span>
         </div>
         <p className="mt-4 text-gray-300">{pass.description}</p>
         
