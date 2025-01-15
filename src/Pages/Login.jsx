@@ -154,13 +154,25 @@ const Login = () => {
             <h2 className="text-3xl mb-8 font-bold text-center">
               Forgot Password
             </h2>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none"
-            />
+            <StyledWrapper>
+              <div className="form-control">
+                <input
+                  autoComplete="off"
+                  required
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none"
+                />
+                <label>
+                  <span style={{ transitionDelay: "0ms" }}>E</span>
+                  <span style={{ transitionDelay: "50ms" }}>m</span>
+                  <span style={{ transitionDelay: "100ms" }}>a</span>
+                  <span style={{ transitionDelay: "150ms" }}>i</span>
+                  <span style={{ transitionDelay: "200ms" }}>l</span>
+                </label>
+              </div>
+            </StyledWrapper>
             <button
               onClick={handleForgotPassword}
               className="w-full mt-6 bg-transparent border-2 border-white text-white p-3 rounded-lg "
@@ -235,7 +247,7 @@ const Login = () => {
                         viewBox="0 0 24 24"
                         stroke-width="1.5"
                         stroke="currentColor"
-                        class="size-6"
+                        className="size-6"
                       >
                         <path
                           strokeLinecap="round"
@@ -255,7 +267,7 @@ const Login = () => {
                         viewBox="0 0 24 24"
                         stroke-width="1.5"
                         stroke="currentColor"
-                        class="size-6"
+                        className="size-6"
                       >
                         <path
                           strokeLinecap="round"

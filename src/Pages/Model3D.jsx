@@ -29,6 +29,7 @@ export default function Model3D() {
     }
     return { position: [13, 6, 0], fov: 65 };
   };
+  
 
   return (
     <>

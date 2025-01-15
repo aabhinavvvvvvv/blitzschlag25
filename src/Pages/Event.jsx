@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import eventData from "../data/eventData"; 
@@ -8,7 +8,7 @@ import eventbg from "../Assets/eventbg.jpg";
 import Transition from "../transition";
 import { auth } from "../../firebase"; 
 import "../css files/events.css";
-import Drawer from 'react-modern-drawer'; // Import the Drawer component
+import Drawer from 'react-modern-drawer'; 
 import { CardBody, CardContainer, CardItem } from "../Components/3dcard";
 import styled from 'styled-components';
 import tamasha from "../Assets/category1.jpg";
@@ -152,52 +152,43 @@ const StyledWrapper = styled.div`
 `;
 
 const Events = () => {
-  const [uid, setUid] = useState(null); // State for storing the UID
-  const [activeTab, setActiveTab] = useState("flagship"); // Default active tab
-  const [drawerOpen, setDrawerOpen] = useState(false); // State to control the drawer visibility
+  const [uid, setUid] = useState(null); 
+  const [activeTab, setActiveTab] = useState("flagship"); 
+  const [drawerOpen, setDrawerOpen] = useState(false); 
   const [selectedEvent, setSelectedEvent] = useState(null); 
   const [teamCode, setTeamCode] = useState(""); 
   const [loading, setLoading] = useState(false); 
   const [showEvents, setShowEvents] = useState(false); 
-
-  // Fetch the current user's UID from Firebase on component mount
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        setUid(user.uid); // Set the UID if the user is logged in
+        setUid(user.uid); 
       } else {
-        setUid(null); // If no user is logged in, set UID to null
+        setUid(null);
       }
     });
-
-    // Cleanup on component unmount
     return () => unsubscribe();
   }, []);
 
-  // Filter events by the selected category
   const filteredEvents = Object.values(eventData).filter(event => event.type === activeTab);
   const navigate = useNavigate();
-  // Handle tab change
   const handleTabChange = (tab) => {
     if(tab == "flagship"||tab == "fun"||tab == "club"||tab == "attraction"){
       setActiveTab(tab);
-    setShowEvents(true); // Show events when a category is selected
-    }
+    setShowEvents(true); 
     
+    } 
   };
   const handleButtonClick = () => {
     console.log('Button clicked!');
-    // You can add any action you want to perform when the button is clicked here
-    // For example, toggling the drawer:
     setDrawerOpen(!drawerOpen);
   };
-
-  // Handle back to categories
   const handleBackToCategories = () => {
-    setShowEvents(false); // Hide events and show categories
+    setShowEvents(false); 
+    if (eventsRef.current) {
+      eventsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
-
-  // Handle Join Team action
   const handleJoinTeam = async () => {
     if (!uid) {
       toast.error("You must be logged in to join a team.");
@@ -208,7 +199,6 @@ const Events = () => {
       toast.error("Please enter a team code.");
       return;
     }
-
     setLoading(true);
     try {
       const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/jointeam`, {
@@ -217,8 +207,8 @@ const Events = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          uid,      // Pass the uid of the user
-          teamCode, // Pass the entered team code
+          uid,    
+          teamCode, 
         }),
       });
 
@@ -228,24 +218,19 @@ const Events = () => {
       }
 
       const data = await response.json();
-      toast.success(data.message); // Show success message from the backend
-      setTeamCode(""); // Clear the team code input after successful join
-
+      toast.success(data.message);
+      setTeamCode("");
     } catch (error) {
       console.error(error);
       toast.error(error.message || "Failed to join the team. Please try again.");
     } finally {
-      setLoading(false); // Reset the loading state
+      setLoading(false);
     }
   };
-
-  // Open the drawer with the selected event
   const openDrawer = (event) => {
     setSelectedEvent(event);
     setDrawerOpen(true);
   };
-
-  // Close the drawer
   const closeDrawer = () => {
     setDrawerOpen(false);
     setSelectedEvent(null);
@@ -262,8 +247,6 @@ const Events = () => {
       handleJoinTeam();
     }
   };
-
-
   const getBackgroundImage = (key) => {
     const images = {
       category1: tamasha,
@@ -271,7 +254,7 @@ const Events = () => {
       category3: panache,
       category4: rambha,
     };
-    return images[key] || ''; // Return the correct background image
+    return images[key] || '';
   };
 
   return (
@@ -346,8 +329,6 @@ const Events = () => {
     </button>
   </div>
 )}
-
-
 {/* Category Buttons */}
 {!showEvents && (
   <div className="category-buttons mt-24 relative flex flex-col items-center">
@@ -359,7 +340,6 @@ const Events = () => {
           key={key}
           style={{ margin: "10px", transition: "transform 0.3s ease" }}
         >
-        
           <button
             onClick={() => handleTabChange(value)}
             style={{
@@ -381,10 +361,10 @@ const Events = () => {
           >
             <span
               style={{
-                color: "white", // White text color
-                fontSize: "1.5rem", // Adjust the font size
+                color: "white",
+                fontSize: "1.5rem", 
                 fontWeight: "bold",
-                textShadow: "0 4px 6px rgba(0, 0, 0, 0.3)", // Subtle shadow for text
+                textShadow: "0 4px 6px rgba(0, 0, 0, 0.3)", 
               }}
             >
               {value}
@@ -395,97 +375,46 @@ const Events = () => {
     </div>
   </div>
 )}
-
-
-
 {/* Event Cards */}
 {showEvents && (
-  <div className="container mx-auto px-4">
-    <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">
-      {filteredEvents.length === 0 ? (
-        <p className="text-center text-white">No events available for this category.</p>
-      ) : (
-        filteredEvents.map((event, index) => (
-          <CardContainer className="inter-var">
-                <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto  scale-90 rounded-xl p-6 border  ">
-                  <CardItem
-                    translateZ="50"
-                    className="text-xl font-bold text-neutral-600 dark:text-white"
-                  >
-                    {event.name}
+  <div
+    className="event-container"
+    style={{
+      maxHeight: 'calc(100vh - 300px )', // Set max height of the events container
+      overflowY: 'auto', // Enable vertical scrolling
+    }}
+  >
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">
+        {filteredEvents.length === 0 ? (
+          <p className="text-center text-white">No events available for this category.</p>
+        ) : (
+          filteredEvents.map((event, index) => (
+            <CardContainer className="inter-var" key={index}>
+              <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border">
+                <CardItem translateZ="50" className="text-xl font-bold text-neutral-600 dark:text-white">
+                  {event.name}
+                </CardItem>
+                <CardItem as="p" translateZ="60" className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300">
+                  {event.description.slice(0,50)}...
+                </CardItem>
+                <CardItem translateZ="100" rotateX={20} rotateZ={-10} className="w-full mt-4">
+                  <img src={event.imgUrl} className="rounded-xl w-auto h-80 mx-auto group-hover/card:shadow-xl" alt="thumbnail" />
+                </CardItem>
+                <div className="flex justify-end items-center mt-4">
+                  <CardItem translateZ={20} translateX={40} as="button" onClick={() => openDrawer(event)} className="px-4 py-2 mx-auto rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold">
+                    View Details
                   </CardItem>
-                  <CardItem
-                    as="p"
-                    translateZ="60"
-                    className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
-                  >
-                    {event.description.slice(0,50)}...
-                  </CardItem>
-                  <CardItem
-                    translateZ="100"
-                    rotateX={20}
-                    rotateZ={-10}
-                    className="w-full mt-4"
-                  >
-                    <img
-                      src={event.imgUrl}
-
-                      className=" rounded-xl w-auto h-80 mx-auto group-hover/card:shadow-xl"
-                      alt="thumbnail"
-                    />
-                  </CardItem>
-                  <div className="flex justify-end items-center mt-4">
-                    <CardItem
-                      translateZ={20}
-                      translateX={40}
-                      as="button"
-                      onClick={() => openDrawer(event)}
-                      className="px-4 py-2 mx-auto rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                    >
-                      View Details
-                    </CardItem>
-                  </div>
-                </CardBody>
-              </CardContainer>
-          // <div
-          //   key={index}
-          //   className="relative group border border-gray-200 rounded-lg shadow-md overflow-hidden"
-          //   style={{
-          //     height: '300px',
-          //     width: '100%',
-          //     background: 'linear-gradient(135deg, #c31432, #240b36, #3b8d99)',
-          //   }}
-          // >
-          //   <div className="absolute inset-0 z-10 flex flex-col items-center justify-center p-4 opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-          //     <h3 className="text-lg sm:text-xl font-semibold mb-2 text-center text-white">
-          //       {event.name}
-          //     </h3>
-          //     <p className="text-xs sm:text-sm text-gray-100 text-center">
-          //       {event.description.slice(0, 100)}...
-          //     </p>
-          //   </div>
-
-          //   <div className="absolute inset-0 z-20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          //     <img
-          //       src={event.imgUrl}
-          //       alt={event.name}
-          //       className="w-full h-full object-cover"
-          //     />
-          //     <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          //       <button
-          //         onClick={() => openDrawer(event)}
-          //         className="bg-white text-gray-900 px-4 sm:px-6 py-2 rounded-lg font-semibold transform hover:scale-105"
-          //       >
-          //         View Details
-          //       </button>
-          //     </div>
-          //   </div>
-          // </div>
-        ))
-      )}
+                </div>
+              </CardBody>
+            </CardContainer>
+          ))
+        )}
+      </div>
     </div>
   </div>
 )}
+
 
 
 {/* Drawer for Event Details */}
@@ -524,7 +453,6 @@ const Events = () => {
         </div>
         
       </div>
-
       {/* Second Div */}
       <div className="md:col-span-1">
         <p className="text-sm sm:text-base text-center md:text-left">
@@ -543,11 +471,6 @@ const Events = () => {
             <TeamComponent event={selectedEvent} uid={uid}/>
           )}
         </div>
-        {/* Download Button inside the Drawer */}
-        
-        {/* <Button onClick={() => window.location.href = `${selectedEvent.rulebook}`}>
-Hii
-        </Button> */}
       </div>
     </div>
   </Drawer>
