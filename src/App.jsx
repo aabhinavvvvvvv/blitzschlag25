@@ -25,6 +25,7 @@ import SplashScreen from './Pages/SplashScreen';
 import LeaderBoard from './Pages/LeaderBoard';
 import UpdateLeaderboard from './Pages/UpdateLeaderboard';
 import ResetLeaderboard from './Pages/ResetLeaderboard';
+import ChampionsTrophy from './Pages/ChampionsTrophy';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
@@ -151,6 +152,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/champions_throphy" element={<ChampionsTrophy />} />
                 <Route path="/leaderboard" element={<LeaderBoard />} />
                 <Route path="/event" element={<Event />} />
                 <Route path="/sponsor" element={<Sponsor />} />
