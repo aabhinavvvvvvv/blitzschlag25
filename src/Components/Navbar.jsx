@@ -249,12 +249,12 @@ const [isOpen, setIsOpen] = useState(false);
             Pass
           </Link>
           <Link
-            to="/leaderboard"
+            to="/champions_throphy"
             className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
             onClick={toggleDrawer}
           >
             <PiRankingDuotone className="mr-2" />
-            <p className="text-base">LeaderBoard</p>
+            <p className="text-base">Champions Throphy</p>
             
           </Link>
           <Link
