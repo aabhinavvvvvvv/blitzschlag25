@@ -1,5 +1,5 @@
 import Transition from "../transition";
-import profileImg from "../../public/profile.webp";
+import profileImg from "../../public/profile.webp"
 import React, { useState, useEffect } from "react";
 import { getAuth, signOut, sendEmailVerification, onAuthStateChanged } from "firebase/auth";
 import { app } from "../../firebase"; // Your Firebase initialization file
@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import profilebg from '../Assets/profilebg.jpg';
 import eventData from "../data/eventData";
 import { Tooltip } from "react-tooltip";
-
 const Profile = () => {
   const [copiedCode, setCopiedCode] = useState(null);
   const [user, setUser] = useState(null);
@@ -22,10 +21,10 @@ const Profile = () => {
   });
 
   const handleCopyCode = (teamCode) => {
-    navigator.clipboard.writeText(teamCode)
+    navigator.clipboard.writeText(teamCode) // Copy to clipboard
       .then(() => {
-        setCopiedCode(teamCode);
-        setTimeout(() => setCopiedCode(null), 2000);
+        setCopiedCode(teamCode); // Update the copied code state
+        setTimeout(() => setCopiedCode(null), 2000); // Reset after 2 seconds
       })
       .catch((error) => {
         console.error("Failed to copy text: ", error);
@@ -68,10 +67,14 @@ const Profile = () => {
     }
   };
 
+
   const setApiData = (data) => {
     const { userData, teamsDetails } = data;
+    // console.log(teamsDetails);
     const { joinedEvents } = userData;
     setName(userData.userName);
+    const events = [];
+
     const groupedEvents = {
       day1: [],
       day2: [],
@@ -79,6 +82,7 @@ const Profile = () => {
     };
 
     joinedEvents.forEach((eventPath) => {
+      console.log(eventPath);
       const event = eventData[eventPath];
       if (event) {
         const eventDetails = {
@@ -97,13 +101,12 @@ const Profile = () => {
             eventDetails.teamCode = team.teamCode;
           }
         }
-
+        // console.log(event);
         if (event.day === 1) groupedEvents.day1.push(eventDetails);
         if (event.day === 2) groupedEvents.day2.push(eventDetails);
         if (event.day === 3) groupedEvents.day3.push(eventDetails);
       }
     });
-
     setTimelineEvents(groupedEvents);
     setEventsLoading(false);
   };
@@ -138,49 +141,30 @@ const Profile = () => {
     <div
       style={{
         backgroundImage: `url(${profilebg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        height: '100vh',
-        flexDirection: "row",
-        justifyContent: "space-around",
-        alignItems:'center'
+        backgroundSize: 'cover', /* Ensures the image fills the container */
+        backgroundRepeat: 'no-repeat', /* Prevents repeating */
+        backgroundPosition: 'center', /* Centers the image */
+        width: '100%', /* Ensures the container spans the full width */
+        height: '100vh', /* Ensures the container spans the full viewport height */
       }}
+
+
       className="grid grid-cols-1 sm:grid-cols-3 gap-4 h-screen p-5 pt-24"
     >
-      <div
-        className="z-0"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.45)', 
-          zIndex: 0,
-        }}
-      ></div>
-
-      {/* Left Column: Profile */}
+      {/* Left Column: Profile and Info */}
       <div className="flex flex-col justify-between bg-transparent bg-opacity-80 px-8 py-8 rounded-2xl z-10">
-        <p
-          style={{ fontFamily: '"Amarante", serif' }}
-          className="text-center text-7xl mb-8 font-normal bg-gradient-to-r from-[#071182] via-[#989898] to-[#50FFF0] bg-clip-text text-transparent"
-        >
-          PROFILE
-        </p>
-
         <div className="flex justify-center">
           {profileImg ? (
             <img
               src={profileImg}
               alt="Profile"
               draggable="false"
-              style={{ borderColor: 'rgba(130, 96, 89, 0.75)' }}
-              className="w-48 h-48 border-8 object-cover bg-black bg-opacity-75 rounded-full"
+              style={{ borderColor: 'rgba(0, 0, 0, 0.75)' }}
+              className="w-48 h-48 border-8 rounded-full object-cover bg-black bg-opacity-75"
             />
           ) : (
-            <div className="w-28 h-28 sm:w-24 sm:h-24 bg-gray-300 flex items-center justify-center rounded-full">
-              <span className="w-36 h-36 sm:w-32 sm:h-32 border-8 border-black object-cover bg-white rounded-full">No Photo</span>
+            <div className="w-28 h-28 sm:w-24 sm:h-24 bg-gray-300 flex items-center justify-center">
+              <span className="w-36 h-36 sm:w-32 sm:h-32 border-8 border-black object-cover border-24 bg-white">No Photo</span>
             </div>
           )}
         </div>
@@ -219,22 +203,18 @@ const Profile = () => {
         </button>
       </div>
 
-      {/* Middle Column: Events */}
-      <div className="sm:col-span-2 z-10 flex flex-col justify-center items-center p-4">
-        <p
-          style={{ fontFamily: '"Amarante", serif' }}
-          className="text-center text-7xl mb-8 -mt-12 font-normal bg-gradient-to-r from-[#07118280] via-[#00ffc3fb] to-[#ff5050f0] bg-clip-text text-transparent"
-        >
+      {/* Right Column: Events */}
+      <div className="sm:col-span-2 bg-blue-100 bg-opacity-10 z-10 flex flex-col justify-center items-center p-4">
+        <p className="text-center text-7xl mb-8 font-normal bg-gradient-to-r from-[#07118280] via-[#00ffc3fb] to-[#ff5050f0] bg-clip-text text-transparent">
           EVENTS
         </p>
-
         {eventsLoading ? (
           <p>Loading events...</p>
         ) : (
           <div
             style={{
               overflowY: "auto",
-              maxHeight: "calc(100vh - 320px)",
+              maxHeight: "calc(100vh - 320px)", // Adjust based on available space for profile
             }}
             className="w-full space-y-6"
           >
@@ -253,42 +233,52 @@ const Profile = () => {
                   <div key={idx} className="mt-4 border-b border-gray-700 pb-4 last:border-none">
                     <h4 className="text-lg font-semibold mb-2">{event.eventName}</h4>
                     <div className="flex items-center mb-2">
+                      {/* Location Pin Icon */}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                        className="w-5 h-5 text-white mr-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 20l9-5-9-5-9 5 9 5z"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 4v16"
+                          fillRule="evenodd"
+                          d="M10 18s8-6 8-10a8 8 0 10-16 0c0 4 8 10 8 10z"
+                          clipRule="evenodd"
                         />
                       </svg>
-                      <span>{event.venue}</span>
+                      <p>{event.venue}</p>
                     </div>
-                    <p>{event.time}</p>
-                    {event.type === 'team' && (
-                      <div className="mt-2">
-                        <strong>Team: {event.teamName}</strong>
-                        <div className="mt-1">
-                          {event.teamMembers.join(", ")}
-                        </div>
+                    <div className="flex items-center mb-2">
+                      {/* Clock Icon */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5 text-white mr-2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 2a10 10 0 110-20 10 10 0 010 20zm.5-10V5a.5.5 0 00-1 0v5a.5.5 0 00.5.5h5a.5.5 0 000-1h-4.5z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <p>{event.time}</p>
+                    </div>
+                    {console.log(event)}
+                    {event.type === "team" && (
+                      <>
+                        <p className="mt-2">{`Team Name: ${event.teamName}`}</p>
                         <button
+                          data-tooltip-id={`team-code-tooltip-${event.teamCode}`}
+                          data-tooltip-content={copiedCode === event.teamCode ? "Copied!" : "Copy"}
                           onClick={() => handleCopyCode(event.teamCode)}
-                          className="mt-2 bg-gray-700 text-white p-2 rounded-md"
+                          className="w-full bg-transparent border-2 border-white text-white p-3 rounded-lg mt-2"
                         >
-                          {copiedCode === event.teamCode ? "Copied!" : `Team Code: ${event.teamCode}`}
+                          Team Code: {event.teamCode}
                         </button>
-                      </div>
+                        <Tooltip id={`team-code-tooltip-${event.teamCode}`} place="top" type="dark" effect="solid" />
+                        <p className="mt-2">{`Members: ${event.teamMembers.join(", ")}`}</p>
+                      </>
                     )}
                   </div>
                 ))}
@@ -297,9 +287,9 @@ const Profile = () => {
           </div>
         )}
       </div>
-    
     </div>
+
   );
 };
 
-export default Profile;
+export default Transition(Profile);
