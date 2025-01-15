@@ -220,7 +220,7 @@ const Profile = () => {
       </div>
 
       {/* Middle Column: Events */}
-      <div className="sm:col-span-4 z-10 flex flex-col justify-center items-center p-4 w-96">
+      <div className="sm:col-span-2 z-10 flex flex-col justify-center items-center p-4">
         <p
           style={{ fontFamily: '"Amarante", serif' }}
           className="text-center text-7xl mb-8 -mt-12 font-normal bg-gradient-to-r from-[#07118280] via-[#00ffc3fb] to-[#ff5050f0] bg-clip-text text-transparent"
@@ -297,84 +297,7 @@ const Profile = () => {
           </div>
         )}
       </div>
-      {/* Middle Column: Events */}
-      <div className="sm:col-span-2 z-10 flex flex-col justify-center items-center p-4 w-96">
-        <p
-          style={{ fontFamily: '"Amarante", serif' }}
-          className="text-center text-7xl mb-8 -mt-12 font-normal bg-gradient-to-r from-[#07118280] via-[#00ffc3fb] to-[#ff5050f0] bg-clip-text text-transparent"
-        >
-          EVENTS
-        </p>
-
-        {eventsLoading ? (
-          <p>Loading events...</p>
-        ) : (
-          <div
-            style={{
-              overflowY: "auto",
-              maxHeight: "calc(100vh - 320px)",
-            }}
-            className="w-full space-y-6"
-          >
-            {Object.keys(timelineEvents).map((day, index) => (
-              <div
-                key={index}
-                className="bg-black bg-opacity-50 rounded-xl border-white border-2 text-white p-6 w-full"
-              >
-                <h3
-                  style={{ fontFamily: '"Amarante", serif' }}
-                  className="font-bold text-xl text-center mb-4"
-                >
-                  {`DAY ${index + 1}`}
-                </h3>
-                {timelineEvents[day].map((event, idx) => (
-                  <div key={idx} className="mt-4 border-b border-gray-700 pb-4 last:border-none">
-                    <h4 className="text-lg font-semibold mb-2">{event.eventName}</h4>
-                    <div className="flex items-center mb-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 20l9-5-9-5-9 5 9 5z"
-                        />
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 4v16"
-                        />
-                      </svg>
-                      <span>{event.venue}</span>
-                    </div>
-                    <p>{event.time}</p>
-                    {event.type === 'team' && (
-                      <div className="mt-2">
-                        <strong>Team: {event.teamName}</strong>
-                        <div className="mt-1">
-                          {event.teamMembers.join(", ")}
-                        </div>
-                        <button
-                          onClick={() => handleCopyCode(event.teamCode)}
-                          className="mt-2 bg-gray-700 text-white p-2 rounded-md"
-                        >
-                          {copiedCode === event.teamCode ? "Copied!" : `Team Code: ${event.teamCode}`}
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+    
     </div>
   );
 };
