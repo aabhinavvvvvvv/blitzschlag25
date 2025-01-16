@@ -57,7 +57,7 @@ const passes = [
   },
   {
     name: "Day 1 Pass",
-    price: 500,
+    price: 700,
     description: "Access to stall areas and pronite of Day 1",
     features: [
       "Access to stall areas on Day 1",
@@ -68,7 +68,7 @@ const passes = [
   },
   {
     name: "Day 2 Pass",
-    price: 500,
+    price: 700,
     description: "Access to stall areas and pronite of Day 2",
     features: [
       "Access to stall areas on Day 2",
@@ -79,7 +79,7 @@ const passes = [
   },
   {
     name: "Day 3 Pass",
-    price: 800,
+    price: 1000,
     description: "Access to stall areas and pronite of Day 3",
     features: [
       "Access to stall areas on Day 3",
