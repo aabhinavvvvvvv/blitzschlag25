@@ -205,7 +205,7 @@ const Profile = () => {
 
       {/* Right Column: Events */}
       <div className="sm:col-span-2 bg-blue-100 bg-opacity-10 z-10 flex flex-col justify-center items-center p-4">
-        <p className="text-center text-7xl mb-8 font-normal bg-gradient-to-r from-[#07118280] via-[#00ffc3fb] to-[#ff5050f0] bg-clip-text text-transparent">
+        <p className="text-center text-7xl mb-8 font-normal bg-gradient-to-r from-[#07118280] via-[#00ffc3fb] to-[#ff5050f0] bg-clip-text text-transparent" style={{ fontFamily: '"Amarante", serif'}}>
           EVENTS
         </p>
         {eventsLoading ? (
