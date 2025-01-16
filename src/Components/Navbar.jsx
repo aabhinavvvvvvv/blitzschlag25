@@ -165,143 +165,164 @@ const [isOpen, setIsOpen] = useState(false);
 
       {/* Drawer for Mobile Navigation */}
       <Drawer
-        open={isDrawerOpen}
-        onClose={toggleDrawer}
-        direction="right"
-        style={{
-          backgroundColor: "transparent", // Custom background color
-        }}
-        size={250}
+  open={isDrawerOpen}
+  onClose={toggleDrawer}
+  direction="right"
+  style={{
+    backgroundColor: "transparent", // Custom background color
+  }}
+  size={250}
+>
+  <div className="flex flex-col items-left p-10 bg-black bg-opacity-100 h-full overflow-y-scroll">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500&display=swap');
+    </style>
+    <div className="text-gold text-lg font-cinzel">
+      <Link
+        to="/"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
       >
-        <div className="flex flex-col items-left p-10 bg-black bg-opacity-100 h-full overflow-y-scroll">
+        <FaHome className="mr-3" />
+        Home
+      </Link>
+      <Link
+        to="/about"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <FaInfoCircle className="mr-3" />
+        About
+      </Link>
+      <Link
+        to="/sponsor"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <FaHandHoldingHeart className="mr-3" />
+        Sponsor
+      </Link>
+      <Link
+        to="/our_team"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <FaUsers className="mr-3" />
+        Our Team
+      </Link>
+      <Link
+        to="/schedule"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <FaCalendarAlt className="mr-3" />
+        Schedule
+      </Link>
+      {user && (
+        <Link
+          to="/profile"
+          style={{fontFamily: "'Metal Mania', cursive",}}
+          className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+          onClick={toggleDrawer}
+        >
+          <FaUser className="mr-3" />
+          Profile
+        </Link>
+      )}
+      <Link
+        to="/campus_embassador"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <FaUsers className="mr-3" />
+        <span>Ambassador</span>
+      </Link>
+      <Link
+        to="/pronites"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <FaMusic className="mr-3" />
+        ProNites
+      </Link>
+      <Link
+        to="/pass"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <FaTicketAlt className="mr-3" />
+        Pass
+      </Link>
+      <Link
+        to="/champions_throphy"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <PiRankingDuotone className="mr-3" />
+        Champions Trophy
+      </Link>
+      <Link
+        to="/pay"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+      >
+        <RiMoneyRupeeCircleFill className="mr-3" />
+        Payment
+      </Link>
+      {!user ? (
+        <>
           <Link
-            to="/"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
+            to="/signup"
+            style={{fontFamily: "'Metal Mania', cursive",}}
+            className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
             onClick={toggleDrawer}
           >
-            <FaHome className="mr-2" />
-            Home
+            <FaSignOutAlt className="mr-3" />
+            Sign Up
           </Link>
           <Link
-            to="/about"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
+            to="/login"
+            style={{fontFamily: "'Metal Mania', cursive",}}
+            className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
             onClick={toggleDrawer}
           >
-            <FaInfoCircle className="mr-2" />
-            About
+            <FaSignInAlt className="mr-3" />
+            Login
           </Link>
-          <Link
-            to="/sponsor"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaHandHoldingHeart className="mr-2" />
-            Sponsor
-          </Link>
-          <Link
-            to="/our_team"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaUsers className="mr-2" />
-            Our Team
-          </Link>
-          <Link
-            to="/schedule"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaCalendarAlt className="mr-2" />
-            Schedule
-          </Link>
-          {user && (
-            <Link
-              to="/profile"
-              className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-              onClick={toggleDrawer}
-            >
-              <FaUser className="mr-2" />
-              Profile
-            </Link>
-          )}
-          <Link
-            to="/campus_embassador"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaUsers className="mr-2"  />
-            <p className="text-base">Ambassador</p>
-          </Link>
-          <Link
-            to="/pronites"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaMusic className="mr-2" />
-            ProNites
-          </Link>
-          <Link
-            to="/pass"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaTicketAlt className="mr-2" />
-            Pass
-          </Link>
-          <Link
-            to="/champions_throphy"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <PiRankingDuotone className="mr-2" />
-            <p className="text-base">Champions Throphy</p>
-            
-          </Link>
-          <Link
-            to="/pay"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-          >
-            <RiMoneyRupeeCircleFill className="mr-2" />
-            Payment
-          </Link>
-          {!user ? (
-            <>
-              <Link
-                to="/signup"
-                className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-                onClick={toggleDrawer}
-              >
-                <FaSignOutAlt className="mr-2" />
-                Sign Up
-              </Link>
-              <Link
-                to="/login"
-                className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-                onClick={toggleDrawer}
-              >
-                <FaSignInAlt className="mr-2" />
-                Login
-              </Link>
-            </>
-          ) : null}
-          <Link
-            to="/event"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaCalendarAlt className="mr-2" />
-            Event
-          </Link>
-          <Link
-            to="/faq"
-            className="flex items-center px-4 py-2 mb-4 text-xl hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaQuestionCircle className="mr-2" />
-            FAQ
-          </Link>
-        </div>
-      </Drawer>
+        </>
+      ) : null}
+      <Link
+        to="/event"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        onClick={toggleDrawer}
+      >
+        <FaCalendarAlt className="mr-3" />
+        Event
+      </Link>
+      <Link
+      
+        to="/faq"
+        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+        style={{fontFamily: "'Metal Mania', cursive",}}
+        onClick={toggleDrawer}
+      >
+        <FaQuestionCircle className="mr-3" />
+        FAQ
+      </Link>
+    </div>
+  </div>
+</Drawer>
+
 
       {/* Logout Modal */}
       {showLogoutModal && (

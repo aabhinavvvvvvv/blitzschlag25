@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import bg from "../Assets/payment_bg.jpg";
 import axios from "axios";
-import post from "../Assets/poster.png";
+import post from "../Assets/qrcode.jpg";
 
 const PaymentPage = () => {
   // Retrieve state passed via navigation
@@ -10,6 +10,7 @@ const PaymentPage = () => {
   const { teamCode = "", passDetails = [], amount = 0, userId = "" } = location.state || {};
 
   const [transactionId, setTransactionId] = useState("");
+  const [inputAmount, setInputAmount] = useState(amount);
   const [verificationStatus, setVerificationStatus] = useState(null);
   const [isRequesting, setIsRequesting] = useState(false);
 
@@ -17,19 +18,26 @@ const PaymentPage = () => {
     setTransactionId(e.target.value);
   };
 
+  const handleAmountChange = (e) => {
+    const value = e.target.value;
+    if (/^\d*\.?\d*$/.test(value)) { // Allow only valid number formats
+      setInputAmount(value);
+    }
+  };
+
   const handleRequestPayment = async () => {
     if (!transactionId.trim()) {
       setVerificationStatus("Please enter a valid transaction ID.");
       return;
     }
-
+   
     setIsRequesting(true);
     setVerificationStatus(null);
     try {
       const type = teamCode ? "registration" : "pass";
       const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/payment/request`, {
         userId,
-        amount,
+        amount: inputAmount,
         transactionId,
         type,
         passDetails,
@@ -59,43 +67,72 @@ const PaymentPage = () => {
         height: "100vh",
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",
+        paddingTop: "50px", // Top margin added for spacing
       }}
     >
       <div
         style={{
-          padding: "20px",
-          maxWidth: "500px",
+          padding: "15px",
+          maxWidth: "400px", // Reduced width
           margin: "auto",
+          marginTop:"30px",
           textAlign: "center",
-          border: "1px solid #ddd",
+          border: "1px solid rgba(255, 255, 255, 0.2)", // Subtle border
           borderRadius: "10px",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          backgroundColor: "#fff",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)", // Enhanced shadow
+          backgroundColor: "rgba(0, 0, 0, 0.8)", // Black background with transparency
+          color: "#fff", // White text
         }}
       >
-        <h2 style={{ color: "#343a40", marginBottom: "10px" }}>Complete Your Payment</h2>
-        <p style={{ fontSize: "16px", color: "#6c757d" }}>
-          Amount to Pay: <strong>{amount.toFixed(2)} Rupees</strong>
-        </p>
+        <h2 style={{ marginBottom: "10px" }}>Complete Your Payment</h2>
+        <div style={{ marginBottom: "20px" }}>
+          <label
+            htmlFor="amount"
+            style={{
+              display: "block",
+              marginBottom: "8px",
+              fontSize: "14px",
+            }}
+          >
+            Amount to Pay:
+          </label>
+          <input
+            type="number"
+            id="amount"
+            value={inputAmount}
+            onChange={handleAmountChange}
+            style={{
+              padding: "8px",
+              width: "100%",
+              boxSizing: "border-box",
+              borderRadius: "5px",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              color: "#fff",
+              fontSize: "14px",
+            }}
+            placeholder="Enter amount to pay"
+          />
+        </div>
         <div style={{ margin: "20px 0", display: "flex", justifyContent: "center" }}>
           <img
             src={post}
             alt="QR Code for Payment"
             style={{
-              border: "1px solid #ccc",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
               padding: "10px",
               borderRadius: "8px",
+              maxWidth: "100%",
             }}
           />
         </div>
-        <div style={{ margin: "20px 0" }}>
+        <div style={{ margin: "15px 0" }}>
           <label
             htmlFor="transactionId"
             style={{
               display: "block",
-              marginBottom: "10px",
+              marginBottom: "8px",
               fontSize: "14px",
-              color: "#495057",
             }}
           >
             Enter Transaction ID:
@@ -106,13 +143,14 @@ const PaymentPage = () => {
             value={transactionId}
             onChange={handleTransactionIdChange}
             style={{
-              padding: "10px",
+              padding: "8px",
               width: "100%",
               boxSizing: "border-box",
               borderRadius: "5px",
-              border: "1px solid #ced4da",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+              backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark transparent input background
+              color: "#fff",
               fontSize: "14px",
-              color: "#495057",
             }}
             placeholder="Enter transaction ID here"
           />
@@ -121,7 +159,7 @@ const PaymentPage = () => {
           onClick={handleRequestPayment}
           style={{
             padding: "10px 20px",
-            backgroundColor: isRequesting ? "#6c757d" : "#007bff",
+            backgroundColor: isRequesting ? "#555" : "#007bff",
             color: "white",
             border: "none",
             borderRadius: "5px",
@@ -130,7 +168,7 @@ const PaymentPage = () => {
           }}
           disabled={isRequesting}
         >
-          {isRequesting ? "Requesting..." : "Request Payment"}
+          {isRequesting ? "Requesting..." : "Request Payment Verification"}
         </button>
         {verificationStatus && (
           <div
@@ -139,14 +177,12 @@ const PaymentPage = () => {
               padding: "10px",
               borderRadius: "5px",
               backgroundColor: verificationStatus.includes("reviewed")
-                ? "#d4edda"
-                : "#f8d7da",
-              color: verificationStatus.includes("reviewed")
-                ? "#155724"
-                : "#721c24",
+                ? "rgba(40, 167, 69, 0.2)"
+                : "rgba(220, 53, 69, 0.2)",
+              color: verificationStatus.includes("reviewed") ? "#28a745" : "#dc3545",
               border: verificationStatus.includes("reviewed")
-                ? "1px solid #c3e6cb"
-                : "1px solid #f5c6cb",
+                ? "1px solid rgba(40, 167, 69, 0.5)"
+                : "1px solid rgba(220, 53, 69, 0.5)",
             }}
           >
             {verificationStatus}
