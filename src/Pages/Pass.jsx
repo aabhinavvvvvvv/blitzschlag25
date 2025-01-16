@@ -90,12 +90,18 @@ const passes = [
   },
 ]
 
-const flagshipEvents = [
-  { value: "panache", label: "Panache" },
-  { value: "battleofbands", label: "Battle of Bands" },
-  { value: "tamasha", label: "Tamasha" },
-  { value: "rambasamba", label: "Ramba Samba" },
-]
+const flagshipEventsByDay = {
+  day1: [
+    { value: "panache", label: "Panache" },
+    { value: "tamasha", label: "Tamasha" },
+  ],
+  day2: [
+    { value: "rambasamba", label: "Ramba Samba" },
+  ],
+  day3: [
+    { value: "battleofbands", label: "Battle of Bands" },
+  ],
+}
 
 const days = [
   { value: "day3", label: "Day 3" },
@@ -105,12 +111,13 @@ const days = [
 
 function PassCard({ pass }) {
   const [selectedDay, setSelectedDay] = useState(days[0].value)
-  const [selectedFlagship, setSelectedFlagship] = useState(flagshipEvents[0].value)
+  const [selectedFlagship, setSelectedFlagship] = useState("")
   const [quantity, setQuantity] = useState(0)
 
   const incrementQuantity = () => setQuantity(q => q + 1)
   const decrementQuantity = () => setQuantity(q => Math.max(0, q - 1))
-
+  const availableFlagshipEvents =
+    flagshipEventsByDay[selectedDay] || []
   return (
     <div className="relative flex flex-col p-8 rounded-xl border border-gray-200 bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-xl transition-all duration-300 h-full">
       <div className="flex-grow">
@@ -166,7 +173,7 @@ function PassCard({ pass }) {
               onChange={(e) => setSelectedFlagship(e.target.value)}
               className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white bg-opacity-20  text-gray-200"
             >
-              {flagshipEvents.map((event) => (
+              {availableFlagshipEvents.map((event) => (
                 <option key={event.value} className='text-gray-500' value={event.value}>
                   {event.label}
                 </option>
