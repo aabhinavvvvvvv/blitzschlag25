@@ -74,8 +74,7 @@ const TeamComponent = ({ event }) => {
 
         // Redirect to the payment page with the required props
         navigate('/pay', {
-          state: {
-            amount: 2000, // Replace with the actual amount
+          state: { // Replace with the actual amount
             userId: uid,
             teamCode: data.code,
           },

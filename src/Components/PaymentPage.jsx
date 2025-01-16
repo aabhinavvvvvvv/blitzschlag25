@@ -1,18 +1,44 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {Link, useLocation } from "react-router-dom";
 import bg from "../Assets/payment_bg.jpg";
 import axios from "axios";
+import { auth } from "../../firebase";
 import post from "../Assets/qrcode.jpg";
 
 const PaymentPage = () => {
-  // Retrieve state passed via navigation
   const location = useLocation();
-  const { teamCode = "", passDetails = [], amount = 0, userId = "" } = location.state || {};
-
+  
+  // Retrieve state from location or fallback to session storage
+  const [uid, setUid] = useState(null);
   const [transactionId, setTransactionId] = useState("");
-  const [inputAmount, setInputAmount] = useState(amount);
+  const [inputAmount, setInputAmount] = useState(0);
   const [verificationStatus, setVerificationStatus] = useState(null);
   const [isRequesting, setIsRequesting] = useState(false);
+
+  const [teamCode, setTeamCode] = useState("");
+  const [passDetails, setPassDetails] = useState([]);
+  const [amount, setAmount] = useState(0);
+
+  useEffect(() => {
+    // Try to fetch values from location or sessionStorage
+    const savedState = JSON.parse(sessionStorage.getItem("paymentPageState")) || {};
+    const state = location.state || savedState;
+
+    setTeamCode(state.teamCode || "");
+    setPassDetails(state.passDetails || []);
+    setAmount(state.amount || 0);
+    setInputAmount(state.amount || 0);
+
+    // Save state to sessionStorage for page reloads
+    if (location.state) {
+      sessionStorage.setItem("paymentPageState", JSON.stringify(location.state));
+    }
+
+    const user = auth.currentUser;
+    if (user) {
+      setUid(user.uid); // Set UID if user is logged in
+    }
+  }, [location.state]);
 
   const handleTransactionIdChange = (e) => {
     setTransactionId(e.target.value);
@@ -20,7 +46,7 @@ const PaymentPage = () => {
 
   const handleAmountChange = (e) => {
     const value = e.target.value;
-    if (/^\d*\.?\d*$/.test(value)) { // Allow only valid number formats
+    if (/^\d*\.?\d*$/.test(value)) {
       setInputAmount(value);
     }
   };
@@ -30,13 +56,12 @@ const PaymentPage = () => {
       setVerificationStatus("Please enter a valid transaction ID.");
       return;
     }
-   
     setIsRequesting(true);
     setVerificationStatus(null);
     try {
       const type = teamCode ? "registration" : "pass";
       const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/payment/request`, {
-        userId,
+        userId: uid,
         amount: inputAmount,
         transactionId,
         type,
@@ -45,6 +70,7 @@ const PaymentPage = () => {
       });
 
       if (response.status === 201) {
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdPFuP4fPpwAmBlaJuOQDvPCvfyBwfpGkMbSL-FtS0_tjgprg/viewform");
         setVerificationStatus("Your request has been posted and will be reviewed soon.");
       } else {
         setVerificationStatus(response.data.message || "Failed to submit payment request.");
@@ -67,21 +93,21 @@ const PaymentPage = () => {
         height: "100vh",
         backgroundImage: `url(${bg})`,
         backgroundSize: "cover",
-        paddingTop: "50px", // Top margin added for spacing
+        paddingTop: "50px",
       }}
     >
       <div
         style={{
           padding: "15px",
-          maxWidth: "400px", // Reduced width
+          maxWidth: "400px",
           margin: "auto",
-          marginTop:"30px",
+          marginTop: "30px",
           textAlign: "center",
-          border: "1px solid rgba(255, 255, 255, 0.2)", // Subtle border
+          border: "1px solid rgba(255, 255, 255, 0.2)",
           borderRadius: "10px",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)", // Enhanced shadow
-          backgroundColor: "rgba(0, 0, 0, 0.8)", // Black background with transparency
-          color: "#fff", // White text
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
+          backgroundColor: "rgba(0, 0, 0, 0.8)",
+          color: "#fff",
         }}
       >
         <h2 style={{ marginBottom: "10px" }}>Complete Your Payment</h2>
@@ -148,7 +174,7 @@ const PaymentPage = () => {
               boxSizing: "border-box",
               borderRadius: "5px",
               border: "1px solid rgba(255, 255, 255, 0.3)",
-              backgroundColor: "rgba(0, 0, 0, 0.5)", // Dark transparent input background
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
               color: "#fff",
               fontSize: "14px",
             }}
