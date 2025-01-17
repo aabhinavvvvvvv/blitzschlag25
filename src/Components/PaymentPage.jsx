@@ -3,7 +3,7 @@ import {Link, useLocation } from "react-router-dom";
 import bg from "../Assets/payment_bg.jpg";
 import axios from "axios";
 import { auth } from "../../firebase";
-import post from "../Assets/qrcode.jpg";
+import post from "../Assets/poster.png";
 
 const PaymentPage = () => {
   const location = useLocation();
