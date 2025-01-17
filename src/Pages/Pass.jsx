@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { CheckIcon, PlusIcon, MinusIcon, XIcon } from 'lucide-react'
 import bg from '../Assets/passbg.webp'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slices/cartSlice';
 
 const passes = [
   {
@@ -111,13 +114,30 @@ const days = [
 
 function PassCard({ pass }) {
   const [selectedDay, setSelectedDay] = useState(days[0].value)
-  const [selectedFlagship, setSelectedFlagship] = useState("")
+  
   const [quantity, setQuantity] = useState(0)
 
   const incrementQuantity = () => setQuantity(q => q + 1)
   const decrementQuantity = () => setQuantity(q => Math.max(0, q - 1))
-  const availableFlagshipEvents =
-    flagshipEventsByDay[selectedDay] || []
+  const availableFlagshipEvents = flagshipEventsByDay[selectedDay] || []
+  const [selectedFlagship, setSelectedFlagship] = useState(availableFlagshipEvents[0].label)
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    if (quantity > 0) {
+      const details = {
+        passName: pass.name,
+        quantity,
+        totalAmount: pass.price * quantity,
+        ...(pass.daySelection && { day: selectedDay }),
+        ...(pass.flagshipSelection && { flagshipEvent: selectedFlagship }),
+      };
+      
+      // Dispatch the action to add to cart
+      dispatch(addToCart(details));
+    } else {
+      alert("Quantity must be greater than 0");
+    }
+  };
   return (
     <div className="relative flex flex-col p-8 rounded-xl border border-gray-200 bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-xl transition-all duration-300 h-full">
       <div className="flex-grow">
@@ -193,7 +213,7 @@ function PassCard({ pass }) {
             </button>
           </div>
         </div>
-        <button className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 backdrop-filter backdrop-blur-sm">
+        <button onClick={handleAddToCart} className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 backdrop-filter backdrop-blur-sm">
           Add to Cart
         </button>
       </div>
@@ -202,6 +222,7 @@ function PassCard({ pass }) {
 }
 
 export default function Pass() {
+  const navigate = useNavigate(); 
   return (
     <div
       className="min-h-screen w-full bg-transparent relative overflow-y-auto"
@@ -217,10 +238,17 @@ export default function Pass() {
             <h3
               className="text-6xl font-bold mt-8 tracking-wider text-center text-gray-200"
               style={{ fontFamily: "'Metal Mania', cursive" }}
+
             >
               Cultural Fest Passes
             </h3>
           </div>
+          <button
+            onClick={() => navigate('/cart')}
+            className="px-4 py-2 mb-8 rounded-lg font-semibold text-white bg-green-600 hover:bg-green-500 active:bg-green-700"
+          >
+            Go to Cart
+          </button>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-center items-stretch">
             {passes.map((pass, idx) => (
               <PassCard key={idx} pass={pass} />
