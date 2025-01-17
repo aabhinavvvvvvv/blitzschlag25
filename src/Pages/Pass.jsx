@@ -19,7 +19,7 @@ const passes = [
   
   {
     name: "Galaxy Pass",
-    price: 1200,
+    price: 1300,
     description: "Access flagship event, club events, and pronite",
     features: [
       "Participate in one flagship event",
@@ -44,7 +44,7 @@ const passes = [
   },
   {
     name: "Participation Pass",
-    price: 500,
+    price: 700,
     description: "Participate in one flagship event",
     features: [
       "Participate in one flagship event",
