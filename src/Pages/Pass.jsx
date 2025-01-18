@@ -1,6 +1,116 @@
 import { useState } from 'react'
 import { CheckIcon, PlusIcon, MinusIcon, XIcon } from 'lucide-react'
 import bg from '../Assets/passbg.webp'
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../slices/cartSlice';
+import styled from 'styled-components';
+import { toast } from 'react-toastify';
+const Button = () => {
+  const navigate = useNavigate();
+  return (
+    <StyledWrapper>
+      <button onClick={() => navigate('/cart')} className="button">
+        <div className="bgContainer">
+          <span>Cart </span>
+          <span>Cart </span>
+        </div>
+        <div className="arrowContainer">
+          <svg width={25} height={25} viewBox="0 0 45 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M43.7678 20.7678C44.7441 19.7915 44.7441 18.2085 43.7678 17.2322L27.8579 1.32233C26.8816 0.34602 25.2986 0.34602 24.3223 1.32233C23.346 2.29864 23.346 3.88155 24.3223 4.85786L38.4645 19L24.3223 33.1421C23.346 34.1184 23.346 35.7014 24.3223 36.6777C25.2986 37.654 26.8816 37.654 27.8579 36.6777L43.7678 20.7678ZM0 21.5L42 21.5V16.5L0 16.5L0 21.5Z" fill="black" />
+          </svg>
+        </div>
+      </button>
+    </StyledWrapper>
+  );
+}
+
+const StyledWrapper = styled.div`
+  button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1em 0em 1em 1em;
+    background-color: pink;
+    cursor: pointer;
+    box-shadow: 4px 6px 0px black;
+    border: 4px solid;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    z-index: 100;
+    transition: box-shadow 250ms, transform 250ms, filter 50ms;
+  }
+  button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 3px 0px black;
+  }
+  button:active {
+    filter: saturate(0.75);
+  }
+  button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: yellow;
+    z-index: -1;
+    transform: translateX(-100%);
+    transition: transform 250ms;
+  }
+  button:hover::after {
+    transform: translateX(0);
+  }
+  .bgContainer {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow: hidden;
+    max-width: 33%; /* adjust this if the button text is not proper */
+    font-size: 2em;
+    font-weight: 600;
+  }
+  .bgContainer span {
+    position: relative;
+    transform: translateX(-100%);
+    transition: all 250ms;
+  }
+  .button:hover .bgContainer > span {
+    transform: translateX(0);
+  }
+  .arrowContainer {
+    padding: 1em;
+    margin-inline-end: 1em;
+    border: 4px solid;
+    border-radius: 50%;
+    background-color: yellow;
+    position: relative;
+    overflow: hidden;
+    transition: transform 250ms, background-color 250ms;
+    z-index: 100;
+  }
+  .arrowContainer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: pink;
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: transform 250ms ease-in-out;
+  }
+  button:hover .arrowContainer::after {
+    transform: translateX(0);
+  }
+  button:hover .arrowContainer {
+    transform: translateX(5px);
+  }
+  button:active .arrowContainer {
+    transform: translateX(8px);
+  }
+  .arrowContainer svg {
+    vertical-align: middle;
+  }`;
 
 const passes = [
   {
@@ -90,12 +200,18 @@ const passes = [
   },
 ]
 
-const flagshipEvents = [
-  { value: "panache", label: "Panache" },
-  { value: "battleofbands", label: "Battle of Bands" },
-  { value: "tamasha", label: "Tamasha" },
-  { value: "rambasamba", label: "Ramba Samba" },
-]
+const flagshipEventsByDay = {
+  day1: [
+    { value: "panache", label: "Panache" },
+    { value: "tamasha", label: "Tamasha" },
+  ],
+  day2: [
+    { value: "rambasamba", label: "Ramba Samba" },
+  ],
+  day3: [
+    { value: "battleofbands", label: "Battle of Bands" },
+  ],
+}
 
 const days = [
   { value: "day3", label: "Day 3" },
@@ -105,12 +221,31 @@ const days = [
 
 function PassCard({ pass }) {
   const [selectedDay, setSelectedDay] = useState(days[0].value)
-  const [selectedFlagship, setSelectedFlagship] = useState(flagshipEvents[0].value)
+  
   const [quantity, setQuantity] = useState(0)
 
   const incrementQuantity = () => setQuantity(q => q + 1)
   const decrementQuantity = () => setQuantity(q => Math.max(0, q - 1))
-
+  const availableFlagshipEvents = flagshipEventsByDay[selectedDay] || []
+  const [selectedFlagship, setSelectedFlagship] = useState(availableFlagshipEvents[0].label)
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    if (quantity > 0) {
+      const details = {
+        passName: pass.name,
+        quantity,
+        totalAmount: pass.price,
+        ...(pass.daySelection && { day: selectedDay }),
+        ...(pass.flagshipSelection && { flagshipEvent: selectedFlagship }),
+      };
+      
+      // Dispatch the action to add to cart
+      dispatch(addToCart(details));
+      toast.success("Succesfully added to cart");
+    } else {
+      toast.error("Quantity must be greater than 0");
+    }
+  };
   return (
     <div className="relative flex flex-col p-8 rounded-xl border border-gray-200 bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-xl transition-all duration-300 h-full">
       <div className="flex-grow">
@@ -166,7 +301,7 @@ function PassCard({ pass }) {
               onChange={(e) => setSelectedFlagship(e.target.value)}
               className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white bg-opacity-20  text-gray-200"
             >
-              {flagshipEvents.map((event) => (
+              {availableFlagshipEvents.map((event) => (
                 <option key={event.value} className='text-gray-500' value={event.value}>
                   {event.label}
                 </option>
@@ -186,7 +321,7 @@ function PassCard({ pass }) {
             </button>
           </div>
         </div>
-        <button className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 backdrop-filter backdrop-blur-sm">
+        <button onClick={handleAddToCart} className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 backdrop-filter backdrop-blur-sm">
           Add to Cart
         </button>
       </div>
@@ -195,6 +330,7 @@ function PassCard({ pass }) {
 }
 
 export default function Pass() {
+  const navigate = useNavigate(); 
   return (
     <div
       className="min-h-screen w-full bg-transparent relative overflow-y-auto"
@@ -210,14 +346,22 @@ export default function Pass() {
             <h3
               className="text-6xl font-bold mt-8 tracking-wider text-center text-gray-200"
               style={{ fontFamily: "'Metal Mania', cursive" }}
+
             >
               Cultural Fest Passes
             </h3>
           </div>
+          
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-center items-stretch">
             {passes.map((pass, idx) => (
               <PassCard key={idx} pass={pass} />
             ))}
+            <p></p>
+            <div className='flex justify-center items-center  md:-ml-96'>
+            <Button >Go to Cart</Button>
+            </div>
+
+            
           </div>
         </div>
       </section>
