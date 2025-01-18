@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
+import { Provider } from 'react-redux'; // Import Provider from react-redux
+import {store} from './store/store'; // Import your store
 import Navbar from './Components/Navbar';
 import Profile from './Pages/Profile';
 import { AnimatePresence } from 'framer-motion';
@@ -28,6 +30,7 @@ import UpdateLeaderboard from './Pages/UpdateLeaderboard';
 import ResetLeaderboard from './Pages/ResetLeaderboard';
 import ChampionsTrophy from './Pages/ChampionsTrophy';
 import PaymentPage from './Components/PaymentPage';
+import Cart from './Pages/Cart';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
@@ -143,7 +146,7 @@ function App() {
     return new Promise<boolean>((resolve) => setTimeout(() => resolve(transactionId === "12345"), 2000));
   };
   return (
-    <>
+    <Provider store={store}>
       <Tooltip id="global-tooltip" />
       <div className="w-screen h-screen text-white relative">
         <canvas
@@ -158,6 +161,7 @@ function App() {
             <AnimatePresence mode="wait">
               <Routes>
                 <Route path="/" element={<LandingPage />} />
+                <Route path="/cart" element={<Cart />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/champions_throphy" element={<ChampionsTrophy />} />
                 <Route path="/leaderboard" element={<LeaderBoard />} />
@@ -192,7 +196,7 @@ function App() {
           theme="dark"
         />
       </div>
-    </>
+    </Provider>
   );
 }
 
