@@ -9,6 +9,7 @@ import mnitlogo from "../Assets/mnitlogo.png";
 import clublogo from "../Assets/culturalclublogo.png";
 import "../css files/landing.css";
 import ScrollDown from "../Components/scroll";
+import LandingEvent from "./LandingEvent.jsx";
 // import ScrollBg from "../Components/scrollbg";
 
 import {
@@ -66,7 +67,7 @@ const LandingPage = () => {
             id="Event"
             className="scroll-section h-screen w-screen relative  "
           >
-            <Event />
+            <LandingEvent />
           </div>
         </Animator>
       </ScrollPage>
