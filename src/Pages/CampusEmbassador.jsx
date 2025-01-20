@@ -59,23 +59,24 @@ const CampusEmbassador = () => {
     >
       {/* Background Image */}
       <div
-        className="fixed inset-0 bg-cover bg-center opacity-50"
+        className="fixed inset-0 bg-cover bg-center opacity-50 "
         style={{ backgroundImage: `url(${bg})` }}
       ></div>
+      <div className="px-8 md:px-0">
       <motion.main
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-8 pt-0 border border-white/20 mt-20 mb-10"
+        className="w-full max-w-4xl md:mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-xl p-4 md:p-8 pt-0 border border-white/20 mt-20 mb-10"
       >
         <div className="max-w-2xl mx-auto space-y-4 text-center pt-10">
           <h2
-            className="text-white text-4xl font-bold sm:text-5xl capitalize tracking-wider"
+            className="text-white text-4xl font-bold md:text-5xl capitalize tracking-wider"
             style={{ fontFamily: "'Metal Mania', cursive" }}
           >
             Campus Ambassador
           </h2>
-          <p className="text-indigo-100 text-lg">
+          <p className="text-indigo-100 md:text-lg text-sm">
             Represent your college and be part of an exciting community! Fill out the form below to get started.
           </p>
         </div>
@@ -168,6 +169,8 @@ const CampusEmbassador = () => {
           </div>
         </motion.form>
       </motion.main>
+      </div>
+      
     </div>
   );
 };
