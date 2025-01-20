@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { motion } from "framer-motion";
 import bg from "../Assets/campus.jpg";
 import {toast} from 'react-toastify'
+import { auth } from '../../fi';
 const CampusEmbassador = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -10,7 +11,13 @@ const CampusEmbassador = () => {
     college: "",
     message: "",
   });
-
+  const [uid, setUid] = useState(null);
+    useEffect(() => {
+      const user = auth.currentUser;
+      if (user) {
+        setUid(user.uid); // Set UID when the user is logged in
+      }
+    }, []);
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prevData) => ({
@@ -21,6 +28,18 @@ const CampusEmbassador = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const user = auth.currentUser;
+    if(!user){
+      toast.error("User not logged in.");
+      setFormData({
+        name: "",
+      email: "",
+      phone: "",
+      college: "",
+      message: ""
+      })
+      return;
+    }
     console.log("Form Data Submitted:", formData);
     setFormData({
       name: "",
