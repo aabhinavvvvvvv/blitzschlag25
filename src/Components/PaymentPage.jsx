@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {Link, useLocation } from "react-router-dom";
 import bg from "../Assets/payment_bg.jpg";
 import axios from "axios";
-import { auth } from "../../firebase";
+import { auth } from "../../fi";
 import post from "../Assets/qrcode.png";
 
 const PaymentPage = () => {
@@ -70,7 +70,7 @@ const PaymentPage = () => {
       });
 
       if (response.status === 201) {
-        window.open("https://docs.google.com/forms/d/e/1FAIpQLSdPFuP4fPpwAmBlaJuOQDvPCvfyBwfpGkMbSL-FtS0_tjgprg/viewform");
+        window.open("https://forms.gle/Pniwxk5zHDWpsNGz7");
         setVerificationStatus("Your request has been posted and will be reviewed soon.");
       } else {
         setVerificationStatus(response.data.message || "Failed to submit payment request.");
@@ -101,10 +101,10 @@ const PaymentPage = () => {
           padding: "15px",
           maxWidth: "400px",
           margin: "auto",
-          marginTop: "30px",
+          marginTop: "20px",
           textAlign: "center",
           border: "1px solid rgba(255, 255, 255, 0.2)",
-          borderRadius: "10px",
+          borderRadius: "20px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
           backgroundColor: "rgba(0, 0, 0, 0.8)",
           color: "#fff",

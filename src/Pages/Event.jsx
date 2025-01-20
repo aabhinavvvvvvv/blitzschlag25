@@ -6,7 +6,7 @@ import SingleComponent from "../Components/single";
 import TeamComponent from "../Components/team";
 import eventbg from "../Assets/eventbg.jpg";
 import Transition from "../transition";
-import { auth } from "../../firebase";
+import { auth } from "../../fi";
 import "../css files/events.css";
 import Drawer from "react-modern-drawer";
 import { CardBody, CardContainer, CardItem } from "../Components/3dcard";
@@ -364,16 +364,6 @@ const Events = () => {
   }}
   className="hover:scale-110 hover:bg-white hover:text-gray-900 w-48 h-48"
 >
-  <span
-    style={{
-      color: "white",
-      fontSize: "1.5rem",
-      fontWeight: "bold",
-      textShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
-    }}
-  >
-    {value}
-  </span>
 </button>
 
 

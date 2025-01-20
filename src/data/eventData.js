@@ -5,6 +5,9 @@ import panache2 from "../Assets/panache.jpg";
 import ram from "../Assets/rambha_sambha.jpg";
 import bat from "../Assets/battle_of_bands.jpg";
 import post from "../Assets/poster.png"
+import filmaff from "../Assets/FilmAffair2.png"
+import solo from "../Assets/SoloSpotlight2.png"
+import rang from "../Assets/RangBhoomi2.png"
 
 const eventData = {
     meltdown: {
@@ -495,7 +498,7 @@ const eventData = {
         description: 'This Event is organised to let the teams perform self-written stage plays. The lighting, songs, music, dialogues, characters, etc make a stage play.  Teams from all over the Indian Universities actively participate to showcase their talents.  The judging criteria includes time limit, expressions, story line,  depiction, lighting, costumes,music etc. This is one of the most competitive events as per the active participation of highly experienced teams all over the India. This is an event fun to watch but hard to win. Blitz23 had witnessed a footfall of 120+ members',
         maxTeamSize: 1,
         eventPath: 'rangbhoomi',
-        imgUrl: post ,
+        imgUrl: rang ,
         club: 'Drama',
         type: 'club',
     },
@@ -507,7 +510,7 @@ const eventData = {
         description: 'A mono-act competition to test individuals’ acting skills, story telling skills and expressions. Different genres of acts-horror, psychopath, comedy, patriotic,  emotional etc are presented by actors, some of the scripts are even self-written. Around 60 actors whole-heartedly participate in this event. The judging criteria usually includes facial expressions, delivery, voice modulation, stage coverage, etc.  This embarks the hard work of shining stars of dramatic societies. This feels like watching one person embody an entire world shifting between characters , emotions, and scenarios. With just their voice, expressions and body language, the performer draws the audience into an intimate often intense experience. The winning actors receive prizes as a token of thier extraordinary and unforgettable performances.  ',
         maxTeamSize: 1,
         eventPath: 'solospotlight',
-        imgUrl: post ,
+        imgUrl: solo ,
         club: 'Drama',
         type: 'club',
     },
@@ -519,7 +522,7 @@ const eventData = {
         description: 'This is going to be a fun event testing your interests in movies, songs, music tunes, actors, memes etc. in the form of quiz.The participants will be divided into teams having their unique names. The quiz questions will be set as per the levels, moving from basic to advance. Last and final round will include surprise tasks. The previous questions will contain hints to coming questions. Does it sound too easy to win? Well, it is not, there will be elimination rounds and deduction of points as per the set rules and criteria.Overall, it is an intriguing activity to interact with fellow colleague while having a lot of entertaining moments.',
         maxTeamSize: 1,
         eventPath: 'filmaffair',
-        imgUrl: post ,
+        imgUrl: filmaff ,
         club: 'Drama',
         type: 'club',
     },

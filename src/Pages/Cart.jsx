@@ -6,7 +6,7 @@ import bg from '../Assets/passbg.webp';
 import { FaArrowLeft } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-import { auth } from '../../firebase';
+import { auth } from '../../fi';
 import { toast } from 'react-toastify';
 function Cart() {
   const navigate = useNavigate();
