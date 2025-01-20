@@ -12,8 +12,8 @@ const Button = () => {
     <StyledWrapper>
       <button onClick={() => navigate('/cart')} className="button">
         <div className="bgContainer">
-          <span>Cart </span>
-          <span>Cart </span>
+          <span style={{ fontFamily: "'Metal Mania', cursive" }}>Cart  </span>
+          <span style={{ fontFamily: "'Metal Mania', cursive" }}> Cart </span>
         </div>
         <div className="arrowContainer">
           <svg width={25} height={25} viewBox="0 0 45 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,6 +26,11 @@ const Button = () => {
 }
 
 const StyledWrapper = styled.div`
+  position: fixed;
+  bottom: 1rem; /* Distance from the bottom */
+  right: 1rem; /* Distance from the right */
+  z-index: 1000; /* Ensure it stays above other elements */
+
   button {
     display: flex;
     justify-content: space-around;
@@ -41,13 +46,16 @@ const StyledWrapper = styled.div`
     z-index: 100;
     transition: box-shadow 250ms, transform 250ms, filter 50ms;
   }
+
   button:hover {
     transform: translate(2px, 2px);
     box-shadow: 2px 3px 0px black;
   }
+
   button:active {
     filter: saturate(0.75);
   }
+
   button::after {
     content: "";
     position: absolute;
@@ -57,9 +65,11 @@ const StyledWrapper = styled.div`
     transform: translateX(-100%);
     transition: transform 250ms;
   }
+
   button:hover::after {
     transform: translateX(0);
   }
+
   .bgContainer {
     position: relative;
     display: flex;
@@ -70,14 +80,17 @@ const StyledWrapper = styled.div`
     font-size: 2em;
     font-weight: 600;
   }
+
   .bgContainer span {
     position: relative;
     transform: translateX(-100%);
     transition: all 250ms;
   }
+
   .button:hover .bgContainer > span {
     transform: translateX(0);
   }
+
   .arrowContainer {
     padding: 1em;
     margin-inline-end: 1em;
@@ -89,6 +102,7 @@ const StyledWrapper = styled.div`
     transition: transform 250ms, background-color 250ms;
     z-index: 100;
   }
+
   .arrowContainer::after {
     content: "";
     position: absolute;
@@ -99,18 +113,24 @@ const StyledWrapper = styled.div`
     z-index: -1;
     transition: transform 250ms ease-in-out;
   }
+
   button:hover .arrowContainer::after {
     transform: translateX(0);
   }
+
   button:hover .arrowContainer {
     transform: translateX(5px);
   }
+
   button:active .arrowContainer {
     transform: translateX(8px);
   }
+
   .arrowContainer svg {
     vertical-align: middle;
-  }`;
+  }
+`;
+
 
 const passes = [
   {

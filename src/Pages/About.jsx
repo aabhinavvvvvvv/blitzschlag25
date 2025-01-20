@@ -66,8 +66,7 @@ const AboutUs = () => {
           >
             <h2 className="text-4xl font-bold mb-4">About Blitzschlag</h2>
             <p className="text-gray-300 mb-6">
-            Blitzschlag 2025, the much-awaited annual fest, is all set to take place from the 7th to the 9th of February 2025. This grand celebration of art, culture, and technology promises an unforgettable experience for everyone. With a perfect blend of electrifying performances, innovative competitions, and insightful workshops, Blitzschlag offers something for every enthusiast. It’s more than just an event; it’s a platform to showcase talent, ignite creativity, and connect with like-minded individuals. Get ready to immerse yourself in three days of excitement, inspiration, and endless memories.
-            </p>
+            Welcome to Blitzschlag 2025, Rajasthan's most anticipated annual cultural extravaganza, hosted at MNIT Jaipur. This spectacular fest embodies the vibrant spirit of our community, showcasing creativity, cooperation, coordination, and celebration. Blitzschlag is a symphony of diverse talents, fostering enjoyment, cultural exchange, and personal growth. It's a platform where individuals from all backgrounds converge, sharing rich cultural heritage and forging lifelong connections. With a staggering footfall of over 30,000 and more than 60 electrifying events, Blitzschlag 2025 is set to be a cultural spectacle like no other. Our 4 flagship events promise unforgettable experiences: TAMASHA: dramatic flair and theatrical spectacle; RAMBA SAMBA: electrifying dance face-off; BATTLE OF BANDS: Sonic showdown; and PANACHE: the fashion-forward showcases. Whether performer, spectator, or volunteer, Blitzschlag offers unforgettable moments, enduring connections, cultural enrichment, and artistic expression. This fest celebrates every individual, every talent, and every story.  Blitzschlag 2025 brings together diverse individuals, fostering creativity, innovation, and teamwork. Where diversity meets creativity, and memories last a lifetime. Get ready to immerse yourself in Rajasthan's most vibrant cultural celebration! </p>
           </motion.div>
         </section>
 
@@ -83,9 +82,7 @@ const AboutUs = () => {
           >
             <h2 className="text-4xl font-bold mb-4">Theme</h2>
             <p className="text-gray-300 mb-6">
-              MNIT Jaipur is a leading institute fostering academic excellence and cultural growth.
-              From February 2nd to 4th, 2024, immerse yourselves in an electrifying celebration of
-              human expression during BLITZSCHLAG.
+              Step into Dreamscape, a world where the surreal meets reality, and the boundaries of the ordinary are blurred. This year, we summon you to embark on an ethereal journey, where whimsical fantasies intertwine with seraphic realities, crafting a vivid interpretation of imaginations and weaving a magical tapestry of dreams. Venture beyond the clouds of reality to unlock the power of lucid dreaming, where imagination takes flight and every thought becomes a brushstroke on the canvas of possibility. Evoke your craziest vision and watch it come to life here. Let your thoughts morph into a brushstroke on the boundless canvas of possibilities. Join us in this captivating adventure, where we unearth the orphic beauty within the subconscious, with dreams being not just mere figments of imagination but portals to extraordinary new realms, waiting to be unveiled.
             </p>
           </motion.div>
           {/* Stats */}
@@ -101,7 +98,7 @@ const AboutUs = () => {
               <p className="text-gray-400">Footfalls</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold">100000+</h3>
+              <h3 className="text-3xl font-bold">10,00,000+</h3>
               <p className="text-gray-400">Prize worth</p>
             </div>
             <div>
@@ -138,43 +135,43 @@ const AboutUs = () => {
           >
             <h2 className="text-4xl font-bold mb-4">About MNIT</h2>
             <p className="text-gray-300 mb-6">
-            The Institute was jointly established in 1963 as Malaviya Regional Engineering College Jaipur by the Government of India and the Government of Rajasthan. Subsequently, on 26 June, 2002, the college was given the status of National Institute of Technology. On 15 August 2007, it was recognized as the Institute of National Importance through an Act of Parliament. The Institute is fully funded by the Ministry of Education (Shiksha Mantralaya), Government of India.
+              The Institute was jointly established in 1963 as Malaviya Regional Engineering College Jaipur by the Government of India and the Government of Rajasthan. Subsequently, on 26 June, 2002, the college was given the status of National Institute of Technology. On 15 August 2007, it was recognized as the Institute of National Importance through an Act of Parliament. The Institute is fully funded by the Ministry of Education (Shiksha Mantralaya), Government of India.
             </p>
           </motion.div>
         </section>
 
         {/* abbout cacs */}
         <section className="relative py-8 mt-2 px-6 lg:px-20 grid grid-flow-row lg:grid-cols-2 gap-8 items-center lg:flex-row">
-  {/* Content */}
-  <motion.div
-    className="bg-black rounded-xl bg-opacity-20 p-5 text-center order-2 lg:order-1"
-    variants={slideInFromLeft}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: false }}
-  >
-    <h2 className="text-4xl font-bold mb-4">About CACS</h2>
-    <p className="text-gray-300 mb-6">
-      Cultural Society of the Institute is an umbrella that shelters numerous clubs and societies. The motto is to facilitate and promote opportunities as well as a platform for students to prove their mettle and to explore their passion through a plethora of interactive and innovative events. 
-      Participating in cultural pursuits helps you become more well-rounded and ready for the real world. They aid in students' sense of belonging to the Institute and help them grow professionally and personally by honing abilities including planning, public speaking, and teamwork.
-    </p>
-  </motion.div>
+          {/* Content */}
+          <motion.div
+            className="bg-black rounded-xl bg-opacity-20 p-5 text-center order-2 lg:order-1"
+            variants={slideInFromLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+          >
+            <h2 className="text-4xl font-bold mb-4">About CACS</h2>
+            <p className="text-gray-300 mb-6">
+              Cultural Society of the Institute is an umbrella that shelters numerous clubs and societies. The motto is to facilitate and promote opportunities as well as a platform for students to prove their mettle and to explore their passion through a plethora of interactive and innovative events.
+              Participating in cultural pursuits helps you become more well-rounded and ready for the real world. They aid in students' sense of belonging to the Institute and help them grow professionally and personally by honing abilities including planning, public speaking, and teamwork.
+            </p>
+          </motion.div>
 
-  {/* Image */}
-  <motion.div
-    className="order-1 lg:order-2"
-    variants={slideInFromRight}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: false }}
-  >
-    <img
-      src={cs}
-      alt="About Us"
-      className="rounded-lg shadow-lg ml-auto"
-    />
-  </motion.div>
-</section>
+          {/* Image */}
+          <motion.div
+            className="order-1 lg:order-2"
+            variants={slideInFromRight}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false }}
+          >
+            <img
+              src={cs}
+              alt="About Us"
+              className="rounded-lg shadow-lg ml-auto"
+            />
+          </motion.div>
+        </section>
 
 
 
@@ -192,16 +189,12 @@ const AboutUs = () => {
           <button
             onClick={() => navigate('/event')}
             className="py-3 px-8 bg-white text-black rounded-full font-semibold transition duration-300 hover:bg-gray-200"
-            
+
           >
             Get Started
           </button>
         </section>
-        <div className="text-center py-6 text-gray-400">
-          <p>
-            The information provided here is not final and will be updated soon. Stay tuned!
-          </p>
-        </div>
+     
       </div>
     </div>
   );
