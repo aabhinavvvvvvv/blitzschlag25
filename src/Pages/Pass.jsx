@@ -10,10 +10,10 @@ const Button = () => {
   const navigate = useNavigate();
   return (
     <StyledWrapper>
-      <button onClick={() => navigate('/cart')} className="button">
-        <div className="bgContainer">
-          <span style={{ fontFamily: "'Metal Mania', cursive" }}>Cart  </span>
-          <span style={{ fontFamily: "'Metal Mania', cursive" }}> Cart </span>
+      <button onClick={() => navigate('/cart')} className="button scale-75 -right-8">
+        <div className="bgContainer tracking-wider">
+          <span className="tracking-wider" style={{ fontFamily: "'Metal Mania', cursive" }}>Cart&nbsp; </span>
+          <span className="tracking-wider" style={{ fontFamily: "'Metal Mania', cursive" }}> Cart&nbsp; </span>
         </div>
         <div className="arrowContainer">
           <svg width={25} height={25} viewBox="0 0 45 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,10 +27,15 @@ const Button = () => {
 
 const StyledWrapper = styled.div`
   position: fixed;
-  bottom: 1rem; /* Distance from the bottom */
-  right: 1rem; /* Distance from the right */
-  z-index: 1000; /* Ensure it stays above other elements */
+  bottom: 1rem; 
+  right: 1rem; 
+  z-index: 1000;
 
+  @media (max-width: 768px) { /* Adjust the width as needed for your definition of 'small devices' */
+    position: static;
+    bottom: unset;
+    right: unset;
+  }
   button {
     display: flex;
     justify-content: space-around;
@@ -44,14 +49,12 @@ const StyledWrapper = styled.div`
     position: relative;
     overflow: hidden;
     z-index: 100;
+    opacity:0.6;
     transition: box-shadow 250ms, transform 250ms, filter 50ms;
   }
-
-  button:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 3px 0px black;
+  button:hover{
+    opacity:1;
   }
-
   button:active {
     filter: saturate(0.75);
   }
@@ -275,17 +278,17 @@ function PassCard({ pass }) {
         <div className="mt-4 text-gray-200 text-3xl font-semibold">
           ₹{pass.price} <span className="text-xl text-gray-700 font-normal">/pass</span>
         </div>
-        <p className="mt-4 text-gray-300">{pass.description}</p>
+        {/* <p className="mt-4 text-gray-300">{pass.description}</p> */}
         
         <ul className="mt-6 space-y-3 flex flex-col">
           {pass.features.map((feature, idx) => (
-            <li key={idx} className="flex items-center gap-3">
+            <li key={idx} className="flex gap-2">
               {feature.startsWith("No ") ? (
                 <XIcon className="h-5 w-5 text-red-500 flex-shrink-0" />
               ) : (
                 <CheckIcon className="h-5 w-5 text-green-500 flex-shrink-0" />
               )}
-              <span className="text-gray-200 text-sm">{feature}</span>
+              <span className="text-gray-200 text-md flex-1">{feature}</span>
             </li>
           ))}
         </ul>
@@ -376,10 +379,8 @@ export default function Pass() {
             {passes.map((pass, idx) => (
               <PassCard key={idx} pass={pass} />
             ))}
-            <p></p>
-            <div className='flex justify-center items-center  md:-ml-96'>
             <Button >Go to Cart</Button>
-            </div>
+            
 
             
           </div>
