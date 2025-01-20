@@ -188,9 +188,8 @@ const Events = () => {
   };
   const handleBackToCategories = () => {
     setShowEvents(false);
-    if (eventsRef.current) {
-      eventsRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+
+
   };
   const handleJoinTeam = async () => {
     if (!uid) {
@@ -316,10 +315,10 @@ const Events = () => {
 
       {/* Back to Categories Button */}
       {showEvents && (
-        <div className="flex justify-center my-4">
+        <div className="flex justify-center my-4 relative">
           <button
             onClick={handleBackToCategories}
-            className={`w-full active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${
+            className={`w-full  active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 overflow-hidden ${
               loading
                 ? "bg-black border-white text-white cursor-not-allowed"
                 : "bg-black border-indigo-500 text-white"
@@ -347,27 +346,24 @@ const Events = () => {
                 key={key}
                 style={{ margin: "10px", transition: "transform 0.3s ease" }}
               >
-<button
-  onClick={() => handleTabChange(value)}
-  style={{
-    backgroundImage: `url(${getBackgroundImage(key)})`, // Dynamically set the image
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    borderRadius: "18px",
-    padding: "20px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    transition: "transform 0.3s ease, background-color 0.3s ease",
-    position: "relative", // For holographic effect
-    boxShadow: "0 15px 25px rgba(0, 0, 0, 0.2)", // Shadow for hovering
-  }}
-  className="hover:scale-110 hover:bg-white hover:text-gray-900 w-48 h-48"
->
-</button>
-
-
-
+                <button
+                  onClick={() => handleTabChange(value)}
+                  style={{
+                    backgroundImage: `url(${getBackgroundImage(key)})`, // Dynamically set the image
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    borderRadius: "18px",
+                    padding: "20px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    transition:
+                      "transform 0.3s ease, background-color 0.3s ease",
+                    position: "relative", // For holographic effect
+                    boxShadow: "0 15px 25px rgba(0, 0, 0, 0.2)", // Shadow for hovering
+                  }}
+                  className="hover:scale-110 hover:bg-white hover:text-gray-900 w-48 h-48"
+                ></button>
               </div>
             ))}
           </div>
@@ -377,10 +373,6 @@ const Events = () => {
       {showEvents && (
         <div
           className="event-container"
-          style={{
-            maxHeight: "calc(100vh - 300px )", // Set max height of the events container
-            overflowY: "auto", // Enable vertical scrolling
-          }}
         >
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">

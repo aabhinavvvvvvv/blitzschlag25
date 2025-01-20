@@ -21,7 +21,6 @@ import {
   FaCubes,
   FaMusic,
   FaQuestionCircle,
-
 } from "react-icons/fa";
 import { PiRankingDuotone } from "react-icons/pi";
 

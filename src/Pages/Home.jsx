@@ -6,6 +6,7 @@ import Footer from '../Components/Footer';
 import mnitlogo from '../Assets/mnitlogo.png';
 import clublogo from '../Assets/culturalclublogo-removebg-preview.png';
 import PlayButton from '../Components/PlayButton';
+
 import {
   Animator,
   ScrollContainer,
