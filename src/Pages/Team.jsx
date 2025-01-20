@@ -63,6 +63,7 @@ const core_team = [
   { name: "Ishan Hemnani", position: "Technical Secretary", img: ishanhemnani },
   { name: "Shani Rajput", position: "Technical Secretary", img: shanirajput },
   { name: "Sachin", position: "Technical Secretary", img: sachin },
+  { name: "Lokesh Kumar Suthar", position: "Technical Secretary", img: lokesh },
   {
     name: "Tushar Sankhla",
     position: "Logistics Secretary",
@@ -98,6 +99,7 @@ const core_team = [
   { name: "Rochit Jain", position: "Marketing Secretary", img: rochitjain },
   { name: "Ansh Shah", position: "Marketing Secretary", img: anshshah },
   { name: "Tanisha Godha", position: "Marketing Secretary", img: tanishagodha },
+  { name: "Vaibhav", position: "Decor Secretary", img: giriraj },
   { name: "Giriraj", position: "Decor Secretary", img: giriraj },
   {
     name: "Divyanshi Kushwah",
