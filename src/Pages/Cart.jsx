@@ -37,13 +37,15 @@ function Cart() {
     const user = auth.currentUser;
     if (user) {
       setUid(user.uid); // Set UID when the user is logged in
-    } else {
-      toast.error("User not logged in.");
-    }
+    } 
   }, []);
 
   const handleOnclick = (e) => {
     e.preventDefault();
+    const user = auth.currentUser;
+    if(!user){
+      toast.error("User not logged in.");
+    }
     navigate('/pay', {
       state: {
         passDetails: cartItems,
