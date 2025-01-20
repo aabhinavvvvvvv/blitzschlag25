@@ -6,7 +6,7 @@ import Drawer from "react-modern-drawer";
 
 import "react-modern-drawer/dist/index.css";
 import logo from "../Assets/blitz_logo.png";
-import { auth } from "../../firebase"; // Assuming you have a firebase.js file where auth is initialized
+import { auth } from "../../fi"; // Assuming you have a firebase.js file where auth is initialized
 import "../css files/navbar.css";
 import {
   FaHome,

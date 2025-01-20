@@ -6,7 +6,7 @@ import SingleComponent from "../Components/single";
 import TeamComponent from "../Components/team";
 import eventbg from "../Assets/eventbg.jpg";
 import Transition from "../transition";
-import { auth } from "../../firebase";
+import { auth } from "../../fi";
 import "../css files/events.css";
 import Drawer from "react-modern-drawer";
 import { CardBody, CardContainer, CardItem } from "../Components/3dcard";

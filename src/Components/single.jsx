@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { auth } from '../../firebase'; // Import the auth module
+import { auth } from '../../fi'; // Import the auth module
 import { onAuthStateChanged } from 'firebase/auth'; // Import onAuthStateChanged to listen to auth state changes
 
 const SingleComponent = ({ event }) => {

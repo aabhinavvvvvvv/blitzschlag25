@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
-import { auth } from '../../firebase'; // Import Firebase auth
+import { auth } from '../../fi'; // Import Firebase auth
 import { useNavigate } from 'react-router-dom';
 
 const TeamComponent = ({ event }) => {
