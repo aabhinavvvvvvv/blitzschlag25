@@ -20,7 +20,7 @@ const cartSlice = createSlice({
       if (existingItemIndex !== -1) {
         // Update existing item quantity and total amount
         state.cartItems[existingItemIndex].quantity += newItem.quantity;
-        state.cartItems[existingItemIndex].totalAmount += newItem.totalAmount;
+        
       } else {
         // Add new item to the cart
         state.cartItems.push(newItem);
