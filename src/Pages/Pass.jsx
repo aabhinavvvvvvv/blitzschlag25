@@ -389,6 +389,3 @@ export default function Pass() {
     </div>
   )
 }
-
-
-
