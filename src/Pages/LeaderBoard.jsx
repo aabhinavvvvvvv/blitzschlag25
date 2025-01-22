@@ -97,8 +97,8 @@ export default function Leaderboard() {
                     border-b border-gray-700/50 last:border-0 
                     ${team.position === 1 ? 'bg-gradient-to-r from-yellow-500/20 to-transparent' :
                       team.position === 2 ? 'bg-gradient-to-r from-gray-500/20 to-transparent' :
-                      team.position === 3 ? 'bg-gradient-to-r from-orange-500/20 to-transparent' :
-                      'hover:bg-white/5'}
+                        team.position === 3 ? 'bg-gradient-to-r from-orange-500/20 to-transparent' :
+                          'hover:bg-white/5'}
                   `}
                 >
                   <td className="py-4 md:py-6 px-3 md:px-6">
@@ -108,13 +108,13 @@ export default function Leaderboard() {
                           p-1 md:p-2 rounded-full 
                           ${team.position === 1 ? 'bg-yellow-500/20' :
                             team.position === 2 ? 'bg-gray-500/20' :
-                            'bg-orange-500/20'}
+                              'bg-orange-500/20'}
                         `}>
                           <Crown className={`
                             w-5 h-5 md:w-6 md:h-6
                             ${team.position === 1 ? 'text-yellow-400' :
                               team.position === 2 ? 'text-gray-400' :
-                              'text-orange-400'}
+                                'text-orange-400'}
                           `} />
                         </div>
                       ) : (
@@ -126,8 +126,8 @@ export default function Leaderboard() {
                     <span className={`text-sm md:text-2xl font-semibold 
                       ${team.position === 1 ? 'text-yellow-300' :
                         team.position === 2 ? 'text-gray-300' :
-                        team.position === 3 ? 'text-orange-300' :
-                        'text-gray-300'}
+                          team.position === 3 ? 'text-orange-300' :
+                            'text-gray-300'}
                     `}>
                       {team.name}
                     </span>
@@ -142,33 +142,33 @@ export default function Leaderboard() {
                     <span className="text-orange-400 font-semibold">{team.medals.bronze}</span>
                   </td>
 
-                    <td className="py-4 md:py-6 px-3 md:px-6">
-                      <div className="flex items-center justify-end gap-4">
-                        {!isSmallScreen && (
-                          <div className="w-20 md:w-32 bg-gray-700/50 rounded-full h-1.5 md:h-2 overflow-hidden">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              animate={{ width: `${(team.points / 2500) * 100}%` }}
-                              transition={{ duration: 1, delay: index * 0.1 }}
-                              className={`h-full rounded-full
+                  <td className="py-4 md:py-6 px-3 md:px-6">
+                    <div className="flex items-center justify-end gap-4">
+                      {!isSmallScreen && (
+                        <div className="w-20 md:w-32 bg-gray-700/50 rounded-full h-1.5 md:h-2 overflow-hidden">
+                          <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: `${(team.points / 2500) * 100}%` }}
+                            transition={{ duration: 1, delay: index * 0.1 }}
+                            className={`h-full rounded-full
                                 ${team.position === 1 ? 'bg-yellow-400' :
-                                  team.position === 2 ? 'bg-gray-400' :
+                                team.position === 2 ? 'bg-gray-400' :
                                   team.position === 3 ? 'bg-orange-400' :
-                                  'bg-purple-400'}
+                                    'bg-purple-400'}
                               `}
-                            />
-                          </div>
-                        )}
-                        <span className={`text-lg md:text-xl font-bold tabular-nums
+                          />
+                        </div>
+                      )}
+                      <span className={`text-lg md:text-xl font-bold tabular-nums
                           ${team.position === 1 ? 'text-yellow-300' :
-                            team.position === 2 ? 'text-gray-300' :
+                          team.position === 2 ? 'text-gray-300' :
                             team.position === 3 ? 'text-orange-300' :
-                            'text-gray-300'}
+                              'text-gray-300'}
                         `}>
-                          {team.points}
-                        </span>
-                      </div>
-                    </td>
+                        {team.points}
+                      </span>
+                    </div>
+                  </td>
 
                 </motion.tr>
               ))}
@@ -176,6 +176,10 @@ export default function Leaderboard() {
           </table>
         </div>
       </div>
+      <p className="text-center text-lg text-white-400 backdrop-blur-sm mt-4 font-bold">
+        Colleges are only listed here if their teams have earned a position in at least one event.
+      </p>
+
     </div>
   );
 }

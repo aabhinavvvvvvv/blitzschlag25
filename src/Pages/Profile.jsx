@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getAuth, signOut, sendEmailVerification, onAuthStateChanged } from "firebase/auth";
 import { app } from "../../fi"; // Your Firebase initialization file
 import { useNavigate } from "react-router-dom";
-import profileImg from "../../public/profile.webp";
+import profileImg from "/profile.webp";
 import profilebg from '../Assets/loginbg.jpg';
 import eventData from "../data/eventData";
 import { Tooltip } from "react-tooltip";
