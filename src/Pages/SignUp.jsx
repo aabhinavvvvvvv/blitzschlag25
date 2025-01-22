@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signInWithPopup,
+  GoogleAuthProvider,
+} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { app } from "../../fi"; // Import Firebase initialization
 import loginbg from "../Assets/loginbg.jpg"; // Import the background image
@@ -15,8 +22,60 @@ const SignUp = () => {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false); // Add loading state
   const [showConfirmPwd, setShowConfirmPwd] = useState(false); // State to toggle password visibility
-
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate(); // Initialize the navigation hook
+
+  const handleGoogleSignIn = async () => {
+    setLoading(true);
+    setError("");
+
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+
+      console.log("User logged in with Google:", user);
+
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/signinwithgoogle`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            uid: user.uid,
+            userName: user.displayName || "Anonymous",
+            email: user.email,
+          }),
+        }
+      );
+
+      const contentType = response.headers.get("Content-Type");
+      let data = null;
+
+      if (contentType && contentType.includes("application/json")) {
+        data = await response.json();
+      } else {
+        throw new Error("Invalid response format from server");
+      }
+
+      if (response.ok && data.success !== false) {
+        toast.success(data.message || "Login with Google successful!");
+        navigate("/profile"); // Navigate to profile on successful login
+      } else {
+        console.error("Backend error:", data);
+        toast.error(data.message || "Failed to sign in with Google.");
+        setError(data.message || "Failed to sign in with Google.");
+      }
+    } catch (error) {
+      console.error("Error logging in with Google:", error.message);
+      toast.error("Failed to log in with Google. Please try again.");
+      setError("Failed to log in with Google. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +89,7 @@ const SignUp = () => {
     setError("");
 
     // Initialize Firebase Authentication
-    const auth = getAuth(app);
+
     setLoading(true); // Set loading to true when submitting
 
     try {
@@ -115,8 +174,8 @@ const SignUp = () => {
         height: "100vh", // Ensure it covers the full height of the screen
       }}
     >
-      <div className="box-border h-screen flex flex-col justify-center items-center p-8 text-white">
-        <div className="bg-black mt-8  opacity-80 p-12 rounded-2xl flex flex-col justify-center shadow-xl md:min-w-96 sm:mt-16 max-w-[100vw]">
+      <div className="overflow-y-scroll box-border h-screen flex flex-col justify-center items-center p-8 text-white">
+        <div className="bg-black mt-36  opacity-80 p-12 rounded-2xl flex flex-col justify-center shadow-xl md:min-w-96 max-w-[100vw]">
           <form
             className="flex flex-col justify-center space-y-6"
             onSubmit={handleSubmit}
@@ -160,114 +219,150 @@ const SignUp = () => {
                 </label>
               </div>
             </StyledWrapper>
-<StyledWrapper>
+            <StyledWrapper>
 
-            <div className="form-control">
-              <input
-                autoComplete="off"
-                type="password"
-                id="pwd"
-                value={pwd}
-                onChange={(e) => setPwd(e.target.value)}
-                className="placeholder-white bg-transparent w-full p-3  border-b-2 border-gray-300 outline-none text-white"
-                required
+              <div className="form-control">
+                <input
+                  autoComplete="off"
+                  type="password"
+                  id="pwd"
+                  value={pwd}
+                  onChange={(e) => setPwd(e.target.value)}
+                  className="placeholder-white bg-transparent w-full p-3  border-b-2 border-gray-300 outline-none text-white"
+                  required
                 />
-                                  <label>
-                    <span style={{ transitionDelay: "0ms" }}>P</span>
-                    <span style={{ transitionDelay: "50ms" }}>a</span>
-                    <span style={{ transitionDelay: "100ms" }}>s</span>
-                    <span style={{ transitionDelay: "150ms" }}>s</span>
-                    <span style={{ transitionDelay: "200ms" }}>w</span>
-                    <span style={{ transitionDelay: "250ms" }}>o</span>
-                    <span style={{ transitionDelay: "300ms" }}>r</span>
-                    <span style={{ transitionDelay: "350ms" }}>d</span>
-                  </label>
-            </div>
-                </StyledWrapper>
-<StyledWrapper>
+                <label>
+                  <span style={{ transitionDelay: "0ms" }}>P</span>
+                  <span style={{ transitionDelay: "50ms" }}>a</span>
+                  <span style={{ transitionDelay: "100ms" }}>s</span>
+                  <span style={{ transitionDelay: "150ms" }}>s</span>
+                  <span style={{ transitionDelay: "200ms" }}>w</span>
+                  <span style={{ transitionDelay: "250ms" }}>o</span>
+                  <span style={{ transitionDelay: "300ms" }}>r</span>
+                  <span style={{ transitionDelay: "350ms" }}>d</span>
+                </label>
+              </div>
+            </StyledWrapper>
+            <StyledWrapper>
 
-            <div className="relative form-control">
-              <input
-                autoComplete="off"
-                type={showConfirmPwd ? "text" : "password"}
-                id="cpwd"
-                value={cpwd}
-                onChange={(e) => setCpwd(e.target.value)}
-                className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none text-white"
-                required
+              <div className="relative form-control">
+                <input
+                  autoComplete="off"
+                  type={showConfirmPwd ? "text" : "password"}
+                  id="cpwd"
+                  value={cpwd}
+                  onChange={(e) => setCpwd(e.target.value)}
+                  className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none text-white"
+                  required
                 />
-                                  <label>
-                                  <span style={{ transitionDelay: "50ms" }}>C</span>
-                    <span style={{ transitionDelay: "100ms" }}>o</span>
-                    <span style={{ transitionDelay: "150ms" }}>n</span>
-                    <span style={{ transitionDelay: "200ms" }}>f</span>
-                    <span style={{ transitionDelay: "250ms" }}>i</span>
-                    <span style={{ transitionDelay: "300ms" }}>r</span>
-                    <span style={{ transitionDelay: "350ms" }}>m</span>
-                    <span style={{ transitionDelay: "400ms" }}>P</span>
-                    <span style={{ transitionDelay: "450ms" }}>a</span>
-                    <span style={{ transitionDelay: "500ms" }}>s</span>
-                    <span style={{ transitionDelay: "550ms" }}>s</span>
-                    <span style={{ transitionDelay: "600ms" }}>w</span>
-                    <span style={{ transitionDelay: "650ms" }}>o</span>
-                    <span style={{ transitionDelay: "700ms" }}>r</span>
-                    <span style={{ transitionDelay: "750ms" }}>d</span>
-                  </label>
-              {/* Eye Icon */}
-              <button
-                type="button"
-                onClick={() => setShowConfirmPwd(!showConfirmPwd)}
-                className="absolute right-3 top-3 text-white"
+                <label>
+                  <span style={{ transitionDelay: "50ms" }}>C</span>
+                  <span style={{ transitionDelay: "100ms" }}>o</span>
+                  <span style={{ transitionDelay: "150ms" }}>n</span>
+                  <span style={{ transitionDelay: "200ms" }}>f</span>
+                  <span style={{ transitionDelay: "250ms" }}>i</span>
+                  <span style={{ transitionDelay: "300ms" }}>r</span>
+                  <span style={{ transitionDelay: "350ms" }}>m</span>
+                  <span style={{ transitionDelay: "400ms" }}>P</span>
+                  <span style={{ transitionDelay: "450ms" }}>a</span>
+                  <span style={{ transitionDelay: "500ms" }}>s</span>
+                  <span style={{ transitionDelay: "550ms" }}>s</span>
+                  <span style={{ transitionDelay: "600ms" }}>w</span>
+                  <span style={{ transitionDelay: "650ms" }}>o</span>
+                  <span style={{ transitionDelay: "700ms" }}>r</span>
+                  <span style={{ transitionDelay: "750ms" }}>d</span>
+                </label>
+                {/* Eye Icon */}
+                <button
+                  type="button"
+                  onClick={() => setShowConfirmPwd(!showConfirmPwd)}
+                  className="absolute right-3 top-3 text-white"
                 >
-                {showConfirmPwd ? (
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+                  {showConfirmPwd ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
                       />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                       />
-                  </svg>
-                ) : (
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88"
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88"
                       />
-                  </svg>
-                )}
-              </button>
-            </div>
-                </StyledWrapper>
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </StyledWrapper>
             <button
               type="submit"
-              className={`w-full bg-transparent border-2 border-white text-white p-3 rounded-lg mt-4 ${
-                loading && "opacity-50"
-              }`}
+              className={`w-full bg-transparent border-2 border-white text-white p-3 rounded-lg mt-4 ${loading && "opacity-50"
+                }`}
               disabled={loading}
             >
               {loading ? "Signing Up..." : "Sign Up"}
             </button>
           </form>
+
+          <button
+            className={`w-full bg-transparent border-2 border-white text-white p-3 rounded-lg mt-4 ${loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+            onClick={handleGoogleSignIn}
+            disabled={loading}
+          >
+            {loading ? (
+              <div className="flex justify-center items-center">
+                <svg
+                  className="animate-spin h-5 w-5 mr-3 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeOpacity=".25"
+                  />
+                  <path
+                    d="M4 12a8 8 0 1 1 8 8"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                Signing in with Google...
+              </div>
+            ) : (
+              "Sign Up with Google"
+            )}
+          </button>
 
           <p className="mt-6 text-white text-center">
             Already have an account?{" "}
