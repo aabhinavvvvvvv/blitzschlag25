@@ -35,7 +35,7 @@ const Footer = () => {
           </div>
           <div className="text-sm sm:text-base">
             <p className="font-semibold text-lg mb-2">Technical Secretary</p>
-            <p>Sachin Agarwal</p>
+            <p>Sachin Agarwal</p>  
             <p>Lokesh Kumar Suthar</p>
           </div>
           <div className="text-sm sm:text-base">
@@ -43,6 +43,7 @@ const Footer = () => {
             <p>Anant Hansras</p>
             <p>Kavyansh Bagdi</p>
             <p>Abhinav Kumar Gupta</p>
+            <p>Yash Mahawar</p>
           </div>
         </div>
       </div>

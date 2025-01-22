@@ -115,24 +115,19 @@ const [isOpen, setIsOpen] = useState(false);
           className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-[#C4C4C430] rounded-xl  text-[#D3D3D3] lg:flex justify-between items-center gap-x-7"
           style={{ fontFamily: "'Jaro', sans-serif" }}
         >
-          <Link
-            to="/sponsor"
-            className=" px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
-          >
-            Sponsor
-          </Link>
+         
           <Link
             to="/event"
             className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
-            Events
+            EVENTS
           </Link>
           {!user ? (
             <Link
               to="/login"
               className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
             >
-              Login
+              LOGIN
             </Link>
           ) : (
             <></>
@@ -142,14 +137,26 @@ const [isOpen, setIsOpen] = useState(false);
               to="/profile"
               className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
             >
-              Profile
+              PROFILE
             </Link>
           )}
           <Link
             to="/schedule"
             className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
-            Schedule
+            SCHEDULE
+          </Link>
+          <Link
+            to="/sponsor"
+            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+          >
+            SPONSER
+          </Link>
+          <Link
+            to="/faq"
+            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+          >
+            FAQ
           </Link>
         </div>
 
