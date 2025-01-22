@@ -8,6 +8,47 @@ import post from "../Assets/poster.png"
 import filmaff from "../Assets/FilmAffair2.png"
 import solo from "../Assets/SoloSpotlight2.png"
 import rang from "../Assets/RangBhoomi2.png"
+import moment from "../Assets/1_20250122_184127_0000.png"
+import brainblitz from "../Assets/1-2.png";//not 
+import totebag from "../Assets/1.png";//not
+import recyclerebels from "../Assets/2-2.png";//not
+import quillingcontest from "../Assets/2.png";//not
+import culturaltales from "../Assets/3-3.png";//not
+import clayornament from "../Assets/3.png";
+import cushionpaint from "../Assets/4.png";//not
+import fairytale from "../Assets/5.png";//not
+import picsaga from "../Assets/6_20250122_184127_0001.png"
+import capart from "../Assets/6.png"//not
+import bouquetmaking from "../Assets/7.png"//not
+import flowervase from "../Assets/8.png"//not
+import vogue from "../Assets/7_20250122_184127_0002.png"
+import dreamcatcher from "../Assets/9.png"//not
+import fashioninsta from "../Assets/10.png"//not
+import captionclash from "../Assets/CC.png"//not
+import charadecity from "../Assets/Charade cities.png"
+import courtroom from "../Assets/COURTROOM POSTER.png"//not
+import diceydares from "../Assets/Dicey Dares.png"
+import gameoflife from "../Assets/Game_of_Life.png"//not
+import jigsawjollies from "../Assets/Jigsaw Jollies.png"
+import kbc from "../Assets/Kaun Banega Quizpati.png"
+import latent from "../Assets/LATENT POSTER.png"//not
+import lexicon from "../Assets/LQ.png"//not
+import iplauction from "../Assets/Mock_IPL_Auction.png"//not
+import moviemadness from "../Assets/movie_madness.png"
+import pathway from "../Assets/Pathway Patter.png"
+import quizquizhota from "../Assets/Quiz Quiz Hota H.png"
+import rapidfire from "../Assets/rapid_fire_quiz.png"
+import recreateiconic from "../Assets/recreate_iconic.png"
+import umpirecall from "../Assets/Umpire's Call.png"//not
+import youth from "../Assets/YOUTH PARLIAMENT (1).png"
+import catchthevibe from "../Assets/Screenshot 2025-01-22 232814.png"//not
+import beatbattle from "../Assets/Screenshot 2025-01-22 232827.png"//not
+import glowdance from "../Assets/Screenshot 2025-01-22 232839.png"//not
+import gungunatechalo from "../Assets/Screenshot 2025-01-22 232935.png"
+import mnithustle from "../Assets/Screenshot 2025-01-22 232946.png"
+import gatarahemeradil from "../Assets/Screenshot 2025-01-22 232958.png"
+import karaokeroom from "../Assets/Screenshot 2025-01-22 233005.png"
+import seekthetruth from "../Assets/STT.png"
 
 const eventData = {
     meltdown: {
@@ -102,7 +143,7 @@ const eventData = {
         description: 'Shape and mold clay into creative, decorative, or functional objects.',
         maxTeamSize: 1,
         eventPath: 'clayPottery',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: clayornament ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'fun',
     },
@@ -290,11 +331,11 @@ const eventData = {
         name: 'Moments',
         venue: 'SAC',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/RULE BOOK MOMENTS’25 CATEGORY ·Category 1 Architecture (buildings, monument_20250122_184413_0000.pdf',
         description: 'Photography Exhibition on various genres of Photography. Best Photo for Exhibition will be taken for Photocontest. Judges will be invited to select best Photos.',
         maxTeamSize: 1,
         eventPath: 'moments',
-        imgUrl: post ,
+        imgUrl: moment ,
         club: 'Photography',
         type: 'club',
     },
@@ -318,7 +359,7 @@ const eventData = {
         description: 'candid and creative Photography Competition in Blitzschlag',
         maxTeamSize: 1,
         eventPath: 'picsaga',
-        imgUrl: post ,
+        imgUrl: picsaga ,
         club: 'Photography',
         type: 'club',
     },
@@ -330,7 +371,7 @@ const eventData = {
         description: 'Model Photogrphy competition.',
         maxTeamSize: 1,
         eventPath: 'vogue',
-        imgUrl: post ,
+        imgUrl: vogue ,
         club: 'Photography',
         type: 'club',
     },
@@ -362,11 +403,11 @@ const eventData = {
         name: 'Kaun Banega Quizpati',
         venue: 'VLTC Room',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: "/Kaun Banega Quizpati.pdf",
         description: 'Based on famous TV Show',
         maxTeamSize: 1,
         eventPath: 'kaunbanegaquizpati',
-        imgUrl: post ,
+        imgUrl: kbc ,
         club: 'Quiz',
         type: 'club',
     },
@@ -374,11 +415,11 @@ const eventData = {
         name: 'Quiz Quiz Hota Hai',
         venue: 'VLTC Room',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Quiz Quiz Hota H.pdf',
         description: 'Bollywood Themed Quiz',
         maxTeamSize: 1,
         eventPath: 'quizquizhotahai',
-        imgUrl: post ,
+        imgUrl: quizquizhota ,
         club: 'Quiz',
         type: 'club',
     },
@@ -386,11 +427,11 @@ const eventData = {
         name: 'Gungunate Chalo',
         venue: 'VLTC (Radhakrishna Hall), MNIT Jaipur',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Gungunate Chalo_20250122_114715_0000.pdf',
         description: 'Participants must recognize and sing along to songs after hearing a short snippet of background music.',
         maxTeamSize: 1,
         eventPath: 'gungunatechalo',
-        imgUrl: post ,
+        imgUrl: gungunatechalo ,
         club: 'Music',
         type: 'club',
     },
@@ -398,11 +439,11 @@ const eventData = {
         name: 'Gaata Rahe Mera Dil',
         venue: 'VLTC (Radhakrishna Hall), MNIT Jaipur',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Gata Rahe Mera Dil (2).pdf',
         description: 'Antakshari is getting a thrilling twist with three high-energy, fun-filled rounds.',
         maxTeamSize: 1,
         eventPath: 'gaatarahemeradil',
-        imgUrl: post ,
+        imgUrl: gatarahemeradil ,
         club: 'Music',
         type: 'club',
     },
@@ -410,11 +451,11 @@ const eventData = {
         name: 'MNIT Hustle S03',
         venue: 'VLTC Back side parking, MNIT Jaipur',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/MNIT Hustle  (1).pdf',
         description: 'A competitive rap showcase emphasizing rhythm and vocal creativity.',
         maxTeamSize: 1,
         eventPath: 'mnithustles03',
-        imgUrl: post ,
+        imgUrl: mnithustle ,
         club: 'Music',
         type: 'club',
     },
@@ -422,11 +463,11 @@ const eventData = {
         name: 'Karaoke',
         venue: 'VLTC L006, MNIT Jaipur',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Karaoke.pdf',
         description: 'Fun-filled karaoke evening with endless songs, great company, and plenty of laughs.',
         maxTeamSize: 1,
         eventPath: 'karaoke',
-        imgUrl: post ,
+        imgUrl: karaokeroom ,
         club: 'Music',
         type: 'club',
     },
@@ -446,11 +487,11 @@ const eventData = {
         name: 'Youth Parliament',
         venue: 'VLTC - RAMANUJAN HALL',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/rule book.pdf',
         description: 'The Electoral Literacy Club is organizing a Mock Youth Parliament , where students will engage in a dynamic debate to pass a proposed bill. Both parties will present their opinions and arguments, fostering an understanding of democratic processes, parliamentary procedures, and the importance of informed voting. This event encourages active civic participation.',
         maxTeamSize: 1,
         eventPath: 'youthparliament',
-        imgUrl: post ,
+        imgUrl: youth ,
         club: 'Electoral Literacy',
         type: 'club',
     },
@@ -494,7 +535,7 @@ const eventData = {
         name: 'Rang Bhoomi',
         venue: 'Neeti Sabaghar',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/RangBhoomiRuleBook.pdf',
         description: 'This Event is organised to let the teams perform self-written stage plays. The lighting, songs, music, dialogues, characters, etc make a stage play.  Teams from all over the Indian Universities actively participate to showcase their talents.  The judging criteria includes time limit, expressions, story line,  depiction, lighting, costumes,music etc. This is one of the most competitive events as per the active participation of highly experienced teams all over the India. This is an event fun to watch but hard to win. Blitz23 had witnessed a footfall of 120+ members',
         maxTeamSize: 1,
         eventPath: 'rangbhoomi',
@@ -506,7 +547,7 @@ const eventData = {
         name: 'Solo Spot Light',
         venue: 'VLTC - L 008',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/SoloSpotlightRuleBook.pdf',
         description: 'A mono-act competition to test individuals’ acting skills, story telling skills and expressions. Different genres of acts-horror, psychopath, comedy, patriotic,  emotional etc are presented by actors, some of the scripts are even self-written. Around 60 actors whole-heartedly participate in this event. The judging criteria usually includes facial expressions, delivery, voice modulation, stage coverage, etc.  This embarks the hard work of shining stars of dramatic societies. This feels like watching one person embody an entire world shifting between characters , emotions, and scenarios. With just their voice, expressions and body language, the performer draws the audience into an intimate often intense experience. The winning actors receive prizes as a token of thier extraordinary and unforgettable performances.  ',
         maxTeamSize: 1,
         eventPath: 'solospotlight',
@@ -518,7 +559,7 @@ const eventData = {
         name: 'Film Affair',
         venue: 'VLTC - L 008',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/FilmAffairRuleBook.pdf',
         description: 'This is going to be a fun event testing your interests in movies, songs, music tunes, actors, memes etc. in the form of quiz.The participants will be divided into teams having their unique names. The quiz questions will be set as per the levels, moving from basic to advance. Last and final round will include surprise tasks. The previous questions will contain hints to coming questions. Does it sound too easy to win? Well, it is not, there will be elimination rounds and deduction of points as per the set rules and criteria.Overall, it is an intriguing activity to interact with fellow colleague while having a lot of entertaining moments.',
         maxTeamSize: 1,
         eventPath: 'filmaffair',
@@ -530,11 +571,11 @@ const eventData = {
         name: 'Jigsaw Jollies',
         venue: 'L006',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Jigsaw Jollies Rulebook.png',
         description: 'Teams race to complete a jigsaw puzzle with unique time challenges based on size.',
         maxTeamSize: 1,
         eventPath: 'jigsawjollies',
-        imgUrl: post ,
+        imgUrl: jigsawjollies ,
         club: 'Travel and Heritage',
         type: 'club',
     },
@@ -542,11 +583,11 @@ const eventData = {
         name: 'Charade Cities',
         venue: 'L006',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Charade Cities rulebook.png',
         description: 'Teams act out clues for others to guess cities, no speaking allowed.',
         maxTeamSize: 1,
         eventPath: 'charadecities',
-        imgUrl: post ,
+        imgUrl: charadecity ,
         club: 'Travel and Heritage',
         type: 'club',
     },
@@ -554,11 +595,11 @@ const eventData = {
         name: 'Dicey Dares',
         venue: 'VLTC (back porch)',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Dicey Dares Rulebook.png',
         description: 'Teams play a board game (Snakes and Ladders) with fun activities linked to it',
         maxTeamSize: 1,
         eventPath: 'diceydares',
-        imgUrl: post ,
+        imgUrl: diceydares ,
         club: 'Travel and Heritage',
         type: 'club',
     },
@@ -566,11 +607,11 @@ const eventData = {
         name: 'Pathway Patter',
         venue: 'L006',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Pathway Patter Rulebook.png',
         description: 'Teams will guess locations from video/audio clips from popular movies, with bonus points for audio rounds.',
         maxTeamSize: 1,
         eventPath: 'pathwaypatter',
-        imgUrl: post ,
+        imgUrl: pathway ,
         club: 'Travel and Heritage',
         type: 'club',
     },
@@ -674,11 +715,11 @@ const eventData = {
         name: 'Movie Mashup Madness',
         venue: 'VLTC',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: "/moviemashupquiz.pdf",
         description: 'In this exciting quiz event, participants will face a mashup of famous scenes, soundtracks, and dialogues from different movies. The challenge is to identify the correct movie and character from the jumbled clues as quickly as possible. This event is a fun test of memory, recognition, and film knowledge, and promises an engaging experience for all film lovers.',
         maxTeamSize: 1,
         eventPath: 'moviemashupmadness',
-        imgUrl: post ,
+        imgUrl: moviemadness ,
         club: 'Film Making',
         type: 'club',
     },
@@ -686,11 +727,11 @@ const eventData = {
         name: 'Rapid Fire Quiz',
         venue: 'VLTC',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/rapidfirequiz.pdf',
         description: 'A fast-paced quiz event designed for film buffs who think on their feet. Participants will answer challenging questions covering various film genres, directors, actors, and iconic scenes. Each question comes with a strict time limit, so speed and accuracy are key to winning. Get ready to bring your A-game to this high-energy quiz!',
         maxTeamSize: 1,
         eventPath: 'rapidfirequiz',
-        imgUrl: post ,
+        imgUrl: rapidfire ,
         club: 'Film Making',
         type: 'club',
     },
@@ -698,11 +739,11 @@ const eventData = {
         name: 'Recreate Iconic Scenes',
         venue: 'VLTC',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/recreateiconicscene.pdf',
         description: 'In this creative event, participants will pick famous movie scenes to recreate with a humorous twist. Whether it’s through dialogue changes, props, or exaggerated acting, the goal is to add a comic flair to well-known scenes. The funniest and most creative performances will be rewarded, making this event a highlight for both participants and spectators.',
         maxTeamSize: 1,
         eventPath: 'recreateiconicscenes',
-        imgUrl: post ,
+        imgUrl: recreateiconic ,
         club: 'Film Making',
         type: 'club',
     },
