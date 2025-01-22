@@ -20,9 +20,10 @@ export default function Leaderboard() {
           position: index + 1,
           name: item.college,
           points: item.points,
-          medals: { gold: 0, silver: 0, bronze: 0 },
+          medals: { gold: item.gold, silver: item.silver, bronze: item.bronze },
         }));
         setTeams(formattedTeams);
+        console.log(result.data);
       } else {
         console.error('Error :', result.message || 'Unknown error');
       }
