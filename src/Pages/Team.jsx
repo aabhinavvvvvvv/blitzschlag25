@@ -42,6 +42,7 @@ import mad from "../Assets/mad.png";
 import rudra from "../Assets/rudra.png";
 import ronak from "../Assets/ronak.png";
 import ankit from "../Assets/ankit.png";
+import lokesh from "../Assets/lokesh.png"
 
 // Core Team Data
 const core_team = [
@@ -63,7 +64,7 @@ const core_team = [
   { name: "Ishan Hemnani", position: "Technical Secretary", img: ishanhemnani },
   { name: "Shani Rajput", position: "Technical Secretary", img: shanirajput },
   { name: "Sachin", position: "Technical Secretary", img: sachin },
-  // { name: "Lokesh Kumar Suthar", position: "Technical Secretary", img: lokesh },
+  { name: "Lokesh Kumar Suthar", position: "Technical Secretary", img: lokesh },
   {
     name: "Tushar Sankhla",
     position: "Logistics Secretary",
