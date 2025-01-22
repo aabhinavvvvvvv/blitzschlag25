@@ -301,7 +301,7 @@ const Profile = () => {
                       paymentRequests.map((payment, idx) => (
                         <div
                           key={idx}
-                          className="bg-black bg-opacity-50 rounded-xl text-white p-6"
+                          className="bg-black bg-opacity-50 mb-2 rounded-xl text-white p-6"
                         >
                           <h4 className="text-lg font-semibold mb-2">
                             Transaction ID: {payment.transactionId}
@@ -322,7 +322,7 @@ const Profile = () => {
                     {timelineEvents[activeTab].map((event, idx) => (
                       <div
                         key={idx}
-                        className="bg-black bg-opacity-50 rounded-xl text-white p-6"
+                        className="bg-black bg-opacity-50 mb-2 rounded-xl text-white p-6"
                       >
                         <h4 className="text-lg font-semibold mb-2">{event.eventName}</h4>
                         <p>{`Venue: ${event.venue}`}</p>
@@ -362,3 +362,4 @@ const Profile = () => {
 };
 
 export default Profile;
+
