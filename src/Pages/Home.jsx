@@ -1,11 +1,13 @@
-import React from 'react';
-import homeImage from '../Assets/blitz_home.jpg';
-import insect from '../Assets/BlitzHome_insect.png';
-import { Link } from 'react-router-dom';
-import Footer from '../Components/Footer';
-import mnitlogo from '../Assets/mnitlogo.png';
-import clublogo from '../Assets/culturalclublogo-removebg-preview.png';
-import PlayButton from '../Components/PlayButton';
+import React from "react";
+import homeImage from "../Assets/blitz_home.png";
+import insect from "../Assets/BlitzHome_insect.png";
+import { Link } from "react-router-dom";
+import Footer from "../Components/Footer";
+import mnitlogo from "../Assets/mnitlogo.png";
+import clublogo from "../Assets/culturalclublogo-removebg-preview.png";
+import PlayButton from "../Components/PlayButton";
+import { motion } from "framer-motion";
+import NotificationList from "../Components/NotificationList";
 
 import {
   Animator,
@@ -20,7 +22,30 @@ import {
   Move,
   Fade,
 } from "react-scroll-motion";
-import { useRef,useState,useEffect } from 'react';
+
+const notifications = [
+  {
+    id: 1,
+    title: "Prom Night",
+    message: "Join us for a magical night filled with music, dance, and unforgettable memories at Blitzschlag 2025!",
+  },
+  {
+    id: 4,
+    title: "Volunteer Opportunities as Campus Ambassador",
+    message: "Step up as a Campus Ambassador and be a crucial part of the Blitzschlag team. Applications are open now!",
+  },
+  {
+    id: 2,
+    title: "Workshop Registration",
+    message: "Don't miss out! Register now for hands-on workshops conducted by industry experts during the event.",
+  },
+  {
+    id: 3,
+    title: "Art Exhibition",
+    message: "Experience the surreal beauty of our vibrant art exhibition, showcasing unique creations at Blitzschlag 2025.",
+  },
+
+];
 const Home = () => {
     const [isVisible, setIsVisible] = useState(false);
     const ref = useRef(null);
@@ -53,41 +78,44 @@ const Home = () => {
             ref={ref}
             className="h-screen w-screen bg-transparent relative overflow-hidden flex items-center justify-center"
             style={{
-              backgroundImage: isVisible ? `url(${homeImage})` : "none",
-              // backgroundImage: `url(${homeImage})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundImage: `url(${homeImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           >
             {/* Title Section */}
             <div className="relative flex flex-col items-center text-center text-white z-10">
               <div className="relative">
-              <Animator animation={Fade()}>
-                <h1
-                  className="text-5xl md:text-8xl tracking-wider font-normal text-[#FFFBFB] drop-shadow-lg"
-                  style={{
-                    fontFamily: "'Metal Mania', cursive",
-                    WebkitTextStroke: "3px #D4BF927D",
-                    WebkitTextFillColor: "#FFFBFB",
-                    textShadow:
-                      "0 0 5px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4)",
-                  }}
-                >
-                  BLITZSCHLAG' 25
-                </h1>
-                {/* Insect Image */}
-                <img
-                  src={insect}
-                  alt="Insect"
-                  loading='lazy'
-                  className="absolute -top-[4.5rem] md:-top-28 left-[82%] md:left-[93%] w-16 md:w-28"
+                <Animator animation={Fade()}>
+                  <motion.h1
+                    initial={{ y: -50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.8 }}
+                    className="text-5xl md:text-8xl font-extrabold tracking-wider"
+                    style={{
+                      fontFamily: "'Metal Mania', cursive",
+                      WebkitTextStroke: "2px #D4BF927D",
+                      WebkitTextFillColor: "#FFFBFB",
+                      textShadow: "0 0 10px rgba(255, 255, 255, 0.6)",
+                    }}
+                  >
+                    BLITZSCHLAG' 25
+                  </motion.h1>
+                  {/* Insect Image */}
+                  <img
+                    src={insect}
+                    alt="Insect"
+                    className="absolute -top-[4.5rem] md:-top-28 left-[82%] md:left-[93%] w-16 md:w-28"
                   />
-                  </Animator>
+                </Animator>
               </div>
               {/* Date Section */}
               <Animator animation={Move(1000, 0)}>
-                <p
-                  className="text-xl md:text-3xl tracking-normal font-normal text-[#C0AA67] mt-5"
+                <motion.p
+                  initial={{ x: -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                  className="text-xl md:text-3xl font-semibold text-yellow-500"
                   style={{
                     fontFamily: "'Metal Mania', cursive",
                     WebkitTextStroke: "0.5px #000000D1",
@@ -96,15 +124,20 @@ const Home = () => {
                   }}
                 >
                   7th - 9th February, 2025
-                </p>
+                </motion.p>
               </Animator>
               <Animator animation={Move(-1000, 0)}>
-                <p className="mt-10">
+                <motion.p
+                  className="mt-10"
+                  initial={{ y: -50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.8 }}
+                >
                   <PlayButton />
-                </p>
+                </motion.p>
               </Animator>
-              <Animator animation={MoveOut(1000, 0)}>
-                <p
+              <Animator>
+                <motion.p
                   className="text-xl mt-7 mb-3 md:text-3xl tracking-normal font-normal text-[#C0AA67]"
                   style={{
                     fontFamily: "'Metal Mania', cursive",
@@ -112,35 +145,34 @@ const Home = () => {
                     WebkitTextFillColor: "#C0AA67",
                     textShadow: "2px 2px 4px #000000",
                   }}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
                 >
                   presented by
-                </p>
+                </motion.p>
               </Animator>
               <Animator animation={MoveOut(-1000, 0)}>
-                <div className="flex justify-center sm:justify-start gap-4">
-                  <Link
-                    to="https://mnit.ac.in"
-                    className="w-24 h-24"
-                  >
-                    <img
-                      src={mnitlogo}
-                      className="w-24 h-24"
-                      alt="MNIT Logo"
-                    />
+                <motion.div
+                  initial={{ y: 50, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                  className="flex justify-center sm:justify-start gap-4"
+                >
+                  <Link to="https://mnit.ac.in" className="w-24 h-24">
+                    <img src={mnitlogo} className="w-24 h-24" alt="MNIT Logo" />
                   </Link>
-                  <Link
-                    to="https://mnit.ac.in/cacs"
-                    className="w-24 h-24"
-                  >
+                  <Link to="https://mnit.ac.in/cacs" className="w-24 h-24">
                     <img
                       src={clublogo}
                       className="w-24 h-24"
                       alt="Cultural Club Logo"
                     />
                   </Link>
-                </div>
+                </motion.div>
               </Animator>
             </div>
+            <NotificationList notifications={notifications} />
           </div>
         </Animator>
       </ScrollPage>

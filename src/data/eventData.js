@@ -1,5 +1,3 @@
-
-
 import tam from "../Assets/tamasha.jpg";
 import panache2 from "../Assets/panache.jpg";
 import ram from "../Assets/rambha_sambha.jpg";
@@ -49,6 +47,17 @@ import mnithustle from "../Assets/Screenshot 2025-01-22 232946.png"
 import gatarahemeradil from "../Assets/Screenshot 2025-01-22 232958.png"
 import karaokeroom from "../Assets/Screenshot 2025-01-22 233005.png"
 import seekthetruth from "../Assets/STT.png"
+import chamber from "../Assets/chamber.png"
+import discoverindia from "../Assets/discover india.png"
+import escaperoom from "../Assets/Escape_Room_Poster.png"
+import familyfeud from "../Assets/Family_Feud_Poster.png"
+import koffee from "../Assets/koffee.png"
+import nratyanjali from "../Assets/NRATYANJALI_POSTER.png"//not
+import squidgame from "../Assets/Squid_Game_Poster.png"//not
+import tinder from "../Assets/tinder dating.png"
+import toggle from "../Assets/toggle.png"
+import voice from "../Assets/VOICE_TOICE_POSTER.png"
+
 
 const eventData = {
     meltdown: {
@@ -331,7 +340,7 @@ const eventData = {
         name: 'Moments',
         venue: 'SAC',
         day: 1,
-        rulebook: '/RULE BOOK MOMENTS’25 CATEGORY ·Category 1 Architecture (buildings, monument_20250122_184413_0000.pdf',
+        rulebook: '/RULE BOOK MOMENTS’25 CATEGORY ·Category 1 Architecture (buildings, monument_20250123_170951_0000.pdf',
         description: 'Photography Exhibition on various genres of Photography. Best Photo for Exhibition will be taken for Photocontest. Judges will be invited to select best Photos.',
         maxTeamSize: 1,
         eventPath: 'moments',
@@ -355,7 +364,7 @@ const eventData = {
         name: 'Pic Saga',
         venue: 'Online',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/picsaga rb_20250123_171049_0000.pdf',
         description: 'candid and creative Photography Competition in Blitzschlag',
         maxTeamSize: 1,
         eventPath: 'picsaga',
@@ -367,7 +376,7 @@ const eventData = {
         name: 'Vogue',
         venue: 'VLTC(tut room)',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/vogue rb_20250123_171017_0000.pdf',
         description: 'Model Photogrphy competition.',
         maxTeamSize: 1,
         eventPath: 'vogue',
@@ -643,11 +652,11 @@ const eventData = {
         name: 'Coffee With ELAC',
         venue: '',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/RULEBOOK FOR KOFFEE WITH ELAC.pdf',
         description: 'A fun and interactive questionnaire round where participants are paired and guess how their partner would answer various fun questions. The goal is to engage in a lighthearted, social experience.',
         maxTeamSize: 1,
         eventPath: 'koffeewithELAC',
-        imgUrl: post ,
+        imgUrl: koffee ,
         club: 'ELAC',
         type: 'club',
     },
@@ -655,11 +664,11 @@ const eventData = {
         name: 'Chamber of Phrases',
         venue: '',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: 'p/RULEBOOK FOR CHAMBER OF PHRASES.pdf',
         description: 'An immersive word-driven challenge designed to test communication, teamwork, and critical thinking through puzzles, rhymes, and riddles.',
         maxTeamSize: 1,
         eventPath: 'chamberofphrases',
-        imgUrl: post ,
+        imgUrl: chamber ,
         club: 'ELAC',
         type: 'club',
     },
@@ -667,11 +676,11 @@ const eventData = {
         name: 'toggle',
         venue: '',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/RULEBOOK FOR TOGGLE.pdf',
         description: 'A single-person, self-debating event where participants switch sides (for and against the motion) after each "TOGGLE" command. They must argue both sides logically and coherently within time limits.',
         maxTeamSize: 1,
         eventPath: 'toggle',
-        imgUrl: post ,
+        imgUrl: toggle ,
         club: 'ELAC',
         type: 'club',
     },
@@ -691,11 +700,11 @@ const eventData = {
         name: 'Family Feud',
         venue: 'C.V. Raman Hall',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Family_Feud_Rulebook.pdf',
         description: 'The event will involve participants giving their opinions on the questions asked based on which they’ll be ranked from the quirkiest(common) opinion to the least.',
         maxTeamSize: 1,
         eventPath: 'familyfeud',
-        imgUrl: post ,
+        imgUrl: familyfeud ,
         club: 'Mavericks',
         type: 'club',
     },
@@ -703,11 +712,11 @@ const eventData = {
         name: 'Escape Room',
         venue: 'APJ. Abdul Kalam Hall',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Escape_Room_Rulebook.pdf',
         description: 'Embark on an immersive adventure where puzzles challenge your wit and teamwork is crucial. Race against the clock in a thrilling escape room experience! ',
         maxTeamSize: 1,
         eventPath: 'escaperoom',
-        imgUrl: post ,
+        imgUrl: escaperoom ,
         club: 'Mavericks',
         type: 'club',
     },
@@ -851,7 +860,7 @@ const eventData = {
         description: 'A classical music singing competition with creative twists such as surprise duet rounds, genre fusions, and audience-suggested themes.',
         maxTeamSize: 1,
         eventPath: 'voicetoice',
-        imgUrl: post ,
+        imgUrl: voice ,
         club: 'CMD',
         type: 'club',
     },
@@ -859,11 +868,11 @@ const eventData = {
         name: 'Tinder Dating',
         venue: 'VLTC-room',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/RULEBOOK TINDER DATING THINK INDIA CLUB.pdf',
         description: "In this Tinder Dating event 2 random students are to be picked and made to seat on hot seat for 5 min talking session in front of the audience. They have to sit and talk to each other for  min in front of audience. Objective : To enhance the communication skills of the students. Key Features:- Random 2 students to be slected for hot seat They have to sit and talk to each other for  min in front of audience.",
         maxTeamSize: 1,
         eventPath: 'tinderdating',
-        imgUrl: post ,
+        imgUrl: tinder ,
         club: 'Think India',
         type: 'club',
     },
@@ -887,7 +896,7 @@ const eventData = {
         description: 'Participants will engage in a treasure hunt to find pieces of a jigsaw puzzle of India while solving riddles that lead them to various locaƟons in the classroom.',
         maxTeamSize: 1,
         eventPath: 'discoverindiathepuzzlehunt',
-        imgUrl: post ,
+        imgUrl: discoverindia ,
         club: 'Think India',
         type: 'club',
     }   
