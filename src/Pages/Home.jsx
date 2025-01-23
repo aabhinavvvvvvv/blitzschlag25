@@ -1,5 +1,5 @@
 import React from "react";
-import homeImage from "../Assets/blitz_home.png";
+import homeImage from "../Assets/blitz_home.jpg";
 import insect from "../Assets/BlitzHome_insect.png";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
@@ -8,7 +8,7 @@ import clublogo from "../Assets/culturalclublogo-removebg-preview.png";
 import PlayButton from "../Components/PlayButton";
 import { motion } from "framer-motion";
 import NotificationList from "../Components/NotificationList";
-
+import { useState,useRef,useEffect } from "react";
 import {
   Animator,
   ScrollContainer,
