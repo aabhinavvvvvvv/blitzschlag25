@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../slices/cartSlice';
 import styled from 'styled-components';
 import { toast } from 'react-toastify';
+import { FaCheck } from 'react-icons/fa';
 const Button = () => {
   const navigate = useNavigate();
   return (
@@ -252,8 +253,15 @@ function PassCard({ pass }) {
   const availableFlagshipEvents = flagshipEventsByDay[selectedDay] || []
   const [selectedFlagship, setSelectedFlagship] = useState(availableFlagshipEvents[0].label)
   const dispatch = useDispatch();
-  const handleAddToCart = () => {
+  const [isAdded, setIsAdded] = useState(false);
+  const handleAddToCart = async () => {
     if (quantity > 0) {
+      setIsAdded(true);
+
+    // Reset to the initial state after 2 seconds
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
       const details = {
         passName: pass.name,
         quantity,
@@ -263,7 +271,7 @@ function PassCard({ pass }) {
       };
       
       // Dispatch the action to add to cart
-      dispatch(addToCart(details));
+      await dispatch(addToCart(details));
       toast.success("Succesfully added to cart");
     } else {
       toast.error("Quantity must be greater than 0");
@@ -344,9 +352,23 @@ function PassCard({ pass }) {
             </button>
           </div>
         </div>
-        <button onClick={handleAddToCart} className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 backdrop-filter backdrop-blur-sm">
+        {/* <button onClick={handleAddToCart} className="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 backdrop-filter backdrop-blur-sm">
           Add to Cart
-        </button>
+        </button> */}
+        <button
+      onClick={handleAddToCart}
+      className={`px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white ${
+        isAdded ? 'bg-green-600' : 'bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700'
+      } backdrop-filter backdrop-blur-sm flex items-center justify-center`}
+    >
+      {isAdded ? (
+        <span className="flex items-center">
+          <FaCheck className="mr-2" /> Added to cart
+        </span>
+      ) : (
+        'Add to Cart'
+      )}
+    </button>
       </div>
     </div>
   )
@@ -368,9 +390,7 @@ export default function Pass() {
           <div className="relative max-w-xl mx-auto sm:text-center mb-12">
             <h3
               className="text-6xl font-bold mt-8 tracking-wider text-center text-gray-200"
-              style={{ fontFamily: "'Metal Mania', cursive" }}
-
-            >
+              style={{ fontFamily: "'Metal Mania', cursive" }}>
               Cultural Fest Passes
             </h3>
           </div>
@@ -380,15 +400,9 @@ export default function Pass() {
               <PassCard key={idx} pass={pass} />
             ))}
             <Button >Go to Cart</Button>
-            
-
-            
           </div>
         </div>
       </section>
     </div>
   )
 }
-
-
-

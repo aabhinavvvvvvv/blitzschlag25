@@ -8,6 +8,7 @@ import clublogo from "../Assets/culturalclublogo-removebg-preview.png";
 import PlayButton from "../Components/PlayButton";
 import { motion } from "framer-motion";
 import NotificationList from "../Components/NotificationList";
+
 import {
   Animator,
   ScrollContainer,
@@ -45,14 +46,36 @@ const notifications = [
   },
 
 ];
-
-
 const Home = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { rootMargin: "50px" } // Adjust as needed
+      );
+  
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+  
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, []);
   return (
     <ScrollContainer>
       <ScrollPage>
         <Animator animation={batch(FadeIn(), Sticky(), MoveIn(-1000, 0))}>
           <div
+            ref={ref}
             className="h-screen w-screen bg-transparent relative overflow-hidden flex items-center justify-center"
             style={{
               backgroundImage: `url(${homeImage})`,

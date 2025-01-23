@@ -242,6 +242,33 @@ const special_mention=[
 ]
     
 const Team = () => {
+
+const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { rootMargin: "50px" } // Adjust as needed
+      );
+  
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+  
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, []);
+
+
+
   const [activeTab, setActiveTab] = useState("core");
   const scrollContainerRef = useRef(null);
   const animationFrameRef = useRef(null);
@@ -293,8 +320,11 @@ const Team = () => {
     <div className="h-screen w-full bg-transparent relative overflow-hidden">
       {/* Background Image */}
       <div
+      ref={ref}
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${teamImg})` }}
+         style={{ 
+          // backgroundImage: `url(${teamImg})`,
+        backgroundImage: isVisible ? `url(${teamImg})` : "none", }}
       ></div>
 
       {/* Heading */}
