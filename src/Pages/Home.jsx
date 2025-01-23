@@ -20,16 +20,41 @@ import {
   Move,
   Fade,
 } from "react-scroll-motion";
-
+import { useRef,useState,useEffect } from 'react';
 const Home = () => {
+    const [isVisible, setIsVisible] = useState(false);
+    const ref = useRef(null);
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        },
+        { rootMargin: "50px" } // Adjust as needed
+      );
+  
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+  
+      return () => {
+        if (ref.current) {
+          observer.unobserve(ref.current);
+        }
+      };
+    }, []);
   return (
     <ScrollContainer>
       <ScrollPage>
         <Animator animation={batch(FadeIn(), Sticky(), MoveIn(-1000, 0))}>
           <div
+            ref={ref}
             className="h-screen w-screen bg-transparent relative overflow-hidden flex items-center justify-center"
             style={{
-              backgroundImage: `url(${homeImage})`,
+              backgroundImage: isVisible ? `url(${homeImage})` : "none",
+              // backgroundImage: `url(${homeImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
@@ -54,6 +79,7 @@ const Home = () => {
                 <img
                   src={insect}
                   alt="Insect"
+                  loading='lazy'
                   className="absolute -top-[4.5rem] md:-top-28 left-[82%] md:left-[93%] w-16 md:w-28"
                   />
                   </Animator>
