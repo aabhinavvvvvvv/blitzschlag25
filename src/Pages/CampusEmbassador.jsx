@@ -26,31 +26,60 @@ const CampusEmbassador = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+  
     const user = auth.currentUser;
-    if(!user){
+    if (!user) {
       toast.error("User not logged in.");
       setFormData({
         name: "",
-      email: "",
-      phone: "",
-      college: "",
-      message: ""
-      })
+        email: "",
+        phone: "",
+        college: "",
+        message: "",
+      });
       return;
     }
-    console.log("Form Data Submitted:", formData);
-    setFormData({
-      name: "",
-    email: "",
-    phone: "",
-    college: "",
-    message: ""
-    })
-    toast.success("Registerd Succesfully")
-    // You can add logic here to send formData to an API or perform any action
+  
+    const { name, email, phone, college, message } = formData;
+  
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/campus-ambassador/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uid: user.uid,
+          name,
+          email,
+          phn_no: phone,
+          college,
+          message,
+        }),
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        toast.success(result.message || "Registered successfully");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          college: "",
+          message: "",
+        });
+      } else {
+        toast.error(result.message || "Registration failed");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error("Something went wrong. Please try again later.");
+    }
   };
+  
 
   return (
     <div

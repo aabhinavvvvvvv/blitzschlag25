@@ -12,7 +12,7 @@ import styled from 'styled-components';
 
 const events = {
   panache: {
-    name: "PANACHE",
+    name: "Panache",
     venue: "Central Lawn, MNIT Jaipur",
     day: 2,
     rulebook: "/Panache_RuleBook.pdf",
@@ -24,7 +24,7 @@ const events = {
     type: "flagship",
   },
   tamasha: {
-    name: "TAMASHA",
+    name: "Tamasha",
     venue: "SAC Lawn, MNIT Jaipur",
     day: 2,
     rulebook: "/Tamasha_Rulebook.pdf",
@@ -36,7 +36,7 @@ const events = {
     type: "flagship",
   },
   battleofbands: {
-    name: "BATTLE OF BANDS",
+    name: "Battle Of Bands",
     venue: "VLTC Back Parking, MNIT Jaipur",
     day: 3,
     rulebook: "/BattleofBands_Rulebook.pdf",
@@ -48,7 +48,7 @@ const events = {
     type: "flagship",
   },
   rambasamba: {
-    name: "RAMBA SAMBA",
+    name: "Ramba Samba",
     venue: "Central Lawn & OAT, MNIT Jaipur",
     day: 3,
     rulebook: "/RambaSamba_Rulebook.pdf",
@@ -137,7 +137,7 @@ const FlagshipEvents = () => {
       />
 
       <motion.h1
-        className="text-5xl md:text-7xl font-extrabold text-center mb-12 relative z-10"
+        className="text-5xl md:text-7xl mt-16 font-extrabold text-center mb-12 relative z-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
@@ -190,16 +190,17 @@ const FlagshipEvents = () => {
         />
       </div>
       <motion.div
-        className="w-1/2 hidden  bg-gray-900/90 p-4 md:p-8 md:flex flex-col justify-between backdrop-blur-sm overflow-ellipsis"
+        className="w-1/2 bg-black bg-opacity-75 backdrop-blur-sm p-8 flex flex-col justify-between"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.5 }}
       >
         <div>
           <motion.h2
-            className="text-xl text-center md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500"
+            className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-pink-500"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
+            style={{ fontFamily: '"Amarante", serif' }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
             {eventArray[currentEvent].name}
