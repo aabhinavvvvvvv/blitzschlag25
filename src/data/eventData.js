@@ -8,22 +8,22 @@ import post from "../Assets/poster.png"
 import filmaff from "../Assets/FilmAffair2.png"
 import solo from "../Assets/SoloSpotlight2.png"
 import rang from "../Assets/RangBhoomi2.png"
-import moment from "../Assets/1_20250122_184127_0000.png"
+import moment from "../Assets/1_20250122_184127_0000.jpg"
 import brainblitz from "../Assets/1-2.png";//not 
 import totebag from "../Assets/1.png";//not
-import recyclerebels from "../Assets/2-2.png";//not
+import recyclerebels from "../Assets/2-2.jpg";//not
 import quillingcontest from "../Assets/2.png";//not
-import culturaltales from "../Assets/3-3.png";//not
-import clayornament from "../Assets/3.png";
-import cushionpaint from "../Assets/4.png";//not
-import fairytale from "../Assets/5.png";//not
-import picsaga from "../Assets/6_20250122_184127_0001.png"
-import capart from "../Assets/6.png"//not
-import bouquetmaking from "../Assets/7.png"//not
-import flowervase from "../Assets/8.png"//not
-import vogue from "../Assets/7_20250122_184127_0002.png"
-import dreamcatcher from "../Assets/9.png"//not
-import fashioninsta from "../Assets/10.png"//not
+import culturaltales from "../Assets/3-3.jpg";//not
+import clayornament from "../Assets/3.jpg";
+import cushionpaint from "../Assets/4.jpg";//not
+import fairytale from "../Assets/5.jpg";//not
+import picsaga from "../Assets/6_20250122_184127_0001.jpg"
+import capart from "../Assets/6.jpg"//not
+import bouquetmaking from "../Assets/7.jpg"//not
+import flowervase from "../Assets/8.jpg"//not
+import vogue from "../Assets/7_20250122_184127_0002.jpg"
+import dreamcatcher from "../Assets/9.jpg"//not
+import fashioninsta from "../Assets/10.jpg"//not
 import captionclash from "../Assets/CC.png"//not
 import charadecity from "../Assets/Charade cities.png"
 import courtroom from "../Assets/COURTROOM POSTER.png"//not
