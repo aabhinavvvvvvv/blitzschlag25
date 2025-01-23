@@ -21,7 +21,7 @@ const AboutUs = () => {
 
   return (
     <div
-      className="h-screen w-full bg-transparent relative overflow-y-scroll"
+      className="h-screen w-screen bg-transparent relative overflow-y-scroll overflow-x-hidden"
       style={{ fontFamily: 'cursive' }}
     >
       {/* Background Image */}
@@ -53,7 +53,7 @@ const AboutUs = () => {
             <img
               src={blitz}
               alt="About Us"
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-lg max-w-full"
             />
           </motion.div>
           {/* Content */}
@@ -71,7 +71,7 @@ const AboutUs = () => {
         </section>
 
         {/* Theme */}
-        <section className="relative py-8 mt-2 px-6 lg:px-20 grid grid-flow-row lg:grid-cols-2 gap-8 items-center lg:flex-row ">
+        <section className="relative py-8 mt-2 px-6 lg:px-20 grid grid-flow-row lg:grid-cols-2 gap-8 items-center lg:flex-row max-w-full">
           {/* Content */}
           <motion.div
             className="bg-black rounded-xl bg-opacity-20 p-5 text-center"

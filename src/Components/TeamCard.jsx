@@ -6,7 +6,7 @@ const TeamCard = ({img,name,post}) => {
         <div className='container'>
             <div className='card'>
                 <div className='content'>
-                    <div className='imgBx'><img src={img} /></div>
+                    <div className='imgBx'><img src={img} loading='lazy'/></div>
                     <div className='contentBx'>
                         <h3>{name}<br/><span className='yele'>{post}</span></h3>
                     </div>
