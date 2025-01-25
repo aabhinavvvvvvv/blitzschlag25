@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import mnit from '../Assets/prabhaBhawan.jpg'
 import cs from '../Assets/cs_image.png'
-import blitz from '../Assets/Blitz_Cover2023.jpg'
+import blitz from '../Assets/about_blitz_img.jpg'
 const AboutUs = () => {
   const navigate = useNavigate();
 

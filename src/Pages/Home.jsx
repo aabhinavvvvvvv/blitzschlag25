@@ -1,14 +1,14 @@
 import React from "react";
-// import homeImage from "../Assets/blitz_home.png";
+import homeImage from "../Assets/blitz_home.jpg";
 import insect from "../Assets/BlitzHome_insect.png";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
-// import mnitlogo from "../Assets/mnitlogo.png";
+import mnitlogo from "../Assets/mnitlogo.png";
 import clublogo from "../Assets/culturalclublogo-removebg-preview.png";
 import PlayButton from "../Components/PlayButton";
 import { motion } from "framer-motion";
 import NotificationList from "../Components/NotificationList";
-import { useState,useRef,useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Animator,
   ScrollContainer,
@@ -27,49 +27,52 @@ const notifications = [
   {
     id: 1,
     title: "Prom Night",
-    message: "Join us for a magical night filled with music, dance, and unforgettable memories at Blitzschlag 2025!",
+    message:
+      "Join us for a magical night filled with music, dance, and unforgettable memories at Blitzschlag 2025!",
   },
   {
     id: 4,
     title: "Volunteer Opportunities as Campus Ambassador",
-    message: "Step up as a Campus Ambassador and be a crucial part of the Blitzschlag team. Applications are open now!",
+    message:
+      "Step up as a Campus Ambassador and be a crucial part of the Blitzschlag team. Applications are open now!",
   },
   {
     id: 2,
     title: "Workshop Registration",
-    message: "Don't miss out! Register now for hands-on workshops conducted by industry experts during the event.",
+    message:
+      "Don't miss out! Register now for hands-on workshops conducted by industry experts during the event.",
   },
   {
     id: 3,
     title: "Art Exhibition",
-    message: "Experience the surreal beauty of our vibrant art exhibition, showcasing unique creations at Blitzschlag 2025.",
+    message:
+      "Experience the surreal beauty of our vibrant art exhibition, showcasing unique creations at Blitzschlag 2025.",
   },
-
 ];
 const Home = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef(null);
-  
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        },
-        { rootMargin: "50px" } // Adjust as needed
-      );
-  
-      if (ref.current) {
-        observer.observe(ref.current);
-      }
-  
-      return () => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
         }
-      };
-    }, []);
+      },
+      { rootMargin: "50px" } // Adjust as needed
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
   return (
     <ScrollContainer>
       <ScrollPage>
@@ -172,7 +175,9 @@ const Home = () => {
                 </motion.div>
               </Animator>
             </div>
-            <NotificationList notifications={notifications} />
+            <div className="hidden md:block">
+              <NotificationList notifications={notifications} />
+            </div>
           </div>
         </Animator>
       </ScrollPage>
