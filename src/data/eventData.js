@@ -62,7 +62,7 @@ import voice from "../Assets/VOICE_TOICE_POSTER.png"
 const eventData = {
     meltdown: {
         name: 'Meltdown Madness',
-        venue: 'Left/Right Side of SAC Lawn',
+        venue: 'SAC Lawn, Right Side from Back',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Dodge, duck, and dive in this wipeout-style game with a rotating arm challenging your speed and balance!',
@@ -74,7 +74,7 @@ const eventData = {
     },
     bodyZorbing: {
         name: 'Body Zorbing',
-        venue: 'SAC Lawn (Left/Right side)',
+        venue: 'SAC Lawn (Left side)',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Run, bounce, and collide in inflatable bubble suits for a thrilling, fun experience.',
@@ -98,7 +98,7 @@ const eventData = {
     },
     arcade: {
         name: 'Arcade Arena',
-        venue: 'VLTC Back Porch entrance, Near L006 and L004',
+        venue: 'SAC LAWN Entry from Back(left side)',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'A blend of retro and modern games for an exhilarating experience.',
@@ -110,7 +110,7 @@ const eventData = {
     },
     magicShow: {
         name: 'Magic Show',
-        venue: 'TBD',
+        venue: 'SAC Lawn Stage / Back Parking Stage',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'A performance filled with tricks, illusions, and supernatural effects.',
@@ -146,7 +146,7 @@ const eventData = {
     },
     clayPottery: {
         name: 'Clay Pottery',
-        venue: 'VLTC Back (Parking)',
+        venue: 'VLTC Back Parking',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Shape and mold clay into creative, decorative, or functional objects.',
@@ -158,7 +158,7 @@ const eventData = {
     },
     neonPainting: {
         name: 'Neon Painting',
-        venue: 'Pronite Gate Entrance / Food Area Entrance',
+        venue: 'OAT Entrance',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Glow-in-the-dark face painting with UV-reactive paints for a vibrant look.',
@@ -194,9 +194,9 @@ const eventData = {
     },
     boltiBand: {
         name: 'Bolti Band',
-        venue: 'VLTC L104',
+        venue: 'VLTC(L-106)',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Bolti Band_Rulebook.pdf',
         description: 'A lip-reading game testing teamwork, concentration, and creativity!',
         maxTeamSize: 5,
         eventPath: 'boltiBand',
@@ -218,9 +218,9 @@ const eventData = {
     },
     twister: {
         name: 'Twister',
-        venue: 'VLTC Tut Room (1st Floor)',
+        venue: 'VLTC Tut-002',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Twister_Rulebook.pdf',
         description: 'A fun, body-bending game of balance and color coordination!',
         maxTeamSize: 1,
         eventPath: 'twister',
@@ -244,7 +244,7 @@ const eventData = {
         name: 'Blind Maze',
         venue: 'SAC Lawn (Near Gym)',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Blind Maze_Rulebook.pdf',
         description: 'A teamwork challenge where one navigates a maze blindfolded while guided verbally!',
         maxTeamSize: 2,
         eventPath: 'blindMaze',
@@ -254,9 +254,9 @@ const eventData = {
     },
     treasureHunt: {
         name: 'Treasure Hunt',
-        venue: 'Campus-wide',
+        venue: 'MNIT Campus',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Image Hunt_Rulebook.pdf',
         description: 'Solve clues and locate hidden treasures across the campus!',
         maxTeamSize: 5,
         eventPath: 'treasureHunt',
@@ -266,9 +266,9 @@ const eventData = {
     },
     minuteToWinIt: {
         name: 'Minute-to-Win-It',
-        venue: 'VLTC Hall (CV Raman Hall)',
+        venue: 'VLTC RAMANUJAN HALL',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/Minute to Win it_Rulebook.pdf',
         description: 'Quick, fun challenges to be completed in under a minute!',
         maxTeamSize: 1,
         eventPath: 'minuteToWinIt',
@@ -290,7 +290,7 @@ const eventData = {
     },
     panache:{
         name: "PANACHE",
-        venue: "Central Lawn, MNIT Jaipur",
+        venue: "OAT",
         day: 2,
         rulebook: "/Panache_RuleBook.pdf",
         description: "PANACHE 2025 is a fashion show organized by Malaviya National Institute of Technology, aimed at redefining style, expressiveness, charisma, and glamour. It brings an opportunity to showcase the best trends, both past and present, with creativity, panache, and confidence.",
@@ -326,7 +326,7 @@ const eventData = {
     },
     rambasamba:{
         name: "RAMBA SAMBA",
-        venue: "Central Lawn & OAT, MNIT Jaipur",
+        venue: "OAT, MNIT Jaipur",
         day: 3,
         rulebook: "/RambaSamba_Rulebook.pdf",
         description: "RAMBA SAMBA 2025 offers a captivating journey through diverse dance styles, blending traditional and contemporary movements. Teams will showcase their creativity through breathtaking choreographies, electrifying energy, and heart-throbbing performances, celebrating the magic of collective movement.",
@@ -352,7 +352,7 @@ const eventData = {
         name: 'Bhavna',
         venue: 'Online',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/RULE BOOK MOMENTS’25 CATEGORY ·Category 1 Architecture (buildings, monument_20250123_170951_0000.pdf',
         description: "Story telling through photos,Photography Competition in Blitzschlag",
         maxTeamSize: 1,
         eventPath: 'bhavna',
@@ -374,7 +374,7 @@ const eventData = {
     },
     vogue: {
         name: 'Vogue',
-        venue: 'VLTC(tut room)',
+        venue: 'VLTC Tute Room(T-102)',
         day: 1,
         rulebook: '/vogue rb_20250123_171017_0000.pdf',
         description: 'Model Photogrphy competition.',
@@ -386,7 +386,7 @@ const eventData = {
     },
     workshop: {
         name: 'Workshop',
-        venue: 'VLTC(L 104)',
+        venue: 'VLTC(L 103)',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Professional Photographers will be invited for this event. It will have talkshow, Workshop, QA session.',
@@ -398,7 +398,7 @@ const eventData = {
     },
     quiznojutsu: {
         name: 'Quiznojutsu',
-        venue: 'VLTC Room',
+        venue: 'VLTC(L-106)',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Anime Based Quiz',
@@ -422,7 +422,7 @@ const eventData = {
     },
     quizquizhotahai: {
         name: 'Quiz Quiz Hota Hai',
-        venue: 'VLTC Room',
+        venue: 'VLTC(L-007)',
         day: 1,
         rulebook: '/Quiz Quiz Hota H.pdf',
         description: 'Bollywood Themed Quiz',
@@ -434,7 +434,7 @@ const eventData = {
     },
     gungunatechalo: {
         name: 'Gungunate Chalo',
-        venue: 'VLTC (Radhakrishna Hall), MNIT Jaipur',
+        venue: 'VLTC(L-001)',
         day: 1,
         rulebook: '/Gungunate Chalo_20250122_114715_0000.pdf',
         description: 'Participants must recognize and sing along to songs after hearing a short snippet of background music.',
@@ -446,7 +446,7 @@ const eventData = {
     },
     gaatarahemeradil: {
         name: 'Gaata Rahe Mera Dil',
-        venue: 'VLTC (Radhakrishna Hall), MNIT Jaipur',
+        venue: 'VLTC(L-108)',
         day: 1,
         rulebook: '/Gata Rahe Mera Dil (2).pdf',
         description: 'Antakshari is getting a thrilling twist with three high-energy, fun-filled rounds.',
@@ -470,7 +470,7 @@ const eventData = {
     },
     karaoke: {
         name: 'Karaoke',
-        venue: 'VLTC L006, MNIT Jaipur',
+        venue: 'Radhakrishan Hall',
         day: 1,
         rulebook: '/Karaoke.pdf',
         description: 'Fun-filled karaoke evening with endless songs, great company, and plenty of laughs.',
@@ -494,7 +494,7 @@ const eventData = {
     },
     youthparliament: {
         name: 'Youth Parliament',
-        venue: 'VLTC - RAMANUJAN HALL',
+        venue: 'VLTC - APJ HALL',
         day: 1,
         rulebook: '/rule book.pdf',
         description: 'The Electoral Literacy Club is organizing a Mock Youth Parliament , where students will engage in a dynamic debate to pass a proposed bill. Both parties will present their opinions and arguments, fostering an understanding of democratic processes, parliamentary procedures, and the importance of informed voting. This event encourages active civic participation.',
@@ -506,7 +506,7 @@ const eventData = {
     },
     mimicmania: {
         name: 'Mimic Mania',
-        venue: 'VLTC',
+        venue: 'VLTC(L-006)',
         day: 1,
         rulebook: 'Will be shared later',
         description: '',
@@ -578,7 +578,7 @@ const eventData = {
     },
     jigsawjollies: {
         name: 'Jigsaw Jollies',
-        venue: 'L006',
+        venue: 'VLTC(L-004)',
         day: 1,
         rulebook: '/Jigsaw Jollies Rulebook.png',
         description: 'Teams race to complete a jigsaw puzzle with unique time challenges based on size.',
@@ -590,7 +590,7 @@ const eventData = {
     },
     charadecities: {
         name: 'Charade Cities',
-        venue: 'L006',
+        venue: 'VLTC(L004)',
         day: 1,
         rulebook: '/Charade Cities rulebook.png',
         description: 'Teams act out clues for others to guess cities, no speaking allowed.',
@@ -602,7 +602,7 @@ const eventData = {
     },
     diceydares: {
         name: 'Dicey Dares',
-        venue: 'VLTC (back porch)',
+        venue: 'SAC LAWN',
         day: 1,
         rulebook: '/Dicey Dares Rulebook.png',
         description: 'Teams play a board game (Snakes and Ladders) with fun activities linked to it',
@@ -614,7 +614,7 @@ const eventData = {
     },
     pathwaypatter: {
         name: 'Pathway Patter',
-        venue: 'L006',
+        venue: 'VLTC(L-004)',
         day: 1,
         rulebook: '/Pathway Patter Rulebook.png',
         description: 'Teams will guess locations from video/audio clips from popular movies, with bonus points for audio rounds.',
@@ -626,7 +626,7 @@ const eventData = {
     },
     kavyamilan: {
         name: 'Kavya Milan',
-        venue: 'VLTC Room',
+        venue: 'VLTC(L-002)',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Topic/Theme will be given to the participants and they will be competiting with each other by writing poetry on that given topic/theme within given same time to all of them.And at last best poetry will be awarded.',
@@ -638,7 +638,7 @@ const eventData = {
     },
     mahfilesher: {
         name: 'Mahfil-e-Sher',
-        venue: 'Pratap Sthal',
+        venue: 'VLTC(L-107)',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Open mike poetry(Generally Gazals and Shayaries) event at VLTC Back Porch.',
@@ -662,7 +662,7 @@ const eventData = {
     },
     chamberofphrases: {
         name: 'Chamber of Phrases',
-        venue: '',
+        venue: 'VLTC(L-009)',
         day: 1,
         rulebook: 'p/RULEBOOK FOR CHAMBER OF PHRASES.pdf',
         description: 'An immersive word-driven challenge designed to test communication, teamwork, and critical thinking through puzzles, rhymes, and riddles.',
@@ -674,7 +674,7 @@ const eventData = {
     },
     toggle: {
         name: 'toggle',
-        venue: '',
+        venue: 'VLTC(L-009)',
         day: 1,
         rulebook: '/RULEBOOK FOR TOGGLE.pdf',
         description: 'A single-person, self-debating event where participants switch sides (for and against the motion) after each "TOGGLE" command. They must argue both sides logically and coherently within time limits.',
@@ -710,7 +710,7 @@ const eventData = {
     },
     escaperoom: {
         name: 'Escape Room',
-        venue: 'APJ. Abdul Kalam Hall',
+        venue: 'Vikram Sarabhai Hall',
         day: 1,
         rulebook: '/Escape_Room_Rulebook.pdf',
         description: 'Embark on an immersive adventure where puzzles challenge your wit and teamwork is crucial. Race against the clock in a thrilling escape room experience! ',
@@ -722,7 +722,7 @@ const eventData = {
     },
     moviemashupmadness: {
         name: 'Movie Mashup Madness',
-        venue: 'VLTC',
+        venue: 'VLTC(L-109)',
         day: 1,
         rulebook: "/moviemashupquiz.pdf",
         description: 'In this exciting quiz event, participants will face a mashup of famous scenes, soundtracks, and dialogues from different movies. The challenge is to identify the correct movie and character from the jumbled clues as quickly as possible. This event is a fun test of memory, recognition, and film knowledge, and promises an engaging experience for all film lovers.',
@@ -734,7 +734,7 @@ const eventData = {
     },
     rapidfirequiz: {
         name: 'Rapid Fire Quiz',
-        venue: 'VLTC',
+        venue: 'VLTC(L-109)',
         day: 1,
         rulebook: '/rapidfirequiz.pdf',
         description: 'A fast-paced quiz event designed for film buffs who think on their feet. Participants will answer challenging questions covering various film genres, directors, actors, and iconic scenes. Each question comes with a strict time limit, so speed and accuracy are key to winning. Get ready to bring your A-game to this high-energy quiz!',
@@ -806,7 +806,7 @@ const eventData = {
     },
     searchonthemap: {
         name: 'Search On The Map',
-        venue: 'VLTC',
+        venue: 'VLTC(L-108)',
         day: 1,
         rulebook: 'Will be shared later',
         description: "Search on the Map is an engaging event where participants throw an arrow at a map of India and describe the art, culture, and heritage of the region it lands on. Conducted in Hindi, this 2-hour activity tests knowledge, fluency, and confidence, offering a fun way to celebrate India's cultural diversity.",
@@ -866,7 +866,7 @@ const eventData = {
     },
     tinderdating: {
         name: 'Tinder Dating',
-        venue: 'VLTC-room',
+        venue: 'VLTC(L-008)',
         day: 1,
         rulebook: '/RULEBOOK TINDER DATING THINK INDIA CLUB.pdf',
         description: "In this Tinder Dating event 2 random students are to be picked and made to seat on hot seat for 5 min talking session in front of the audience. They have to sit and talk to each other for  min in front of audience. Objective : To enhance the communication skills of the students. Key Features:- Random 2 students to be slected for hot seat They have to sit and talk to each other for  min in front of audience.",
@@ -890,7 +890,7 @@ const eventData = {
     },
     discoverindiathepuzzlehunt: {
         name: 'Discover India The Puzzle Hunt',
-        venue: 'VLTC',
+        venue: 'VLTC(L-008)',
         day: 1,
         rulebook: 'Will be shared later',
         description: 'Participants will engage in a treasure hunt to find pieces of a jigsaw puzzle of India while solving riddles that lead them to various locaƟons in the classroom.',

@@ -4,6 +4,8 @@ import { Timeline } from "../Components/ui/timeline";
 import { events } from "../data/scheduledata";
 import schedulebg from "../Assets/pexels-lucas-pilon-ferro-51318148-8137085.jpg";
 import styled from "styled-components";
+import schedulebg1 from "../Assets/schedulebg1.jpg";
+import schedulebg2 from "../Assets/schedulebg2.jpg";
 
 const Radio = ({ selectedDay, setSelectedDay, days }) => {
   return (
@@ -26,111 +28,214 @@ const Radio = ({ selectedDay, setSelectedDay, days }) => {
   );
 };
 
+{/* <p>{event.Event_Proposed}</p>
+<p>
+  {event.Time} - {event.EndTime}
+</p>
+<p>{event.Venue}</p>
+<p>{event.Category}</p>
+<p>{event.Event_Coordinator}</p> */}
 
-const Card = ({event}) => {
+const Card = ({ event }) => {
   return (
     <StyledWrapper>
       <div className="card">
-              <div className="content">
-        <p>
- {event.Event_Proposed}
-           </p>
-           <p>
-         {event.Time} - {event.EndTime}
-           </p>
-           <p>
-            {event.Venue}
-           </p>
-           <p>
-       {event.Category}
-           </p>
-           <p>
-     {event.Event_Coordinator}
-           </p>
-         </div></div>  </StyledWrapper>
+        <div className="content flex flex-col items-center justify-center">
+          <p>{event.Event_Proposed}</p>
+          <p>
+            {event.Time} - {event.EndTime}
+          </p>
+          <p>{event.Venue}</p>
+          <p>{event.Category}</p>
+          <p>{event.Event_Coordinator}</p>
+        </div>
+        <div className="points_wrapper">
+          {Array.from({ length: 10 }).map((_, index) => (
+            <i key={index} className="point" />
+          ))}
+        </div>
+      </div>
+    </StyledWrapper>
   );
-}
+};
 const StyledWrapper = styled.div`
   .card {
-    position: relative;
+    --border: 4px;
+    --rounded: 16px;
+    --quantity: 12;
+    --w-card: 450px;
+    --h-card: 400px;
+    margin: 0;
     width: 190px;
     height: 254px;
-    background-color: #000;
+    // max-width: 80%;
+    // max-height: 80%;
+    border-radius: var(--rounded);
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding: 12px;
-    gap: 12px;
-    border-radius: 8px;
-    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: var(--border);
   }
 
-  .card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    left: -5px;
-    margin: auto;
-    width: 200px;
-    height: 264px;
-    border-radius: 10px;
-    background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100% );
-    z-index: -10;
-    pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-
+  .card::before,
   .card::after {
     content: "";
     z-index: -1;
     position: absolute;
-    inset: 0;
-    // background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100% );
-    // transform: translate3d(0, 0, 0) scale(0.95);
-    filter: blur(20px);
+    will-change: auto;
+    --size: calc(100%);
+    --size-old: calc(100% - calc(var(--border) * 2));
+    width: var(--size);
+    height: var(--size);
+    min-width: var(--size);
+    min-height: var(--size);
+    max-width: var(--size);
+    max-height: var(--size);
+    border-radius: var(--rounded);
+    background-size: 400% 400%;
+    animation: bg-spin 3s linear 0s infinite normal none running;
+    background-image: radial-gradient(
+        circle farthest-side at 0 100%,
+        #00ccb1,
+        transparent
+      ),
+      radial-gradient(circle farthest-side at 100% 0, #5ddcff, transparent),
+      radial-gradient(circle farthest-side at 100% 100%, #3c67e3, transparent),
+      radial-gradient(circle farthest-side at 0 0, #4e00c2, #0000);
   }
 
-  .heading {
-    font-size: 20px;
-    text-transform: capitalize;
-    font-weight: 700;
+  .card::after {
+    transition-property: color, background-color, border-color,
+      text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+      backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.5s;
+    animation-delay: 0.5s;
+    filter: blur(24px);
+    opacity: 0.7;
   }
 
-  .card p:not(.heading) {
-    font-size: 14px;
+  @keyframes bg-spin {
+    25% {
+      background-position: right 20% bottom 40%;
+    }
+    75% {
+      background-position: left 45% top 20%;
+    }
   }
 
-  .card p:last-child {
-    // color: #e81cff;
-    font-weight: 600;
+  .points_wrapper {
+    position: absolute;
+    overflow: hidden;
+    width: calc(100% - (var(--border) * 4));
+    height: calc(100% - (var(--border) * 4));
+    border-radius: calc(var(--rounded) - 4px);
+    pointer-events: none;
+    z-index: 80;
   }
 
-  .card:hover::after {
-    filter: blur(30px);
+  .points_wrapper .point {
+    --sz-point: 4px;
+    top: -8px;
+    position: absolute;
+    animation: floating-points infinite ease-in-out;
+    pointer-events: none;
+    width: var(--sz-point);
+    height: var(--sz-point);
+    background-color: #5ddcff;
+    border-radius: 9999px;
   }
 
-  .card:hover::before {
-    transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
-  }
-.card1:hover{
-  animation: cardafter 1s infinite forwards;
-  transform: scale(1.2); /* Scale up smoothly */
-  transition: transform 1s ease-in-out; /* Smooth transition for scaling */
-}
-
-
-  @keyframes cardafter {
+  @keyframes floating-points {
     0% {
-      opacity: 1;
+      transform: translate(0, 0);
     }
-
-    // 50% {
-    //   opacity: 0;
-    // }
-
+    95% {
+      opacity: 0;
+    }
     100% {
-      opacity: 1;
+      opacity: 0;
+      transform: translate(calc(var(--h-card) / 1.75), calc(var(--h-card) / 1.5));
     }
+  }
+
+  .points_wrapper .point:nth-child(1) {
+    left: 10%;
+    opacity: 1;
+    animation-duration: 2.35s;
+    animation-delay: 0.2s;
+  }
+
+  .points_wrapper .point:nth-child(2) {
+    left: 30%;
+    opacity: 0.7;
+    animation-duration: 2.5s;
+    animation-delay: 0.5s;
+  }
+
+  .points_wrapper .point:nth-child(3) {
+    left: 25%;
+    opacity: 0.8;
+    animation-duration: 2.2s;
+    animation-delay: 0.1s;
+  }
+
+  .points_wrapper .point:nth-child(4) {
+    left: 44%;
+    opacity: 0.6;
+    animation-duration: 2.05s;
+  }
+
+  .points_wrapper .point:nth-child(5) {
+    left: 50%;
+    opacity: 1;
+    animation-duration: 1.9s;
+  }
+
+  .points_wrapper .point:nth-child(6) {
+    left: 75%;
+    opacity: 0.5;
+    animation-duration: 1.5s;
+    animation-delay: 1.5s;
+  }
+
+  .points_wrapper .point:nth-child(7) {
+    left: 88%;
+    opacity: 0.9;
+    animation-duration: 2.2s;
+    animation-delay: 0.2s;
+  }
+
+  .points_wrapper .point:nth-child(8) {
+    left: 58%;
+    opacity: 0.8;
+    animation-duration: 2.25s;
+    animation-delay: 0.2s;
+  }
+
+  .points_wrapper .point:nth-child(9) {
+    left: 98%;
+    opacity: 0.6;
+    animation-duration: 2.6s;
+    animation-delay: 0.1s;
+  }
+
+  .points_wrapper .point:nth-child(10) {
+    left: 65%;
+    opacity: 1;
+    animation-duration: 2.5s;
+    animation-delay: 0.2s;
+  }
+
+  .content {
+    position: absolute;
+    width: calc(100% - (var(--border) * 4));
+    height: calc(100% - (var(--border) * 4));
+    border-radius: calc(var(--rounded) - 4px);
+    overflow: hidden;
+    z-index: 7;
+    background-color: #191c29;
   }
   .radio-input {
     display: flex;
@@ -193,14 +298,15 @@ const StyledWrapper = styled.div`
     .radio-input {
       position: static; /* Change position to static for mobile */
       margin: 16px auto;
-      flex-direction: column; /* Stack the radio buttons vertically */
+      // flex-direction: column; /* Stack the radio buttons vertically */
       gap: 8px;
-      width: 100%; /* Make the filter take full width */
-      align-items: center;
+      // width: 100%; /* Make the filter take full width */
+      // align-items: center;
+      
     }
 
     .label {
-      width: 80%; /* Adjust width for mobile */
+      // width: 80%; /* Adjust width for mobile */
     }
   }
 
@@ -228,7 +334,6 @@ const groupEventsByTime = (events) => {
   }, {});
 };
 
-
 export default function Schedule() {
   const uniqueDays = [...new Set(events.map((event) => event.Day))];
   const [selectedDay, setSelectedDay] = useState(uniqueDays[0]);
@@ -236,40 +341,46 @@ export default function Schedule() {
   const selectedDayEvents = events.filter((event) => event.Day === selectedDay);
   const groupedEvents = groupEventsByTime(selectedDayEvents); // Group events by time
 
-const timelineData = Object.keys(groupedEvents).map((timeKey) => {
-  const eventsAtSameTime = groupedEvents[timeKey];
-  return {
-    title: eventsAtSameTime[0].Time, // Display the start time
-    content: (
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(190px, 1fr))", gap: "16px" }}>
-        {eventsAtSameTime.map((event) => (
-          <Card key={event.Event_Proposed} event={event} />
-        ))}
-      </div>
-    ),
-  };
-});
-
+  const timelineData = Object.keys(groupedEvents).map((timeKey) => {
+    const eventsAtSameTime = groupedEvents[timeKey];
+    return {
+      title: eventsAtSameTime[0].Time, // Display the start time
+      content: (
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(190px, 1fr))",
+            gap: "16px",
+          }}
+        >
+          {eventsAtSameTime.map((event) => (
+            <Card key={event.Event_Proposed} event={event} />
+          ))}
+        </div>
+      ),
+    };
+  });
 
   return (
     <div
       className="w-full min-h-screen"
       style={{
-        backgroundImage: `url(${schedulebg})`,
+        backgroundImage: `url(${schedulebg1})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="w-full min-h-screen backdrop-blur-sm flex">
+      <div className="w-full min-h-screen backdrop-contrast-125 flex">
         <div className="w-full relative">
-          <div className="absolute top-60 ml-96 left-48">
+          <div className="absolute top-48 w-80 left-16 md:absolute md:top-60 md:left-40 md:ml-96">
             <Radio
               selectedDay={selectedDay}
               setSelectedDay={setSelectedDay}
               days={uniqueDays}
             />
           </div>
+
           <Timeline
             key={selectedDay}
             data={timelineData}

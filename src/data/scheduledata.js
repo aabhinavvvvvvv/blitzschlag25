@@ -465,7 +465,7 @@ export const events =[
     },
     {
         "S.No.": "",
-        "Event_Proposed": "Bolti band",
+        "Event_Proposed": "Bolti band"  ,
         "Event_Coordinator": "Publicity Team",
         "Venue": "Stall Area",
         "Time": "10:00 AM - 05:00 PM",
