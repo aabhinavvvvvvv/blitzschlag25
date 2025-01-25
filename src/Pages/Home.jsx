@@ -94,10 +94,10 @@ const Home = () => {
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.8 }}
-                    className="text-5xl md:text-8xl font-extrabold tracking-wider"
+                    className="text-5xl md:text-8xl font-normal tracking-wider"
                     style={{
                       fontFamily: "'Metal Mania', cursive",
-                      WebkitTextStroke: "2px #D4BF927D",
+                      WebkitTextStroke: "3px #D4BF927D",
                       WebkitTextFillColor: "#FFFBFB",
                       textShadow: "0 0 10px rgba(255, 255, 255, 0.6)",
                     }}
@@ -118,7 +118,7 @@ const Home = () => {
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: 0.4, duration: 0.8 }}
-                  className="text-xl md:text-3xl font-semibold text-yellow-500"
+                  className="text-xl md:text-3xl font-normal text-yellow-500"
                   style={{
                     fontFamily: "'Metal Mania', cursive",
                     WebkitTextStroke: "0.5px #000000D1",
@@ -175,9 +175,7 @@ const Home = () => {
                 </motion.div>
               </Animator>
             </div>
-            <div className="hidden md:block">
-              <NotificationList notifications={notifications} />
-            </div>
+            {/* <NotificationList notifications={notifications} /> */}
           </div>
         </Animator>
       </ScrollPage>

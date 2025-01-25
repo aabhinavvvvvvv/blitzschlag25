@@ -112,20 +112,19 @@ const [isOpen, setIsOpen] = useState(false);
 
         {/* Main Navigation (Visible in PC) */}
         <div
-          className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-[#C4C4C430] rounded-xl  text-[#D3D3D3] lg:flex justify-between items-center gap-x-7"
+          className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-black bg-opacity-10 backdrop-blur-md border border-[#ffffff2f] rounded-xl text-white   lg:flex justify-between items-center gap-x-7"
           style={{ fontFamily: "'Jaro', sans-serif" }}
         >
-         
           <Link
             to="/event"
-            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+            className="px-4 py-2 hover:text-[#D3D3D3]  transition-all duration-200"
           >
             EVENTS
           </Link>
           {!user ? (
             <Link
               to="/login"
-              className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+              className="px-4 py-2 hover:text-[#D3D3D3]  transition-all duration-200"
             >
               LOGIN
             </Link>
@@ -135,26 +134,26 @@ const [isOpen, setIsOpen] = useState(false);
           {user && (
             <Link
               to="/profile"
-              className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+              className="px-4 py-2 hover:text-[#D3D3D3]  transition-all duration-200"
             >
               PROFILE
             </Link>
           )}
           <Link
             to="/schedule"
-            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+            className="px-4 py-2 hover:text-[#D3D3D3] transition-all duration-200"
           >
             SCHEDULE
           </Link>
           <Link
             to="/sponsor"
-            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+            className="px-4 py-2 hover:text-[#D3D3D3] transition-all duration-200"
           >
             SPONSER
           </Link>
           <Link
             to="/faq"
-            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+            className="px-4 py-2 hover:text-[#D3D3D3] transition-all duration-200"
           >
             FAQ
           </Link>
@@ -179,7 +178,7 @@ const [isOpen, setIsOpen] = useState(false);
   }}
   size={250}
 >
-  <div className="flex flex-col items-left p-10 bg-black bg-opacity-100 h-full overflow-y-scroll">
+  <div className="flex flex-col items-left p-10 bg-black bg-opacity-100 h-full overflow-y-scroll ">
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500&display=swap');
     </style>
