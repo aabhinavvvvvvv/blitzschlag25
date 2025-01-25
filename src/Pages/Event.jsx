@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import eventData from "../data/eventData";
 import SingleComponent from "../Components/single";
 import TeamComponent from "../Components/team";
-import eventbg from "../Assets/eventbg.jpg";
+import eventbg from "../Assets/eventBG.webp";
 import Transition from "../transition";
 import { auth } from "../../fi";
 import "../css files/events.css";
@@ -272,11 +272,12 @@ const Events = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
+        fontFamily: 'cursive'
       }}
     >
       <p
-        style={{ fontFamily: '"Amarante", serif' }}
-        className="text-center mx-auto w-fit text-7xl mt-20 mb-8 font-normal bg-gradient-to-r from-[#ff5050] to-[#00ffc3] bg-clip-text text-transparent"
+        style={{ fontFamily: '"Metal Mania", serif' }}
+        className="text-center mx-auto w-fit text-7xl tracking-wider mt-20 mb-8 font-normal text-white"
       >
         EVENTS
       </p>
@@ -295,7 +296,7 @@ const Events = () => {
         <button
           onClick={handleJoinTeam}
           disabled={loading}
-          className={`w-full active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${
+          className={` active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${
             loading
               ? "bg-black border-white text-white cursor-not-allowed"
               : "bg-black border-indigo-500 text-white"
@@ -318,7 +319,7 @@ const Events = () => {
         <div className="flex justify-center my-4 relative">
           <button
             onClick={handleBackToCategories}
-            className={`w-full  active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 overflow-hidden ${
+            className={` active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 overflow-hidden ${
               loading
                 ? "bg-black border-white text-white cursor-not-allowed"
                 : "bg-black border-indigo-500 text-white"
@@ -335,9 +336,10 @@ const Events = () => {
           </button>
         </div>
       )}
+     
       {/* Category Buttons */}
       {!showEvents && (
-        <div className="category-buttons mt-24 relative flex flex-col items-center">
+        <div className="category-buttons mt-24 relative flex flex-col items-center scale-75 md:scale-100">
           {/* Rotating Cards */}
           <div className="box flex flex-wrap justify-center z-10 ">
             {Object.entries(categories).map(([key, value]) => (
@@ -383,17 +385,17 @@ const Events = () => {
               ) : (
                 filteredEvents.map((event, index) => (
                   <CardContainer className="inter-var" key={index}>
-                    <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border">
+                    <CardBody className="bg-black bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border">
                       <CardItem
                         translateZ="50"
-                        className="text-xl font-bold text-neutral-600 dark:text-white"
+                        className="text-xl font-bold text-neutral-100 dark:text-white"
                       >
                         {event.name}
                       </CardItem>
                       <CardItem
                         as="p"
                         translateZ="60"
-                        className="text-neutral-500 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                        className="text-neutral-300 text-sm max-w-sm mt-2 dark:text-neutral-300"
                       >
                         {event.description.slice(0, 50)}...
                       </CardItem>
@@ -415,7 +417,7 @@ const Events = () => {
                           translateX={40}
                           as="button"
                           onClick={() => openDrawer(event)}
-                          className="px-4 py-2 mx-auto rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                          className="px-4 py-2 mx-auto rounded-xl bg-gray-400 dark:bg-white dark:text-black text-gray-900 text-xs font-bold"
                         >
                           View Details
                         </CardItem>

@@ -127,11 +127,12 @@ const FAQ = () => {
         >
             {/* FAQ Section */}
             <div
-                className="max-w-5xl mx-auto p-8 rounded-xl bg-black bg-opacity-45 backdrop-blur-sm  mt-20"
+                className="max-w-5xl mx-auto p-8 rounded-xl bg-black bg-opacity-60 border border-[#ffffff2f] backdrop-blur-sm  mt-20"
+                style={{ fontFamily: 'cursive' }}
             >
                 <p
-                    style={{ fontFamily: '"Amarante", serif' }}
-                    className="text-center mx-auto my-8 w-fit text-5xl text-white"
+                    style={{ fontFamily: '"Metal Mania", serif' }}
+                    className="text-center mx-auto my-8 w-fit tracking-wider text-5xl md:text-7xl text-white"
                 >
                     FAQ
                 </p>
@@ -140,10 +141,11 @@ const FAQ = () => {
 
             {/* Contact Us Section */}
             <div
-                className="max-w-5xl mx-auto p-8 rounded-xl bg-black bg-opacity-45 backdrop-blur-sm mt-8"
+                className="max-w-5xl mx-auto p-8 rounded-xl bg-black bg-opacity-60 border border-[#ffffff2f] backdrop-blur-sm mt-8"
+                style={{ fontFamily: 'cursive' }}
             >
                 <p
-                    style={{ fontFamily: '"Amarante", serif' }}
+                    
                     className="text-center my-8 mx-auto w-fit text-5xl text-white"
                 >
                     Contact Us
@@ -169,12 +171,15 @@ const FAQ = () => {
                         required
                         className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none text-white"
                     ></textarea>
+                    <div className="flex justify-center items-center">
                     <button
                         type="submit"
-                        className="w-full bg-transparent hover:bg-white hover:text-black border-2 border-white text-white p-3 rounded-lg mt-4"
+                        className="w-fit bg-transparent mx-auto text-center transition-all duration-200 active:scale-75 hover:bg-[#ffffffdd] hover:text-black border-2 border-white text-white p-3 rounded-lg mt-4"
                     >
                         Submit Form
                     </button>
+                    </div>
+                    
                 </form>
                 <span>{result}</span>
             </div>
