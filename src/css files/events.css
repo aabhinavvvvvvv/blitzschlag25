@@ -26,8 +26,8 @@ top: 166px;
 /* Container for the rotating buttons */
 .category-buttons {
   position: relative;
-  width: 220px; /* Default width */
-  height: 220px; /* Default height */
+  width: 265px; /* Default width */
+  height: 265px; /* Default height */
   perspective: 1000px; /* Apply perspective to make it 3D */
   display: flex; /* Add flexbox */
   justify-content: center; /* Center horizontally */
@@ -35,19 +35,7 @@ top: 166px;
   margin: auto;
 }
 
-@media (max-width: 768px) {
-  .category-buttons {
-    width: 190px; /* Reduced width for tablets and medium-sized screens */
-    height: 190px; /* Reduced height for tablets and medium-sized screens */
-  }
-}
 
-@media (max-width: 480px) {
-  .category-buttons {
-    width: 190px; /* Further reduced width for mobile screens */
-    height: 190px; /* Further reduced height for mobile screens */
-  }
-}
 
 
 /* 3D Rotating Cube */
