@@ -26,8 +26,8 @@ top: 166px;
 /* Container for the rotating buttons */
 .category-buttons {
   position: relative;
-  width: 265px; /* Default width */
-  height: 265px; /* Default height */
+  width: 220px; /* Default width */
+  height: 220px; /* Default height */
   perspective: 1000px; /* Apply perspective to make it 3D */
   display: flex; /* Add flexbox */
   justify-content: center; /* Center horizontally */
