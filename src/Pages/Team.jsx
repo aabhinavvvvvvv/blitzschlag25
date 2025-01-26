@@ -44,6 +44,19 @@ import ronak from "../Assets/ronak.png";
 import ankit from "../Assets/ankit.png";
 import lokesh from "../Assets/lokesh.png"
 
+
+
+import tv from '../Assets/tv.png';
+import dipaloy from '../Assets/dipaloy.png';
+import sandeep from '../Assets/sandeep.png';
+import satish from '../Assets/satish.png';
+import vks from '../Assets/vks.png';
+import bhavna from '../Assets/bhavna.png';
+import niraja from '../Assets/niraja.jpg';
+import prabhakar from '../Assets/prabhakar.png';
+import biman from '../Assets/biman.png';
+import ritika from '../Assets/ritika.png';
+
 // Core Team Data
 const core_team = [
   { name: "Siddhant Mohanty", position: "President", img: siddhantmohanty },
@@ -240,6 +253,160 @@ const special_mention=[
     
   }
 ]
+
+const organizing_committee = [
+  {
+    name: "Dr. Tarun Varma",
+    position: "AD (Students)",
+    img: tv,
+  },
+  {
+    name: "Dr. Dipaloy Datta",
+    position: "AD (Students)",
+    img: dipaloy,
+  },
+  {
+    name: "Dr. Sandeep Shrivastava",
+    position: "AD (Mess)",
+    img: sandeep,
+  },
+  {
+    name: "Dr. Satish Pipralia",
+    position: "AD (Sports)",
+    img: satish,
+  },
+  {
+    name: "Dr. Vikas Kumar Sanghal",
+    position: "AD (Discipline)",
+    img: vks,
+  },
+  {
+    name: "Dr. Bhavna Shrivastava",
+    position: "Coordinator Scholarships",
+    img: bhavna,
+  },
+  {
+    name: "Dr. Niraja Saraswat",
+    position: "Coordinator UBA",
+    img: niraja,
+  },
+  {
+    name: "Dr. Ancesh Prabhakar",
+    position: "Coordinator MoE Flagship Programs",
+    img: prabhakar,
+  },
+  {
+    name: "Dr. Biman Bandyopadhyay",
+    position: "Coordinator Student Magazine",
+    img: biman,
+  },
+  {
+    name: "Dr. Ritika Mahajan",
+    position: "Coordinator Wellness",
+    img: ritika
+  },
+  {
+    name: "Dr. Tarun Varma",
+    position: "AD (Students)",
+    img: tv,
+  },
+  {
+    name: "Dr. Dipaloy Datta",
+    position: "AD (Students)",
+    img: dipaloy,
+  },
+  {
+    name: "Dr. Sandeep Shrivastava",
+    position: "AD (Mess)",
+    img: sandeep,
+  },
+  {
+    name: "Dr. Satish Pipralia",
+    position: "AD (Sports)",
+    img: satish,
+  },
+  {
+    name: "Dr. Vikas Kumar Sanghal",
+    position: "AD (Discipline)",
+    img: vks,
+  },
+  {
+    name: "Dr. Bhavna Shrivastava",
+    position: "Coordinator Scholarships",
+    img: bhavna,
+  },
+  {
+    name: "Dr. Niraja Saraswat",
+    position: "Coordinator UBA",
+    img: niraja,
+  },
+  {
+    name: "Dr. Ancesh Prabhakar",
+    position: "Coordinator MoE Flagship Programs",
+    img: prabhakar,
+  },
+  {
+    name: "Dr. Biman Bandyopadhyay",
+    position: "Coordinator Student Magazine",
+    img: biman,
+  },
+  {
+    name: "Dr. Ritika Mahajan",
+    position: "Coordinator Wellness",
+    img: ritika
+  },
+  {
+    name: "Dr. Tarun Varma",
+    position: "AD (Students)",
+    img: tv,
+  },
+  {
+    name: "Dr. Dipaloy Datta",
+    position: "AD (Students)",
+    img: dipaloy,
+  },
+  {
+    name: "Dr. Sandeep Shrivastava",
+    position: "AD (Mess)",
+    img: sandeep,
+  },
+  {
+    name: "Dr. Satish Pipralia",
+    position: "AD (Sports)",
+    img: satish,
+  },
+  {
+    name: "Dr. Vikas Kumar Sanghal",
+    position: "AD (Discipline)",
+    img: vks,
+  },
+  {
+    name: "Dr. Bhavna Shrivastava",
+    position: "Coordinator Scholarships",
+    img: bhavna,
+  },
+  {
+    name: "Dr. Niraja Saraswat",
+    position: "Coordinator UBA",
+    img: niraja,
+  },
+  {
+    name: "Dr. Ancesh Prabhakar",
+    position: "Coordinator MoE Flagship Programs",
+    img: prabhakar,
+  },
+  {
+    name: "Dr. Biman Bandyopadhyay",
+    position: "Coordinator Student Magazine",
+    img: biman,
+  },
+  {
+    name: "Dr. Ritika Mahajan",
+    position: "Coordinator Wellness",
+    img: ritika
+  }
+];
+
     
 const Team = () => {
 
@@ -276,6 +443,7 @@ const [isVisible, setIsVisible] = useState(false);
   const getTeamData = () => {
     if (activeTab === "advisors") return advisors_team;
     if (activeTab === "special") return special_mention;
+    if (activeTab === "organizing") return organizing_committee;
     return core_team;
   };
 
@@ -336,6 +504,8 @@ const [isVisible, setIsVisible] = useState(false);
           ? "Advisors Team"
           : activeTab === "special"
           ? "Special Mention"
+          : activeTab === "organizing"
+          ? "Organising Committee"
           : "Team Avyukt"}
       </h2>
 
@@ -361,38 +531,53 @@ const [isVisible, setIsVisible] = useState(false);
       </div>
 
       {/* Tab Buttons */}
-      <div className="flex justify-center items-center gap-4 md:gap-8 px-4  scrollbar-hide">
-        <button
-          className={`relative py-2 px-4 sm:px-6 md:py-3 md:px-8 border border-black text-sm sm:text-lg md:text-xl font-semibold uppercase text-white bg-transparent rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
-            activeTab === "special"
-              ? "bg-white/30 shadow-2xl"
-              : "hover:bg-white/40 hover:shadow-xl"
-          }`}
-          onClick={() => handleTabSwitch("special")}
-        >
-          Special Mention
-        </button>
-        <button
-          className={`relative py-2 px-4 sm:px-6 md:py-3 md:px-8 border border-black text-sm sm:text-sm md:text-xl font-semibold uppercase text-white bg-transparent rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
-            activeTab === "core"
-              ? "bg-white/30 shadow-2xl"
-              : "hover:bg-white/40 hover:shadow-xl"
-          }`}
-          onClick={() => handleTabSwitch("core")}
-        >
-          Core Team
-        </button>
-        <button
-          className={`relative py-2 px-4 sm:px-6 md:py-3 md:px-8 border border-black text-sm sm:text-lg md:text-xl font-semibold uppercase text-white bg-transparent rounded-full shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
-            activeTab === "advisors"
-              ? "bg-white/30 shadow-2xl"
-              : "hover:bg-white/40 hover:shadow-xl"
-          }`}
-          onClick={() => handleTabSwitch("advisors")}
-        >
-          Advisors Team
-        </button>
-      </div>
+      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 scrollbar-hide">
+  <button
+    className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
+      activeTab === "special"
+        ? "bg-white/30 shadow-xl md:shadow-2xl"
+        : "hover:bg-white/40 hover:shadow-lg"
+    }`}
+    onClick={() => handleTabSwitch("special")}
+  >
+    <span className="sm:hidden">Special</span>
+    <span className="hidden sm:block">Special Mention</span>
+  </button>
+  <button
+    className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
+      activeTab === "core"
+        ? "bg-white/30 shadow-xl md:shadow-2xl"
+        : "hover:bg-white/40 hover:shadow-lg"
+    }`}
+    onClick={() => handleTabSwitch("core")}
+  >
+    <span className="sm:hidden">Core</span>
+    <span className="hidden sm:block">Core Team</span>
+  </button>
+  <button
+    className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
+      activeTab === "advisors"
+        ? "bg-white/30 shadow-xl md:shadow-2xl"
+        : "hover:bg-white/40 hover:shadow-lg"
+    }`}
+    onClick={() => handleTabSwitch("advisors")}
+  >
+    <span className="sm:hidden">Advisors</span>
+    <span className="hidden sm:block">Advisors Team</span>
+  </button>
+  <button
+    className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
+      activeTab === "organizing"
+        ? "bg-white/30 shadow-xl md:shadow-2xl"
+        : "hover:bg-white/40 hover:shadow-lg"
+    }`}
+    onClick={() => handleTabSwitch("organizing")}
+  >
+    <span className="sm:hidden">Organizing</span>
+    <span className="hidden sm:block">Organising Committee</span>
+  </button>
+</div>
+
     </div>
   );
 };
