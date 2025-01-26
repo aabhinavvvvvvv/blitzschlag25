@@ -8,6 +8,7 @@ import Profile from './Pages/Profile';
 import { AnimatePresence } from 'framer-motion';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
+import PaymentVerificationForm from './Components/VerifyTran';
 import About from './Pages/About';
 import Sponsor from './Pages/Sponsor';
 import Team from './Pages/Team';
@@ -34,7 +35,7 @@ import Cart from './Pages/Cart';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
-  
+  const verifyUrl = import.meta.env.VITE_VERIFY_URL;
   const location = useLocation();
   const navigate = useNavigate();
   const canvasRef = useRef(null);
@@ -181,6 +182,7 @@ function App() {
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
                 <Route path="/pay" element={<PaymentPage />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
+                <Route path={verifyUrl} element={<PaymentVerificationForm />} />
               </Routes>
             </AnimatePresence>
           </div>

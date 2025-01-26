@@ -225,7 +225,7 @@ const Navbar = () => {
             @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500&display=swap');
           </style>
           <div className="text-gold text-lg font-cinzel">
-            {!status ?
+            {status ?
               <Link
                 to={`${verifyUrl}`}
                 style={{ fontFamily: "'Metal Mania', cursive", }}
