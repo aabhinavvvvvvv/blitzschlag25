@@ -91,7 +91,7 @@ export const events =[
         "S.No.": 8,
         "Event_Proposed": "Karaoke Room",
         "Event_Coordinator": "MUSIC",
-        "Venue": "VLTC L001",
+        "Venue": "Radhakrishnan Hall",
         "Time": "02:00 PM - 05:00 PM",
         "Day": "Day 1"
     },
