@@ -376,7 +376,7 @@ export default function Pass() {
           <div className="relative max-w-xl mx-auto sm:text-center mb-12">
             <h3
               className="text-6xl font-bold mt-8 tracking-wider text-center text-gray-200"
-              style={{ fontFamily: "'Metal Mania', cursive" }}>
+              style={{ fontFamily: "'Metal Mania', cursive" }} >
               Fest Registrations
             </h3>
           </div>
@@ -385,8 +385,14 @@ export default function Pass() {
             {passes.map((pass, idx) => (
               <PassCard key={idx} pass={pass} />
             ))}
-            <Button >Go to Cart</Button>
+            <Button>Go to Cart</Button>
           </div>
+          
+          {/* Add the Note at the Bottom */}
+          <div className="mt-8 text-center  bg-opacity-75 p-4 rounded-md text-white text-lg font-semibold shadow-lg" >
+            <p style={{fontFamily: "'Metal Mania', cursive",}}>Note: Pronites will be free for all people registering for the fest.</p>
+          </div>
+          
         </div>
       </section>
     </div>

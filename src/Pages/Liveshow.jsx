@@ -4,7 +4,7 @@ import "../css files/liveshow.css";
 import vishalmishra from "../Assets/vishalmishra.png";
 import { useNavigate } from "react-router-dom";
 
-function App() {
+function Liveshow() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
   const navigate = useNavigate();
@@ -175,4 +175,4 @@ function App() {
   );
 }
 
-export default App;
+export default Liveshow;
