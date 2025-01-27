@@ -57,8 +57,6 @@ import squidgame from "../Assets/Squid_Game_Poster.png"//not
 import tinder from "../Assets/tinder dating.png"
 import toggle from "../Assets/toggle.png"
 import voice from "../Assets/VOICE_TOICE_POSTER.png"
-import km from "../Assets/km.png"
-import mes from "../Assets/mes.png"
 
 
 const eventData = {
@@ -150,7 +148,7 @@ const eventData = {
         name: 'Clay Pottery',
         venue: 'VLTC Back Parking',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/co.pdf',
         description: 'Shape and mold clay into creative, decorative, or functional objects.',
         maxTeamSize: 1,
         eventPath: 'clayPottery',
