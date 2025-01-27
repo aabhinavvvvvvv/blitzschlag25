@@ -320,13 +320,13 @@ try {
               ProNites
             </Link>
             <Link
-              to="/pass"
+              to="/registration"
               style={{ fontFamily: "'Metal Mania', cursive", }}
               className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
               onClick={toggleDrawer}
             >
               <FaTicketAlt className="mr-3" />
-              Pass
+              Registrations
             </Link>
             <Link
               to="/champions_throphy"

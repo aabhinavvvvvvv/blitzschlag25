@@ -174,7 +174,7 @@ function App() {
                 <Route path="/campus_embassador" element={<CampusEmbassador />} />
                 <Route path="/pronites" element={<Pronite />} />
                 <Route path="/model3d" element={<Model3D />} />
-                <Route path="/pass" element={<Pass />} />
+                <Route path="/registration" element={<Pass />} />
                 <Route path="*" element={<Error />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/signup" element={<SignUp />} />
