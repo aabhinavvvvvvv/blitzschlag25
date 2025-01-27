@@ -15,6 +15,7 @@ import tamasha from "../Assets/category1.jpg";
 import battle from "../Assets/category2.jpg";
 import panache from "../Assets/category3.jpg";
 import rambha from "../Assets/category4.jpg";
+import poster from "../Assets/poster.png"
 
 const Button = ({ event }) => {
   const [clicked, setClicked] = useState(false);
@@ -22,6 +23,8 @@ const Button = ({ event }) => {
   const handleButtonClick = () => {
     setClicked(!clicked);
   };
+
+
 
   return (
     <StyledWrapper>
@@ -156,6 +159,7 @@ const Events = () => {
   const [teamCode, setTeamCode] = useState("");
   const [loading, setLoading] = useState(false);
   const [showEvents, setShowEvents] = useState(false);
+  const [activeClub, setActiveClub] = useState("none");
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -170,6 +174,11 @@ const Events = () => {
   const filteredEvents = Object.values(eventData).filter(
     (event) => event.type === activeTab
   );
+
+  const fliteredClubEvents = Object.values(eventData).filter(
+    (event) => event.club == activeClub
+  );
+
   const navigate = useNavigate();
   const handleTabChange = (tab) => {
     if (
@@ -183,13 +192,11 @@ const Events = () => {
     }
   };
   const handleButtonClick = () => {
-    console.log("Button clicked!");
     setDrawerOpen(!drawerOpen);
   };
   const handleBackToCategories = () => {
     setShowEvents(false);
-
-
+    setActiveClub("none");
   };
   const handleJoinTeam = async () => {
     if (!uid) {
@@ -263,7 +270,8 @@ const Events = () => {
     };
     return images[key] || "";
   };
-
+  const uniqueClubs = [...new Set(Object.values(eventData).map(event => event.club))];
+  console.log(uniqueClubs);
   return (
     <div
       className="p-8 min-h-screen text-white"
@@ -296,11 +304,10 @@ const Events = () => {
         <button
           onClick={handleJoinTeam}
           disabled={loading}
-          className={` active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${
-            loading
-              ? "bg-black border-white text-white cursor-not-allowed"
-              : "bg-black border-indigo-500 text-white"
-          }`}
+          className={` active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 relative overflow-hidden ${loading
+            ? "bg-black border-white text-white cursor-not-allowed"
+            : "bg-black border-indigo-500 text-white"
+            }`}
         >
           {/* Circles */}
           <span className="circle1"></span>
@@ -319,11 +326,10 @@ const Events = () => {
         <div className="flex justify-center my-4 relative">
           <button
             onClick={handleBackToCategories}
-            className={` active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 overflow-hidden ${
-              loading
-                ? "bg-black border-white text-white cursor-not-allowed"
-                : "bg-black border-indigo-500 text-white"
-            }`}
+            className={` active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 overflow-hidden ${loading
+              ? "bg-black border-white text-white cursor-not-allowed"
+              : "bg-black border-indigo-500 text-white"
+              }`}
           >
             <span className="circle1"></span>
             <span className="circle2"></span>
@@ -336,7 +342,28 @@ const Events = () => {
           </button>
         </div>
       )}
-     
+
+{activeClub !== "none" && (
+        <div className="flex justify-center my-4 relative">
+          <button
+            onClick={() => setActiveClub("none")}
+            className={` active:scale-90 btn sm:w-auto bg-opacity-80 bg-black text-gray-300 px-4 py-2 rounded-lg hover:ring-2 hover:ring-indigo-500 hover:border-indigo-500 transition-all duration-300 border-white border-2 overflow-hidden ${loading
+              ? "bg-black border-white text-white cursor-not-allowed"
+              : "bg-black border-indigo-500 text-white"
+              }`}
+          >
+            <span className="circle1"></span>
+            <span className="circle2"></span>
+            <span className="circle3"></span>
+            <span className="circle4"></span>
+            <span className="circle5"></span>
+
+            {/* Text */}
+            <span className="text">Back To Club</span>
+          </button>
+        </div>
+      )}
+
       {/* Category Buttons */}
       {!showEvents && (
         <div className="category-buttons mt-24 relative flex flex-col items-center scale-75 md:scale-100">
@@ -371,8 +398,9 @@ const Events = () => {
           </div>
         </div>
       )}
+
       {/* Event Cards */}
-      {showEvents && (
+      {showEvents && activeTab != "club" && (
         <div
           className="event-container"
         >
@@ -430,6 +458,105 @@ const Events = () => {
           </div>
         </div>
       )}
+
+      {showEvents && activeTab === "club" && activeClub === "none" && (
+        <div className="event-container">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">
+              {uniqueClubs.map((club, index) => (
+                club === "none" ? (
+                  null// Don't render anything if event is "none"
+                ) : (
+                  <div
+                    key={index}
+                    className="bg-black bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border"
+                  >
+                    <div className="text-xl font-bold text-neutral-100 dark:text-white">{club}</div>
+
+                    {/* Add your image URL here if available */}
+                    <div className="w-full mt-4">
+                      <img
+                        src={poster}
+                        className="rounded-xl w-auto h-80 mx-auto group-hover/card:shadow-xl"
+                        alt="event-thumbnail"
+                      />
+                    </div>
+
+                    <div className="flex justify-end items-center mt-4">
+                      <button
+                        onClick={() => setActiveClub(club)}
+                        className="px-4 py-2 mx-auto rounded-xl bg-gray-400 dark:bg-white dark:text-black text-gray-900 text-xs font-bold"
+                      >
+                        View Events
+                      </button>
+                    </div>
+                  </div>
+                )
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showEvents && activeTab == "club" && activeClub !== "none" && (
+        <div
+          className="event-container"
+        >
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-8">
+              {fliteredClubEvents.length === 0 ? (
+                <p className="text-center text-white">
+                  No events available for this category.
+                </p>
+              ) : (
+                fliteredClubEvents.map((event, index) => (
+                  <CardContainer className="inter-var" key={index}>
+                    <CardBody className="bg-black bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border">
+                      <CardItem
+                        translateZ="50"
+                        className="text-xl font-bold text-neutral-100 dark:text-white"
+                      >
+                        {event.name}
+                      </CardItem>
+                      <CardItem
+                        as="p"
+                        translateZ="60"
+                        className="text-neutral-300 text-sm max-w-sm mt-2 dark:text-neutral-300"
+                      >
+                        {event.description.slice(0, 50)}...
+                      </CardItem>
+                      <CardItem
+                        translateZ="100"
+                        rotateX={20}
+                        rotateZ={-10}
+                        className="w-full mt-4"
+                      >
+                        <img
+                          src={event.imgUrl}
+                          className="rounded-xl w-auto h-80 mx-auto group-hover/card:shadow-xl"
+                          alt="thumbnail"
+                        />
+                      </CardItem>
+                      <div className="flex justify-end items-center mt-4">
+                        <CardItem
+                          translateZ={20}
+                          translateX={40}
+                          as="button"
+                          onClick={() => openDrawer(event)}
+                          className="px-4 py-2 mx-auto rounded-xl bg-gray-400 dark:bg-white dark:text-black text-gray-900 text-xs font-bold"
+                        >
+                          View Details
+                        </CardItem>
+                      </div>
+                    </CardBody>
+                  </CardContainer>
+                ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
 
       {/* Drawer for Event Details */}
       {selectedEvent && (
@@ -493,3 +620,4 @@ const Events = () => {
 };
 
 export default Transition(Events);
+

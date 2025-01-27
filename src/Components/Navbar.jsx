@@ -3,7 +3,6 @@ import { signOut, onAuthStateChanged } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import Drawer from "react-modern-drawer";
-
 import "react-modern-drawer/dist/index.css";
 import logo from "../Assets/blitz_logo.png";
 import { auth } from "../../fi"; // Assuming you have a firebase.js file where auth is initialized
@@ -54,8 +53,50 @@ const Checkbox = ({ isDrawerOpen, setIsDrawerOpen }) => {
 };
 
 const Navbar = () => {
-//qr
-const [isOpen, setIsOpen] = useState(false);
+  const verifyUrl = import.meta.env.VITE_VERIFY_URL;
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+  const [status, setStatus] = useState(false);
+  // Run only once on initial load
+
+  const checkAdminControl = async () => {
+try {
+      const currentUser = auth.currentUser;
+      if (!currentUser) {
+        console.error("No user is logged in.");
+        return false; // Return false if no user is logged in
+      }
+      
+      const email = currentUser.email;
+      const response = await fetch(`${baseUrl}/admin/control?email=${email}`, {
+        method: "GET",
+      });
+      const data = await response.json();
+  
+      console.log("status : ", data.result);
+      setStatus(data.result);
+      // Return the result as true or false based on the response
+      return data.result ? true : false;
+    } catch (err) {
+      console.error("Error checking admin control:", err.message);
+      return false; // Return false if an error occurs
+    }
+  };
+  
+
+  useEffect(() => {
+    const fetchStatus = async () => {
+      try {
+        checkAdminControl();
+      } catch (err) {
+        console.error("Error fetching status:", err.message);
+      }
+    };
+
+    fetchStatus(); // Call the async function
+  }, [baseUrl, auth.currentUser]);
+
+  //qr
+  const [isOpen, setIsOpen] = useState(false);
   const toggleModal = () => {
     setIsOpen(!isOpen);
   };
@@ -64,7 +105,7 @@ const [isOpen, setIsOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     // Listen to auth state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -84,7 +125,7 @@ const [isOpen, setIsOpen] = useState(false);
       console.error("Error logging out: ", error);
     }
   };
-  const handlePaymentClick = ()=>{
+  const handlePaymentClick = () => {
     navigate("/pay");
   }
 
@@ -95,7 +136,7 @@ const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="absolute w-full z-50 bg-transparent">
       {
-          isOpen && <QRmodal  toggleModal={toggleModal} />
+        isOpen && <QRmodal toggleModal={toggleModal} />
       }
 
 
@@ -112,19 +153,22 @@ const [isOpen, setIsOpen] = useState(false);
 
         {/* Main Navigation (Visible in PC) */}
         <div
-          className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-black bg-opacity-10 backdrop-blur-md border border-[#ffffff2f] rounded-xl text-white   lg:flex justify-between items-center gap-x-7"
-          style={{ fontFamily: "'Jaro', sans-serif" }}
+          className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-[#00000086] rounded-xl  text-[#ffffff] lg:flex justify-between items-center gap-x-7"
+          style={{ fontFamily: "'Metal Mania', cursive", }}
         >
+
           <Link
             to="/event"
-            className="px-4 py-2 hover:text-[#D3D3D3]  transition-all duration-200"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
+            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
             EVENTS
           </Link>
           {!user ? (
             <Link
               to="/login"
-              className="px-4 py-2 hover:text-[#D3D3D3]  transition-all duration-200"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
             >
               LOGIN
             </Link>
@@ -134,26 +178,30 @@ const [isOpen, setIsOpen] = useState(false);
           {user && (
             <Link
               to="/profile"
-              className="px-4 py-2 hover:text-[#D3D3D3]  transition-all duration-200"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
             >
               PROFILE
             </Link>
           )}
           <Link
             to="/schedule"
-            className="px-4 py-2 hover:text-[#D3D3D3] transition-all duration-200"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
+            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
             SCHEDULE
           </Link>
           <Link
             to="/sponsor"
-            className="px-4 py-2 hover:text-[#D3D3D3] transition-all duration-200"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
+            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
             SPONSER
           </Link>
           <Link
             to="/faq"
-            className="px-4 py-2 hover:text-[#D3D3D3] transition-all duration-200"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
+            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
             FAQ
           </Link>
@@ -170,163 +218,177 @@ const [isOpen, setIsOpen] = useState(false);
 
       {/* Drawer for Mobile Navigation */}
       <Drawer
-  open={isDrawerOpen}
-  onClose={toggleDrawer}
-  direction="right"
-  style={{
-    backgroundColor: "transparent", // Custom background color
-  }}
-  size={250}
->
-  <div className="flex flex-col items-left p-10 bg-black bg-opacity-100 h-full overflow-y-scroll ">
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500&display=swap');
-    </style>
-    <div className="text-gold text-lg font-cinzel">
-      <Link
-        to="/"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
+        open={isDrawerOpen}
+        onClose={toggleDrawer}
+        direction="right"
+        style={{
+          backgroundColor: "transparent", // Custom background color
+        }}
+        size={250}
       >
-        <FaHome className="mr-3" />
-        Home
-      </Link>
-      <Link
-        to="/about"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <FaInfoCircle className="mr-3" />
-        About
-      </Link>
-      <Link
-        to="/sponsor"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <FaHandHoldingHeart className="mr-3" />
-        Sponsor
-      </Link>
-      <Link
-        to="/our_team"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <FaUsers className="mr-3" />
-        Our Team
-      </Link>
-      <Link
-        to="/schedule"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <FaCalendarAlt className="mr-3" />
-        Schedule
-      </Link>
-      {user && (
-        <Link
-          to="/profile"
-          style={{fontFamily: "'Metal Mania', cursive",}}
-          className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-          onClick={toggleDrawer}
-        >
-          <FaUser className="mr-3" />
-          Profile
-        </Link>
-      )}
-      <Link
-        to="/campus_embassador"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <FaUsers className="mr-3" />
-        <span>Ambassador</span>
-      </Link>
-      <Link
-        to="/pronites"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <FaMusic className="mr-3" />
-        ProNites
-      </Link>
-      <Link
-        to="/pass"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <FaTicketAlt className="mr-3" />
-        Pass
-      </Link>
-      <Link
-        to="/champions_throphy"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <PiRankingDuotone className="mr-3" />
-        Champions Trophy
-      </Link>
-      <Link
-        to="/pay"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-      >
-        <RiMoneyRupeeCircleFill className="mr-3" />
-        Payment
-      </Link>
-      {!user ? (
-        <>
-          <Link
-            to="/signup"
-            style={{fontFamily: "'Metal Mania', cursive",}}
-            className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaSignOutAlt className="mr-3" />
-            Sign Up
-          </Link>
-          <Link
-            to="/login"
-            style={{fontFamily: "'Metal Mania', cursive",}}
-            className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-            onClick={toggleDrawer}
-          >
-            <FaSignInAlt className="mr-3" />
-            Login
-          </Link>
-        </>
-      ) : null}
-      <Link
-        to="/event"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        onClick={toggleDrawer}
-      >
-        <FaCalendarAlt className="mr-3" />
-        Event
-      </Link>
-      <Link
-      
-        to="/faq"
-        className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-        style={{fontFamily: "'Metal Mania', cursive",}}
-        onClick={toggleDrawer}
-      >
-        <FaQuestionCircle className="mr-3" />
-        FAQ
-      </Link>
-    </div>
-  </div>
-</Drawer>
+        <div className="flex flex-col items-left p-10 bg-black bg-opacity-100 h-full overflow-y-scroll">
+          <style>
+            @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500&display=swap');
+          </style>
+          <div className="text-gold text-lg font-cinzel">
+           {console.log(status)}
+            {status?
+              <Link
+                to={`${verifyUrl}`}
+                style={{ fontFamily: "'Metal Mania', cursive", }}
+                className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+                onClick={toggleDrawer}
+              >
+                <FaHome className="mr-3" />
+                Verify Payment
+              </Link>
+              :
+              <></>
+            }
+            <Link
+              to="/"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaHome className="mr-3" />
+              Home
+            </Link>
+            <Link
+              to="/about"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaInfoCircle className="mr-3" />
+              About
+            </Link>
+            <Link
+              to="/sponsor"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaHandHoldingHeart className="mr-3" />
+              Sponsor
+            </Link>
+            <Link
+              to="/our_team"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaUsers className="mr-3" />
+              Our Team
+            </Link>
+            <Link
+              to="/schedule"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaCalendarAlt className="mr-3" />
+              Schedule
+            </Link>
+            {user && (
+              <Link
+                to="/profile"
+                style={{ fontFamily: "'Metal Mania', cursive", }}
+                className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+                onClick={toggleDrawer}
+              >
+                <FaUser className="mr-3" />
+                Profile
+              </Link>
+            )}
+            <Link
+              to="/campus_embassador"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaUsers className="mr-3" />
+              <span>Ambassador</span>
+            </Link>
+            <Link
+              to="/pronites"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaMusic className="mr-3" />
+              ProNites
+            </Link>
+            <Link
+              to="/registration"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaTicketAlt className="mr-3" />
+              Registrations
+            </Link>
+            <Link
+              to="/champions_throphy"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <PiRankingDuotone className="mr-3" />
+              Champions Trophy
+            </Link>
+            <Link
+              to="/pay"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+            >
+              <RiMoneyRupeeCircleFill className="mr-3" />
+              Payment
+            </Link>
+            {!user ? (
+              <>
+                <Link
+                  to="/signup"
+                  style={{ fontFamily: "'Metal Mania', cursive", }}
+                  className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+                  onClick={toggleDrawer}
+                >
+                  <FaSignOutAlt className="mr-3" />
+                  Sign Up
+                </Link>
+                <Link
+                  to="/login"
+                  style={{ fontFamily: "'Metal Mania', cursive", }}
+                  className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+                  onClick={toggleDrawer}
+                >
+                  <FaSignInAlt className="mr-3" />
+                  Login
+                </Link>
+              </>
+            ) : null}
+            <Link
+              to="/event"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaCalendarAlt className="mr-3" />
+              Event
+            </Link>
+            <Link
+
+              to="/faq"
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              onClick={toggleDrawer}
+            >
+              <FaQuestionCircle className="mr-3" />
+              FAQ
+            </Link>
+          </div>
+        </div>
+      </Drawer>
 
 
       {/* Logout Modal */}
@@ -411,3 +473,4 @@ const StyledWrapper = styled.div`
 
 
 export default Navbar;
+

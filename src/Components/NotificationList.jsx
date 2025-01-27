@@ -30,6 +30,9 @@ const NotificationList = ({ notifications }) => {
       style={{
         // border: "2px solid #FFD700",
         boxShadow: "0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 223, 0, 0.6)",
+
+          display: window.innerWidth <= 768 ? 'none' : 'block',
+      
       }}
     >
 
