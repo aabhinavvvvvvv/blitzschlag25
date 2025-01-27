@@ -57,6 +57,8 @@ import squidgame from "../Assets/Squid_Game_Poster.png"//not
 import tinder from "../Assets/tinder dating.png"
 import toggle from "../Assets/toggle.png"
 import voice from "../Assets/VOICE_TOICE_POSTER.png"
+import km from "../Assets/km.png"
+import mes from "../Assets/mes.png"
 
 
 const eventData = {
@@ -628,11 +630,11 @@ const eventData = {
         name: 'Kavya Milan',
         venue: 'VLTC(L-002)',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/km.pdf',
         description: 'Topic/Theme will be given to the participants and they will be competiting with each other by writing poetry on that given topic/theme within given same time to all of them.And at last best poetry will be awarded.',
         maxTeamSize: 1,
         eventPath: 'kavyamilan',
-        imgUrl: post ,
+        imgUrl: km ,
         club: 'Poetry',
         type: 'club',
     },
@@ -640,11 +642,11 @@ const eventData = {
         name: 'Mahfil-e-Sher',
         venue: 'VLTC(L-107)',
         day: 1,
-        rulebook: 'Will be shared later',
+        rulebook: '/mes.pdf',
         description: 'Open mike poetry(Generally Gazals and Shayaries) event at VLTC Back Porch.',
         maxTeamSize: 1,
         eventPath: 'mahfilesher',
-        imgUrl: post ,
+        imgUrl: mes ,
         club: 'Poetry',
         type: 'club',
     },

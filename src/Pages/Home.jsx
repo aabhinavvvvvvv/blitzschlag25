@@ -175,7 +175,7 @@ const Home = () => {
                 </motion.div>
               </Animator>
             </div>
-            {/* <NotificationList notifications={notifications} /> */}
+            <NotificationList notifications={notifications} />
           </div>
         </Animator>
       </ScrollPage>

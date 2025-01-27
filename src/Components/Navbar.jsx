@@ -59,13 +59,13 @@ const Navbar = () => {
   // Run only once on initial load
 
   const checkAdminControl = async () => {
-    try {
+try {
       const currentUser = auth.currentUser;
       if (!currentUser) {
         console.error("No user is logged in.");
         return false; // Return false if no user is logged in
       }
-  
+      
       const email = currentUser.email;
       const response = await fetch(`${baseUrl}/admin/control?email=${email}`, {
         method: "GET",
@@ -73,7 +73,7 @@ const Navbar = () => {
       const data = await response.json();
   
       console.log("status : ", data.result);
-  
+      setStatus(data.result);
       // Return the result as true or false based on the response
       return data.result ? true : false;
     } catch (err) {
@@ -86,7 +86,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchStatus = async () => {
       try {
-        setStatus(checkAdminControl);
+        checkAdminControl();
       } catch (err) {
         console.error("Error fetching status:", err.message);
       }
@@ -153,12 +153,13 @@ const Navbar = () => {
 
         {/* Main Navigation (Visible in PC) */}
         <div
-          className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-[#C4C4C430] rounded-xl  text-[#D3D3D3] lg:flex justify-between items-center gap-x-7"
-          style={{ fontFamily: "'Jaro', sans-serif" }}
+          className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-[#00000086] rounded-xl  text-[#ffffff] lg:flex justify-between items-center gap-x-7"
+          style={{ fontFamily: "'Metal Mania', cursive", }}
         >
 
           <Link
             to="/event"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
             className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
             EVENTS
@@ -166,6 +167,7 @@ const Navbar = () => {
           {!user ? (
             <Link
               to="/login"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
               className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
             >
               LOGIN
@@ -176,6 +178,7 @@ const Navbar = () => {
           {user && (
             <Link
               to="/profile"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
               className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
             >
               PROFILE
@@ -183,18 +186,21 @@ const Navbar = () => {
           )}
           <Link
             to="/schedule"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
             className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
             SCHEDULE
           </Link>
           <Link
             to="/sponsor"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
             className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
             SPONSER
           </Link>
           <Link
             to="/faq"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
             className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
             FAQ
@@ -225,7 +231,8 @@ const Navbar = () => {
             @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500&display=swap');
           </style>
           <div className="text-gold text-lg font-cinzel">
-            {status ?
+           {console.log(status)}
+            {status?
               <Link
                 to={`${verifyUrl}`}
                 style={{ fontFamily: "'Metal Mania', cursive", }}
@@ -233,10 +240,10 @@ const Navbar = () => {
                 onClick={toggleDrawer}
               >
                 <FaHome className="mr-3" />
-                Verify Transaction ID
+                Verify Payment
               </Link>
               :
-              null
+              <></>
             }
             <Link
               to="/"

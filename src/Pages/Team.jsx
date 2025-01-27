@@ -574,7 +574,7 @@ const [isVisible, setIsVisible] = useState(false);
     onClick={() => handleTabSwitch("organizing")}
   >
     <span className="sm:hidden">Organizing</span>
-    <span className="hidden sm:block">Organising Committee</span>
+    <span className="hidden sm:block">Organizing Committee</span>
   </button>
 </div>
 
