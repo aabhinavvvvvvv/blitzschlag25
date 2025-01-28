@@ -147,11 +147,11 @@ const Login = () => {
       }}
       className="box-border flex flex-col justify-center items-center p-4 text-black"
     >
-      <div className="bg-black opacity-80 p-12 rounded-2xl flex flex-col justify-center shadow-xl min-w-96 mt-8">
+      <div className="bg-black opacity-80 p-8 sm:p-12 rounded-lg sm:rounded-2xl flex flex-col justify-center shadow-xl min-w-[300px] sm:min-w-96 mt-6 sm:mt-8">
         {forgotPasswordMode ? (
           // Forgot password form
           <div className="mt-4 mb-4 text-white">
-            <h2 className="text-3xl mb-8 font-bold text-center">
+            <h2 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-bold text-center">
               Forgot Password
             </h2>
             <StyledWrapper>
@@ -162,7 +162,7 @@ const Login = () => {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none"
+                  className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none text-sm sm:text-base"
                 />
                 <label>
                   <span style={{ transitionDelay: "0ms" }}>E</span>
@@ -175,13 +175,13 @@ const Login = () => {
             </StyledWrapper>
             <button
               onClick={handleForgotPassword}
-              className="w-full mt-6 bg-transparent border-2 border-white text-white p-3 rounded-lg "
+              className="w-full mt-4 sm:mt-6 bg-transparent border-2 border-white text-white p-2 sm:p-3 rounded-lg text-sm sm:text-base"
             >
               {loading ? "Sending email..." : "Send Reset Link"}
             </button>
             <p
               onClick={() => setForgotPasswordMode(false)}
-              className="text-center text-blue-600 mt-2 cursor-pointer hover:underline"
+              className="text-center text-blue-600 mt-2 text-sm sm:text-base cursor-pointer hover:underline"
             >
               Back to Login
             </p>
@@ -189,10 +189,10 @@ const Login = () => {
         ) : (
           <>
             <form
-              className="flex flex-col justify-center space-y-6"
+              className="flex flex-col justify-center space-y-4 sm:space-y-6"
               onSubmit={handleLogin}
             >
-              <h2 className="text-3xl font-bold text-white text-center">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white text-center">
                 Login
               </h2>
               <StyledWrapper>
@@ -203,7 +203,7 @@ const Login = () => {
                     id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="placeholder-white bg-transparent w-full p-3 mt-2 border-b-2 border-gray-300 outline-none text-white"
+                    className="placeholder-white bg-transparent w-full p-2 sm:p-3 mt-1 sm:mt-2 border-b-2 border-gray-300 outline-none text-sm sm:text-base text-white"
                     required
                   />
                   <label>
@@ -222,7 +222,7 @@ const Login = () => {
                     id="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="placeholder-white bg-transparent w-full p-3 mt-2 border-b-2 border-gray-300 outline-none text-white"
+                    className="placeholder-white bg-transparent w-full p-2 sm:p-3 mt-1 sm:mt-2 border-b-2 border-gray-300 outline-none text-sm sm:text-base text-white"
                     required
                   />
                   <label>
@@ -238,25 +238,25 @@ const Login = () => {
                   <button
                     type="button"
                     onClick={() => setPasswordVisible(!passwordVisible)}
-                    className="absolute right-3 top-5 text-white"
+                    className="absolute right-3 top-4 sm:top-5 text-white"
                   >
                     {passwordVisible ? (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
-                        className="size-6"
+                        className="size-5 sm:size-6"
                       >
                         <path
                           strokeLinecap="round"
-                          stroke-linejoin="round"
+                          strokeLinejoin="round"
                           d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
                         />
                         <path
                           strokeLinecap="round"
-                          stroke-linejoin="round"
+                          strokeLinejoin="round"
                           d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                         />
                       </svg>
@@ -265,13 +265,13 @@ const Login = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="currentColor"
-                        className="size-6"
+                        className="size-5 sm:size-6"
                       >
                         <path
                           strokeLinecap="round"
-                          stroke-linejoin="round"
+                          strokeLinejoin="round"
                           d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88"
                         />
                       </svg>
@@ -281,7 +281,7 @@ const Login = () => {
               </StyledWrapper>
 
               <button
-                className={`w-full bg-transparent border-2 border-white text-white p-3 rounded-lg mt-4 ${
+                className={`w-full bg-transparent border-2 border-white text-white p-2 sm:p-3 rounded-lg mt-3 sm:mt-4 text-sm sm:text-base ${
                   loading && "opacity-50"
                 }`}
                 type="submit"
@@ -290,7 +290,7 @@ const Login = () => {
                 {loading ? (
                   <div className="flex justify-center items-center">
                     <svg
-                      className="animate-spin h-5 w-5 mr-3 text-white"
+                      className="animate-spin h-4 w-4 sm:h-5 sm:w-5 mr-2 text-white"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="none"
@@ -318,18 +318,23 @@ const Login = () => {
                 )}
               </button>
             </form>
-
+            <div className="w-full flex flex-col items-center">
+              <div className="flex items-center w-full my-4">
+                <hr className="flex-grow border-gray-300" />
+                <span className="px-2 text-white text-sm sm:text-base">OR</span>
+                <hr className="flex-grow border-gray-300" />
+              </div>
             <button
-              className={`w-full bg-transparent border-2 border-white text-white p-3 rounded-lg mt-4 ${
+              className={`w-full bg-transparent border-2 border-white text-white p-2 sm:p-3 rounded-lg mt-3 sm:mt-4 text-sm sm:text-base ${
                 loading ? "opacity-50 cursor-not-allowed" : ""
               }`}
               onClick={handleGoogleSignIn}
               disabled={loading}
             >
               {loading ? (
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center active:scale-75">
                   <svg
-                    className="animate-spin h-5 w-5 mr-3 text-white"
+                    className="animate-spin h-4 w-4 sm:h-5 sm:w-5 mr-2 text-white"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="none"
@@ -356,11 +361,12 @@ const Login = () => {
                 "Sign in with Google"
               )}
             </button>
+            </div>
           </>
         )}
 
         {!forgotPasswordMode && (
-          <p className="mt-6 text-white text-center">
+          <p className="mt-4 sm:mt-6 text-white text-center text-sm sm:text-base">
             Don't have an account?{" "}
             <span
               className="text-blue-600 cursor-pointer hover:underline"
@@ -374,7 +380,7 @@ const Login = () => {
         {!forgotPasswordMode && (
           <p
             onClick={() => setForgotPasswordMode(true)}
-            className="mt-2 text-white text-center cursor-pointer hover:underline"
+            className="mt-2 sm:mt-3 text-white text-center text-sm sm:text-base cursor-pointer hover:underline"
           >
             Forgot Password?
           </p>
@@ -387,7 +393,6 @@ const Login = () => {
 const StyledWrapper = styled.div`
   .form-control {
     position: relative;
-    // margin: 20px 0 40px;
     width: 100%;
   }
 
@@ -397,8 +402,8 @@ const StyledWrapper = styled.div`
     border-bottom: 2px #fff solid;
     display: block;
     width: 100%;
-    padding: 15px 0;
-    font-size: 18px;
+    padding: 12px 0;
+    font-size: 14px;
     color: #fff;
   }
 
@@ -410,14 +415,14 @@ const StyledWrapper = styled.div`
 
   .form-control label {
     position: absolute;
-    top: 15px;
+    top: 12px;
     left: 0;
     pointer-events: none;
   }
 
   .form-control label span {
     display: inline-block;
-    font-size: 18px;
+    font-size: 14px;
     min-width: 5px;
     color: #fff;
     transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -426,8 +431,9 @@ const StyledWrapper = styled.div`
   .form-control input:focus + label span,
   .form-control input:valid + label span {
     color: lightblue;
-    transform: translateY(-30px);
+    transform: translateY(-25px);
   }
 `;
 
 export default Transition(Login);
+
