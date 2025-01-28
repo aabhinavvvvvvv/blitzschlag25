@@ -195,7 +195,7 @@ const FlagshipEvents = () => {
           paginate(-1);
         }
       }}
-      className="absolute inset-0 flex rounded-xl overflow-hidden shadow-2xl"
+      className="absolute inset-0 flex flex-col md:flex-row rounded-xl overflow-hidden shadow-2xl"
     >
       <div className="w-1/2 relative overflow-hidden">
         <motion.img
