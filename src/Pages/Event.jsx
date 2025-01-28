@@ -306,10 +306,6 @@ const Events = () => {
       "name": "Think India",
       "image": think
     },
-    // {
-    //   "name": "Electoral Literacy",
-    //   "image": electoral
-    // },
     {
       "name": "NSS",
       "image": nss
@@ -318,6 +314,10 @@ const Events = () => {
       "name": "Drama",
       "image": drama
     },
+    // {
+    //   "name": "Electoral Literacy",
+    //   "image": electoral
+    // },
     // {
     //   "name": "Travel and Heritage",
     //   "image": travel
@@ -362,6 +362,55 @@ const Events = () => {
     //   "name": "Creative Arts",
     //   "image": creative
     // }
+    {
+      "name": "Electoral Literacy",
+      "image": poster
+  },
+  {
+      "name": "Travel and Heritage",
+      "image": poster
+  },
+  {
+      "name": "Poetry",
+      "image": poster
+  },
+  {
+      "name": "ELAC",
+      "image": poster
+  },
+  {
+      "name": "Mavericks",
+      "image": poster
+  },
+  {
+      "name": "Film Making",
+      "image": poster
+  },
+  {
+      "name": "Dance",
+      "image": poster
+  },
+  {
+      "name": "HLAC",
+      "image": poster
+  },
+  {
+      "name": "CMD",
+      "image": poster
+  },
+  {
+      "name": "Debate",
+      "image": poster
+  },
+  {
+      "name": "Press",
+      "image": poster
+  },
+  {
+      "name": "Creative Arts",
+      "image": poster
+  }
+  
   ]
   
   

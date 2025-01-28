@@ -143,7 +143,7 @@ const FlagshipEvents = () => {
   return (
     <div
     ref={ref}
-      className="min-h-screen w-full text-white flex flex-col justify-center items-center overflow-hidden relative py-12"
+      className="min-h-screen w-full text-white flex justify-center items-center overflow-hidden relative py-12"
     style={{
       //backgroundImage: `url(${eventbg})`,
       backgroundImage: isVisible ? `url(${eventbg})` : "none",
