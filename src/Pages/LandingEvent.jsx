@@ -143,7 +143,7 @@ const FlagshipEvents = () => {
   return (
     <div
     ref={ref}
-      className="min-h-screen w-full text-white flex flex-col justify-center items-center overflow-hidden relative py-12"
+      className="min-h-screen w-full text-white flex justify-center items-center overflow-hidden relative py-12"
     style={{
       //backgroundImage: `url(${eventbg})`,
       backgroundImage: isVisible ? `url(${eventbg})` : "none",
@@ -195,7 +195,7 @@ const FlagshipEvents = () => {
           paginate(-1);
         }
       }}
-      className="absolute inset-0 flex rounded-xl overflow-hidden shadow-2xl"
+      className="absolute inset-0 flex flex-col md:flex-row rounded-xl overflow-hidden shadow-2xl"
     >
       <div className="w-1/2 relative overflow-hidden">
         <motion.img
