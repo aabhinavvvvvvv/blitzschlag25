@@ -167,6 +167,17 @@ const passes = [
     flagshipSelection: true,
   },
   {
+    name: "Horizon",
+    price: 300,
+    description: "Access club event, and pronite",
+    features: [
+      "Access to all club events for one day",
+      "No access to Cultural evening"
+    ],
+    daySelection: true,
+    flagshipSelection: false,
+  },
+  {
     name: "Participation",
     price: 700,
     description: "Participate in one flagship event",
