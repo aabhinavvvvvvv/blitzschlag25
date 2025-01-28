@@ -146,6 +146,8 @@ const passes = [
       "Access to all club events",
       "Participate in one flagship event",
       "Accommodation for all three days",
+      "Spectatorship of flagship events",
+      "Spectatorship of Cultural Evening",
     ],
     daySelection: false,
   },
@@ -157,6 +159,8 @@ const passes = [
     features: [
       "Participate in one flagship event",
       "Access to all club events for one day",
+      "Spectatorship of flagship events",
+      "Spectatorship of Cultural Evening",
       "Accommodation included (excluding food)",
     ],
     daySelection: true,
@@ -168,8 +172,9 @@ const passes = [
     description: "Participate in one flagship event",
     features: [
       "Participate in one flagship event",
-      "No accommodation",
       "Access to all club events",
+      "Spectatorship of Cultural Evening",
+      "No accommodation",
     ],
     flagshipSelection: true,
     daySelection: true,
@@ -180,8 +185,9 @@ const passes = [
     description: "Access to stall areas and pronite of Day 1",
     features: [
       "Access to stall areas on Day 1",
-      "No access to club events",
-      "No access to flagship events",
+      "Access to all club events",
+      "Spectatorship of flagship events",
+      "Spectatorship of Cultural Evening",
     ],
   },
   {
@@ -190,8 +196,9 @@ const passes = [
     description: "Access to stall areas and pronite of Day 2",
     features: [
       "Access to stall areas on Day 2",
-      "No access to club events",
-      "No access to flagship events",
+      "Access to all club events",
+      "Spectatorship of flagship events",
+      "Spectatorship of Cultural Evening",
     ],
   },
   {
@@ -200,8 +207,9 @@ const passes = [
     description: "Access to stall areas and pronite of Day 3",
     features: [
       "Access to stall areas on Day 3",
-      "No access to club events",
-      "No access to flagship events",
+      "Access to all club events",
+      "Spectatorship of flagship events",
+      "Spectatorship of Cultural Evening",
     ],
   },
 ]
@@ -390,7 +398,7 @@ export default function Pass() {
           
           {/* Add the Note at the Bottom */}
           <div className="mt-8 text-center  bg-opacity-75 p-4 rounded-md text-white text-lg font-semibold shadow-lg" >
-            <p style={{fontFamily: "'Metal Mania', cursive",}}>Note: Pronites will be free for all people registering for the fest.</p>
+            <p style={{fontFamily: "'Metal Mania', cursive",}}>Note: Spectatorship of Cultural Evening will be free for all people registering for the fest.</p>
           </div>
           
         </div>
