@@ -2,9 +2,10 @@ import React from 'react';
 import bg from '../Assets/sponsor.jpg';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import mnit from '../Assets/prabhaBhawan.jpg'
-import cs from '../Assets/cs_image.png'
-import blitz from '../Assets/about_blitz_img.jpg'
+import mnit from '../Assets/prabhaBhawan.jpg';
+import cs from '../Assets/cs_image.png';
+import blitz from '../Assets/about_blitz_img.jpg';
+
 const AboutUs = () => {
   const navigate = useNavigate();
 
@@ -64,9 +65,10 @@ const AboutUs = () => {
             whileInView="visible"
             viewport={{ once: false }}
           >
-            <h2 className="text-4xl font-bold mb-4">About Blitzschlag</h2>
+            <h2 className="text-4xl font-bold mb-4 text-white" style={{ fontFamily: 'cursive' }}>About Blitzschlag</h2>
             <p className="text-gray-300 mb-6">
-            Welcome to Blitzschlag 2025, Rajasthan's most anticipated annual cultural extravaganza, hosted at MNIT Jaipur. This spectacular fest embodies the vibrant spirit of our community, showcasing creativity, cooperation, coordination, and celebration. Blitzschlag is a symphony of diverse talents, fostering enjoyment, cultural exchange, and personal growth. It's a platform where individuals from all backgrounds converge, sharing rich cultural heritage and forging lifelong connections. With a staggering footfall of over 30,000 and more than 60 electrifying events, Blitzschlag 2025 is set to be a cultural spectacle like no other. Our 4 flagship events promise unforgettable experiences: TAMASHA: dramatic flair and theatrical spectacle; RAMBA SAMBA: electrifying dance face-off; BATTLE OF BANDS: Sonic showdown; and PANACHE: the fashion-forward showcases. Whether performer, spectator, or volunteer, Blitzschlag offers unforgettable moments, enduring connections, cultural enrichment, and artistic expression. This fest celebrates every individual, every talent, and every story.  Blitzschlag 2025 brings together diverse individuals, fostering creativity, innovation, and teamwork. Where diversity meets creativity, and memories last a lifetime. Get ready to immerse yourself in Rajasthan's most vibrant cultural celebration! </p>
+              Welcome to Blitzschlag 2025, Rajasthan's most anticipated annual cultural extravaganza, hosted at MNIT Jaipur. This spectacular fest embodies the vibrant spirit of our community, showcasing creativity, cooperation, coordination, and celebration. Blitzschlag is a symphony of diverse talents, fostering enjoyment, cultural exchange, and personal growth. It's a platform where individuals from all backgrounds converge, sharing rich cultural heritage and forging lifelong connections. With a staggering footfall of over 30,000 and more than 60 electrifying events, Blitzschlag 2025 is set to be a cultural spectacle like no other. Our 4 flagship events promise unforgettable experiences: TAMASHA: dramatic flair and theatrical spectacle; RAMBA SAMBA: electrifying dance face-off; BATTLE OF BANDS: Sonic showdown; and PANACHE: the fashion-forward showcases. Whether performer, spectator, or volunteer, Blitzschlag offers unforgettable moments, enduring connections, cultural enrichment, and artistic expression. This fest celebrates every individual, every talent, and every story. Blitzschlag 2025 brings together diverse individuals, fostering creativity, innovation, and teamwork. Where diversity meets creativity, and memories last a lifetime. Get ready to immerse yourself in Rajasthan's most vibrant cultural celebration!
+            </p>
           </motion.div>
         </section>
 
@@ -80,8 +82,8 @@ const AboutUs = () => {
             whileInView="visible"
             viewport={{ once: false }}
           >
-            <h2 className="text-4xl font-bold mb-4">Theme</h2>
-            <p className="text-gray-300 mb-6">
+            <h2 className="text-4xl font-bold mb-4 text-white" style={{ fontFamily: 'cursive' }}>Theme</h2>
+            <p className="text-gray-300 mb-6" style={{ fontFamily: 'cursive' }}>
               Step into Dreamscape, a world where the surreal meets reality, and the boundaries of the ordinary are blurred. This year, we summon you to embark on an ethereal journey, where whimsical fantasies intertwine with seraphic realities, crafting a vivid interpretation of imaginations and weaving a magical tapestry of dreams. Venture beyond the clouds of reality to unlock the power of lucid dreaming, where imagination takes flight and every thought becomes a brushstroke on the canvas of possibility. Evoke your craziest vision and watch it come to life here. Let your thoughts morph into a brushstroke on the boundless canvas of possibilities. Join us in this captivating adventure, where we unearth the orphic beauty within the subconscious, with dreams being not just mere figments of imagination but portals to extraordinary new realms, waiting to be unveiled.
             </p>
           </motion.div>
@@ -93,21 +95,21 @@ const AboutUs = () => {
             whileInView="visible"
             viewport={{ once: false }}
           >
-            <div>
-              <h3 className="text-3xl font-bold">35000+</h3>
-              <p className="text-gray-400">Footfalls</p>
+            <div >
+              <h3 className="text-3xl font-bold text-white">35000+</h3>
+              <p className="text-gray-400" style={{ fontFamily: 'cursive' }}>Footfalls</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold">10,00,000+</h3>
-              <p className="text-gray-400">Prize worth</p>
+              <h3 className="text-3xl font-bold text-white">10,00,000+</h3>
+              <p className="text-gray-400" style={{ fontFamily: 'cursive' }}>Prize worth</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold">70+</h3>
-              <p className="text-gray-400">Events</p>
+              <h3 className="text-3xl font-bold text-white">70+</h3>
+              <p className="text-gray-400" style={{ fontFamily: 'cursive' }}>Events</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold">80+</h3>
-              <p className="text-gray-400">Awards</p>
+              <h3 className="text-3xl font-bold text-white">80+</h3>
+              <p className="text-gray-400" style={{ fontFamily: 'cursive' }}>Awards</p>
             </div>
           </motion.div>
         </section>
@@ -133,14 +135,14 @@ const AboutUs = () => {
             whileInView="visible"
             viewport={{ once: false }}
           >
-            <h2 className="text-4xl font-bold mb-4">About MNIT</h2>
-            <p className="text-gray-300 mb-6">
+            <h2 className="text-4xl font-bold mb-4 text-white" style={{ fontFamily: 'cursive' }}>About MNIT</h2>
+            <p className="text-gray-300 mb-6" style={{ fontFamily: 'cursive' }}>
               The Institute was jointly established in 1963 as Malaviya Regional Engineering College Jaipur by the Government of India and the Government of Rajasthan. Subsequently, on 26 June, 2002, the college was given the status of National Institute of Technology. On 15 August 2007, it was recognized as the Institute of National Importance through an Act of Parliament. The Institute is fully funded by the Ministry of Education (Shiksha Mantralaya), Government of India.
             </p>
           </motion.div>
         </section>
 
-        {/* abbout cacs */}
+        {/* About CACS */}
         <section className="relative py-8 mt-2 px-6 lg:px-20 grid grid-flow-row lg:grid-cols-2 gap-8 items-center lg:flex-row">
           {/* Content */}
           <motion.div
@@ -150,8 +152,8 @@ const AboutUs = () => {
             whileInView="visible"
             viewport={{ once: false }}
           >
-            <h2 className="text-4xl font-bold mb-4">About CACS</h2>
-            <p className="text-gray-300 mb-6">
+            <h2 className="text-4xl font-bold mb-4 text-white">About CACS</h2>
+            <p className="text-gray-300 mb-6" style={{ fontFamily: 'cursive' }}>
               Cultural Society of the Institute is an umbrella that shelters numerous clubs and societies. The motto is to facilitate and promote opportunities as well as a platform for students to prove their mettle and to explore their passion through a plethora of interactive and innovative events.
               Participating in cultural pursuits helps you become more well-rounded and ready for the real world. They aid in students' sense of belonging to the Institute and help them grow professionally and personally by honing abilities including planning, public speaking, and teamwork.
             </p>
@@ -173,12 +175,10 @@ const AboutUs = () => {
           </motion.div>
         </section>
 
-
-
         {/* Call to Action */}
         <section className="relative py-16 text-center">
           <motion.h2
-            className="text-4xl font-bold mb-4"
+            className="text-4xl font-bold mb-4 text-white"
             variants={slideInFromLeft}
             initial="hidden"
             whileInView="visible"
@@ -189,12 +189,10 @@ const AboutUs = () => {
           <button
             onClick={() => navigate('/event')}
             className="py-3 px-8 bg-white text-black rounded-full font-semibold transition duration-300 hover:bg-gray-200"
-
           >
             Get Started
           </button>
         </section>
-     
       </div>
     </div>
   );

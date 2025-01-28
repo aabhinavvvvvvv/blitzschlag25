@@ -389,7 +389,7 @@ export default function Pass() {
           </div>
           
           {/* Add the Note at the Bottom */}
-          <div className="mt-8 text-center  bg-opacity-75 p-4 rounded-md text-white text-lg font-semibold shadow-lg" >
+          <div className="mt-8 text-center  p-4 rounded-md text-white text-2xl font-semibold tracking-wider" >
             <p style={{fontFamily: "'Metal Mania', cursive",}}>Note: Pronites will be free for all people registering for the fest.</p>
           </div>
           

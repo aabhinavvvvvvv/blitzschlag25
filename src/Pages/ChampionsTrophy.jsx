@@ -68,7 +68,7 @@ const ChampionsTrophy = () => {
             whileInView="visible"
             viewport={{ once: false }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-white">
               About<br />Champions Trophy
             </h2>
             <p className="text-gray-300 text-sm sm:text-base mb-6">
@@ -81,7 +81,7 @@ const ChampionsTrophy = () => {
         <section className="flex justify-center mt-6">
           <div className="container flex justify-center">
             <div
-              className="btn text-sm sm:text-lg font-semibold bg-black bg-opacity-40 px-6 py-3 rounded-lg shadow-md hover:bg-opacity-50 transition-all duration-300"
+              className="btn text-sm sm:text-lg font-semibold  bg-opacity-40 px-6 py-3 rounded-lg shadow-md hover:bg-opacity-50 transition-all duration-300"
               style={{ fontFamily: 'cursive' }}
             >
               <Link to="/leaderboard" className="flex items-center">

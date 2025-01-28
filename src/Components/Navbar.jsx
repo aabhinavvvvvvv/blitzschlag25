@@ -153,7 +153,7 @@ try {
 
         {/* Main Navigation (Visible in PC) */}
         <div
-          className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-[#00000086] rounded-xl  text-[#ffffff] lg:flex justify-between items-center gap-x-7"
+          className="hidden relative font-normal p-1 top-3 left-12 text-2xl bg-[#00000030] rounded-xl  text-[#ffffff] lg:flex justify-between items-center gap-x-7"
           style={{ fontFamily: "'Metal Mania', cursive", }}
         >
 
@@ -339,6 +339,7 @@ try {
             </Link>
             <Link
               to="/pay"
+              onClick={toggleDrawer}
               style={{ fontFamily: "'Metal Mania', cursive", }}
               className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
             >
