@@ -93,7 +93,8 @@ const Home = () => {
                   <motion.h1
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.8 }}
+                    transition={{ delay: 0.2, duration: 2,ease: [0.22, 1, 0.36, 1],  }}
+                    
                     className="text-5xl md:text-8xl font-normal tracking-wider"
                     style={{
                       fontFamily: "'Metal Mania', cursive",
@@ -117,7 +118,7 @@ const Home = () => {
                 <motion.p
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
+                  transition={{ delay: 0.4, duration: 2,ease: [0.22, 1, 0.36, 1],  }}
                   className="text-xl md:text-3xl font-normal text-yellow-500"
                   style={{
                     fontFamily: "'Metal Mania', cursive",
@@ -134,7 +135,7 @@ const Home = () => {
                   className="mt-10"
                   initial={{ y: -50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.8 }}
+                  transition={{ delay: 0.2, duration: 2,ease: [0.22, 1, 0.36, 1],  }}
                 >
                   <PlayButton />
                 </motion.p>
@@ -150,7 +151,7 @@ const Home = () => {
                   }}
                   initial={{ x: 100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
+                  transition={{ delay: 0.4,duration: 2,ease: [0.22, 1, 0.36, 1],  }}
                 >
                   presented by
                 </motion.p>
@@ -159,7 +160,7 @@ const Home = () => {
                 <motion.div
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.8, duration: 0.8 }}
+                  transition={{ delay: 0.8, duration: 2,ease: [0.22, 1, 0.36, 1], }}
                   className="flex justify-center sm:justify-start gap-4"
                 >
                   <Link to="https://mnit.ac.in" className="w-24 h-24">
@@ -175,7 +176,7 @@ const Home = () => {
                 </motion.div>
               </Animator>
             </div>
-            {/* <NotificationList notifications={notifications} /> */}
+            <NotificationList notifications={notifications} />
           </div>
         </Animator>
       </ScrollPage>

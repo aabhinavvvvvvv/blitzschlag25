@@ -138,13 +138,12 @@ const StyledWrapper = styled.div`
 
 const passes = [
   {
-    name: "Cosmic Pass",
+    name: "Cosmic",
     price: 2500,
     description: "Full access to all events for all three days",
     features: [
       "Participate in all events for three days",
       "Access to all club events",
-      "Attend all three pronites",
       "Participate in one flagship event",
       "Accommodation for all three days",
     ],
@@ -152,72 +151,55 @@ const passes = [
   },
   
   {
-    name: "Galaxy Pass",
+    name: "Galaxy",
     price: 1300,
     description: "Access flagship event, club events, and pronite",
     features: [
       "Participate in one flagship event",
       "Access to all club events for one day",
-      "Attend pronite of the same day",
       "Accommodation included (excluding food)",
     ],
     daySelection: true,
     flagshipSelection: true,
   },
   {
-    name: "Horizon Pass",
-    price: 300,
-    description: "Participate in any club events of one day",
-    features: [
-      "Access to all club events for one day",
-      "Choose your preferred day",
-      "No access to flagship events",
-      "No access to pronites",
-    ],
-    daySelection: true,
-  },
-  {
-    name: "Participation Pass",
+    name: "Participation",
     price: 700,
     description: "Participate in one flagship event",
     features: [
       "Participate in one flagship event",
       "No accommodation",
-      "No access to regular club events",
-      "No access to pronites",
+      "Access to all club events",
     ],
     flagshipSelection: true,
     daySelection: true,
   },
   {
-    name: "Day 1 Pass",
+    name: "Registration Day 1",
     price: 700,
     description: "Access to stall areas and pronite of Day 1",
     features: [
       "Access to stall areas on Day 1",
-      "Attend Day 1 pronite",
       "No access to club events",
       "No access to flagship events",
     ],
   },
   {
-    name: "Day 2 Pass",
+    name: "Registration Day 2",
     price: 700,
     description: "Access to stall areas and pronite of Day 2",
     features: [
       "Access to stall areas on Day 2",
-      "Attend Day 2 pronite",
       "No access to club events",
       "No access to flagship events",
     ],
   },
   {
-    name: "Day 3 Pass",
+    name: "Registration Day 3",
     price: 1000,
     description: "Access to stall areas and pronite of Day 3",
     features: [
       "Access to stall areas on Day 3",
-      "Attend Day 3 pronite",
       "No access to club events",
       "No access to flagship events",
     ],
@@ -278,13 +260,14 @@ function PassCard({ pass }) {
     }
   };
   return (
+    <>
     <div className="relative flex flex-col p-8 rounded-xl border border-gray-200 bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-xl transition-all duration-300 h-full">
       <div className="flex-grow">
         <div className="text-indigo-600 text-xl text-center font-bold mx-auto">
           {pass.name}
         </div>
         <div className="mt-4 text-gray-200 text-3xl font-semibold">
-          ₹{pass.price} <span className="text-xl text-gray-700 font-normal">/pass</span>
+          ₹{pass.price} <span className="text-xl text-gray-700 font-normal">/person</span>
         </div>
         {/* <p className="mt-4 text-gray-300">{pass.description}</p> */}
         
@@ -370,7 +353,10 @@ function PassCard({ pass }) {
       )}
     </button>
       </div>
+      
     </div>
+    
+    </>
   )
 }
 
@@ -390,8 +376,8 @@ export default function Pass() {
           <div className="relative max-w-xl mx-auto sm:text-center mb-12">
             <h3
               className="text-6xl font-bold mt-8 tracking-wider text-center text-gray-200"
-              style={{ fontFamily: "'Metal Mania', cursive" }}>
-              Cultural Fest Passes
+              style={{ fontFamily: "'Metal Mania', cursive" }} >
+              Fest Registrations
             </h3>
           </div>
           
@@ -399,8 +385,14 @@ export default function Pass() {
             {passes.map((pass, idx) => (
               <PassCard key={idx} pass={pass} />
             ))}
-            <Button >Go to Cart</Button>
+            <Button>Go to Cart</Button>
           </div>
+          
+          {/* Add the Note at the Bottom */}
+          <div className="mt-8 text-center  bg-opacity-75 p-4 rounded-md text-white text-lg font-semibold shadow-lg" >
+            <p style={{fontFamily: "'Metal Mania', cursive",}}>Note: Pronites will be free for all people registering for the fest.</p>
+          </div>
+          
         </div>
       </section>
     </div>
