@@ -2,10 +2,7 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 
-export const Timeline = ({
-  data,
-  headerContent
-}) => {
+export const Timeline = ({ data, headerContent }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -16,7 +13,7 @@ export const Timeline = ({
       setHeight(rect.height);
     }
   }, [ref, data]);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start 10%", "end 50%"],
@@ -31,11 +28,13 @@ export const Timeline = ({
         <h1
           className="text-6xl md:text-7xl mx-auto text-center -mb-16 mt-4"
           style={{
-            background: 'linear-gradient(to right, #003366, #7a7aff, #ff00a6)', // electrified mist gradient
-            background: '-webkit-linear-gradient(to right, #003366, #7a7aff, #ff00a6)',
-            WebkitBackgroundClip: 'text',
+            background: "linear-gradient(to right, #003366, #7a7aff, #ff00a6)", // electrified mist gradient
+            background:
+              "-webkit-linear-gradient(to right, #003366, #7a7aff, #ff00a6)",
+            WebkitBackgroundClip: "text",
             fontFamily: '"Metal Mania", serif',
-            textShadow: '0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(150, 0, 255, 0.8), 0 0 80px rgba(0, 204, 255, 0.7)', // stronger electric glowing mist
+            textShadow:
+              "0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(150, 0, 255, 0.8), 0 0 80px rgba(0, 204, 255, 0.7)", // stronger electric glowing mist
           }}
         >
           SCHEDULE
@@ -44,22 +43,41 @@ export const Timeline = ({
       </div>
       <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
-          <div key={index} className="flex justify-start pt-10 md:pt-40 md:gap-10">
-            <div
-              className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full"
-            >
-              <div
-                className="h-10 absolute left-[18px] w-10 rounded-full bg-white dark:bg-black flex items-center justify-center"
-              >
+          <div
+            key={index}
+            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+          >
+            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+              <div className="h-10 absolute left-[18px] w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-neutral-500 dark:text-neutral-500">
+              <h3
+                style={{
+                  fontFamily: "'Metal Mania', cursive",
+                  textShadow:
+                    "0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.8)",
+                  animation: "glowingRainbow 6s ease infinite",
+                  // textShadow:
+                  //   "0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.7)",
+                }}
+                className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold"
+              >
                 {item.title}
               </h3>
             </div>
 
             <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-neutral-500 dark:text-neutral-500">
+              <h3
+                style={{
+                  fontFamily: "'Metal Mania', cursive",
+                  textShadow:
+                    "0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.8)",
+                  animation: "glowingRainbow 6s ease infinite",
+                  // textShadow:
+                  //   "0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.7)",
+                }}
+                className="md:hidden block text-2xl mb-4 text-left font-bold  "
+              >
                 {item.title}
               </h3>
               {item.content}

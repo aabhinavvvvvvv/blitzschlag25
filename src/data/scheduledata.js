@@ -27,7 +27,7 @@ export const events =[
         "S.No.": 3,
         "Event_Proposed": "Prom Night",
         "Event_Coordinator": "CACS TEAM",
-        "Venue": "SAC Lawn",
+        "Venue": "Front Porch",
         "Time": "09:00 AM - 11:30 PM",
         "Day": "Day 0"
     },
@@ -44,7 +44,7 @@ export const events =[
         "Event_Proposed": "Photography workshop",
         "Event_Coordinator": "PHOTOGRAPHY",
         "Venue": "VLTC L103",
-        "Time": "10:00 AM - 05:00 PM",
+        "Time": "1:00 PM - 03:00 PM",
         "Day": "Day 1"
     },
     {
@@ -83,7 +83,7 @@ export const events =[
         "S.No.": 7,
         "Event_Proposed": "Gungunate Chalo",
         "Event_Coordinator": "MUSIC",
-        "Venue": "VLTC L001",
+        "Venue": "Radhakrishnan Hall",
         "Time": "10:00 AM - 01:00 PM",
         "Day": "Day 1"
     },
@@ -105,7 +105,7 @@ export const events =[
     },
     {
         "S.No.": 10,
-        "Event_Proposed": "MIMIC MANIA",
+        "Event_Proposed": "BRAIN BLITZ",
         "Event_Coordinator": "NSS",
         "Venue": "VLTC L006",
         "Time": "01:00 PM - 04:00 PM",
@@ -179,7 +179,7 @@ export const events =[
         "S.No.": 19,
         "Event_Proposed": "SQUID GAME",
         "Event_Coordinator": "MAVERICKS",
-        "Venue": "VLTC L206,L207,L208,L209",
+        "Venue": "VLTC L-201 & HOMI J BHABHA HALL",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
     },
@@ -193,7 +193,7 @@ export const events =[
     },
     {
         "S.No.": 21,
-        "Event_Proposed": "Movie Mashup Madness",
+        "Event_Proposed": "Art of Story Telling Workshop",
         "Event_Coordinator": "FILM MAKING",
         "Venue": "VLTC L109",
         "Time": "09:30 AM - 12:00 PM",
@@ -201,7 +201,7 @@ export const events =[
     },
     {
         "S.No.": 22,
-        "Event_Proposed": "Step Showdown ",
+        "Event_Proposed": "Beat Battle",
         "Event_Coordinator": "DANCE",
         "Venue": "OAT",
         "Time": "10:00 AM - 01:00 PM",
@@ -217,7 +217,7 @@ export const events =[
     },
     {
         "S.No.": 24,
-        "Event_Proposed": "Natyanjali",
+        "Event_Proposed": "Nratyanjali",
         "Event_Coordinator": "CMD",
         "Venue": "OAT",
         "Time": "03:00 PM - 05:00 PM",
@@ -248,9 +248,17 @@ export const events =[
         "Day": "Day 1"
     },
     {
+        "S.No.": 28,
+        "Event_Proposed": "Udta Teer",
+        "Event_Coordinator": "Mavericks",
+        "Venue": "Outside CV Raman Hall",
+        "Time": "10:00 AM - 5:00 PM",
+        "Day": "Day 1"
+    },
+    {
         "S.No.": 1,
         "Event_Proposed": "Tamasha",
-        "Event_Coordinator": "Cultural ",
+        "Event_Coordinator": "Core Team ",
         "Venue": "SAC",
         "Time": "10:00AM - 12:00PM",
         "Day": "Day 1"
@@ -258,7 +266,7 @@ export const events =[
     {
         "S.No.": 2,
         "Event_Proposed": "Panache",
-        "Event_Coordinator": "Cultural ",
+        "Event_Coordinator": "Core Team ",
         "Venue": "OAT",
         "Time": "06:00PM - 08:00PM",
         "Day": "Day 1"
@@ -266,7 +274,7 @@ export const events =[
     {
         "S.No.": 3,
         "Event_Proposed": "DJ Night",
-        "Event_Coordinator": "Cultural ",
+        "Event_Coordinator": "Core Team ",
         "Venue": "OAT",
         "Time": "08:00PM - 10:00PM",
         "Day": "Day 1"
@@ -274,15 +282,23 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Bonfire And Jamming",
-        "Event_Coordinator": "Cultural ",
+        "Event_Coordinator": "Core Team ",
         "Venue": "Stall Area",
         "Time": "10:00PM- 11.30PM",
         "Day": "Day 1"
     },
     {
+        "S.No.": 5,
+        "Event_Proposed": "Prelims For The Panache",
+        "Event_Coordinator": "Core Team ",
+        "Venue": "Central Lawn",
+        "Time": "10:00 AM - 01:00 PM",
+        "Day": "Day 1"
+    },
+    {
         "S.No.": 1,
         "Event_Proposed": "Musical Tambola",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "VLTC L109",
         "Time": "02:00 PM - 04:00 PM",
         "Day": "Day 1"
@@ -290,7 +306,7 @@ export const events =[
     {
         "S.No.": 2,
         "Event_Proposed": "Treasure Hunt",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "MNIT Campus",
         "Time": "10:00 AM Onwards",
         "Day": "Day 1"
@@ -298,7 +314,7 @@ export const events =[
     {
         "S.No.": 3,
         "Event_Proposed": "Twister",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "VLTC T002",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
@@ -306,7 +322,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Blind Maze",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn (Near Gym)",
         "Time": "03:00 PM - 4:00 PM",
         "Day": "Day 1"
@@ -314,7 +330,7 @@ export const events =[
     {
         "S.No.": 5,
         "Event_Proposed": "Minute To Win It Games",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "Ramanujan Hall",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
@@ -322,7 +338,7 @@ export const events =[
     {
         "S.No.": 1,
         "Event_Proposed": "Meltdown",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn, Right Side from Back",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
@@ -330,7 +346,7 @@ export const events =[
     {
         "S.No.": 2,
         "Event_Proposed": "Body Zorbing",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural",
         "Venue": "SAC Lawn, Left Side from Back",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
@@ -338,7 +354,7 @@ export const events =[
     {
         "S.No.": 3,
         "Event_Proposed": "Magic Show",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Stage / Back Parking Stage",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
@@ -346,7 +362,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Hammer",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
@@ -354,7 +370,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Chocolate Catcher",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
@@ -362,7 +378,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Air Hockey",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
@@ -370,24 +386,24 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Photo Booth",
-        "Event_Coordinator": "",
-        "Venue": "SAC Lawn Entry from Back (Left)",
+        "Event_Coordinator": "Cultural ",
+        "Venue": "SAC Lawn Entry from Back (Right)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
     },
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Catch the Stick",
-        "Event_Coordinator": "",
-        "Venue": "SAC Lawn Entry from Back (Left)",
+        "Event_Coordinator": "Cultural ",
+        "Venue": "SAC Lawn Entry from Back (Right)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
     },
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- VR",
-        "Event_Coordinator": "",
-        "Venue": "SAC Lawn Entry from Back (Left)",
+        "Event_Coordinator": "Cultural ",
+        "Venue": "SAC Lawn Entry from Back (Right)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 1"
     },
@@ -474,7 +490,7 @@ export const events =[
     {
         "S.No.": 1,
         "Event_Proposed": "Moments",
-        "Event_Coordinator": "PHOTOGRAPHY",
+        "Event_Coordinator": "PHOTOGRAPHY CLUB ",
         "Venue": "SAC",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -496,14 +512,6 @@ export const events =[
         "Day": "Day 2"
     },
     {
-        "S.No.": 4,
-        "Event_Proposed": "MNIT's Got Latent",
-        "Event_Coordinator": "DEBATE",
-        "Venue": "APJ Abdul Kalam Hall ",
-        "Time": "01:30 PM - 04:00 PM",
-        "Day": "Day 2"
-    },
-    {
         "S.No.": 5,
         "Event_Proposed": "Seek the Truth",
         "Event_Coordinator": "PRESS",
@@ -511,6 +519,7 @@ export const events =[
         "Time": "10:00 AM - 01:00 PM",
         "Day": "Day 2"
     },
+
     {
         "S.No.": 6,
         "Event_Proposed": "MNIT hustle S03",
@@ -529,17 +538,9 @@ export const events =[
     },
     {
         "S.No.": 8,
-        "Event_Proposed": "QUIZ COMPETITION",
-        "Event_Coordinator": "ELECTORAL LITERACY",
-        "Venue": "VLTC L106",
-        "Time": "02:00 PM - 04:30 PM",
-        "Day": "Day 2"
-    },
-    {
-        "S.No.": 9,
-        "Event_Proposed": "INTERACTIVE ARTWORK CLASH",
-        "Event_Coordinator": "CREATIVE ARTS",
-        "Venue": "VLTC L101  ",
+        "Event_Proposed": "Fairytale Faces",
+        "Event_Coordinator": "Creative Arts",
+        "Venue": "VLTC L101",
         "Time": "10:00 AM - 01:00 PM",
         "Day": "Day 2"
     },
@@ -553,7 +554,7 @@ export const events =[
     },
     {
         "S.No.": 11,
-        "Event_Proposed": "MACRANE ART WORKSHOP",
+        "Event_Proposed": "BOUQUET MAKING WORKSHOP",
         "Event_Coordinator": "CREATIVE ARTS",
         "Venue": "VLTC L101  ",
         "Time": "03:00 PM - 05:00 PM",
@@ -601,9 +602,9 @@ export const events =[
     },
     {
         "S.No.": 17,
-        "Event_Proposed": "ESCAPE ROOM",
+        "Event_Proposed": "SQUID GAME",
         "Event_Coordinator": "MAVERICS",
-        "Venue": "Vikram Sarabhai  Hall ",
+        "Venue": "HOMI J BHABHA Hall & VLTC L201 ",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
     },
@@ -611,7 +612,7 @@ export const events =[
         "S.No.": 18,
         "Event_Proposed": "FAMILY FEUD",
         "Event_Coordinator": "MAVERICS",
-        "Venue": "CV RAMAN",
+        "Venue": "APJ ABDUL KALAM HALL",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
     },
@@ -625,7 +626,7 @@ export const events =[
     },
     {
         "S.No.": 20,
-        "Event_Proposed": "NEON PULSE",
+        "Event_Proposed": "GLOW DANCE",
         "Event_Coordinator": "DANCE",
         "Venue": "VLTC L002",
         "Time": "11:00 AM - 03:00 PM",
@@ -633,7 +634,7 @@ export const events =[
     },
     {
         "S.No.": 21,
-        "Event_Proposed": "SEARCH ON THE MAP",
+        "Event_Proposed": "Hindi Essay Writing",
         "Event_Coordinator": "HLAC",
         "Venue": "VLTC L108",
         "Time": "10:00 AM - 01:00 PM",
@@ -649,7 +650,7 @@ export const events =[
     },
     {
         "S.No.": 23,
-        "Event_Proposed": "MIMIC MINIA",
+        "Event_Proposed": "Cultural Tales",
         "Event_Coordinator": "NSS",
         "Venue": "VLTC L006",
         "Time": "01:00 PM - 04:00 PM",
@@ -680,9 +681,17 @@ export const events =[
         "Day": "Day 2"
     },
     {
+        "S.No.": 27,
+        "Event_Proposed": "Udta Teer",
+        "Event_Coordinator": "Mavericks ",
+        "Venue": "Outside CV Raman Hall",
+        "Time": "10:00 AM - 05:00 PM",
+        "Day": "Day 2"
+    },
+    {
         "S.No.": 1,
         "Event_Proposed": "Stand Up Comedy ",
-        "Event_Coordinator": "Cultural ",
+        "Event_Coordinator": "Core Team ",
         "Venue": "SAC LAWN",
         "Time": "03:00PM - 05:00PM",
         "Day": "Day 2"
@@ -690,7 +699,7 @@ export const events =[
     {
         "S.No.": 2,
         "Event_Proposed": "Ramba Samba",
-        "Event_Coordinator": "Cultural ",
+        "Event_Coordinator": "Core Team ",
         "Venue": "OAT",
         "Time": "06:00PM - 08:00PM",
         "Day": "Day 2"
@@ -698,7 +707,7 @@ export const events =[
     {
         "S.No.": 3,
         "Event_Proposed": "Band",
-        "Event_Coordinator": "Cultural ",
+        "Event_Coordinator": "Core Team ",
         "Venue": "OAT",
         "Time": "08:00PM - 10:00PM",
         "Day": "Day 2"
@@ -706,15 +715,23 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Fire show",
-        "Event_Coordinator": "Cultural ",
+        "Event_Coordinator": "Core Team ",
         "Venue": "Stall Area",
         "Time": "10:00PM - 11:30PM",
         "Day": "Day 2"
     },
     {
+        "S.No.": 4,
+        "Event_Proposed": "Prelims For The Ramba Show",
+        "Event_Coordinator": "Core Team ",
+        "Venue": "Central Lawn",
+        "Time": "10:00PM - 01:00PM",
+        "Day": "Day 2"
+    },
+    {
         "S.No.": 1,
         "Event_Proposed": "Bolti Band",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "VLTC L106",
         "Time": "01:00 PM - 03:00 PM",
         "Day": "Day 2"
@@ -722,7 +739,7 @@ export const events =[
     {
         "S.No.": 2,
         "Event_Proposed": "Twister",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "VLTC T002",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -730,7 +747,7 @@ export const events =[
     {
         "S.No.": 3,
         "Event_Proposed": "Minute To Win It Games",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "Ramanujan Hall",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -738,7 +755,7 @@ export const events =[
     {
         "S.No.": 1,
         "Event_Proposed": "Meltdown",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn, Right Side from Back",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -746,7 +763,7 @@ export const events =[
     {
         "S.No.": 2,
         "Event_Proposed": "Body Zorbing",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn, Left Side from Back",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -754,7 +771,7 @@ export const events =[
     {
         "S.No.": 3,
         "Event_Proposed": "Clay Pottery",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "VLTC Back Parking Stall",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -762,7 +779,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Neon Painting",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "OAT Entrance (Nearby)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -770,7 +787,7 @@ export const events =[
     {
         "S.No.": 5,
         "Event_Proposed": "Silly Voices",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "VLTC Room 004 ",
         "Time": "02:00 PM - 04:00 PM",
         "Day": "Day 2"
@@ -778,7 +795,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Hammer",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -786,7 +803,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Chocolate Catcher",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -794,7 +811,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Air Hockey",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
@@ -802,24 +819,24 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Photo Booth",
-        "Event_Coordinator": "",
-        "Venue": "SAC Lawn Entry from Back (Left)",
+        "Event_Coordinator": "Cultural ",
+        "Venue": "SAC Lawn Entry from Back (Right)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
     },
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Catch the Stick",
-        "Event_Coordinator": "",
-        "Venue": "SAC Lawn Entry from Back (Left)",
+        "Event_Coordinator": "Cultural ",
+        "Venue": "SAC Lawn Entry from Back (Right)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
     },
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- VR",
-        "Event_Coordinator": "",
-        "Venue": "SAC Lawn Entry from Back (Left)",
+        "Event_Coordinator": "Cultural ",
+        "Venue": "SAC Lawn Entry from Back (Right)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 2"
     },
@@ -922,7 +939,7 @@ export const events =[
     {
         "S.No.": 3,
         "Event_Coordinator": "Creative Arts",
-        "Event_Proposed": "Embroidery Workshop",
+        "Event_Proposed": "Flower Vase Making Workshop",
         "Venue": "CV Raman Hall",
         "Time": "10:00 AM - 12:00 PM",
         "Day": "Day 3"
@@ -930,7 +947,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Coordinator": "Creative Arts",
-        "Event_Proposed": "Frame Your Vision Challenge",
+        "Event_Proposed": "Dream-Catcher Craft Off ",
         "Venue": "CV Raman Hall",
         "Time": "12:30 PM - 02:30 PM",
         "Day": "Day 3"
@@ -946,7 +963,7 @@ export const events =[
     {
         "S.No.": 6,
         "Event_Coordinator": "Dance",
-        "Event_Proposed": "Hookstep Hustle",
+        "Event_Proposed": "Catch The Vibe",
         "Venue": "OAT",
         "Time": "10:00 AM - 01:00 PM",
         "Day": "Day 3"
@@ -954,7 +971,7 @@ export const events =[
     {
         "S.No.": 7,
         "Event_Coordinator": "Film Making",
-        "Event_Proposed": "Recreate Iconic Scenes",
+        "Event_Proposed": "MNIT Film Festival",
         "Venue": "VLTC L109",
         "Time": "09:30 AM - 12:00 PM",
         "Day": "Day 3"
@@ -963,7 +980,7 @@ export const events =[
         "S.No.": 8,
         "Event_Coordinator": "Drama",
         "Event_Proposed": "Rangbhoomi",
-        "Venue": "APJ Abdul Kalam Hall",
+        "Venue": "Diksha Sabhagar",
         "Time": "02:00 PM - 04:00 PM",
         "Day": "Day 3"
     },
@@ -973,14 +990,6 @@ export const events =[
         "Event_Proposed": "Hindi Poetry Recitation",
         "Venue": "VLTC - L108",
         "Time": "10:00 AM - 01:00PM",
-        "Day": "Day 3"
-    },
-    {
-        "S.No.": 10,
-        "Event_Coordinator": "Hindi Club",
-        "Event_Proposed": "Hindi Essay Writing",
-        "Venue": "VLTC - L108",
-        "Time": "11:00AM - 01:00PM",
         "Day": "Day 3"
     },
     {
@@ -994,7 +1003,7 @@ export const events =[
     {
         "S.No.": 12,
         "Event_Coordinator": "Quiz",
-        "Event_Proposed": "kaun banega quizzpati",
+        "Event_Proposed": "Kaun Banega Quizzpati",
         "Venue": "VLTC L007",
         "Time": "10:00 AM - 01:00 PM",
         "Day": "Day 3"
@@ -1002,17 +1011,9 @@ export const events =[
     {
         "S.No.": 13,
         "Event_Coordinator": "NSS",
-        "Event_Proposed": "Best out of Waste",
-        "Venue": "VLTC-L003",
+        "Event_Proposed": "Recycle Rebels",
+        "Venue": "VLTC-L006",
         "Time": "01:00 PM - 04:00 PM",
-        "Day": "Day 3"
-    },
-    {
-        "S.No.": 14,
-        "Event_Coordinator": "Photography",
-        "Event_Proposed": "Bhavna",
-        "Venue": "Online",
-        "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
     },
     {
@@ -1021,6 +1022,14 @@ export const events =[
         "Event_Proposed": "PicSaga",
         "Venue": "Online",
         "Time": "10:00 AM - 05:00 PM",
+        "Day": "Day 3"
+    },
+    {
+        "S.No.": 15,
+        "Event_Coordinator": "Debate",
+        "Event_Proposed": "MNIT GOT LATENT",
+        "Venue": "APJ Abdul Kalam Hall",
+        "Time": "01:00 PM - 05:00 PM",
         "Day": "Day 3"
     },
     {
@@ -1050,7 +1059,7 @@ export const events =[
     {
         "S.No.": 1,
         "Event_Coordinator": "Twister",
-        "Event_Proposed": "",
+        "Event_Proposed": "Cultural ",
         "Venue": "VLTC T002",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1058,7 +1067,7 @@ export const events =[
     {
         "S.No.": 2,
         "Event_Coordinator": "Minute To Win It Games",
-        "Event_Proposed": "",
+        "Event_Proposed": "Cultural ",
         "Venue": "Ramanujan Hall",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1066,7 +1075,7 @@ export const events =[
     {
         "S.No.": 1,
         "Event_Coordinator": "Body Zorbing",
-        "Event_Proposed": "",
+        "Event_Proposed": "Cultural ",
         "Venue": "SAC Lawn, Left Side from Back",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1074,7 +1083,7 @@ export const events =[
     {
         "S.No.": 2,
         "Event_Coordinator": "Clay Pottery",
-        "Event_Proposed": "",
+        "Event_Proposed": "Cultural ",
         "Venue": "VLTC Back Parking Stall",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1082,7 +1091,7 @@ export const events =[
     {
         "S.No.": 3,
         "Event_Coordinator": "Neon Painting",
-        "Event_Proposed": "",
+        "Event_Proposed": "Cultural ",
         "Venue": "OAT Entrance (Nearby)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1090,7 +1099,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Hammer",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1098,7 +1107,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Chocolate Catcher",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1106,7 +1115,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Air Hockey",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1114,7 +1123,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Photo Booth",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1122,7 +1131,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- Catch the Stick",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
@@ -1130,7 +1139,7 @@ export const events =[
     {
         "S.No.": 4,
         "Event_Proposed": "Arcade- VR",
-        "Event_Coordinator": "",
+        "Event_Coordinator": "Cultural ",
         "Venue": "SAC Lawn Entry from Back (Left)",
         "Time": "10:00 AM - 05:00 PM",
         "Day": "Day 3"
