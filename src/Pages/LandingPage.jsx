@@ -10,7 +10,7 @@ import clublogo from "../Assets/culturalclublogo.png";
 import "../css files/landing.css";
 import ScrollDown from "../Components/scroll";
 import LandingEvent from "./LandingEvent.jsx";
-import Liveshow from "./liveshow.jsx";
+import Liveshow from "./Liveshow.jsx";
 // import ScrollBg from "../Components/scrollbg";
 
 import {
