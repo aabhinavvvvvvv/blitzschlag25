@@ -531,7 +531,7 @@ const [isVisible, setIsVisible] = useState(false);
       </div>
 
       {/* Tab Buttons */}
-      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 scrollbar-hide">
+      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 scrollbar-hide tracking-wider" style={{ fontFamily: "'Metal Mania', cursive" }}>
   <button
     className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
       activeTab === "special"

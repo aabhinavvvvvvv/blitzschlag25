@@ -17,6 +17,25 @@ import panache from "../Assets/category3.jpg";
 import rambha from "../Assets/category4.jpg";
 import poster from "../Assets/poster.png"
 
+
+import photography from '../Assets/photography.webp';
+import quiz from '../Assets/quiz.webp';
+import music from '../Assets/music.webp';
+import think from '../Assets/think.webp';
+//import electoral from '../Assets/electoral.webp';
+import nss from '../Assets/nss.webp';
+import drama from '../Assets/drama.webp';
+// import travel from '../Assets/travel.webp';
+// import poetry from '../Assets/poetry.webp';
+// import elac from '../Assets/elac.webp';
+// import mavericks from '../Assets/mavericks.webp';
+// import film from '../Assets/film.webp';
+// import dance from '../Assets/dance.webp';
+// import hlac from '../Assets/hlac.webp';
+// import cmd from '../Assets/cmd.webp';
+// import debate from '../Assets/debate.webp';
+// import press from '../Assets/press.webp';
+// import creative from '../Assets/creative.webp';
 const Button = ({ event }) => {
   const [clicked, setClicked] = useState(false);
 
@@ -270,7 +289,82 @@ const Events = () => {
     };
     return images[key] || "";
   };
-  const uniqueClubs = [...new Set(Object.values(eventData).map(event => event.club))];
+  const uniqueClubs = [
+    {
+      "name": "Photography",
+      "image": photography
+    },
+    {
+      "name": "Quiz",
+      "image": quiz
+    },
+    {
+      "name": "Music",
+      "image": music
+    },
+    {
+      "name": "Think India",
+      "image": think
+    },
+    // {
+    //   "name": "Electoral Literacy",
+    //   "image": electoral
+    // },
+    {
+      "name": "NSS",
+      "image": nss
+    },
+    {
+      "name": "Drama",
+      "image": drama
+    },
+    // {
+    //   "name": "Travel and Heritage",
+    //   "image": travel
+    // },
+    // {
+    //   "name": "Poetry",
+    //   "image": poetry
+    // },
+    // {
+    //   "name": "ELAC",
+    //   "image": elac
+    // },
+    // {
+    //   "name": "Mavericks",
+    //   "image": mavericks
+    // },
+    // {
+    //   "name": "Film Making",
+    //   "image": film
+    // },
+    // {
+    //   "name": "Dance",
+    //   "image": dance
+    // },
+    // {
+    //   "name": "HLAC",
+    //   "image": hlac
+    // },
+    // {
+    //   "name": "CMD",
+    //   "image": cmd
+    // },
+    // {
+    //   "name": "Debate",
+    //   "image": debate
+    // },
+    // {
+    //   "name": "Press",
+    //   "image": press
+    // },
+    // {
+    //   "name": "Creative Arts",
+    //   "image": creative
+    // }
+  ]
+  
+  
   console.log(uniqueClubs);
   return (
     <div
@@ -471,20 +565,20 @@ const Events = () => {
                     key={index}
                     className="bg-black bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border"
                   >
-                    <div className="text-xl font-bold text-neutral-100 dark:text-white">{club}</div>
+                    <div className="text-xl font-bold text-neutral-100 dark:text-white">{club.name}</div>
 
                     {/* Add your image URL here if available */}
                     <div className="w-full mt-4">
                       <img
-                        src={poster}
-                        className="rounded-xl w-auto h-80 mx-auto group-hover/card:shadow-xl"
+                        src={club.image}
+                        className="rounded-xl w-80 h-80 mx-auto group-hover/card:shadow-xl"
                         alt="event-thumbnail"
                       />
                     </div>
 
                     <div className="flex justify-end items-center mt-4">
                       <button
-                        onClick={() => setActiveClub(club)}
+                        onClick={() => setActiveClub(club.name)}
                         className="px-4 py-2 mx-auto rounded-xl bg-gray-400 dark:bg-white dark:text-black text-gray-900 text-xs font-bold"
                       >
                         View Events
