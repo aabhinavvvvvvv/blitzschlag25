@@ -68,7 +68,7 @@ const LandingPage = () => {
             id="Event"
             className="scroll-section h-screen w-screen relative  "
           >
-            <Liveshow />
+            <LandingEvent />
           </div>
         </Animator>
       </ScrollPage>
