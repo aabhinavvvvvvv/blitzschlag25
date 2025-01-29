@@ -94,7 +94,7 @@ const StyledWrapper = styled.div`
     background: rgba(142, 81, 234, 0.704);
   }
 
-  .btn:hover #container-stars {
+  .btn #container-stars {
     z-index: 1;
     background-color: #212121;
   }
@@ -103,17 +103,17 @@ const StyledWrapper = styled.div`
     transform: scale(1.1);
   }
 
-  .btn:active {
+  .btn {
     border: double 4px #fe53bb;
     background-origin: border-box;
     background-clip: content-box, border-box;
     animation: none;
   }
 
-  .btn:active .circle {
+  .btn .circle {
     background: #fe53bb;
   }
-
+  
   #stars {
     position: relative;
     background: transparent;
@@ -353,12 +353,12 @@ const FlagshipEvents = () => {
       />
 
       <motion.h1
-        className="text-7xl mt-0 mb-16 md:mt-40 font-extrabold text-center md:mb-12 relative z-10"
+        className="text-7xl mt-0 mb-36 md:mt-40 font-extrabold text-center md:mb-12 relative z-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <span className="bg-clip-text  text-transparent bg-gradient-to-r from-pink-400 via-pink-500 to-violet-500" style={{fontFamily: "'Metal Mania', cursive",}}>
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-pink-500 to-violet-500" style={{fontFamily: "'Metal Mania', cursive",}}>
           FLAGSHIPS
         </span>
       </motion.h1>
