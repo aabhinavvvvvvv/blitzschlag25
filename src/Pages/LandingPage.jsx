@@ -46,9 +46,6 @@ const LandingPage = () => {
         <Animator animation={batch()}>
           <div id="Home" className="scroll-section h-screen w-screen relative">
             <Home />
-            <div className="flex justify-center items-center absolute bottom-0 left-1/2 ">
-              <ScrollDown />
-            </div>
           </div>
         </Animator>
       </ScrollPage>
