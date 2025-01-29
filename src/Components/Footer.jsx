@@ -5,7 +5,7 @@ import logo from "../Assets/blitz_logo.png";
 
 const Footer = () => {
   return (
-    <div className="bg-black text-white py-2 mt-16">
+    <div className="bg-black text-white py-2 mt-16" style={{ fontFamily: "'Metal Mania', cursive" }}>
       {/* Join Our Community Tab at the Top */}
       <div className="w-full bg-black text-white text-center py-3 text-lg font-semibold flex justify-center items-center gap-2 border-b border-gray-700">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
@@ -46,10 +46,9 @@ const Footer = () => {
           <div className="flex flex-col items-center lg:items-start gap-2">
             <p className="font-semibold text-lg mb-4">Contact Us</p>
             <p><a href="mailto:support@blitzschlag.com" className="hover:underline">sachinsinghal0710@gmail.com</a></p>
-            <p>Phone: <a href="+91 8307450007" className="hover:underline">+91 8307450007</a></p>
+            <p>Phone: <a href="tel:+918307450007" className="hover:underline">+91 8307450007</a></p>
             <p>Address: Blitzschlag, CACS</p>
-          
-            <p>MNIT Jaipur,Rajasthan, 302017</p>
+            <p>MNIT Jaipur, Rajasthan, 302017</p>
           </div>
 
           {/* Technical Secretary */}
