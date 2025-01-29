@@ -365,55 +365,55 @@ const Events = () => {
     {
       "name": "Electoral Literacy",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "Travel and Heritage",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "Poetry",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "ELAC",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "Mavericks",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "Film Making",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "Dance",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "HLAC",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "CMD",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "Debate",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "Press",
       "image": poster
-  },
-  {
+    },
+    {
       "name": "Creative Arts",
       "image": poster
-  }
-  
+    }
+
   ]
-  
-  
+
+
   console.log(uniqueClubs);
   return (
     <div
@@ -486,7 +486,7 @@ const Events = () => {
         </div>
       )}
 
-{activeClub !== "none" && (
+      {activeClub !== "none" && (
         <div className="flex justify-center my-4 relative">
           <button
             onClick={() => setActiveClub("none")}
@@ -704,40 +704,65 @@ const Events = () => {
       {/* Drawer for Event Details */}
       {selectedEvent && (
         <Drawer
-          overlayOpacity={0}
+          overlayOpacity={0.5}
           open={drawerOpen}
           onClose={closeDrawer}
           direction="bottom"
-          size={400}
+          size={675}
           style={{
             left: 0,
             right: 0,
             bottom: 0,
             transform: "translate3d(0, 100%, 0)",
             width: "100%",
-            background: "rgba(0, 0, 0, 0.9)",
+            background: "rgba(0, 0, 0, 0.99)",
             position: "fixed",
             maxHeight: drawerOpen ? "100vh" : "0vh",
             overflowY: "auto",
             transition: "max-height 0.3s ease-in-out, opacity 0.3s ease-in-out",
             opacity: drawerOpen ? 1 : 0,
+            borderRadius: "16px 16px 0 0", // Rounded top corners
+            backdropFilter: "blur(16rem)", // Backdrop blur effect
+            WebkitBackdropFilter: "blur(10px)", // For Safari support
+            overflowX: "hidden",
           }}
         >
+          <div className="relative  w-full bg-opacity-60 h-8 mx-auto m-2">
+            <div className="relative bg-white w-32 bg-opacity-60 h-1 mx-auto m-2"></div>
+            <button
+              data-tooltip-id={`upload`}
+              data-tooltip-content={"Upload Image"}
+              className="absolute -top-[5%] rotate-45 right-[0%] w-16 h-16 text-5xl flex items-center justify-center font-bold text-gray-400 transition-all duration-300 hover:text-white hover:bg-opacity-70 hover:rotate-180"
+              onClick={() => closeDrawer()}
+              style={{
+                transformOrigin: "center",
+              }}
+            >
+              +
+            </button>
+          </div>
           <div className="h-full w-full p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* First Div */}
-            <div className="md:col-span-1 ">
-              <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-center md:text-left">
-                {selectedEvent.name}
-              </h2>
-              <p className="mb-4 text-sm sm:text-base text-center md:text-left">
-                {selectedEvent.description}
-              </p>
-              <div className="flex justify-center mt-16 ">
-                <Button className="mx-auto text-center" event={selectedEvent} />
-              </div>
+            <div className="md:col-span-1 p-4 pt-0 w-full">
+              <img
+                src={selectedEvent.imgUrl}
+                alt="event-thumbnail"
+                className="w-full aspect-square object-cover rounded-lg"
+              />
             </div>
+
             {/* Second Div */}
             <div className="md:col-span-1">
+              <h2 className="text-xl sm:text-3xl text-white font-semibold mb-4 text-center md:text-left"
+                style={{
+                  fontFamily: "'Metal Mania', cursive",
+                }}
+              >
+                {selectedEvent.name}
+              </h2>
+              <p className="mb-4 text-sm sm:text-base text-left md:text-left">
+                {selectedEvent.description}
+              </p>
               <p className="text-sm sm:text-base text-center md:text-left">
                 <strong>Venue:</strong> {selectedEvent.venue}
               </p>
@@ -747,12 +772,16 @@ const Events = () => {
               <p className="text-sm sm:text-base text-center md:text-left">
                 <strong>Category:</strong> {selectedEvent.type}
               </p>
+              
               <div className="mt-6">
                 {selectedEvent.maxTeamSize === 1 ? (
                   <SingleComponent event={selectedEvent} uid={uid} />
                 ) : (
                   <TeamComponent event={selectedEvent} uid={uid} />
                 )}
+              </div>
+              <div className="flex justify-center mt-16 ">
+                <Button className="mx-auto text-center" event={selectedEvent} />
               </div>
             </div>
           </div>
