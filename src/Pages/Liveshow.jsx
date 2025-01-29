@@ -73,7 +73,7 @@ function Liveshow() {
           >
             <div className="relative w-full mx-auto mt-10 scale-[0.8]">
               {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 opacity-90 blur-2xl rounded-full"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-violet-300 opacity-60 blur-2xl rounded-3xl"></div>
 
               {/* Image Container */}
               <div className="relative overflow-hidden rounded-2xl">
@@ -95,7 +95,7 @@ function Liveshow() {
             <h1 className="text-6xl font-bold absolute -top-36 left-44 transform -translate-x-1/2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500" style={{fontFamily: "'Metal Mania', cursive"}}>
               Vishal Mishra
             </h1>
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 opacity-90 blur-2xl rounded-full"></div>
+            <div className="absolute -inset-3 bg-gradient-to-r from-purple-600 to-violet-600 opacity-90 blur-2xl rounded-full"></div>
             {/* Image */}
             <div className="relative mx-auto ">
               <div className="relative overflow-hidden rounded-2xl ">
@@ -117,8 +117,8 @@ function Liveshow() {
                   navigate("/pass");
                 }}
               >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 transform group-hover:scale-105 transition-transform duration-300"></div>
-                <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-400 to-pink-400 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-violet-600 transform group-hover:scale-105 transition-transform duration-300"></div>
+                <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-400 to-violet-400 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300">
                   <Ticket className="w-5 h-5" />
                   Register Now
@@ -135,7 +135,7 @@ function Liveshow() {
           >
             {/* Title Section */}
             <div className="mb-12">
-              <h1 className="text-7xl md:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500" style={{fontFamily: "'Metal Mania', cursive"}}>
+              <h1 className="text-7xl md:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-500" style={{fontFamily: "'Metal Mania', cursive"}}>
                 Vishal Mishra
               </h1>
               <div className="flex items-center md:justify-start justify-center space-x-3">
@@ -160,8 +160,8 @@ function Liveshow() {
                   navigate("/registration");
                 }}
               >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 transform group-hover:scale-105 transition-transform duration-300"></div>
-                <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-400 to-pink-400 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-violet-600 transform group-hover:scale-105 transition-transform duration-300"></div>
+                <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-400 to-violet-400 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300">
                   <Ticket className="w-5 h-5" />
                   Register Now
