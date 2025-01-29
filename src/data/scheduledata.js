@@ -261,7 +261,7 @@ export const events =[
         "Event_Coordinator": "Core Team ",
         "Venue": "SAC",
         "Time": "10:00AM - 12:00PM",
-        "Day": "Day 1"
+        "Day": "Day 2"
     },
     {
         "S.No.": 2,
@@ -955,7 +955,7 @@ export const events =[
     {
         "S.No.": 5,
         "Event_Coordinator": "Creative Arts",
-        "Event_Proposed": "Fashionista Couture",
+        "Event_Proposed": "Fashioninsta Couture",
         "Venue": "CV Raman Hall",
         "Time": "03:00PM - 05:00 PM",
         "Day": "Day 3"
@@ -1003,7 +1003,7 @@ export const events =[
     {
         "S.No.": 12,
         "Event_Coordinator": "Quiz",
-        "Event_Proposed": "Kaun Banega Quizzpati",
+        "Event_Proposed": "Kaun Banega Quizpati",
         "Venue": "VLTC L007",
         "Time": "10:00 AM - 01:00 PM",
         "Day": "Day 3"

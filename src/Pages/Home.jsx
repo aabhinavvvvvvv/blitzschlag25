@@ -23,32 +23,7 @@ import {
   Fade,
 } from "react-scroll-motion";
 
-const notifications = [
-  {
-    id: 1,
-    title: "Prom Night",
-    message:
-      "Join us for a magical night filled with music, dance, and unforgettable memories at Blitzschlag 2025!",
-  },
-  {
-    id: 4,
-    title: "Volunteer Opportunities as Campus Ambassador",
-    message:
-      "Step up as a Campus Ambassador and be a crucial part of the Blitzschlag team. Applications are open now!",
-  },
-  {
-    id: 2,
-    title: "Workshop Registration",
-    message:
-      "Don't miss out! Register now for hands-on workshops conducted by industry experts during the event.",
-  },
-  {
-    id: 3,
-    title: "Art Exhibition",
-    message:
-      "Experience the surreal beauty of our vibrant art exhibition, showcasing unique creations at Blitzschlag 2025.",
-  },
-];
+
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -176,7 +151,7 @@ const Home = () => {
                 </motion.div>
               </Animator>
             </div>
-            {/* <NotificationList notifications={notifications} /> */}
+            <NotificationList />
           </div>
         </Animator>
       </ScrollPage>
