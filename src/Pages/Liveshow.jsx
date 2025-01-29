@@ -71,7 +71,7 @@ function Liveshow() {
               isVisible ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
             }`}
           >
-            <div className="relative w-full mx-auto mt-10">
+            <div className="relative w-full mx-auto mt-10 scale-[0.8]">
               {/* Glow Effect */}
               <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 opacity-90 blur-2xl rounded-full"></div>
 
@@ -92,10 +92,10 @@ function Liveshow() {
           {/* For Phone Screens - Artist Name at Top and Book Tickets Button at Bottom */}
           <div className="block md:hidden w-full text-center relative ">
             {/* Artist Name at Top */}
-            <h1 className="text-4xl font-bold absolute -top-28 left-44 transform -translate-x-1/2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500" style={{fontFamily: "'Metal Mania', cursive"}}>
+            <h1 className="text-6xl font-bold absolute -top-36 left-44 transform -translate-x-1/2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500" style={{fontFamily: "'Metal Mania', cursive"}}>
               Vishal Mishra
             </h1>
-
+            <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 opacity-90 blur-2xl rounded-full"></div>
             {/* Image */}
             <div className="relative mx-auto ">
               <div className="relative overflow-hidden rounded-2xl ">
@@ -110,7 +110,7 @@ function Liveshow() {
             </div>
 
             {/* Book Tickets Button at the Bottom */}
-            <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 w-full flex justify-center">
+            <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-full flex justify-center">
               <button
                 className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
                 onClick={() => {
