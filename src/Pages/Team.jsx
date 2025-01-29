@@ -532,6 +532,19 @@ const [isVisible, setIsVisible] = useState(false);
 
       {/* Tab Buttons */}
       <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 scrollbar-hide tracking-wider" style={{ fontFamily: "'Metal Mania', cursive" }}>
+  
+  <button
+    className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
+      activeTab === "organizing"
+        ? "bg-white/30 shadow-xl md:shadow-2xl"
+        : "hover:bg-white/40 hover:shadow-lg"
+    }`}
+    onClick={() => handleTabSwitch("organizing")}
+  >
+    <span className="sm:hidden">Organizing</span>
+    <span className="hidden sm:block">Organizing Committee</span>
+  </button>
+
   <button
     className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
       activeTab === "special"
@@ -543,17 +556,7 @@ const [isVisible, setIsVisible] = useState(false);
     <span className="sm:hidden">Special</span>
     <span className="hidden sm:block">Special Mention</span>
   </button>
-  <button
-    className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
-      activeTab === "core"
-        ? "bg-white/30 shadow-xl md:shadow-2xl"
-        : "hover:bg-white/40 hover:shadow-lg"
-    }`}
-    onClick={() => handleTabSwitch("core")}
-  >
-    <span className="sm:hidden">Core</span>
-    <span className="hidden sm:block">Core Team</span>
-  </button>
+ 
   <button
     className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
       activeTab === "advisors"
@@ -567,14 +570,14 @@ const [isVisible, setIsVisible] = useState(false);
   </button>
   <button
     className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-lg font-medium md:font-semibold uppercase text-white bg-transparent rounded-full shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
-      activeTab === "organizing"
+      activeTab === "core"
         ? "bg-white/30 shadow-xl md:shadow-2xl"
         : "hover:bg-white/40 hover:shadow-lg"
     }`}
-    onClick={() => handleTabSwitch("organizing")}
+    onClick={() => handleTabSwitch("core")}
   >
-    <span className="sm:hidden">Organizing</span>
-    <span className="hidden sm:block">Organizing Committee</span>
+    <span className="sm:hidden">Core</span>
+    <span className="hidden sm:block">Core Team</span>
   </button>
 </div>
 

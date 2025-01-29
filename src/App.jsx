@@ -32,6 +32,7 @@ import ResetLeaderboard from './Pages/ResetLeaderboard';
 import ChampionsTrophy from './Pages/ChampionsTrophy';
 import PaymentPage from './Components/PaymentPage';
 import Cart from './Pages/Cart';
+import PromNight from './Pages/Prom';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
@@ -179,6 +180,7 @@ function App() {
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/login" element={<Login/>} />
+                <Route path="/prom" element={<PromNight/>} />
                 <Route path={updateUrl} element={<UpdateLeaderboard />} />
                 <Route path="/pay" element={<PaymentPage />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />

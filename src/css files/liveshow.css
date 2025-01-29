@@ -1,11 +1,48 @@
+.heart {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+   /* Default color */
+  transform: rotate(-45deg);
+  animation: twinkle var(--duration) infinite alternate ease-in-out;
+  opacity: var(--opacity);
+}
+/* .heart-shape {
+  width: 500px;  
+  height: 440px;
+  clip-path: path("M260 440l-20-19C90 300 20 230 20 140 20 70 80 20 160 20c50 0 95 26 120 65L260 140l10-50c25-39 70-65 120-65 80 0 140 50 140 120 0 90-80 160-260 300l-20 19z");
+  -webkit-clip-path: path("M260 440l-20-19C90 300 20 230 20 140 20 70 80 20 160 20c50 0 95 26 120 65L260 140l10-50c25-39 70-65 120-65 80 0 140 50 140 120 0 90-80 160-260 300l-20 19z");
+} */
+
 .star {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    animation: twinkle var(--duration) ease-in-out infinite;
-    opacity: 0;
-  }
-  
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation: twinkle var(--duration) ease-in-out infinite;
+  opacity: 0;
+}
+/* Using pseudo-elements to create the heart shape */
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+/* Adjust positioning to form a perfect heart */
+.heart::before {
+  top: -50%;
+  left: 0;
+}
+
+.heart::after {
+  left: 50%;
+  top: 0;
+}
+
   @keyframes twinkle {
     0%, 100% { opacity: 0; transform: scale(0.5); }
     50% { opacity: var(--opacity); transform: scale(1); }

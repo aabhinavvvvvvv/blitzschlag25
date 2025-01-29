@@ -69,6 +69,16 @@ const LandingPage = () => {
           </div>
         </Animator>
       </ScrollPage>
+      <ScrollPage>
+        <Animator animation={batch(Fade(), MoveIn())}>
+          <div
+            id="Event"
+            className="scroll-section h-screen w-screen relative  "
+          >
+            <LandingEvent />
+          </div>
+        </Animator>
+      </ScrollPage>
       {/* Team Section */}
       <ScrollPage>
         <Animator animation={batch(Fade(), MoveIn())}>
