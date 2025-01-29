@@ -143,7 +143,7 @@ const FlagshipEvents = () => {
   return (
     <div
     ref={ref}
-      className="min-h-screen w-full text-white flex justify-center items-center overflow-hidden relative py-12"
+      className="min-h-screen w-full text-white flex flex-col justify-center items-center overflow-hidden relative py-20"
     style={{
       //backgroundImage: `url(${eventbg})`,
       backgroundImage: isVisible ? `url(${eventbg})` : "none",
@@ -161,12 +161,12 @@ const FlagshipEvents = () => {
       />
 
       <motion.h1
-        className="text-5xl md:text-7xl mt-16 font-extrabold text-center mb-12 relative z-10"
+        className="text-5xl md:text-7xl mt-4 md:mt-40 font-extrabold text-center mb-12 relative z-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" style={{fontFamily: "'Metal Mania', cursive",}}>
+        <span className="bg-clip-text  text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" style={{fontFamily: "'Metal Mania', cursive",}}>
           FLAGSHIPS
         </span>
       </motion.h1>
@@ -195,9 +195,9 @@ const FlagshipEvents = () => {
           paginate(-1);
         }
       }}
-      className="absolute inset-0 flex flex-col md:flex-row rounded-xl overflow-hidden shadow-2xl"
+      className="absolute inset-0 flex md:scale-100 flex-row rounded-xl overflow-hidden shadow-2xl mx-auto justify-center"
     >
-      <div className="w-1/2 relative overflow-hidden">
+      <div className="w-2/5 relative overflow-hidden">
         <motion.img
           src={eventArray[currentEvent].imgUrl}
           alt={eventArray[currentEvent].name}
