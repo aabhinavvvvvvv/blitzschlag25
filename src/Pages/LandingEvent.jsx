@@ -8,7 +8,200 @@ import bat from "../Assets/battle_of_bands.jpg";
 import eventbg from "../Assets/payment_bg.jpg";
 import styled from 'styled-components';
 
+const Button = () => {
+  return (
+    <StyledWrapper>
+      <button type="button" className="btn">
+        <strong>All Events</strong>
+        <div id="container-stars">
+          <div id="stars" />
+        </div>
+        <div id="glow">
+          <div className="circle" />
+          <div className="circle" />
+        </div>
+      </button>
+    </StyledWrapper>
+  );
+}
 
+const StyledWrapper = styled.div`
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    overflow: hidden;
+    height: 3rem;
+    background-size: 300% 300%;
+    cursor: pointer;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121),
+      linear-gradient(
+        137.48deg,
+        #ffdb3b 10%,
+        #fe53bb 45%,
+        #8f51ea 67%,
+        #0044ff 87%
+      );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+
+  #container-stars {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+  }
+
+  strong {
+    z-index: 2;
+    font-family: "Avalors Personal Use";
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: #ffffff;
+    text-shadow: 0 0 4px white;
+  }
+
+  #glow {
+    position: absolute;
+    display: flex;
+    width: 12rem;
+  }
+
+  .circle {
+    width: 100%;
+    height: 30px;
+    filter: blur(2rem);
+    animation: pulse_3011 4s infinite;
+    z-index: -1;
+  }
+
+  .circle:nth-of-type(1) {
+    background: rgba(254, 83, 186, 0.636);
+  }
+
+  .circle:nth-of-type(2) {
+    background: rgba(142, 81, 234, 0.704);
+  }
+
+  .btn:hover #container-stars {
+    z-index: 1;
+    background-color: #212121;
+  }
+
+  .btn:hover {
+    transform: scale(1.1);
+  }
+
+  .btn:active {
+    border: double 4px #fe53bb;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+  }
+
+  .btn:active .circle {
+    background: #fe53bb;
+  }
+
+  #stars {
+    position: relative;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+  }
+
+  #stars::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+  }
+
+  #stars::after {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+  }
+
+  #stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 60s linear infinite;
+  }
+
+  #stars::before {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    opacity: 0.5;
+  }
+
+  @keyframes animStar {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(-135rem);
+    }
+  }
+
+  @keyframes animStarRotate {
+    from {
+      transform: rotate(360deg);
+    }
+
+    to {
+      transform: rotate(0);
+    }
+  }
+
+  @keyframes gradient_301 {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes pulse_3011 {
+    0% {
+      transform: scale(0.75);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+      transform: scale(0.75);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+  }`;
 
 const events = {
   panache: {
@@ -143,14 +336,13 @@ const FlagshipEvents = () => {
   return (
     <div
     ref={ref}
-      className="min-h-screen w-full text-white flex flex-col justify-center items-center overflow-hidden relative py-20"
+      className=" h-[90vh] md:h-screen w-full text-white flex flex-col justify-center items-center overflow-hidden relative py-20"
     style={{
       //backgroundImage: `url(${eventbg})`,
       backgroundImage: isVisible ? `url(${eventbg})` : "none",
       backgroundSize: 'cover',
       backgroundPosition: 'center',
       width: '100%', /* Ensures the container spans the full width */
-        height: '100vh', /* Ensures the container spans the full viewport height */
     }}
     >
       <motion.div
@@ -161,17 +353,18 @@ const FlagshipEvents = () => {
       />
 
       <motion.h1
-        className="text-5xl md:text-7xl mt-4 md:mt-40 font-extrabold text-center mb-12 relative z-10"
+        className="text-7xl mt-0 mb-16 md:mt-40 font-extrabold text-center md:mb-12 relative z-10"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <span className="bg-clip-text  text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500" style={{fontFamily: "'Metal Mania', cursive",}}>
+        <span className="bg-clip-text  text-transparent bg-gradient-to-r from-pink-400 via-pink-500 to-violet-500" style={{fontFamily: "'Metal Mania', cursive",}}>
           FLAGSHIPS
         </span>
       </motion.h1>
-
-      <div className="relative w-full max-w-5xl aspect-[16/9] px-4 md:scale-[0.85]">
+      
+      
+      <div className="relative w-full max-w-5xl mb-20 md:mb-0 aspect-[16/9] px-4 md:scale-[0.85]">
   <AnimatePresence initial={false} custom={currentEvent}>
     <motion.div
       key={currentEvent}
@@ -197,31 +390,31 @@ const FlagshipEvents = () => {
       }}
       className="absolute inset-0 flex md:scale-100 flex-row rounded-xl overflow-hidden shadow-2xl mx-auto justify-center"
     >
-      <div className="w-2/5 relative overflow-hidden">
+      <div className="w-[45%] relative overflow-hidden">
         <motion.img
           src={eventArray[currentEvent].imgUrl}
           alt={eventArray[currentEvent].name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover rounded-l-xl  "
           initial={{ scale: 1.2 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.8 }}
         />
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"
+          className="absolute inset-0 bg-gradient-to-r rounded-l-xl from-black/60 to-transparent"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         />
       </div>
       <motion.div
-        className="w-1/2 bg-black bg-opacity-75 backdrop-blur-sm p-8 flex flex-col justify-between"
+        className="w-[45%] bg-black bg-opacity-75 backdrop-blur-sm md:p-8 pl-4 py-4 pr-2 rounded-r-xl flex flex-col justify-between"
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.7, duration: 0.5 }}
       >
         <div>
           <motion.h2
-            className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-pink-500"
+            className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-pink-500"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             style={{ fontFamily: '"Amarante", serif' }}
@@ -267,8 +460,11 @@ const FlagshipEvents = () => {
       <ChevronRight size={30} />
     </button>
   </div>
-</div>
-
+      </div>
+    
+      <div className='visible md:hidden mt-10'>
+      <Button/>
+      </div>
     </div>
   );
 };
