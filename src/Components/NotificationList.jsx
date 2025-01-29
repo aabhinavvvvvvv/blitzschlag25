@@ -1,16 +1,34 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-const NotificationList = ({ notifications }) => {
+const notifications = [
+  { id: 1, title: "🎭 Prom Night", message: "Join us for a magical night filled with music, dance, and unforgettable memories at Blitzschlag 2025!", route: "/prom" },
+  { id: 4, title: "🚀 Campus Ambassador", message: "Step up as a Campus Ambassador and be a crucial part of the Blitzschlag team. Applications are open now!", route: "/campus_embassador" },
+  { id: 2, title: "🛠 Workshop Registration", message: "Don't miss out! Register now for hands-on workshops conducted by industry experts during the event.", route: "/event" },
+  // { id: 3, title: "🎨 Art Exhibition", message: "Experience the surreal beauty of our vibrant art exhibition, showcasing unique creations at Blitzschlag 2025.", route: "/art-exhibition" },
+  { id: 5, title: "🎤 Vishal Mishra Live - 9th Feb", message: "Get ready for an electrifying night! Vishal Mishra is performing live on 9th Feb at Blitzschlag 2025. Book your tickets now!", route: "/pronites" },
+];
+
+
+const NotificationList = () => {
   const controls = useAnimation();
   const containerRef = useRef(null);
+  const navigate = useNavigate(); // React Router hook for navigation
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  // Handle resizing for mobile view
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
-    const animate = async () => {
-      const containerHeight = containerRef.current.offsetHeight;
+    if (containerRef.current) {
       const contentHeight = containerRef.current.scrollHeight;
 
-      await controls.start({
+      controls.start({
         y: [0, -contentHeight],
         transition: {
           duration: notifications.length * 6, // Adjust for smoother scroll
@@ -18,53 +36,42 @@ const NotificationList = ({ notifications }) => {
           repeat: Infinity,
         },
       });
-    };
+    }
+  }, [controls]);
 
-    animate();
-  }, [controls, notifications]);
+  if (isMobile) return null; // Hide on mobile
 
   return (
     <div
       ref={containerRef}
       className="fixed bottom-20 left-4 p-5 rounded-lg shadow-2xl z-50 w-80 h-72 overflow-hidden"
       style={{
-        // border: "2px solid #FFD700",
         boxShadow: "0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 223, 0, 0.6)",
-
-          display: window.innerWidth <= 768 ? 'none' : 'block',
-      
       }}
     >
-
       <motion.div animate={controls} className="space-y-4">
-        {notifications.concat(notifications).map((notification, index) => (
+        {[...notifications, ...notifications].map((notification, index) => (
           <div
             key={`${notification.id}-${index}`}
-            className="p-4 rounded-lg"
+            className="p-4 rounded-lg cursor-pointer"
             style={{
-              background:
-                "linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(255, 223, 0, 0.6))",
-            //   boxShadow: "0 0 10px rgba(255, 255, 204, 0.8), 0 0 20px rgba(255, 255, 153, 0.6)",
-            //   border: "1px solid #FFD700",
+              background: "linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(255, 223, 0, 0.6))",
             }}
           >
-            <h3
-              className="font-semibold text-yellow-900"
-              style={{
-                fontFamily: "'Metal Mania', cursive",
-                // textShadow: "0 0 4px rgba(255, 204, 0, 0.7)",
-              }}
+            {/* Animated Title */}
+            <motion.h3
+              className="font-semibold text-yellow-900 text-xl cursor-pointer"
+              style={{ fontFamily: "'Metal Mania', cursive" }}
+              onClick={() => navigate(notification.route)} // Redirect on click
+              whileHover={{ scale: 1.1, textShadow: "0px 0px 8px rgba(255, 255, 0, 0.8)" }} // Scale effect on hover
+              whileTap={{ scale: 1.1 }} // Click animation
+              transition={{ type: "spring", stiffness: 200 }}
             >
               {notification.title}
-            </h3>
-            <p
-              className="text-sm mt-1 "
-              style={{
-                // textShadow: "0 0 3px rgba(255, 255, 153, 0.5)",
-              }}
-            >
-              {notification.message}
-            </p>
+            </motion.h3>
+
+            {/* Notification Message */}
+            <p className="text-sm mt-1">{notification.message}</p>
           </div>
         ))}
       </motion.div>

@@ -9,6 +9,7 @@ import PlayButton from "../Components/PlayButton";
 import { motion } from "framer-motion";
 import NotificationList from "../Components/NotificationList";
 import { useState, useRef, useEffect } from "react";
+import Clock from '../Components/Clock';
 import {
   Animator,
   ScrollContainer,
@@ -23,32 +24,7 @@ import {
   Fade,
 } from "react-scroll-motion";
 
-const notifications = [
-  {
-    id: 1,
-    title: "Prom Night",
-    message:
-      "Join us for a magical night filled with music, dance, and unforgettable memories at Blitzschlag 2025!",
-  },
-  {
-    id: 4,
-    title: "Volunteer Opportunities as Campus Ambassador",
-    message:
-      "Step up as a Campus Ambassador and be a crucial part of the Blitzschlag team. Applications are open now!",
-  },
-  {
-    id: 2,
-    title: "Workshop Registration",
-    message:
-      "Don't miss out! Register now for hands-on workshops conducted by industry experts during the event.",
-  },
-  {
-    id: 3,
-    title: "Art Exhibition",
-    message:
-      "Experience the surreal beauty of our vibrant art exhibition, showcasing unique creations at Blitzschlag 2025.",
-  },
-];
+
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -93,8 +69,8 @@ const Home = () => {
                   <motion.h1
                     initial={{ y: -50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 2,ease: [0.22, 1, 0.36, 1],  }}
-                    
+                    transition={{ delay: 0.2, duration: 2, ease: [0.22, 1, 0.36, 1], }}
+
                     className="text-5xl md:text-8xl font-normal tracking-wider"
                     style={{
                       fontFamily: "'Metal Mania', cursive",
@@ -118,7 +94,7 @@ const Home = () => {
                 <motion.p
                   initial={{ x: -100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.4, duration: 2,ease: [0.22, 1, 0.36, 1],  }}
+                  transition={{ delay: 0.4, duration: 2, ease: [0.22, 1, 0.36, 1], }}
                   className="text-xl md:text-3xl font-normal text-yellow-500"
                   style={{
                     fontFamily: "'Metal Mania', cursive",
@@ -135,12 +111,12 @@ const Home = () => {
                   className="mt-10"
                   initial={{ y: -50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 2,ease: [0.22, 1, 0.36, 1],  }}
+                  transition={{ delay: 0.2, duration: 2, ease: [0.22, 1, 0.36, 1], }}
                 >
                   <PlayButton />
                 </motion.p>
               </Animator>
-              <Animator>
+              <Animator animation={MoveOut(+1000, 0)}>
                 <motion.p
                   className="text-xl mt-7 mb-3 md:text-3xl tracking-normal font-normal text-[#C0AA67]"
                   style={{
@@ -151,7 +127,7 @@ const Home = () => {
                   }}
                   initial={{ x: 100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.4,duration: 2,ease: [0.22, 1, 0.36, 1],  }}
+                  transition={{ delay: 0.4, duration: 2, ease: [0.22, 1, 0.36, 1], }}
                 >
                   presented by
                 </motion.p>
@@ -160,7 +136,7 @@ const Home = () => {
                 <motion.div
                   initial={{ y: 50, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.8, duration: 2,ease: [0.22, 1, 0.36, 1], }}
+                  transition={{ delay: 0.8, duration: 2, ease: [0.22, 1, 0.36, 1], }}
                   className="flex justify-center sm:justify-start gap-4"
                 >
                   <Link to="https://mnit.ac.in" className="w-24 h-24">
@@ -175,9 +151,17 @@ const Home = () => {
                   </Link>
                 </motion.div>
               </Animator>
+
             </div>
-            <NotificationList notifications={notifications} />
+            {/* <NotificationList notifications={notifications} /> */}
+            <div className="absolute bottom-5">
+            <Animator animation={FadeOut(MoveOut)}>
+                <Clock/>
+            </Animator>
+            </div>
+            <NotificationList />
           </div>
+
         </Animator>
       </ScrollPage>
     </ScrollContainer>
