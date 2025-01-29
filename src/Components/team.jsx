@@ -73,12 +73,14 @@ const TeamComponent = ({ event }) => {
         });
 
         // Redirect to the payment page with the required props
-        navigate('/pay', {
-          state: { // Replace with the actual amount
-            userId: uid,
-            teamCode: data.code,
-          },
-        });
+        if (event.type === "flagship") {
+          navigate('/pay', {
+            state: {
+              userId: uid,
+              teamCode: data.code,
+            },
+          });
+        }
 
         setTeamName('');
       }
@@ -106,7 +108,7 @@ const TeamComponent = ({ event }) => {
         <button
           onClick={handleCreateTeam}
           disabled={loading}
-          className={`w-full bg-transparent border-2 border-white text-white p-3 rounded-lg mt-4 ${loading && 'opacity-50'}`}
+          className="w-full bg-black border-2 border-white hover:bg-white hover:text-black text-lg transition-colors  bg-opacity-50 text-white p-3 rounded-lg mt-4"
         >
           {loading ? "Creating Team..." : "Create Team"}
         </button>

@@ -53,7 +53,7 @@ const SingleComponent = ({ event }) => {
         }
         return;
       }
-      
+
 
       toast.success('Successfully registered for the event!');
     } catch (error) {
@@ -69,7 +69,7 @@ const SingleComponent = ({ event }) => {
       <button
         onClick={handleRegister}
         disabled={loading}
-        className={`w-full bg-transparent border-2 border-white text-white p-3 rounded-lg mt-4 ${loading && 'opacity-50'}`}
+        className="w-full bg-black border-2 border-white hover:bg-white hover:text-black text-lg transition-colors  bg-opacity-50 text-white p-3 rounded-lg mt-4"
       >
         {loading ? 'Registering...' : 'Register for Event'}
       </button>
