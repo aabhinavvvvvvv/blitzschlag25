@@ -5,7 +5,7 @@ import Liveshow from "./Liveshow.jsx";
 const Pronite = () => {
   return (
     <div >
-  <PageNA/>
+  <Liveshow/>
     </div>
   )
 }
