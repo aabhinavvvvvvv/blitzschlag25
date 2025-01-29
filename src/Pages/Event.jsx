@@ -743,11 +743,11 @@ const Events = () => {
           </div>
           <div className="h-full w-full p-4 sm:p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* First Div */}
-            <div className="md:col-span-1 p-4 w-full">
+            <div className="md:col-span-1 p-4 pt-0 w-full">
               <img
                 src={selectedEvent.imgUrl}
                 alt="event-thumbnail"
-                className="w-full h-auto max-w-md md:max-w-full object-cover rounded-lg"
+                className="w-full aspect-square object-cover rounded-lg"
               />
             </div>
 
