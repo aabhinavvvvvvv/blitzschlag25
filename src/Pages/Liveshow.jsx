@@ -71,9 +71,9 @@ function Liveshow() {
               isVisible ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
             }`}
           >
-            <div className="relative w-full mx-auto">
+            <div className="relative w-full mx-auto mt-10">
               {/* Glow Effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 opacity-30 blur-2xl rounded-full"></div>
+              <div className="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 opacity-90 blur-2xl rounded-full"></div>
 
               {/* Image Container */}
               <div className="relative overflow-hidden rounded-2xl">
@@ -90,15 +90,15 @@ function Liveshow() {
           </div>
 
           {/* For Phone Screens - Artist Name at Top and Book Tickets Button at Bottom */}
-          <div className="block md:hidden w-full text-center relative">
+          <div className="block md:hidden w-full text-center relative ">
             {/* Artist Name at Top */}
             <h1 className="text-4xl font-bold absolute -top-28 left-44 transform -translate-x-1/2 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500" style={{fontFamily: "'Metal Mania', cursive"}}>
               Vishal Mishra
             </h1>
 
             {/* Image */}
-            <div className="relative mx-auto">
-              <div className="relative overflow-hidden rounded-2xl">
+            <div className="relative mx-auto ">
+              <div className="relative overflow-hidden rounded-2xl ">
                 <div className="w-full h-full bg-gradient-to-b from-transparent to-black/50 absolute bottom-0 z-10"></div>
                 <img
                   className="w-full h-full object-cover floating-image"
@@ -129,7 +129,7 @@ function Liveshow() {
 
           {/* Content (Only visible on larger screens) */}
           <div
-            className={`w-full md:w-2/3 text-center md:text-left transform transition-all duration-1000 ${
+            className={`w-full md:w-4/5 text-center md:text-left transform transition-all duration-1000 ${
               isVisible ? "translate-x-0 opacity-100" : "translate-x-80 opacity-0"
             } md:block hidden`}
           >
@@ -157,7 +157,7 @@ function Liveshow() {
               <button
                 className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
                 onClick={() => {
-                  navigate("/pass");
+                  navigate("/registration");
                 }}
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 transform group-hover:scale-105 transition-transform duration-300"></div>
