@@ -157,7 +157,7 @@ const passes = [
     features: [
       "Participate in one flagship event",
       "Access to all club events for one day",
-      "Accommodation included (excluding food)",
+      "Accommodation included",
     ],
     daySelection: true,
     flagshipSelection: true,
