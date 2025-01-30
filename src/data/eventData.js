@@ -965,7 +965,7 @@ const eventData = {
         name: 'Fashion Insta Couture',
         venue: 'CV RAMAN HALL',
         day: 3,
-        rulebook: '/fv.pdf',
+        rulebook: '/RULEBOOK FASHIONISTA.pdf',
         description: 'Couture fashion is all about craftsmanship, attention to detail, and pushing the boundaries of style. In this competition, you will be tasked with designing and presenting an exclusive, one-of-a-kind piece that highlights your unique vision of high fashion.',
         maxTeamSize: 4,
         eventPath: 'fashioninsta',

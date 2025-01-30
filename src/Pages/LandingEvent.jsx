@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect,useRef} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import tam from "../Assets/tamasha.jpg";
@@ -11,7 +11,7 @@ import styled from 'styled-components';
 const Button = () => {
   return (
     <StyledWrapper>
-      <button type="button" className="btn">
+      <button type="button" className="btn" onClick={()=>{window.open('/event')}}>
         <strong>All Events</strong>
         <div id="container-stars">
           <div id="stars" />
@@ -259,6 +259,7 @@ const FlagshipEvents = () => {
   const [currentEvent, setCurrentEvent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const eventArray = Object.values(events);
+
 
   useEffect(() => {
     let interval;
