@@ -1,194 +1,257 @@
-import React, { useEffect, useState, useRef } from "react";
-import { Ticket } from "lucide-react";
-import "../css files/liveshow.css";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Calendar, Clock, MapPin, Music, Crown, Users } from "lucide-react";
+import leftcurtain from "../Assets/red_curtain_left.png";
+import rightcurtain from "../Assets/red_curtain_right.png";
 import promnightImage from "../Assets/Prom.jpg";
-import { useNavigate } from "react-router-dom";
-
-function PromNight() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
-  const navigate = useNavigate();
+import "../css files/liveshow.css";
+import { Ticket } from "lucide-react";
+export default function PromNightLanding() {
+  const [isCurtainOpen, setIsCurtainOpen] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
-        });
-      },
-      {
-        threshold: 0.9,
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    const timer = setTimeout(() => setIsCurtainOpen(true), 500);
+    return () => clearTimeout(timer);
   }, []);
-// useEffect(() => {
-//     const container = document.querySelector(".stars-container");
-//     if (container) {
-//       for (let i = 0; i < 100; i++) {
-//         const star = document.createElement("div");
-//         star.className = "star";
-//         const size = Math.random() * 9;
-//         star.style.width = `${size}px`;
-//         star.style.height = `${size}px`;
-//         star.style.left = `${Math.random() * 100}%`;
-//         star.style.top = `${Math.random() * 100}%`;
-//         star.style.setProperty("--duration", `${2 + Math.random() * 1}s`);
-//         star.style.setProperty("--opacity", `${0.5 + Math.random() * 0.8}`);
-//         container.appendChild(star);
-//       }
-//     }
-//   }, []);
-useEffect(() => {
+
+  useEffect(() => {
     const container = document.querySelector(".stars-container");
     if (container) {
-        container.innerHTML = ""; // Clear existing hearts before adding new ones
-        
-        for (let i = 0; i < 120; i++) { // Increased the number of hearts
-            const heart = document.createElement("div");
-            heart.className = "heart"; // Updated class name
+      container.innerHTML = "";
+      for (let i = 0; i < 120; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
 
-            // Random size variation
-            const size = Math.random() * 12 + 2; // Size range: 2px - 10px
-            heart.style.width = `${size}px`;
-            heart.style.height = `${size}px`;
+        const size = Math.random() * 15 + 2;
+        heart.style.width = `${size}px`;
+        heart.style.height = `${size}px`;
 
-            // Random position
-            heart.style.left = `${Math.random() * 100}%`;
-            heart.style.top = `${Math.random() * 100}%`;
+        heart.style.left = `${Math.random() * 100}%`;
+        heart.style.top = `${Math.random() * 100}%`;
 
-            // Animation properties
-            heart.style.setProperty("--duration", `${2 + Math.random() * 2}s`); // Flickering duration
-            heart.style.setProperty("--opacity", `${0.3 + Math.random() * 0.7}`); // Opacity variation
+        heart.style.setProperty("--duration", `${2 + Math.random() * 2}s`);
+        heart.style.setProperty("--opacity", `${0.3 + Math.random() * 0.7}`);
 
-            // Random slight color variation (shades of pink)
-            const heartColors = ["#ff1493", "#ff69b4", "#ff85a2", "#ff4081"];
-            heart.style.backgroundColor = heartColors[Math.floor(Math.random() * heartColors.length)];
+        const heartColors = ["#ff1493", "#ff69b4", "#ff85a2", "#ff4081"];
+        heart.style.backgroundColor =
+          heartColors[Math.floor(Math.random() * heartColors.length)];
 
-            container.appendChild(heart);
-        }
+        container.appendChild(heart);
+      }
     }
-}, []);
+  }, []);
 
-  
+  const curtainVariants = {
+    closed: (isLeft) => ({
+      x: "0%",
+      skew: "0deg",
+    }),
+    open: (isLeft) => ({
+      x: isLeft ? "-100vw" : "100vw", // Use `vw` for viewport width, ensuring the curtain moves out of screen
+      skew: isLeft ? "-10deg" : "10deg",
+      transition: {
+        x: { type: "spring", stiffness: 50, damping: 100 },
+        skew: { type: "tween", ease: "easeInOut", duration: 0.8 },
+      },
+    }),
+  };
+
   return (
-    <div className="h-screen bg-black text-white overflow-hidden relative">
-      <div className="stars-container absolute inset-0 overflow-hidden z-0" />
-      <div className="absolute inset-0 z-10" />
+    <div className="min-h-screen bg-black overflow-hidden relative">
+      {/* Heart Background */}
+      <div className="stars-container absolute top-0 left-0 w-full h-full pointer-events-none z-10"></div>
 
-      <div className="relative h-full z-20 flex items-center justify-center">
-        <div className="w-full max-w-7xl mx-auto px-4 flex items-center gap-28">
-          <div
-            ref={sectionRef}
-            className={`hidden md:block w-full transform transition-all duration-1000 ${
-              isVisible ? "translate-x-0 opacity-100" : "-translate-x-20 opacity-0"
-            }`}
+      {/* Left Curtain */}
+      <motion.div
+        custom={true}
+        variants={curtainVariants}
+        initial="closed"
+        animate={isCurtainOpen ? "open" : "closed"}
+        className="fixed top-0 left-0 w-1/2 h-full z-40 bg-cover bg-right"
+        style={{
+          backgroundImage: `url('${leftcurtain}')`,
+          transformOrigin: "left center",
+        }}
+      />
+
+      {/* Right Curtain */}
+      <motion.div
+        custom={false}
+        variants={curtainVariants}
+        initial="closed"
+        animate={isCurtainOpen ? "open" : "closed"}
+        className="fixed top-0 right-0 w-1/2 h-full z-40 bg-cover bg-left"
+        style={{
+          backgroundImage: `url('${rightcurtain}')`,
+          transformOrigin: "right center",
+        }}
+      />
+
+      {/* Content */}
+      <div className="min-h-screen  flex flex-col items-center justify-center p-4 relative">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{
+            opacity: isCurtainOpen ? 1 : 0,
+            scale: isCurtainOpen ? 1 : 0.8,
+          }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+          className="w-full max-w-4xl flex flex-col items-center justify-center space-y-8"
+        >
+          {/* Prom Night Image */}
+          <motion.div
+            className="relative w-full aspect-video rounded-lg overflow-hidden shadow-2xl mt-20 flex justify-center items-center"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.5 }}
           >
-            <div className="relative w-full mx-auto mt-10 scale-[0.8]">
-  {/* Glowing Effect */}
-  <div className="absolute -inset-2 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 opacity-50 blur-2xl rounded-3xl"></div>
+            {/* Glow Effect */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-violet-300 opacity-60 blur-2xl rounded-3xl"></div>
 
-  {/* Heart Shaped Image */}
-  <div className="relative overflow-hidden heart-shape">
-    <div className="w-full h-full bg-gradient-to-b from-transparent rounded-xl to-black/50 absolute bottom-0 z-10"></div>
-    <img
-      className="w-full h-full object-cover floating-image"
-      alt="Prom Night"
-      style={{ objectPosition: "center top" }}
-      src={promnightImage}
-    />
-  </div>
-</div>
+            {/* Image Container */}
+            <div className="relative w-full h-full rounded-lg overflow-hidden">
+              {/* Dark Overlay */}
+              <div className="w-full h-full bg-gradient-to-b from-transparent to-black/50 absolute bottom-0 z-10"></div>
 
-          </div>
+              <img
+                src={promnightImage || "/placeholder.svg"}
+                alt="The Blitz Prom Night"
+                className="w-full h-full object-cover floating-image"
+              />
+            </div>
+          </motion.div>
 
-          <div className="block md:hidden w-full text-center relative ">
-            <h1 className="text-6xl font-bold absolute -top-36 left-44 transform -translate-x-1/2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500" style={{fontFamily: "'Metal Mania', cursive"}}>
-              Prom Night
+          {/* Title */}
+          <motion.div
+            className="text-center"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.9, duration: 0.5 }}
+          >
+            <h1
+              className="text-5xl md:text-7xl font-bold mb-2 shadow-text  text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500"
+              style={{ fontFamily: "'Metal Mania', cursive" }}
+            >
+              The Blitz Prom Night
             </h1>
-            <div className="absolute -inset-3 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 opacity-90 blur-2xl rounded-full"></div>
-            <div className="relative mx-auto ">
-              <div className="relative overflow-hidden rounded-2xl ">
-                <div className="w-full h-full bg-gradient-to-b from-transparent rounded-xl to-black/50 absolute bottom-0 z-10"></div>
-                <img
-                  className="w-full h-full object-cover floating-image"
-                  alt="Prom Night"
-                  style={{ objectPosition: "center top" }}
-                  src={promnightImage}
-                />
-              </div>
-            </div>
+            {/* <p className="text-xl md:text-3xl shadow-text text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500" style={{ fontFamily: "'Metal Mania', cursive" }}>A Night of Glamour and Celebration</p> */}
+          </motion.div>
 
-            <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-full flex justify-center">
-              <button
-                className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
-                onClick={()=>{window.open("https://docs.google.com/forms/d/1Sm9_BhNe3cRoa2hSwDyZt6x6VYizNOd8y1qkWFiPJ2k/edit?ts=679b0ecf", "_blank")}}
-            
-              >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 transform group-hover:scale-105 transition-transform duration-300"></div>
-                <div className="absolute -inset-[2px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300">
-                  <Ticket className="w-5 h-5" />
-                  Register Now
-                </div>
-              </button>
-            </div>
-          </div>
-
-          <div
-            className={`w-full md:w-4/5 text-center md:text-left transform transition-all duration-1000 ${
-              isVisible ? "translate-x-0 opacity-100" : "translate-x-80 opacity-0"
-            } md:block hidden`}
+          {/* Description */}
+          <motion.div
+            className="  md:w-full bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 bg-opacity-40 backdrop-blur-lg rounded-xl p-8 shadow-lg"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.5 }}
           >
-            <div className="mb-12">
-              <h1 className="text-7xl md:text-8xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 " style={{fontFamily: "'Metal Mania', cursive"}}>
-                Prom Night
-              </h1>
-              <div className="flex items-center md:justify-start justify-center space-x-3">
-                <span className="h-0.5 w-12 bg-blue-500"></span>
-                <p className="text-2xl text-gray-300">A Night to Remember</p>
-                <span className="h-0.5 w-12 bg-blue-500"></span>
+            <p className="text-white text-lg md:text-xl  leading-relaxed font-medium">
+              For the first time in MNIT's history, The Blitz Prom Night
+              promises to be a momentous event celebrating the spirit of
+              togetherness. Students will experience an evening of glamour,
+              excitement, and elegance, as they don formal attire for a night
+              filled with music, dance, and memorable moments. This inaugural
+              prom marks a new tradition, offering a unique opportunity for
+              students to come together in celebration of their academic journey
+              and campus life.
+            </p>
+          </motion.div>
+
+          {/* Event Details */}
+          <motion.div
+            className="bg-gradient-to-br from-pink-400 via-purple-500 to-indigo-600 bg-opacity-40 backdrop-blur-lg rounded-xl p-8 w-full shadow-lg mt-6"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.3, duration: 0.5 }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
+              {/* Event Location */}
+              <div className="flex items-center space-x-4">
+                <MapPin className="text-pink-400 h-8 w-8" />
+                <span className="text-lg md:text-xl font-semibold">
+                  VLTC Front Porch
+                </span>
+              </div>
+
+              {/* Event Date */}
+              <div className="flex items-center space-x-4">
+                <Calendar className="text-pink-400 h-8 w-8" />
+                <span className="text-lg md:text-xl font-semibold">
+                  6th February 2025 (Day 0 of Blitzschlag '25)
+                </span>
+              </div>
+
+              {/* Event Time */}
+              <div className="flex items-center space-x-4">
+                <Clock className="text-pink-400 h-8 w-8" />
+                <span className="text-lg md:text-xl font-semibold">
+                  9:00 PM to 11:30 PM (Entry starts at 8:30 PM)
+                </span>
+              </div>
+
+              {/* Music and Dance */}
+              <div className="flex items-center space-x-4">
+                <Music className="text-pink-400 h-8 w-8" />
+                <span className="text-lg md:text-xl font-semibold">
+                  Live Music and Dance
+                </span>
+              </div>
+
+              {/* Prom Contest */}
+              <div className="flex items-center space-x-4">
+                <Crown className="text-pink-400 h-8 w-8" />
+                <span className="text-lg md:text-xl font-semibold">
+                  Prom King and Queen Contest
+                </span>
+              </div>
+
+              {/* Couples Event */}
+              <div className="flex items-center space-x-4">
+                <Users className="text-pink-400 h-8 w-8" />
+                <span className="text-lg md:text-xl font-semibold">
+                  Couples Event
+                </span>
               </div>
             </div>
+          </motion.div>
 
-            <div className="mb-12">
-              <p className="text-3xl font-light text-gray-300">
-                <span className="text-pink-400" style={{fontFamily: "'Metal Mania', cursive"}}>6th February 2025</span>
-              </p>
-              <p className="text-3xl font-light text-gray-300">
-                <span className="text-pink-400" style={{fontFamily: "'Metal Mania', cursive"}}>9 PM to 11:30 PM</span>
-              </p>
-            </div>
+          {/* Highlight */}
+          <motion.div
+            className="bg-pink-500 bg-opacity-80 backdrop-blur-lg rounded-xl p-6 w-full"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.5 }}
+          >
+            <h3 className="text-2xl font-bold text-white mb-3">
+              Highlight: Slow Dance and Ramp Walk Challenge
+            </h3>
+            <p className="text-white text-lg leading-relaxed">
+              The prom night will culminate in a final slow dance, followed by a
+              highlight challenge featuring a ramp walk. Couples will showcase
+              their fashion, walk, and confidence on stage. Judging will be
+              based on costume, confidence, and creativity. The highest-scoring
+              couple will be crowned Prom King and Queen of Blitzschlag '25.
+            </p>
+          </motion.div>
 
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              <button
-                className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
-                onClick={()=>{window.open("https://docs.google.com/forms/d/1Sm9_BhNe3cRoa2hSwDyZt6x6VYizNOd8y1qkWFiPJ2k/edit?ts=679b0ecf", "_blank")}}
-              >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300  transform group-hover:scale-105 transition-transform duration-300"></div>
-                <div className="absolute -inset-[2px] bg-gradient-to-r from-pink-500 to-purple-500  rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300" >
-                  <Ticket className="w-5 h-5" />
-                  Register Now
-                </div>
-              </button>
+          <button
+            className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
+            onClick={() => {
+              window.open(
+                "https://docs.google.com/forms/d/1Sm9_BhNe3cRoa2hSwDyZt6x6VYizNOd8y1qkWFiPJ2k/edit?ts=679b0ecf",
+                "_blank"
+              );
+            }}
+          >
+            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 transform group-hover:scale-105 transition-transform duration-300"></div>
+            <div className="absolute -inset-[2px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300">
+              <Ticket className="w-5 h-5" />
+              Register Now
             </div>
-          </div>
-        </div>
+          </button>
+        </motion.div>
+        {/* </motion.div> */}
       </div>
     </div>
   );
 }
-
-export default PromNight;
