@@ -37,20 +37,24 @@ function Cart() {
     const user = auth.currentUser;
     if (user) {
       setUid(user.uid); // Set UID when the user is logged in
-    } else {
-      toast.error("User not logged in.");
     }
   }, []);
 
   const handleOnclick = (e) => {
     e.preventDefault();
-    navigate('/pay', {
-      state: {
-        passDetails: cartItems,
-        amount: totalCartAmount,
-        userId: uid
-      },
-    });
+    if(uid){
+      navigate('/pay', {
+        state: {
+          passDetails: cartItems,
+          amount: totalCartAmount,
+          userId: uid
+        },
+      });
+    }
+    else{
+      toast.error("User Not Logged in");
+    }
+    
   }
   // *****************************************//
 
@@ -119,7 +123,7 @@ function Cart() {
           }
 
           <div className="mt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-            <button onClick={() => { navigate('/pass'); }} className="p-3 md:px-6 md:py-3 flex flex-row items-center rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-500">
+            <button onClick={() => { navigate('/registration'); }} className="p-3 md:px-6 md:py-3 flex flex-row items-center rounded-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-500">
               <FaArrowLeft className='mr-2' /><p>Back to passes</p>
             </button>
             <button onClick={handleOnclick} className="p-3 md:px-6 md:py-3 rounded-lg flex flex-row items-center font-semibold text-white bg-indigo-600 hover:bg-indigo-500">

@@ -7,11 +7,13 @@ import ram from "../Assets/rambha_sambha.jpg";
 import bat from "../Assets/battle_of_bands.jpg";
 import eventbg from "../Assets/payment_bg.jpg";
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const Button = () => {
+  const navigate = useNavigate();
   return (
     <StyledWrapper>
-      <button type="button" className="btn">
+      <button type="button" className="btn" onClick={() =>navigate('/event')}>
         <strong>All Events</strong>
         <div id="container-stars">
           <div id="stars" />
