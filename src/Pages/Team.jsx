@@ -44,7 +44,9 @@ import ronak from "../Assets/ronak.png";
 import ankit from "../Assets/ankit.png";
 import lokesh from "../Assets/lokesh.png"
 
-
+import idCard from "../Assets/idCard.png";
+import kanupriya from "../Assets/kanupriya.png";
+import padhy from "../Assets/padhy.jpg";
 
 import tv from '../Assets/tv.png';
 import dipaloy from '../Assets/dipaloy.png';
@@ -375,6 +377,187 @@ const special_mention=[
 ]
 
 const organizing_committee = [
+  
+  {
+    name: "Dr. Dipaloy Datta",
+    position: "AD (Students)",
+    img: dipaloy,
+  },
+  {
+    name: "Prof. N.P. Padhy",
+    position: "Dean Student Welfare",
+    img: padhy
+  },
+  {
+    name: "Dr. Meenakshi Tripathi",
+    position: "Associate Dean(Cultural)",
+    img: idCard
+  },
+  {
+    name: "Prof. Kanupriya Sachdev",
+    position: "Dean Student Welfare",
+    img: kanupriya
+  },
+  {
+    name: "Dr. Tarun Varma",
+    position: "AD (Students)",
+    img: tv,
+  },
+  {
+    name: "Dr. Sandeep Shrivastava",
+    position: "AD (Mess)",
+    img: sandeep,
+  },
+  {
+    name: "Dr. Satish Pipralia",
+    position: "AD (Sports)",
+    img: satish,
+  },
+  {
+    name: "Dr. Vikas Kumar Sanghal",
+    position: "AD (Discipline)",
+    img: vks,
+  },
+  {
+    name: "Dr. Bhavna Shrivastava",
+    position: "Coordinator Scholarships",
+    img: bhavna,
+  },
+  {
+    name: "Dr. Niraja Saraswat",
+    position: "Coordinator UBA",
+    img: niraja,
+  },
+  {
+    name: "Dr. Ancesh Prabhakar",
+    position: "Coordinator MoE Flagship Programs",
+    img: prabhakar,
+  },
+  {
+    name: "Dr. Biman Bandyopadhyay",
+    position: "Coordinator Student Magazine",
+    img: biman,
+  },
+  {
+    name: "Dr. Ritika Mahajan",
+    position: "Coordinator Wellness",
+    img: ritika
+  },
+  {
+    name: "Dr. Tarun Varma",
+    position: "AD (Students)",
+    img: tv,
+  },
+  {
+    name: "Dr. Dipaloy Datta",
+    position: "AD (Students)",
+    img: dipaloy,
+  },
+  {
+    name: "Dr. Sandeep Shrivastava",
+    position: "AD (Mess)",
+    img: sandeep,
+  },
+  {
+    name: "Dr. Satish Pipralia",
+    position: "AD (Sports)",
+    img: satish,
+  },
+  {
+    name: "Dr. Vikas Kumar Sanghal",
+    position: "AD (Discipline)",
+    img: vks,
+  },
+  {
+    name: "Dr. Bhavna Shrivastava",
+    position: "Coordinator Scholarships",
+    img: bhavna,
+  },
+  {
+    name: "Dr. Niraja Saraswat",
+    position: "Coordinator UBA",
+    img: niraja,
+  },
+  {
+    name: "Dr. Ancesh Prabhakar",
+    position: "Coordinator MoE Flagship Programs",
+    img: prabhakar,
+  },
+  {
+    name: "Dr. Biman Bandyopadhyay",
+    position: "Coordinator Student Magazine",
+    img: biman,
+  },
+  {
+    name: "Dr. Ritika Mahajan",
+    position: "Coordinator Wellness",
+    img: ritika
+  },
+  {
+    name: "Dr. Tarun Varma",
+    position: "AD (Students)",
+    img: tv,
+  },
+  {
+    name: "Dr. Dipaloy Datta",
+    position: "AD (Students)",
+    img: dipaloy,
+  },
+  {
+    name: "Dr. Sandeep Shrivastava",
+    position: "AD (Mess)",
+    img: sandeep,
+  },
+  {
+    name: "Dr. Satish Pipralia",
+    position: "AD (Sports)",
+    img: satish,
+  },
+  {
+    name: "Dr. Vikas Kumar Sanghal",
+    position: "AD (Discipline)",
+    img: vks,
+  },
+  {
+    name: "Dr. Bhavna Shrivastava",
+    position: "Coordinator Scholarships",
+    img: bhavna,
+  },
+  {
+    name: "Dr. Niraja Saraswat",
+    position: "Coordinator UBA",
+    img: niraja,
+  },
+  {
+    name: "Dr. Ancesh Prabhakar",
+    position: "Coordinator MoE Flagship Programs",
+    img: prabhakar,
+  },
+  {
+    name: "Dr. Biman Bandyopadhyay",
+    position: "Coordinator Student Magazine",
+    img: biman,
+  },
+  {
+    name: "Dr. Ritika Mahajan",
+    position: "Coordinator Wellness",
+    img: ritika
+  },
+  {
+    name: "Dr. Meenakshi Tripathi",
+    position: "Associate Dean(Cultural)",
+    img: idCard
+  },
+  {
+    name: "Prof. Kanupriya Sachdev",
+    position: "Dean Student Welfare",
+    img: kanupriya
+  },
+  {
+    name: "Prof. N.P. Padhy",
+    position: "Dean Student Welfare",
+    img: padhy
+  },
   {
     name: "Dr. Tarun Varma",
     position: "AD (Students)",
@@ -524,7 +707,8 @@ const organizing_committee = [
     name: "Dr. Ritika Mahajan",
     position: "Coordinator Wellness",
     img: ritika
-  }
+  },
+
 ];
 
     
