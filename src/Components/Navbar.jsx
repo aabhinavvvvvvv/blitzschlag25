@@ -5,6 +5,7 @@ import { FaBars } from "react-icons/fa";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import logo from "../Assets/blitz_logo.png";
+import { FaHeart } from "react-icons/fa";
 import { auth } from "../../fi"; // Assuming you have a firebase.js file where auth is initialized
 import "../css files/navbar.css";
 import {
@@ -164,6 +165,13 @@ try {
           >
             EVENTS
           </Link>
+          <Link
+            to="/schedule"
+            style={{ fontFamily: "'Metal Mania', cursive", }}
+            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
+          >
+            SCHEDULE
+          </Link>
           {!user ? (
             <Link
               to="/login"
@@ -173,9 +181,6 @@ try {
               LOGIN
             </Link>
           ) : (
-            <></>
-          )}
-          {user && (
             <Link
               to="/profile"
               style={{ fontFamily: "'Metal Mania', cursive", }}
@@ -184,13 +189,6 @@ try {
               PROFILE
             </Link>
           )}
-          <Link
-            to="/schedule"
-            style={{ fontFamily: "'Metal Mania', cursive", }}
-            className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
-          >
-            SCHEDULE
-          </Link>
           <Link
             to="/sponsor"
             style={{ fontFamily: "'Metal Mania', cursive", }}
@@ -256,6 +254,15 @@ try {
               Home
             </Link>
             <Link
+              to="/event"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaCalendarAlt className="mr-3" />
+              Event
+            </Link>
+            <Link
               to="/about"
               style={{ fontFamily: "'Metal Mania', cursive", }}
               className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
@@ -273,22 +280,15 @@ try {
               <FaHandHoldingHeart className="mr-3" />
               Sponsor
             </Link>
-            <Link
-              to="/our_team"
-              style={{ fontFamily: "'Metal Mania', cursive", }}
-              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-              onClick={toggleDrawer}
-            >
-              <FaUsers className="mr-3" />
-              Our Team
-            </Link>
+            
             <Link
             to="/prom"
             style={{ fontFamily: "'Metal Mania', cursive", }}
             className="px-4 py-2 hover:text-white flex item-center hover:font-bold transition-all duration-200"
           >
-          <FaHandHoldingHeart className="mr-3" />
-            PromNight
+          <FaHeart className="mr-3"/>
+          <span>PromNight</span>
+            
           </Link>
             <Link
               to="/schedule"
@@ -319,15 +319,7 @@ try {
               <FaUsers className="mr-3" />
               <span>Ambassador</span>
             </Link>
-            <Link
-              to="/pronites"
-              style={{ fontFamily: "'Metal Mania', cursive", }}
-              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-              onClick={toggleDrawer}
-            >
-              <FaMusic className="mr-3" />
-              ProNites
-            </Link>
+            
             <Link
               to="/registration"
               style={{ fontFamily: "'Metal Mania', cursive", }}
@@ -337,24 +329,8 @@ try {
               <FaTicketAlt className="mr-3" />
               Registrations
             </Link>
-            <Link
-              to="/champions_throphy"
-              style={{ fontFamily: "'Metal Mania', cursive", }}
-              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-              onClick={toggleDrawer}
-            >
-              <PiRankingDuotone className="mr-3" />
-              Champions Trophy
-            </Link>
-            <Link
-              to="/pay"
-              onClick={toggleDrawer}
-              style={{ fontFamily: "'Metal Mania', cursive", }}
-              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-            >
-              <RiMoneyRupeeCircleFill className="mr-3" />
-              Payment
-            </Link>
+            
+            
             {!user ? (
               <>
                 <Link
@@ -377,15 +353,7 @@ try {
                 </Link>
               </>
             ) : null}
-            <Link
-              to="/event"
-              style={{ fontFamily: "'Metal Mania', cursive", }}
-              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
-              onClick={toggleDrawer}
-            >
-              <FaCalendarAlt className="mr-3" />
-              Event
-            </Link>
+            
             <Link
 
               to="/faq"
@@ -395,6 +363,42 @@ try {
             >
               <FaQuestionCircle className="mr-3" />
               FAQ
+            </Link>
+            <Link
+              to="/champions_throphy"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <PiRankingDuotone className="mr-3" />
+              Champions Trophy
+            </Link>
+            <Link
+              to="/pronites"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaMusic className="mr-3" />
+              ProNites
+            </Link>
+            <Link
+              to="/our_team"
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaUsers className="mr-3" />
+              Our Team
+            </Link>
+            <Link
+              to="/pay"
+              onClick={toggleDrawer}
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+            >
+              <RiMoneyRupeeCircleFill className="mr-3" />
+              Payment
             </Link>
           </div>
         </div>

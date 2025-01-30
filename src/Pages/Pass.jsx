@@ -50,7 +50,7 @@ const StyledWrapper = styled.div`
     position: relative;
     overflow: hidden;
     z-index: 100;
-    opacity:0.6;
+    opacity:1;
     transition: box-shadow 250ms, transform 250ms, filter 50ms;
   }
   button:hover{
