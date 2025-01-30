@@ -146,8 +146,6 @@ const passes = [
       "Access to all club events",
       "Participate in one flagship event",
       "Accommodation for all three days",
-      "Spectatorship of flagship events",
-      "Spectatorship of Cultural Evening",
     ],
     daySelection: false,
   },
@@ -159,23 +157,10 @@ const passes = [
     features: [
       "Participate in one flagship event",
       "Access to all club events for one day",
-      "Spectatorship of flagship events",
-      "Spectatorship of Cultural Evening",
       "Accommodation included (excluding food)",
     ],
     daySelection: true,
     flagshipSelection: true,
-  },
-  {
-    name: "Horizon",
-    price: 300,
-    description: "Access club event, and pronite",
-    features: [
-      "Access to all club events for one day",
-      "No access to Cultural evening"
-    ],
-    daySelection: true,
-    flagshipSelection: false,
   },
   {
     name: "Participation",
@@ -184,7 +169,6 @@ const passes = [
     features: [
       "Participate in one flagship event",
       "Access to all club events",
-      "Spectatorship of Cultural Evening",
       "No accommodation",
     ],
     flagshipSelection: true,
@@ -197,8 +181,6 @@ const passes = [
     features: [
       "Access to stall areas on Day 1",
       "Access to all club events",
-      "Spectatorship of flagship events",
-      "Spectatorship of Cultural Evening",
     ],
   },
   {
@@ -208,8 +190,6 @@ const passes = [
     features: [
       "Access to stall areas on Day 2",
       "Access to all club events",
-      "Spectatorship of flagship events",
-      "Spectatorship of Cultural Evening",
     ],
   },
   {
@@ -219,8 +199,6 @@ const passes = [
     features: [
       "Access to stall areas on Day 3",
       "Access to all club events",
-      "Spectatorship of flagship events",
-      "Spectatorship of Cultural Evening",
     ],
   },
 ]
