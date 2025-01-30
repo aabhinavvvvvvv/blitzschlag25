@@ -555,8 +555,8 @@ const Events = () => {
                 </p>
               ) : (
                 filteredEvents.map((event, index) => (
-                  <CardContainer className="inter-var" key={index}>
-                    <CardBody className="bg-black bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border">
+                  <CardContainer className="inter-var" key={index} onClick={() => openDrawer(event)}>
+                    <CardBody className="bg-black cursor-pointer bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border">
                       <CardItem
                         translateZ="50"
                         className="text-xl font-bold text-neutral-100 dark:text-white"
@@ -611,8 +611,9 @@ const Events = () => {
                   null// Don't render anything if event is "none"
                 ) : (
                   <div
+                  onClick={() => setActiveClub(club.name)}
                     key={index}
-                    className="bg-black bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border"
+                    className="bg-black cursor-pointer bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border"
                   >
                     <div className="text-xl font-bold text-neutral-100 dark:text-white">{club.name}</div>
 
@@ -653,8 +654,8 @@ const Events = () => {
                 </p>
               ) : (
                 fliteredClubEvents.map((event, index) => (
-                  <CardContainer className="inter-var" key={index}>
-                    <CardBody className="bg-black bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border">
+                  <button onClick={() => openDrawer(event)}><CardContainer className="inter-var cursor-pointer" key={index} >
+                    <CardBody  className="bg-black bg-opacity-70 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:bg-opacity-60 dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto scale-90 rounded-xl p-6 border">
                       <CardItem
                         translateZ="50"
                         className="text-xl font-bold text-neutral-100 dark:text-white"
@@ -692,7 +693,8 @@ const Events = () => {
                         </CardItem>
                       </div>
                     </CardBody>
-                  </CardContainer>
+                  </CardContainer></button>
+                  
                 ))
               )}
             </div>

@@ -2,31 +2,26 @@
 import React, { useState } from "react";
 import { Timeline } from "../Components/ui/timeline";
 import { events } from "../data/scheduledata";
-import schedulebg from "../Assets/pexels-lucas-pilon-ferro-51318148-8137085.jpg";
+import schedulebg4 from "../Assets/scheduleBG.webp";
 import styled from "styled-components";
-import schedulebg1 from "../Assets/schedulebg1.jpg";
-import schedulebg2 from "../Assets/schedulebg2.jpg";
-import schedulebg3 from "../Assets/schedulebg3.png";
-import schedulebg4 from "../Assets/schedulebg4.webp";
-
 const Radio = ({ selectedDay, setSelectedDay, days }) => {
   return (
-    <StyledWrapper>
-      <div className="radio-input">
-        {days.map((day) => (
-          <label className="label" key={day}>
-            <input
-              type="radio"
-              name="value-radio"
-              id={`value-${day}`}
-              checked={selectedDay === day}
-              onChange={() => setSelectedDay(day)}
-            />
-            <span className="text">{day}</span>
-          </label>
-        ))}
-      </div>
-    </StyledWrapper>
+    <div className="flex justify-center items-center gap-2 sm:gap-4 md:gap-8 px-2 sm:px-4 scrollbar-hide tracking-wide" style={{ fontFamily: "'Metal Mania', cursive" }}>
+    {days.map((day,index) => (
+      <button key = {day}
+    
+    className={`relative py-1.5 px-3 sm:py-2 sm:px-4 md:py-3 md:px-8 border border-black text-xs sm:text-sm md:text-xl font-medium  uppercase text-white bg-transparent rounded-xl shadow-md md:shadow-lg backdrop-blur-sm transition-all duration-300 transform ${
+      selectedDay === day
+        ? "bg-white/30 shadow-xl md:shadow-2xl"
+        : "hover:bg-white/40 hover:shadow-lg"
+    }`}
+    onClick={() => setSelectedDay(day)}
+  >
+    <span className="flex flex-row">{`Day`}<span></span>&nbsp;{index}</span>
+    
+  </button>
+))}
+  </div>
   );
 };
 
@@ -43,13 +38,10 @@ const Card = ({ event }) => {
     <StyledWrapper>
       <div className="card">
         <div className="content flex flex-col items-center justify-center" >
-          <p style={{ fontFamily: "'Metal Mania', cursive" }}>{event.Event_Proposed}</p>
-          <p style={{ fontFamily: "'Metal Mania', cursive" }}>
-            {event.Time} - {event.EndTime}
-          </p>
-          <p style={{ fontFamily: "'Metal Mania', cursive" }}>{event.Venue}</p>
-          <p style={{ fontFamily: "'Metal Mania', cursive" }}>{event.Category}</p>
-          <p style={{ fontFamily: "'Metal Mania', cursive" }}>{event.Event_Coordinator}</p>
+          <p style={{ fontFamily: " cursive" }}>{event.Event_Proposed}</p>
+          <p style={{ fontFamily: " cursive" }}>{event.Venue}</p>
+          <p style={{ fontFamily: " cursive" }}>{event.Category}</p>
+          <p style={{ fontFamily: " cursive" }}>{event.Event_Coordinator}</p>
         </div>
         <div className="points_wrapper">
           {Array.from({ length: 10 }).map((_, index) => (
@@ -261,9 +253,9 @@ export default function Schedule() {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="w-full min-h-screen backdrop-contrast-125 flex">
+      <div className="w-full min-h-screen backdrop-blur-sm flex bg-black bg-opacity-25 backdrop-contrast-150">
         <div className="w-full relative">
-          <div className="absolute top-48 w-80 left-8 md:absolute md:top-60 md:left-40 md:ml-96">
+          <div className="absolute top-48 w-80 left-8 bg-opacity-0 md:absolute md:top-60 md:left-40 md:ml-96">
             <Radio
               selectedDay={selectedDay}
               setSelectedDay={setSelectedDay}
@@ -272,6 +264,7 @@ export default function Schedule() {
           </div>
 
           <Timeline
+          className='  '
             key={selectedDay}
             data={timelineData}
             headerContent={
