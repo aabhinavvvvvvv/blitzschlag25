@@ -28,7 +28,7 @@ export const events =[
         "Event_Proposed": "Prom Night",
         "Event_Coordinator": "CACS TEAM",
         "Venue": "Front Porch",
-        "Time": "09:00 AM - 11:30 PM",
+        "Time": "09:00 PM - 11:30 PM",
         "Day": "Day 0"
     },
     {

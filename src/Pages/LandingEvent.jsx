@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useRef } from 'react';
+import React, { useState, useEffect,useRef} from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import tam from "../Assets/tamasha.jpg";
@@ -261,6 +261,7 @@ const FlagshipEvents = () => {
   const [currentEvent, setCurrentEvent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const eventArray = Object.values(events);
+
 
   useEffect(() => {
     let interval;

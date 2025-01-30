@@ -133,15 +133,14 @@ useEffect(() => {
             <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-full flex justify-center">
               <button
                 className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
-                onClick={() => {
-                  navigate("/prom-pass");
-                }}
+                onClick={()=>{window.open("https://docs.google.com/forms/d/1Sm9_BhNe3cRoa2hSwDyZt6x6VYizNOd8y1qkWFiPJ2k/edit?ts=679b0ecf", "_blank")}}
+            
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 transform group-hover:scale-105 transition-transform duration-300"></div>
                 <div className="absolute -inset-[2px] bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300">
                   <Ticket className="w-5 h-5" />
-                  Get Your Pass
+                  Register Now
                 </div>
               </button>
             </div>
@@ -165,20 +164,21 @@ useEffect(() => {
 
             <div className="mb-12">
               <p className="text-3xl font-light text-gray-300">
-                <span className="text-pink-400" style={{fontFamily: "'Metal Mania', cursive"}}>10th February 2024</span>
+                <span className="text-pink-400" style={{fontFamily: "'Metal Mania', cursive"}}>6th February 2025</span>
+              </p>
+              <p className="text-3xl font-light text-gray-300">
+                <span className="text-pink-400" style={{fontFamily: "'Metal Mania', cursive"}}>9 PM to 11:30 PM</span>
               </p>
             </div>
 
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
               <button
                 className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
-                onClick={() => {
-                  navigate("/prom-registration");
-                }}
+                onClick={()=>{window.open("https://docs.google.com/forms/d/1Sm9_BhNe3cRoa2hSwDyZt6x6VYizNOd8y1qkWFiPJ2k/edit?ts=679b0ecf", "_blank")}}
               >
                 <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-300  transform group-hover:scale-105 transition-transform duration-300"></div>
                 <div className="absolute -inset-[2px] bg-gradient-to-r from-pink-500 to-purple-500  rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300">
+                <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300" >
                   <Ticket className="w-5 h-5" />
                   Register Now
                 </div>
