@@ -16,13 +16,22 @@ import battle from "../Assets/category2.jpg";
 import panache from "../Assets/category3.jpg";
 import rambha from "../Assets/category4.jpg";
 import poster from "../Assets/poster.png"
-
-
+import travel from "../Assets/travel.webp";
+import poetry from "../Assets/poetry.webp";
+import elac from "../Assets/elac.webp";
+import mavericks from "../Assets/mavericks.webp";
+import film from "../Assets/film.webp";
+import dance from "../Assets/dance.webp";
+import hlac from "../Assets/hlac.webp";
+import cmd from "../Assets/cmd.webp";
+import debate from "../Assets/debate.jpeg";
+import press from "../Assets/press.jpeg";
+import creative from "../Assets/creative.jpg";
 import photography from '../Assets/photography.webp';
 import quiz from '../Assets/quiz.webp';
 import music from '../Assets/music.webp';
 import think from '../Assets/think.webp';
-//import electoral from '../Assets/electoral.webp';
+import electoral from '../Assets/electoral.jpg';
 import nss from '../Assets/nss.webp';
 import drama from '../Assets/drama.webp';
 // import travel from '../Assets/travel.webp';
@@ -364,51 +373,51 @@ const Events = () => {
     // }
     {
       "name": "Electoral Literacy",
-      "image": poster
+      "image": electoral
     },
     {
       "name": "Travel and Heritage",
-      "image": poster
+      "image": travel
     },
     {
       "name": "Poetry",
-      "image": poster
+      "image": poetry
     },
     {
       "name": "ELAC",
-      "image": poster
+      "image": elac
     },
     {
       "name": "Mavericks",
-      "image": poster
+      "image": mavericks
     },
     {
       "name": "Film Making",
-      "image": poster
+      "image": film
     },
     {
       "name": "Dance",
-      "image": poster
+      "image": dance
     },
     {
       "name": "HLAC",
-      "image": poster
+      "image": hlac
     },
     {
       "name": "CMD",
-      "image": poster
+      "image": cmd
     },
     {
       "name": "Debate",
-      "image": poster
+      "image": debate
     },
     {
       "name": "Press",
-      "image": poster
+      "image": press
     },
     {
       "name": "Creative Arts",
-      "image": poster
+      "image": creative
     }
 
   ]

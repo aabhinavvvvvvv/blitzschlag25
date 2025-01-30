@@ -84,7 +84,7 @@ const Footer = () => {
           <div className="flex gap-4">
             {/* YouTube */}
             <a
-              href="https://www.youtube.com"
+              href="https://www.youtube.com/@blitzschlagmnit3592"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-red-600 transition transform hover:scale-110"
@@ -95,7 +95,7 @@ const Footer = () => {
             </a>
             {/* Instagram */}
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/blitz_mnit/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-pink-500 transition transform hover:scale-110"
