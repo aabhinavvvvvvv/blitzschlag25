@@ -68,6 +68,17 @@ import hindipoetry from "../Assets/hindipoetry.png"
 import essaywriting from "../Assets/essaywriting.png"
 import udtateer from "../Assets/Udta Teer.png"
 
+import blind from '../Assets/Blind.png'
+import arcade from '../Assets/Arcade.png'
+import ihunt from '../Assets/IHunt.png'
+import clay from '../Assets/Clayp.png'
+import bolti from '../Assets/Bolti.png'
+import bodyz from '../Assets/Bodyz.png'
+import melt from '../Assets/Meltdown.png'
+import min from '../Assets/Min.png'
+import neon from '../Assets/Neon.png'
+import silly from '../Assets/Silly.png'
+import tambola from '../Assets/Tambola.png'
 const eventData = {
 
 
@@ -79,7 +90,7 @@ const eventData = {
         description: 'Dodge, duck, and dive in this wipeout-style game with a rotating arm challenging your speed and balance!',
         maxTeamSize: 1,
         eventPath: 'meltdown',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: melt ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'fun',
     },
@@ -91,7 +102,7 @@ const eventData = {
         description: 'Run, bounce, and collide in inflatable bubble suits for a thrilling, fun experience.',
         maxTeamSize: 1,
         eventPath: 'bodyZorbing',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: bodyz ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'fun',
     },
@@ -115,7 +126,7 @@ const eventData = {
         description: 'A blend of retro and modern games for an exhilarating experience.',
         maxTeamSize: 1,
         eventPath: 'arcade',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: arcade ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'fun',
     },
@@ -163,7 +174,7 @@ const eventData = {
         description: 'Shape and mold clay into creative, decorative, or functional objects.',
         maxTeamSize: 1,
         eventPath: 'clayPottery',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: clay ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'fun',
     },
@@ -175,7 +186,7 @@ const eventData = {
         description: 'Glow-in-the-dark face painting with UV-reactive paints for a vibrant look.',
         maxTeamSize: 1,
         eventPath: 'neonPainting',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: neon ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'fun',
     },
@@ -187,7 +198,7 @@ const eventData = {
         description: 'Inhale helium for hilarious, high-pitched voices that spark laughter!',
         maxTeamSize: 1,
         eventPath: 'sillyVoices',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: silly ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'fun',
     },
@@ -211,7 +222,7 @@ const eventData = {
         description: 'A lip-reading game testing teamwork, concentration, and creativity!',
         maxTeamSize: 5,
         eventPath: 'boltiBand',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: bolti ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'attraction',
     },
@@ -223,7 +234,7 @@ const eventData = {
         description: 'A tambola game with music-based challenges!',
         maxTeamSize: 1,
         eventPath: 'musicalTambola',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: tambola ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'attraction',
     },
@@ -259,7 +270,7 @@ const eventData = {
         description: 'A teamwork challenge where one navigates a maze blindfolded while guided verbally!',
         maxTeamSize: 2,
         eventPath: 'blindMaze',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: blind ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'attraction',
     },
@@ -271,7 +282,7 @@ const eventData = {
         description: 'Solve clues and locate hidden treasures across the campus!',
         maxTeamSize: 5,
         eventPath: 'treasureHunt',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: ihunt ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'attraction',
     },
@@ -283,7 +294,7 @@ const eventData = {
         description: 'Quick, fun challenges to be completed in under a minute!',
         maxTeamSize: 1,
         eventPath: 'minuteToWinIt',
-        imgUrl: post ,// post // '/Event_background.jpg',
+        imgUrl: min ,// post // '/Event_background.jpg',
         club: 'none',
         type: 'attraction',
     },
