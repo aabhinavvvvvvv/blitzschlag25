@@ -79,8 +79,6 @@ import min from '../Assets/Min.png'
 import neon from '../Assets/Neon.png'
 import silly from '../Assets/Silly.png'
 import tambola from '../Assets/Tambola.png'
-import twist from '../Assets/Twister.png'
-
 const eventData = {
 
 
@@ -240,18 +238,18 @@ const eventData = {
         club: 'none',
         type: 'attraction',
     },
-    twister: {
-        name: 'Twister',
-        venue: 'VLTC Tut-002',
-        day: 1,
-        rulebook: '/Twister_Rulebook.pdf',
-        description: 'A fun, body-bending game of balance and color coordination!',
-        maxTeamSize: 1,
-        eventPath: 'twister',
-        imgUrl: twist ,// post // '/Event_background.jpg',
-        club: 'none',
-        type: 'attraction',
-    },
+    // twister: {
+    //     name: 'Twister',
+    //     venue: 'VLTC Tut-002',
+    //     day: 1,
+    //     rulebook: '/Twister_Rulebook.pdf',
+    //     description: 'A fun, body-bending game of balance and color coordination!',
+    //     maxTeamSize: 1,
+    //     eventPath: 'twister',
+    //     imgUrl: post ,// post // '/Event_background.jpg',
+    //     club: 'none',
+    //     type: 'attraction',
+    // },//no image
     // movieScreening: {
     //     name: 'Movie Screening',
     //     venue: 'Radhakrishnan Hall / VLTC Room',
@@ -841,14 +839,14 @@ const eventData = {
         club: 'Think India',
         type: 'club',
     },
-    discoverindiathepuzzlehunt: {
+    discoverindia: {
         name: 'Discover India The Puzzle Hunt',
         venue: 'VLTC(L-008)',
         day: 4,
         rulebook: '/RULEBOOK DISCOVER INDIA think india club.pdf',
         description: 'Participants will engage in a treasure hunt to find pieces of a jigsaw puzzle of India while solving riddles that lead them to various locaƟons in the classroom.',
-        maxTeamSize: 1,
-        eventPath: 'discoverindiathepuzzlehunt',
+        maxTeamSize: 4,
+        eventPath: 'discoverindia',
         imgUrl: discoverindia ,
         club: 'Think India',
         type: 'club',
