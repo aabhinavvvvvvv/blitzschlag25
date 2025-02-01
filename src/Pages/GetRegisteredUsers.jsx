@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import eventData from '../data/eventData'; // Import the eventData
+import eventData from '../data/eventData'; // Static import of event data
 
 const EventRegistrationCheck = () => {
   const [eventPaths, setEventPaths] = useState([]);
@@ -8,46 +8,71 @@ const EventRegistrationCheck = () => {
   const [maxTeamSize, setMaxTeamSize] = useState(null);
   const [registeredUsers, setRegisteredUsers] = useState([]);
   const [registeredTeams, setRegisteredTeams] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [RegisterUserData, setRegisterUserData] = useState([]);
   const [error, setError] = useState('');
 
+  // Fetch event paths once during initial render
   useEffect(() => {
-    // Dynamically extract event paths from the eventData
     const eventPaths = Object.values(eventData).map(event => event.eventPath);
-    setEventPaths(eventPaths); // Set the event paths in state
+    setEventPaths(eventPaths); // Set event paths from imported data
   }, []);
 
-  const handleEventPathChange = (event) => {
-    setSelectedEventPath(event.target.value);
-    // Get the maxTeamSize from the selected event
-    if (event.target.value) {
-      const selectedEvent = eventData[event.target.value];
-      setMaxTeamSize(selectedEvent.maxTeamSize);
+  useEffect(() => {
+    if (selectedEventPath) {
+      fetchRegisteredData(selectedEventPath);
+    }
+  }, [selectedEventPath]); // Fetch data when event path changes
+
+  // Consolidated function for fetching data
+  const fetchRegisteredData = async (eventPath) => {
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/getRegisteredUsers`, { eventPath });
+      if (response.data) {
+        setRegisteredUsers(response.data.registeredUsers || []);
+        setRegisteredTeams(response.data.registeredTeams || []);
+        if (response.data.registeredUsers?.length > 0) {
+          await fetchUserProfileData(response.data.registeredUsers);
+        }
+      }
+    } catch (err) {
+      setError('Failed to fetch registered data.');
     }
   };
 
-  const handleFetchRegisteredData = async () => {
-    if (!selectedEventPath) {
-      setError('Please select an event.');
-      return;
-    }
-
-    setLoading(true);
-    setError('');
-    setRegisteredUsers([]);
-    setRegisteredTeams([]);
-
+  // Fetch profile data for each registered user
+  const fetchUserProfileData = async (users) => {
     try {
-      // Call your endpoint to get the registered users/teams
-      const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/getRegisteredUsers`, { eventPath: selectedEventPath });
+      const userDataArray = await Promise.all(users.map(async (uid) => {
+        const res = await fetchProfileData(uid);
+        return res ? res : null;
+      }));
+      setRegisterUserData(userDataArray.filter(Boolean)); // Filter out null values
+    } catch (error) {
+      console.error('Error fetching profile data:', error);
+    }
+  };
 
-      // Set the response data
-      setRegisteredUsers(response.data.registeredUsers);
-      setRegisteredTeams(response.data.registeredTeams);
-    } catch (err) {
-      setError('Failed to fetch registered data.');
-    } finally {
-      setLoading(false);
+  // Fetch individual user profile data
+  const fetchProfileData = async (uid) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/profile?uid=${encodeURIComponent(uid)}`,
+        { method: 'GET', headers: { 'Content-Type': 'application/json' } }
+      );
+      const result = await response.json();
+      return response.ok ? result.data.userData : null;
+    } catch (error) {
+      console.error('Error fetching profile data:', error);
+      return null;
+    }
+  };
+
+  const handleEventPathChange = (event) => {
+    const selectedEventPath = event.target.value;
+    setSelectedEventPath(selectedEventPath);
+    if (selectedEventPath) {
+      const selectedEvent = eventData[selectedEventPath];
+      setMaxTeamSize(selectedEvent.maxTeamSize);
     }
   };
 
@@ -74,27 +99,40 @@ const EventRegistrationCheck = () => {
           </select>
 
           <button
-            onClick={handleFetchRegisteredData}
-            disabled={loading}
+            onClick={() => fetchRegisteredData(selectedEventPath)} // Directly call the function
+            disabled={!selectedEventPath}
             style={styles.button}
           >
-            {loading ? 'Loading...' : 'Fetch Registered Users/Teams'}
+            Fetch Registered Users/Teams
           </button>
         </div>
 
         {error && <p style={styles.error}>{error}</p>}
 
         {/* Conditionally render based on maxTeamSize */}
-        {maxTeamSize === 1 && registeredUsers.length > 0 && (
+        {maxTeamSize === 1 && (
           <div style={styles.userList}>
-            <h2>Registered Users:</h2>
-            <div style={styles.gridContainer}>
-              {registeredUsers.map((user, index) => (
-                <div key={index} style={styles.gridItem}>
-                  <p>{index + 1}. {user}</p>
-                </div>
-              ))}
-            </div>
+            <h2>Registered Users:{RegisterUserData.length}</h2>
+            <table style={styles.table}>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>User ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                {RegisterUserData.map((user, index) => (
+                  <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{user.blitzId}</td>
+                    <td>{user.userName}</td>
+                    <td>{user.email}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         )}
 
@@ -167,21 +205,6 @@ const styles = {
     position: 'relative',
     boxSizing: 'border-box',
   },
-  button: {
-    width: '100%',
-    padding: '12px',
-    fontSize: '16px',
-    backgroundColor: '#3b5998',
-    color: 'white',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-  },
-  buttonDisabled: {
-    backgroundColor: '#ccc',
-    cursor: 'not-allowed',
-  },
   error: {
     color: 'red',
     marginTop: '20px',
@@ -197,6 +220,12 @@ const styles = {
     padding: '10px',
     backgroundColor: '#f0f0f0',
     borderRadius: '4px',
+  },
+  table: {
+    color: "black",
+    width: '100%',
+    borderCollapse: 'collapse',
+    marginTop: '20px',
   },
   gridContainer: {
     display: 'grid',

@@ -338,7 +338,7 @@ const eventData = {
     panache:{
         name: "PANACHE",
         venue: "OAT",
-        day: 2,
+        day: 1,
         rulebook: "/Panache_RuleBook.pdf",
         description: "PANACHE 2025 is a fashion show organized by Malaviya National Institute of Technology, aimed at redefining style, expressiveness, charisma, and glamour. It brings an opportunity to showcase the best trends, both past and present, with creativity, panache, and confidence.",
         maxTeamSize: 50,
