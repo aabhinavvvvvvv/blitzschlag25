@@ -79,6 +79,8 @@ import min from '../Assets/Min.png'
 import neon from '../Assets/Neon.png'
 import silly from '../Assets/Silly.png'
 import tambola from '../Assets/Tambola.png'
+import twist from '../Assets/Twister.png'
+
 const eventData = {
 
 
@@ -238,18 +240,18 @@ const eventData = {
         club: 'none',
         type: 'attraction',
     },
-    // twister: {
-    //     name: 'Twister',
-    //     venue: 'VLTC Tut-002',
-    //     day: 1,
-    //     rulebook: '/Twister_Rulebook.pdf',
-    //     description: 'A fun, body-bending game of balance and color coordination!',
-    //     maxTeamSize: 1,
-    //     eventPath: 'twister',
-    //     imgUrl: post ,// post // '/Event_background.jpg',
-    //     club: 'none',
-    //     type: 'attraction',
-    // },//no image
+    twister: {
+        name: 'Twister',
+        venue: 'VLTC Tut-002',
+        day: 1,
+        rulebook: '/Twister_Rulebook.pdf',
+        description: 'A fun, body-bending game of balance and color coordination!',
+        maxTeamSize: 1,
+        eventPath: 'twister',
+        imgUrl: twist ,// post // '/Event_background.jpg',
+        club: 'none',
+        type: 'attraction',
+    },
     // movieScreening: {
     //     name: 'Movie Screening',
     //     venue: 'Radhakrishnan Hall / VLTC Room',
