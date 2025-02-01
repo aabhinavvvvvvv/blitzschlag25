@@ -40,6 +40,7 @@ function App() {
   const resetUrl = import.meta.env.VITE_RESET_URL; 
   const verifyUrl = import.meta.env.VITE_VERIFY_URL;
   const eventUrl = import.meta.env.VITE_GET_EVENT_URL;
+  const transUrl = import.meta.env.VITE_GET_TRANSACTION_URL;
   const location = useLocation();
   const navigate = useNavigate();
   const canvasRef = useRef(null);
@@ -188,7 +189,7 @@ function App() {
                 <Route path="/pay" element={<PaymentPage />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
                 <Route path={verifyUrl} element={<PaymentVerificationForm />} />
-                <Route path="/prusers" element={<PaymentRequestsPage />} />
+                <Route path={transUrl} element={<PaymentRequestsPage />} />
                 <Route path={eventUrl} element={<EventRegistrationCheck />} />
               </Routes>
             </AnimatePresence>

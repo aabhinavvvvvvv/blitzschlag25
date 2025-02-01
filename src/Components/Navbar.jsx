@@ -56,6 +56,8 @@ const Checkbox = ({ isDrawerOpen, setIsDrawerOpen }) => {
 const Navbar = () => {
   const verifyUrl = import.meta.env.VITE_VERIFY_URL;
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
+  
+  const transUrl = import.meta.env.VITE_GET_TRANSACTION_URL;
   const [status, setStatus] = useState(false);
   // Run only once on initial load
 
@@ -243,7 +245,7 @@ try {
                 Verify Payment
               </Link>
               <Link
-              to={"/prusers"}
+              to={`${transUrl}`}
               style={{ fontFamily: "'Metal Mania', cursive", }}
               className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
               onClick={toggleDrawer}
