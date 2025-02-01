@@ -109,22 +109,7 @@ function Liveshow() {
               </div>
             </div>
 
-            {/* Book Tickets Button at the Bottom */}
-            <div className="absolute -bottom-32 left-1/2 transform -translate-x-1/2 w-full flex justify-center">
-              <button
-                className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
-                onClick={() => {
-                  navigate("/pass");
-                }}
-              >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-violet-600 transform group-hover:scale-105 transition-transform duration-300"></div>
-                <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-400 to-violet-400 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300">
-                  <Ticket className="w-5 h-5" />
-                  Register Now
-                </div>
-              </button>
-            </div>
+       
           </div>
 
           {/* Content (Only visible on larger screens) */}
@@ -154,19 +139,7 @@ function Liveshow() {
 
             {/* Buttons */}
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              <button
-                className="group relative overflow-hidden rounded-xl text-xl font-semibold w-64"
-                onClick={() => {
-                  navigate("/registration");
-                }}
-              >
-                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-purple-600 to-violet-600 transform group-hover:scale-105 transition-transform duration-300"></div>
-                <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-400 to-violet-400 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative bg-black/50 backdrop-blur-sm rounded-xl px-8 py-4 flex items-center justify-center gap-2 group-hover:bg-black/40 transition-colors duration-300">
-                  <Ticket className="w-5 h-5" />
-                  Register Now
-                </div>
-              </button>
+            
             </div>
           </div>
         </div>

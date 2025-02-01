@@ -33,10 +33,13 @@ import ChampionsTrophy from './Pages/ChampionsTrophy';
 import PaymentPage from './Components/PaymentPage';
 import Cart from './Pages/Cart';
 import PromNight from './Pages/Prom';
+import PaymentRequestsPage from './Pages/PaymentRequestsPage';
+import EventRegistrationCheck from './Pages/GetRegisteredUsers';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
   const verifyUrl = import.meta.env.VITE_VERIFY_URL;
+  const eventUrl = import.meta.env.VITE_GET_EVENT_URL;
   const location = useLocation();
   const navigate = useNavigate();
   const canvasRef = useRef(null);
@@ -185,6 +188,8 @@ function App() {
                 <Route path="/pay" element={<PaymentPage />} />
                 <Route path={resetUrl} element={<ResetLeaderboard />} />
                 <Route path={verifyUrl} element={<PaymentVerificationForm />} />
+                <Route path="/prusers" element={<PaymentRequestsPage />} />
+                <Route path={eventUrl} element={<EventRegistrationCheck />} />
               </Routes>
             </AnimatePresence>
           </div>
