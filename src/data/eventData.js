@@ -338,7 +338,7 @@ const eventData = {
     panache:{
         name: "PANACHE",
         venue: "OAT",
-        day: 2,
+        day: 1,
         rulebook: "/Panache_RuleBook.pdf",
         description: "PANACHE 2025 is a fashion show organized by Malaviya National Institute of Technology, aimed at redefining style, expressiveness, charisma, and glamour. It brings an opportunity to showcase the best trends, both past and present, with creativity, panache, and confidence.",
         maxTeamSize: 50,
@@ -780,14 +780,14 @@ const eventData = {
         club: 'Dance',
         type: 'club',
     },
-    catchthevide: {
+    catchthevibe: {
         name: 'Catch The Vibe',
         venue: 'OAT',
         day: 3,
         rulebook: '/catch the vibe Rulebook.pdf',
         description: 'Catch the vibe is a fun and energetic dance competition where participants will showcase theirquick moves and rhythm. In this event, participants will come in pairs and face off against each other with the goal of impressing the audience and out-dancing their opponents. They will listen to popular songs and perform their best hookstep as soon as the music starts. Winners would be decided by the audience through on spot voting. The competition will be based on creativity, timing, and accuracy in performing the hookstep. It’s a fast-paced, exciting event that promises lots of fun and entertainment!',
         maxTeamSize: 1,
-        eventPath: 'catchthevide',
+        eventPath: 'catchthevibe',
         imgUrl: catchthevibe ,
         club: 'Dance',
         type: 'club',
