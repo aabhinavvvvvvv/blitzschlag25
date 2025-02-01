@@ -206,9 +206,10 @@ const passes = [
 const flagshipEventsByDay = {
   day1: [
     { value: "panache", label: "Panache" },
-    { value: "tamasha", label: "Tamasha" },
+    
   ],
   day2: [
+    { value: "tamasha", label: "Tamasha" },
     { value: "rambasamba", label: "Ramba Samba" },
   ],
   day3: [
