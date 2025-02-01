@@ -145,13 +145,13 @@ const Login = () => {
         backgroundPosition: "center",
         height: "100vh",
       }}
-      className="box-border flex flex-col justify-center items-center p-4 text-black"
+      className="box-border flex flex-col justify-center items-center p-4 "
     >
-      <div className="bg-black opacity-80 py-4 px-8  rounded-lg sm:rounded-2xl flex flex-col justify-center shadow-xl min-w-[300px] sm:min-w-96 mt-6 sm:mt-8">
+      <div className="bg-black bg-opacity-80 py-4 px-8 rounded-lg sm:rounded-2xl flex flex-col justify-center shadow-xl min-w-[300px] sm:min-w-96 mt-6 sm:mt-8">
         {forgotPasswordMode ? (
           // Forgot password form
           <div className="mt-4 mb-4 text-white">
-            <h2 className="text-2xl sm:text-3xl mb-6 sm:mb-8 font-bold text-center">
+            <h2 className="text-2xl sm:text-3xl text-white mb-6 sm:mb-8 font-bold text-center">
               Forgot Password
             </h2>
             <StyledWrapper>
