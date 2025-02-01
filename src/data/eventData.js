@@ -79,8 +79,6 @@ import min from '../Assets/Min.png'
 import neon from '../Assets/Neon.png'
 import silly from '../Assets/Silly.png'
 import tambola from '../Assets/Tambola.png'
-import twist from '../Assets/Twister.png'
-
 const eventData = {
 
 
@@ -265,18 +263,18 @@ const eventData = {
         club: 'none',
         type: 'attraction',
     },
-    twister: {
-        name: 'Twister',
-        venue: 'VLTC Tut-002',
-        day: 1,
-        rulebook: '/Twister_Rulebook.pdf',
-        description: 'A fun, body-bending game of balance and color coordination!',
-        maxTeamSize: 1,
-        eventPath: 'twister',
-        imgUrl: twist ,// post // '/Event_background.jpg',
-        club: 'none',
-        type: 'attraction',
-    },
+    // twister: {
+    //     name: 'Twister',
+    //     venue: 'VLTC Tut-002',
+    //     day: 1,
+    //     rulebook: '/Twister_Rulebook.pdf',
+    //     description: 'A fun, body-bending game of balance and color coordination!',
+    //     maxTeamSize: 1,
+    //     eventPath: 'twister',
+    //     imgUrl: post ,// post // '/Event_background.jpg',
+    //     club: 'none',
+    //     type: 'attraction',
+    // },//no image
     // movieScreening: {
     //     name: 'Movie Screening',
     //     venue: 'Radhakrishnan Hall / VLTC Room',
@@ -519,12 +517,12 @@ const eventData = {
         type: 'club',
     },
     mimicmania: {
-        name: 'Brain blitz',
+        name: 'Brain Blitz',
         venue: 'VLTC(L-006)',
         day: 1,
         rulebook: '/Brain Blitz Rulebook .pdf',
         description: '',
-        maxTeamSize: 5,
+        maxTeamSize: 1,
         eventPath: 'mimicmania',
         imgUrl: brainblitz ,
         club: 'NSS',
@@ -763,7 +761,7 @@ const eventData = {
         venue: 'OAT',
         day: 1,
         rulebook: '/Beat battle Rulebook.pdf',
-        description: '"Dance Club of MNIT presents to you ‘Step Showdown’. This event invites students to participate in either solo or duet dance competition, offering a platform to showcase their talent, creativity, and passion for dance. "Participants can choose to perform individually or with a partner, with performances evaluated based on creativity, technique, and overall presentation. The winners would receive exciting prizes. Whether you prefer solo expressions or synchronized routines, this competition promises to be an exciting and memorable experience for all.',
+        description: '"Dance Club of MNIT presents to you ‘Beat Battle’. This event invites students to participate in either solo or duet dance competition, offering a platform to showcase their talent, creativity, and passion for dance. "Participants can choose to perform individually or with a partner, with performances evaluated based on creativity, technique, and overall presentation. The winners would receive exciting prizes. Whether you prefer solo expressions or synchronized routines, this competition promises to be an exciting and memorable experience for all.',
         maxTeamSize: 2,
         eventPath: 'beatbattle',
         imgUrl: beatbattle ,
@@ -775,7 +773,7 @@ const eventData = {
         venue: 'VLTC(L-002)',
         day: 2,
         rulebook: '/Glow Dance Rulebook.pdf',
-        description: "Neon pulse is a unique event where participants can enjoy dancing in a dark room, enhanced by vibrant neon lights and music. The participants would be provided with neon props to make the experience more fun. The event offers an exciting and immersive experience for all attendees to showcase their dance moves in a visually captivating setting. Interested people can register for the event on spot.",
+        description: "This non-competitive event lets participants enjoy dancing in a neon-lit dark room with music, register on the spot in groups, use provided props for an enhanced experience, and take photos at a dedicated booth, with the best group photos winning gifts.",
         maxTeamSize: 1,
         eventPath: 'glowdance',
         imgUrl: glowdance ,
@@ -787,7 +785,7 @@ const eventData = {
         venue: 'OAT',
         day: 3,
         rulebook: '/catch the vibe Rulebook.pdf',
-        description: 'Hookstep Hustle is a fun and energetic dance competition where participants will showcase theirquick moves and rhythm. In this event, participants will come in pairs and face off against each other with the goal of impressing the audience and out-dancing their opponents. They will listen to popular songs and perform their best hookstep as soon as the music starts. Winners would be decided by the audience through on spot voting. The competition will be based on creativity, timing, and accuracy in performing the hookstep. It’s a fast-paced, exciting event that promises lots of fun and entertainment!',
+        description: 'Catch the vibe is a fun and energetic dance competition where participants will showcase theirquick moves and rhythm. In this event, participants will come in pairs and face off against each other with the goal of impressing the audience and out-dancing their opponents. They will listen to popular songs and perform their best hookstep as soon as the music starts. Winners would be decided by the audience through on spot voting. The competition will be based on creativity, timing, and accuracy in performing the hookstep. It’s a fast-paced, exciting event that promises lots of fun and entertainment!',
         maxTeamSize: 1,
         eventPath: 'catchthevide',
         imgUrl: catchthevibe ,
@@ -866,14 +864,14 @@ const eventData = {
         club: 'Think India',
         type: 'club',
     },
-    discoverindiathepuzzlehunt: {
+    discoverindia: {
         name: 'Discover India The Puzzle Hunt',
         venue: 'VLTC(L-008)',
-        day: 1,
+        day: 4,
         rulebook: '/RULEBOOK DISCOVER INDIA think india club.pdf',
         description: 'Participants will engage in a treasure hunt to find pieces of a jigsaw puzzle of India while solving riddles that lead them to various locaƟons in the classroom.',
-        maxTeamSize: 1,
-        eventPath: 'discoverindiathepuzzlehunt',
+        maxTeamSize: 4,
+        eventPath: 'discoverindia',
         imgUrl: discoverindia ,
         club: 'Think India',
         type: 'club',

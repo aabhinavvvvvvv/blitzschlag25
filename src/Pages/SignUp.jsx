@@ -168,19 +168,19 @@ const SignUp = () => {
 
   return (
     <div
-      className="bg-cover bg-center"
       style={{
         backgroundImage: `url(${loginbg})`,
         height: "100vh", // Ensure it covers the full height of the screen
       }}
+      className='bg-cover bg-center box-border flex flex-col justify-center items-center p-4 '
     >
-      <div className="overflow-y-scroll box-border h-screen flex flex-col justify-center items-center p-8 text-white">
-        <div className="bg-black mt-36  opacity-80 p-12 rounded-2xl flex flex-col justify-center shadow-xl md:min-w-96 max-w-[100vw]">
+      <div >
+        <div className="bg-black bg-opacity-80 py-4 px-8 rounded-lg sm:rounded-2xl flex flex-col justify-center shadow-xl min-w-[300px] sm:min-w-96 mt-16 sm:mt-20">
           <form
-            className="flex flex-col justify-center space-y-6"
+            className="flex flex-col justify-center space-y-4 sm:space-y-6"
             onSubmit={handleSubmit}
           >
-            <h2 className="text-3xl font-bold text-center">Sign Up</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-center text-white">Sign Up</h2>
             <StyledWrapper>
               <div className="form-control">
                 <input
@@ -188,7 +188,7 @@ const SignUp = () => {
                   id="username"
                   value={userName}
                   onChange={(e) => setUserName(e.target.value)}
-                  className="placeholder-white bg-transparent w-full p-3  border-b-2 border-gray-300 outline-none text-white"
+                  className="placeholder-white bg-transparent w-full border-b-2 border-gray-300 outline-none text-sm sm:text-base text-white"
                   required
                 />
                 <label>
@@ -207,7 +207,7 @@ const SignUp = () => {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none text-white"
+                  className="placeholder-white bg-transparent w-full  border-b-2 border-gray-300 outline-none text-sm sm:text-base text-white"
                   required
                 />
                 <label>
@@ -228,7 +228,7 @@ const SignUp = () => {
                   id="pwd"
                   value={pwd}
                   onChange={(e) => setPwd(e.target.value)}
-                  className="placeholder-white bg-transparent w-full p-3  border-b-2 border-gray-300 outline-none text-white"
+                  className="placeholder-white bg-transparent w-full  border-b-2 border-gray-300 outline-none text-sm sm:text-base text-white"
                   required
                 />
                 <label>
@@ -252,7 +252,7 @@ const SignUp = () => {
                   id="cpwd"
                   value={cpwd}
                   onChange={(e) => setCpwd(e.target.value)}
-                  className="placeholder-white bg-transparent w-full p-3 border-b-2 border-gray-300 outline-none text-white"
+                  className="placeholder-white bg-transparent w-full border-b-2 border-gray-300 outline-none text-sm sm:text-base text-white"
                   required
                 />
                 <label>
