@@ -32,6 +32,17 @@ const FAQ = () => {
         title: "",
         rows: [
             {
+                title: "Facing problem in registration in events?",
+                content: (
+                    <ol>
+                        <li>1. Go to the <a href="profile" className="text-blue-500 hover:text-blue-600 hover:underline">Profile</a></li>
+                        <li>2. Check if the Email is verified</li>
+                        <li>3. Verify your mail.</li>
+                        <li>4. Try again registration.</li>
+                    </ol>
+                ),
+            }, 
+            {
                 title: "How do I register for the event?",
                 content: (
                     <ol>

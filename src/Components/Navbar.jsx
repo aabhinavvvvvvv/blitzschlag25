@@ -56,6 +56,8 @@ const Checkbox = ({ isDrawerOpen, setIsDrawerOpen }) => {
 const Navbar = () => {
   const verifyUrl = import.meta.env.VITE_VERIFY_URL;
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
+  
+  const transUrl = import.meta.env.VITE_GET_TRANSACTION_URL;
   const [status, setStatus] = useState(false);
   // Run only once on initial load
 
@@ -230,8 +232,9 @@ try {
             @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:wght@400;500&display=swap');
           </style>
           <div className="text-gold text-lg font-cinzel">
-           {console.log(status)}
+     
             {status?
+            <>
               <Link
                 to={`${verifyUrl}`}
                 style={{ fontFamily: "'Metal Mania', cursive", }}
@@ -241,6 +244,16 @@ try {
                 <FaHome className="mr-3" />
                 Verify Payment
               </Link>
+              <Link
+              to={`${transUrl}`}
+              style={{ fontFamily: "'Metal Mania', cursive", }}
+              className="flex items-center px-4 py-3 mb-4 hover:text-indigo-300"
+              onClick={toggleDrawer}
+            >
+              <FaHome className="mr-3" />
+              Check All Transactions
+            </Link>
+            </>
               :
               <></>
             }
@@ -284,7 +297,9 @@ try {
             <Link
             to="/prom"
             style={{ fontFamily: "'Metal Mania', cursive", }}
-            className="px-4 py-2 hover:text-white flex item-center hover:font-bold transition-all duration-200"
+            
+            className="px-4 py-3 mb-4 hover:text-indigo-300 flex item-center transition-all duration-200"
+            onClick={toggleDrawer}
           >
           <FaHeart className="mr-3"/>
           <span>PromNight</span>

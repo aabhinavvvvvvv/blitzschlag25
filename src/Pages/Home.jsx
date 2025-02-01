@@ -151,10 +151,9 @@ const Home = () => {
                   </Link>
                 </motion.div>
               </Animator>
-
             </div>
             {/* <NotificationList notifications={notifications} /> */}
-            <div className="absolute bottom-5">
+            <div className="absolute bottom-10">
             <Animator animation={FadeOut(MoveOut)}>
                 <Clock/>
             </Animator>

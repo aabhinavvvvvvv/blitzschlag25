@@ -34,7 +34,7 @@ import ashokkumarmeena from "../Assets/ashokkumarmeena.jpg";
 import simichaudhary from "../Assets/simichaudhary.jpg";
 import vinaytanwawr from "../Assets/vinaytanwar.jpg"; 
 import kritika from "../Assets/kritika.jpg"
-
+import hitika from "../Assets/hitika.png";
 import vidit from "../Assets/vidit.png";
 import krithik from "../Assets/krithik.png";
 import jassi from "../Assets/jassi.png";
@@ -68,6 +68,11 @@ const core_team = [
     position: "Cultural Secretary",
     img: aayushsarraff,
   },
+  {
+    name: "Hitika Mathur",
+    position: "Cultural Secretary",
+    img: hitika,
+  },
   { name: "Subhrajit Roy", position: "Cultural Secretary", img: subhrajitroy },
   { name: "Jitesh Yadav", position: "General Secretary", img: jiteshyadav },
   { name: "Aryaman Sharma", position: "General Secretary", img: aryamansharma },
@@ -128,6 +133,11 @@ const core_team = [
     position: "Cultural Secretary",
     img: aayushsarraff,
   },
+  {
+    name: "Hitika Mathur",
+    position: "Cultural Secretary",
+    img: hitika,
+  },
   { name: "Subhrajit Roy", position: "Cultural Secretary", img: subhrajitroy },
   { name: "Jitesh Yadav", position: "General Secretary", img: jiteshyadav },
   { name: "Aryaman Sharma", position: "General Secretary", img: aryamansharma },
@@ -187,6 +197,11 @@ const core_team = [
     name: "Aayush Sarraff",
     position: "Cultural Secretary",
     img: aayushsarraff,
+  },
+  {
+    name: "Hitika Mathur",
+    position: "Cultural Secretary",
+    img: hitika,
   },
   { name: "Subhrajit Roy", position: "Cultural Secretary", img: subhrajitroy },
   { name: "Jitesh Yadav", position: "General Secretary", img: jiteshyadav },
