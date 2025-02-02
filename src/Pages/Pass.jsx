@@ -181,7 +181,7 @@ const passes = [
     features: [
       
       "Access to all club events for selected day",
-      "You can attend pronite of selected day",
+      "Only for Day 1 and Day 2",
       "No access to flagship event",
       "No accomodation"
     ],
