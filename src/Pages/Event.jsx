@@ -34,6 +34,7 @@ import think from '../Assets/think.webp';
 import electoral from '../Assets/electoral.jpg';
 import nss from '../Assets/nss.webp';
 import drama from '../Assets/drama.webp';
+import edcell from "../Assets/edcell.webp";
 // import travel from '../Assets/travel.webp';
 // import poetry from '../Assets/poetry.webp';
 // import elac from '../Assets/elac.webp';
@@ -418,6 +419,10 @@ const Events = () => {
     {
       "name": "Creative Arts",
       "image": creative
+    },
+    {
+      "name": "ED CELL",
+      "image": edcell,
     }
 
   ]
