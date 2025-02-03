@@ -175,6 +175,20 @@ const passes = [
     daySelection: true,
   },
   {
+    name: "Horizon",
+    price: 300,
+    description: "Participate in one flagship event",
+    features: [
+      
+      "Access to all club events for selected day",
+      "Only for Day 1 and Day 2",
+      "No access to flagship event",
+      "No accomodation"
+    ],
+    flagshipSelection: false,
+    daySelection: true,
+  },
+  {
     name: "Registration Day 1",
     price: 700,
     description: "Access to stall areas and pronite of Day 1",
@@ -219,6 +233,11 @@ const flagshipEventsByDay = {
 
 const days = [
   { value: "day3", label: "Day 3" },
+  { value: "day2", label: "Day 2" },
+  { value: "day1", label: "Day 1" },
+]
+
+const days2 = [
   { value: "day2", label: "Day 2" },
   { value: "day1", label: "Day 1" },
 ]
@@ -294,11 +313,19 @@ function PassCard({ pass }) {
               onChange={(e) => setSelectedDay(e.target.value)}
               className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md bg-white bg-opacity-20 text-gray-200"
             >
-              {days.map((day) => (
+            {
+              pass.name !== 'Horizon' ? days.map((day) => (
                 <option key={day.value} className='text-gray-500' value={day.value}>
                   {day.label}
                 </option>
-              ))}
+              )) : 
+              days2.map((day) => (
+                <option key={day.value} className='text-gray-500' value={day.value}>
+                  {day.label}
+                </option>
+              ))
+            }
+              
             </select>
           </div>
         )}
