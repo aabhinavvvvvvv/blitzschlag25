@@ -30,6 +30,7 @@ const Profile = () => {
         setUser(currentUser);
         setEmailVerified(currentUser.emailVerified);
         setName(currentUser.displayName || "");
+
         fetchProfileData(currentUser.uid);
         fetchPaymentRequests(currentUser.uid);
       } else {
@@ -83,6 +84,7 @@ const Profile = () => {
       const result = await response.json();
       if (response.ok) {
         setApiData(result.data);
+        console.log(userData);
       } else {
         console.error("Error fetching profile data:", result.message || "Unknown error");
       }
@@ -94,7 +96,7 @@ const Profile = () => {
   const setApiData = (data) => {
     const { userData, teamsDetails } = data;
     const { joinedEvents } = userData;
-
+    
     const groupedEvents = {
       day1: [],
       day2: [],
@@ -253,6 +255,7 @@ const Profile = () => {
         <p className="text-center text-3xl" style={{ fontFamily: '"Amarante", serif' }}>{name}</p>
 
         <div className="space-y-4">
+          
           <input
             type="email"
             value={user.email || ""}
