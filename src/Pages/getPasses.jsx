@@ -70,7 +70,7 @@ const TransactionDetails = () => {
     };
 
     return (
-        <div className="container">
+        <div className="containe bg-black">
             <h2 className="header">Fetch Transaction Details</h2>
 
             <div className="form-group">
@@ -95,15 +95,25 @@ const TransactionDetails = () => {
             </button>
 
             <div className={`result-box ${isVerified ? 'show' : ''}`}>
-                <h3>Transaction Details</h3>
+                <h3 className=' text-black text-bold text-2xl'>Transaction Details</h3>
                 <p className="status-message">{statusMessage}</p>
 
                 {passDetails && (
-                    <div className="details">
-                        <h4>Pass Details:</h4>
-                        <pre>{JSON.stringify(passDetails, null, 2)}</pre>
-                    </div>
-                )}
+    <div className="max-w-lg mx-auto p-4 bg-gray-100 rounded-lg shadow-lg">
+        <h4 className="text-lg font-semibold mb-4 text-black text-bold">Pass Details:</h4>
+        <div className="space-y-4">
+            {passDetails.map((pass, index) => (
+                <div key={index} className="bg-white p-4 rounded-md shadow">
+                    <p className="text-md font-medium">🎟️ {pass.passName}</p>
+                    <p className="text-black">Quantity: {pass.quantity}</p>
+                    <p className="text-black">Total Amount: ₹{pass.totalAmount}</p>
+                    {pass.day && <p className="text-gray-500">Day: {pass.day}</p>}
+                    {pass.flagshipEvent && <p className="text-blue-600 font-semibold">⭐ Event: {pass.flagshipEvent}</p>}
+                </div>
+            ))}
+        </div>
+    </div>
+)}
 
                 {teamCode && (
                     <div className="details">
