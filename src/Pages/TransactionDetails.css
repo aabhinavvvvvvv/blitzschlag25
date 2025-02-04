@@ -1,0 +1,130 @@
+/* Body and overall background */
+body {
+    background-color: #f0f4f8; /* Light background color for the page */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Container for the entire component */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Ensure the content is centered vertically and horizontally */
+    text-align: center; /* Center the text inside the container */
+}
+
+/* Header Style */
+.header {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Group for the input field */
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Input Field Style */
+.input-field {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    color: #333; /* Make sure the text inside input is visible */
+    background-color: #f9f9f9; /* Lighter background for input fields */
+}
+
+/* Button Styles */
+.button {
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Primary button (Fetch Details) */
+.primary-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.primary-btn:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Success Button (Add to Database) */
+.success-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Result Box */
+.result-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparent background */
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.result-box.show {
+    display: block;
+}
+
+/* Details Section */
+.details {
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.05); /* Slight transparent background for better contrast */
+    color: #333; /* Ensure the text is dark for visibility */
+    box-sizing: border-box;
+    white-space: pre-wrap; /* Allow wrapping for long JSON content */
+}
+
+/* Status Message */
+.status-message {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}

@@ -6,7 +6,7 @@ import profileImg from "/profile.webp";
 import profilebg from '../Assets/loginbg.jpg';
 import eventData from "../data/eventData";
 import { Tooltip } from "react-tooltip";
-
+import ReactQRCode from "react-qr-code";
 const Profile = () => {
   const [copiedCode, setCopiedCode] = useState(null);
   const [user, setUser] = useState(null);
@@ -30,6 +30,7 @@ const Profile = () => {
         setUser(currentUser);
         setEmailVerified(currentUser.emailVerified);
         setName(currentUser.displayName || "");
+
         fetchProfileData(currentUser.uid);
         fetchPaymentRequests(currentUser.uid);
       } else {
@@ -83,6 +84,7 @@ const Profile = () => {
       const result = await response.json();
       if (response.ok) {
         setApiData(result.data);
+        console.log(userData);
       } else {
         console.error("Error fetching profile data:", result.message || "Unknown error");
       }
@@ -94,7 +96,7 @@ const Profile = () => {
   const setApiData = (data) => {
     const { userData, teamsDetails } = data;
     const { joinedEvents } = userData;
-
+    
     const groupedEvents = {
       day1: [],
       day2: [],
@@ -253,6 +255,7 @@ const Profile = () => {
         <p className="text-center text-3xl" style={{ fontFamily: '"Amarante", serif' }}>{name}</p>
 
         <div className="space-y-4">
+          
           <input
             type="email"
             value={user.email || ""}
@@ -314,45 +317,48 @@ const Profile = () => {
               className="w-full space-y-6"
             >
               {activeTab === "payments" ? (
-                <div className="w-full">
-                  {paymentRequests.length === 0 ? (
-                    <p>No payment requests available.</p>
-                  ) : (
-                    paymentRequests.map((payment, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-black bg-opacity-50 mb-2 rounded-xl text-white p-6"
-                      >
-                        <h4 className="text-lg font-semibold mb-2">
-                          Transaction ID: {payment.transactionId}
-                        </h4>
-                        <p>{`Amount: ${payment.amount} INR`}</p>
-                        <p>{`Type: ${payment.type}`}</p>
-                        <p>{`Verified: ${payment.verified ? "Yes" : "No"}`}</p>
+  <div className="w-full">
+    {paymentRequests.length === 0 ? (
+      <p>No payment requests available.</p>
+    ) : (
+      paymentRequests.map((payment, idx) => (
+        <div key={idx} className="bg-black bg-opacity-50 mb-2 rounded-xl text-white p-6">
+          <h4 className="text-lg font-semibold mb-2">
+            Transaction ID: {payment.transactionId}
+          </h4>
+          <p>{`Amount: ${payment.amount} INR`}</p>
+          <p>{`Type: ${payment.type}`}</p>
+          <p>{`Verified: ${payment.verified ? "Yes" : "No"}`}</p>
 
-                        {payment.type === "pass" && (
-                          <div className="payment-details">
-                            <h3 className="text-lg font-semibold mb-4">Pass Details</h3>
-                            <div className="space-y-4">
-                              {payment.passDetails.map((passDetail, index) => (
-                                <div
-                                  key={index}
-                                  className="w-full bg-transparent border-2 border-white text-white p-4 rounded-lg mt-2"
-                                >
-                                  <p className="font-bold mb-2">Pass Name: {passDetail.passName}</p>
-                                  <p className="mb-1">Quantity: {passDetail.quantity}</p>
-                                  <p>Total Amount: ₹{passDetail.totalAmount}</p>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+          {/* Show QR code only if payment is verified */}
+          {payment.verified && (
+            <div className="mt-4">
+              <ReactQRCode value={payment.transactionId} size={128} />
+            </div>
+          )}
 
-                      </div>
-                    ))
-                  )}
-                </div>
-              ) : (
+          {payment.type === "pass" && (
+            <div className="payment-details">
+              <h3 className="text-lg font-semibold mb-4">Pass Details</h3>
+              <div className="space-y-4">
+                {payment.passDetails.map((passDetail, index) => (
+                  <div
+                    key={index}
+                    className="w-full bg-transparent border-2 border-white text-white p-4 rounded-lg mt-2"
+                  >
+                    <p className="font-bold mb-2">Pass Name: {passDetail.passName}</p>
+                    <p className="mb-1">Quantity: {passDetail.quantity}</p>
+                    <p>Total Amount: ₹{passDetail.totalAmount}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      ))
+    )}
+  </div>
+) : (
                 // Other day tabs
                 <div>
                   {timelineEvents[activeTab].map((event, idx) => (
