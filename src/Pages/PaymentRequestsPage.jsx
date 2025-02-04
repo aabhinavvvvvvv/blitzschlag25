@@ -90,24 +90,27 @@ const PaymentRequestsPage = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {paymentRequests.map((payment, index) => (
-                            <tr
-                                key={payment.id}
-                                style={index % 2 === 0 ? alternateRowStyle : {}}
-                                onMouseEnter={(e) => (e.target.style.backgroundColor = hoverRowStyle.backgroundColor)}
-                                onMouseLeave={(e) => (e.target.style.backgroundColor = '')}
-                            >
-                                <td style={thTdStyle}>{payment.userId}</td>
-                                <td style={thTdStyle}>{payment.amount}</td>
-                                <td style={thTdStyle}>{payment.transactionId}</td>
-                                <td style={thTdStyle}>{payment.type}</td>
-                                <td style={thTdStyle}>
-                                    {payment.teamCode ? payment.teamCode : 'N/A'}
-                                </td>
-                                <td style={thTdStyle}>{payment.verified ? 'Yes' : 'No'}</td>
-                               
-                            </tr>
-                        ))}
+                    {paymentRequests.map((payment, index) => (
+  // Skip row with specific transactionId ("buscyuec")
+  payment.transactionId !== "T2502041220579754795317" && (
+    <tr
+      key={payment.id}
+      style={index % 2 === 0 ? alternateRowStyle : {}}
+      onMouseEnter={(e) => (e.target.style.backgroundColor = hoverRowStyle.backgroundColor)}
+      onMouseLeave={(e) => (e.target.style.backgroundColor = '')}
+    >
+      <td style={thTdStyle}>{payment.userId}</td>
+      <td style={thTdStyle}>{payment.amount}</td>
+      <td style={thTdStyle}>{payment.transactionId}</td>
+      <td style={thTdStyle}>{payment.type}</td>
+      <td style={thTdStyle}>
+        {payment.teamCode ? payment.teamCode : 'N/A'}
+      </td>
+      <td style={thTdStyle}>{payment.verified ? 'Yes' : 'No'}</td>
+    </tr>
+  )
+))}
+
                     </tbody>
                 </table>
             )}
