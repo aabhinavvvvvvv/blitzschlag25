@@ -47,7 +47,7 @@ function Bandnight() {
         star.style.height = `${size}px`;
         star.style.left = `${Math.random() * 100}%`;
         star.style.top = `${Math.random() * 100}%`;
-        star.style.setProperty("--duration", `${2 + Math.random() * 1}s`);
+        star.style.setProperty("--duration", `${2 + Math.random() * 0.1}s`);
         star.style.setProperty("--opacity", `${0.5 + Math.random() * 0.8}`);
         container.appendChild(star);
       }

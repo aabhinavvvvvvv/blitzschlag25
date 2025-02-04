@@ -28,7 +28,6 @@ export const Timeline = ({ data, headerContent }) => {
         <h1
           className="text-6xl md:text-7xl mx-auto text-center -mb-16 mt-4"
           style={{
-            background: "linear-gradient(to right, #003366, #7a7aff, #ff00a6)", // electrified mist gradient
             background:
               "-webkit-linear-gradient(to right, #003366, #7a7aff, #ff00a6)",
             WebkitBackgroundClip: "text",

@@ -35,7 +35,6 @@ import Cart from './Pages/Cart';
 import PromNight from './Pages/Prom';
 import PaymentRequestsPage from './Pages/PaymentRequestsPage';
 import EventRegistrationCheck from './Pages/GetRegisteredUsers';
-import TransactionDetails from './Pages/getPasses';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
@@ -230,7 +229,6 @@ function App() {
                 <Route path={verifyUrl} element={<PaymentVerificationForm />} />
                 <Route path={transUrl} element={<PaymentRequestsPage />} />
                 <Route path={eventUrl} element={<EventRegistrationCheck />} />
-                <Route path="/pay2" element={<TransactionDetails />} />
               </Routes>
             </AnimatePresence>
           </div>
