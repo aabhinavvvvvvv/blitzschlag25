@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TransactionDetails.css'; // Assuming you want to use a separate CSS file for styling
+// import './TransactionDetails.css'; // Assuming you want to use a separate CSS file for styling
 
 const TransactionDetails = () => {
     const [transactionId, setTransactionId] = useState('');

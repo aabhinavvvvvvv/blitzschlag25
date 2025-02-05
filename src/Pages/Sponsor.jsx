@@ -1,10 +1,14 @@
 import React from "react";
-
+import './fireworks.scss';
+import titlelogo from "../Assets/titlelogo.jpg";
+import cotitlelogo from "../Assets/cotitlelogo.png";
+import cotitlelogo2 from "../Assets/cotitle2.png";
+import flagship1 from "../Assets/flagship1.png";
 const sponsors = [
-  { name: "Title Sponsor", logo: "/placeholder.svg?height=200&width=400", tier: "title" },
-  { name: "Co-Title Sponsor 1", logo: "/placeholder.svg?height=150&width=300", tier: "co-title" },
-  { name: "Co-Title Sponsor 2", logo: "/placeholder.svg?height=150&width=300", tier: "co-title" },
-  { name: "Flagship Sponsor 1", logo: "/placeholder.svg?height=125&width=250", tier: "flagship" },
+  { name: "Rajasthan Housing Board", logo: titlelogo, tier: "title" },
+  { name: "Hero", logo: cotitlelogo, tier: "co-title" },
+  { name: "Gravita", logo: cotitlelogo2, tier: "co-title" },
+  { name: "BIS", logo: flagship1, tier: "flagship" },
   { name: "Flagship Sponsor 2", logo: "/placeholder.svg?height=125&width=250", tier: "flagship" },
   { name: "Other Sponsor 1", logo: "/placeholder.svg?height=100&width=200", tier: "other" },
   { name: "Other Sponsor 2", logo: "/placeholder.svg?height=100&width=200", tier: "other" },
@@ -32,10 +36,10 @@ export default function SponsorsPage() {
   const otherSponsors = sponsors.filter((s) => s.tier === "other");
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white flex flex-col items-center py-12">
+    <div className="min-h-screen mt-16 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white flex flex-col items-center py-12">
       {/* Title & Description */}
       <div className="text-center">
-        <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+        <h1 className="text-5xl font-bold text-transparent mt-11 bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
           Our Sponsors
         </h1>
         <p className="text-lg mt-4 max-w-2xl mx-auto text-gray-400">
