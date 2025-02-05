@@ -46,7 +46,7 @@ const Card = ({ event }) => {
       <div className="card">
         <div className="content flex flex-col items-center justify-center">
           <p style={{ fontFamily: " cursive" }}>{event.Event_Proposed}</p>
-          <p style={{ fontFamily: " cursive" }}>{event.Venue}</p>
+          <p style={{ fontFamily: " cursive" }} >{event.Venue}</p>
           {/* <p style={{ fontFamily: " cursive" }}>{event.Category}</p> */}
           <p style={{ fontFamily: " cursive" }}>{event.Event_Coordinator}</p>
         </div>
