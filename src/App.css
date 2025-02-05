@@ -10,9 +10,6 @@
 }
 
 /* Add this in your global CSS */
-body {
-  cursor: none !important; /* Hide the default system cursor */
-}
 
 .slide-in {
   z-index: 1000;
