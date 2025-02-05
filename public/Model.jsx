@@ -939,7 +939,7 @@ export default function Model(props) {
         </group>
         <group
           ref={button2Ref}
-          onClick={()=> navigate("/sponsors")}
+          onClick={()=> navigate("/sponsor")}
           
           name="Cube001"
           position={[0.53, 0.633, -4.674]}

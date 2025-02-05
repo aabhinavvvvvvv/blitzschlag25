@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef,useState } from 'react';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import { Provider } from 'react-redux'; // Import Provider from react-redux
@@ -40,6 +40,7 @@ function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
   const verifyUrl = import.meta.env.VITE_VERIFY_URL;
+  const pay2 = import.meta.env.VITE_PAY_2;
   const eventUrl = import.meta.env.VITE_GET_EVENT_URL;
   const transUrl = import.meta.env.VITE_GET_TRANSACTION_URL;
   const location = useLocation();
@@ -47,6 +48,43 @@ function App() {
   const canvasRef = useRef(null);
   const uid = sessionStorage.getItem('userId');
 
+  function CustomCursor() {
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [clickEffect, setClickEffect] = useState(false);
+  
+    useEffect(() => {
+      const moveCursor = (e) => {
+        setPosition({ x: e.clientX, y: e.clientY });
+      };
+  
+      const handleClick = () => {
+        setClickEffect(true);
+        setTimeout(() => setClickEffect(false), 300);
+      };
+  
+      document.addEventListener("mousemove", moveCursor);
+      document.addEventListener("click", handleClick);
+  
+      return () => {
+        document.removeEventListener("mousemove", moveCursor);
+        document.removeEventListener("click", handleClick);
+      };
+    }, []);
+  
+    return (
+      <div
+        className={`fixed w-8 h-8 rounded-full border-2 border-yellow-400 bg-transparent pointer-events-none transition-all duration-200 ease-out transform ${
+          clickEffect ? "scale-150 opacity-50" : ""
+        }`}
+        style={{
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+          transform: "translate(-50%, -50%)",
+          zIndex: 9999,
+        }}
+      />
+    );
+  }
  // Run only once on initial load
 
   useEffect(() => {
@@ -156,6 +194,7 @@ function App() {
     <Provider store={store}>
       <Tooltip id="global-tooltip" />
       <div className="w-screen h-screen text-white relative">
+      <CustomCursor/>
         <canvas
           ref={canvasRef}
           className="absolute top-0 left-0 w-full h-full pointer-events-none"
@@ -192,7 +231,7 @@ function App() {
                 <Route path={verifyUrl} element={<PaymentVerificationForm />} />
                 <Route path={transUrl} element={<PaymentRequestsPage />} />
                 <Route path={eventUrl} element={<EventRegistrationCheck />} />
-                <Route path="/pay2" element={<TransactionDetails />} />
+                <Route path={pay2} element={<TransactionDetails />} />
               </Routes>
             </AnimatePresence>
           </div>

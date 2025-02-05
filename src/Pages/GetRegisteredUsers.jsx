@@ -260,13 +260,13 @@ const EventRegistrationCheck = () => {
             ))}
           </select>
 
-          {/* <button
+          <button
             onClick={() => fetchRegisteredData(selectedEventPath)} // Directly call the function
             disabled={!selectedEventPath}
             style={styles.button}
           >
             Fetch Registered Users/Teams
-          </button> */}
+          </button>
         </div>
 
         {error && <p style={styles.error}>{error}</p>}
