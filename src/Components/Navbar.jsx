@@ -168,11 +168,11 @@ try {
             EVENTS
           </Link>
           <Link
-            to="/schedule"
+            to="/registration"
             style={{ fontFamily: "'Metal Mania', cursive", }}
             className="px-4 py-2 hover:text-white hover:font-bold transition-all duration-200"
           >
-            SCHEDULE
+            REGISTRATION
           </Link>
           {!user ? (
             <Link

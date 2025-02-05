@@ -158,7 +158,7 @@ const Home = () => {
                 <Clock/>
             </Animator>
             </div>
-            <NotificationList />
+            {/* <NotificationList /> */}
           </div>
 
         </Animator>

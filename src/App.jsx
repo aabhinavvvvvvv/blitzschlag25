@@ -35,10 +35,12 @@ import Cart from './Pages/Cart';
 import PromNight from './Pages/Prom';
 import PaymentRequestsPage from './Pages/PaymentRequestsPage';
 import EventRegistrationCheck from './Pages/GetRegisteredUsers';
+import TransactionDetails from './Pages/getPasses';
 function App() {
   const updateUrl = import.meta.env.VITE_UPDATE_URL; // Get the update URL from .env
   const resetUrl = import.meta.env.VITE_RESET_URL; 
   const verifyUrl = import.meta.env.VITE_VERIFY_URL;
+  const pay2 = import.meta.env.VITE_PAY_2;
   const eventUrl = import.meta.env.VITE_GET_EVENT_URL;
   const transUrl = import.meta.env.VITE_GET_TRANSACTION_URL;
   const location = useLocation();
@@ -229,6 +231,7 @@ function App() {
                 <Route path={verifyUrl} element={<PaymentVerificationForm />} />
                 <Route path={transUrl} element={<PaymentRequestsPage />} />
                 <Route path={eventUrl} element={<EventRegistrationCheck />} />
+                <Route path={pay2} element={<TransactionDetails />} />
               </Routes>
             </AnimatePresence>
           </div>
